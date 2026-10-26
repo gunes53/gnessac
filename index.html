@@ -46,67 +46,91 @@
             background-color: #07090E;
             color: #F3F4F6;
         }
-        /* Beyaz Tema Değerleri */
+        /* Beyaz Tema Değerleri - Kapsamlı Kontrast Optimizasyonu */
         body.light {
             background-color: #F8FAFC;
-            color: #111827;
+            color: #0F172A;
         }
         body.light header {
-            background-color: rgba(255, 255, 255, 0.9) !important;
-            border-color: #E2E8F0 !important;
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            border-color: #CBD5E1 !important;
         }
         body.light .bg-brand-card {
             background-color: #FFFFFF !important;
-            border-color: #E2E8F0 !important;
-            color: #111827 !important;
+            border-color: #CBD5E1 !important;
+            color: #0F172A !important;
         }
-        /* Beyaz temada ana hero kutusunun (görselde okunamayan alanın) arka planını ve yazı renklerini düzeltme */
+        
+        /* Beyaz Mod: Tüm Koyu Arka Planlı Kutular ve Şeritler */
         body.light .hero-box-fix {
             background: linear-gradient(to bottom, #FFFFFF, #F1F5F9) !important;
             border-color: rgba(255, 107, 0, 0.4) !important;
             color: #0F172A !important;
         }
-        body.light .hero-box-fix p {
-            color: #334155 !important;
+        body.light .hero-box-fix p,
+        body.light .hero-box-fix span {
+            color: #1E293B !important;
+        }
+        body.light .hero-box-fix strong {
+            color: #0F172A !important;
         }
         body.light .hero-box-fix .sub-card-fix {
-            background-color: #F8FAFC !important;
-            border-color: rgba(255, 107, 0, 0.25) !important;
-            color: #1E293B !important;
+            background-color: #FFFFFF !important;
+            border-color: rgba(255, 107, 0, 0.3) !important;
+            color: #0F172A !important;
         }
         body.light .hero-status-fix {
             background-color: #FFFFFF !important;
             border-color: #CBD5E1 !important;
-            color: #334155 !important;
+            color: #1E293B !important;
+        }
+        body.light .hero-status-fix strong {
+            color: #0F172A !important;
         }
 
+        /* Diğer Koyu Alanlar ve Kartlar */
+        body.light .bg-\[\#05070A\],
+        body.light .bg-\[\#0B0F19\],
+        body.light .bg-\[\#040609\],
+        body.light #liveChatWindow,
+        body.light #chatMessages {
+            background-color: #FFFFFF !important;
+            color: #0F172A !important;
+            border-color: #CBD5E1 !important;
+        }
+        
+        body.light footer {
+            background-color: #E2E8F0 !important;
+            border-color: #CBD5E1 !important;
+            color: #0F172A !important;
+        }
+        body.light footer .bg-brand-card {
+            background-color: #FFFFFF !important;
+            border-color: #CBD5E1 !important;
+        }
+        
+        body.light nav a {
+            color: #0F172A !important;
+        }
         body.light .text-white {
             color: #0F172A !important;
         }
         body.light .text-gray-200,
         body.light .text-gray-300,
         body.light .text-gray-400 {
-            color: #475569 !important;
+            color: #334155 !important;
         }
-        body.light .bg-\[\#05070A\],
-        body.light .bg-\[\#0B0F19\],
-        body.light .bg-\[\#040609\] {
-            background-color: #F1F5F9 !important;
-        }
-        body.light footer {
-            background-color: #E2E8F0 !important;
+        
+        body.light .border-brand-border,
+        body.light .border-neutral-800,
+        body.light .border-neutral-900 {
             border-color: #CBD5E1 !important;
         }
-        body.light nav a {
-            color: #1E293B !important;
-        }
-        body.light .border-brand-border,
-        body.light .border-neutral-800 {
-            border-color: #E2E8F0 !important;
-        }
-        body.light .cyber-grid {
-            background-image: linear-gradient(to right, rgba(255, 107, 0, 0.05) 1px, transparent 1px),
-                            linear-gradient(to bottom, rgba(255, 107, 0, 0.05) 1px, transparent 1px);
+
+        body.light input, body.light select, body.light textarea {
+            background-color: #F8FAFC !important;
+            color: #0F172A !important;
+            border-color: #CBD5E1 !important;
         }
 
         .orange-underline {
@@ -216,7 +240,7 @@
                 </button>
 
                 <!-- ALIŞVERİŞ SEPETİ BUTONU -->
-                <button onclick="openCartModal()" class="relative bg-brand/10 hover:bg-brand/20 border border-brand/40 text-white p-2.5 rounded-xl transition-all flex items-center gap-2 group shadow-[0_0_15px_rgba(255,107,0,0.2)]">
+                <button onclick="openCartModal()" class="relative bg-brand/10 hover:bg-brand/20 border border-brand/40 p-2.5 rounded-xl transition-all flex items-center gap-2 group shadow-[0_0_15px_rgba(255,107,0,0.2)]">
                     <i class="fa-solid fa-cart-shopping text-brand text-sm group-hover:scale-110 transition-transform"></i>
                     <span id="cartBadgeCount" class="absolute -top-1.5 -right-1.5 bg-brand text-white font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
                 </button>
@@ -304,7 +328,7 @@
                 </a>
             </div>
 
-            <div class="max-w-3xl w-full bg-brand-card/80 border border-brand-border rounded-xl p-4 text-xs text-gray-300 flex flex-col md:flex-row items-center justify-around gap-4 shadow-inner">
+            <div class="hero-box-fix max-w-3xl w-full bg-brand-card/80 border border-brand-border rounded-xl p-4 text-xs text-gray-300 flex flex-col md:flex-row items-center justify-around gap-4 shadow-inner transition-colors duration-300">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-microchip text-brand text-base"></i>
                     <span><strong>İşlemci / İşletim Sistemi:</strong> Windows 10 / 11 (64-bit) UEFI & Güvenli Önyükleme Uyumlu</span>
@@ -318,9 +342,9 @@
     </section>
 
     <!-- TEKNOLOJİ LOGOLARI ŞERİDİ -->
-    <section class="py-12 border-b border-brand-border bg-[#05070A]/80 z-10 relative">
+    <section class="py-12 border-b border-brand-border bg-[#05070A]/80 z-10 relative transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="text-[11px] font-black text-brand uppercase tracking-widest block mb-6">ALTYAPIMIZda KULLANILAN PROFESYONEL TEKNOLOJİLER</span>
+            <span class="text-[11px] font-black text-brand uppercase tracking-widest block mb-6">ALTYAPIMIZDA KULLANILAN PROFESYONEL TEKNOLOJİLER</span>
             <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6 items-center justify-center">
                 <div class="bg-brand-card border border-brand-border hover:border-brand p-4 rounded-xl flex flex-col items-center justify-center gap-2 transition-all shadow-sm group">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" class="w-8 h-8 group-hover:scale-110 transition-transform">
@@ -359,7 +383,7 @@
     </section>
 
     <!-- DESTEKLENEN OYUNLAR (6'LI TEK SIRA) -->
-    <section id="oyunlar" class="py-24 border-b border-brand-border bg-[#05070A]/60 z-10 relative">
+    <section id="oyunlar" class="py-24 border-b border-brand-border bg-[#05070A]/60 z-10 relative transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-wider mb-4">
@@ -605,7 +629,7 @@
     </section>
 
     <!-- HAKKIMIZDA BÖLÜMÜ -->
-    <section id="hakkimizda" class="py-28 border-b border-brand-border bg-[#05070A]/60 z-10 relative">
+    <section id="hakkimizda" class="py-28 border-b border-brand-border bg-[#05070A]/60 z-10 relative transition-colors duration-300">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-wider mb-4">
@@ -690,7 +714,7 @@
     </section>
 
     <!-- HİZMET ŞARTLARI -->
-    <section id="sartlar" class="py-28 border-b border-brand-border bg-[#05070A]/60 z-10 relative">
+    <section id="sartlar" class="py-28 border-b border-brand-border bg-[#05070A]/60 z-10 relative transition-colors duration-300">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-wider mb-4">HİZMET ŞARTLARI VE KULLANIM SÖZLEŞMESİ</h2>
@@ -1398,8 +1422,8 @@
             document.getElementById('cryptoFields').classList.add('hidden');
 
             if (type === 'cc') document.getElementById('ccFields').classList.remove('hidden');
-            if (type === 'eft') document.getElementById('eftFields').classList.remove('hidden');
-            if (type === 'crypto') document.getElementById('cryptoFields').classList.remove('hidden');
+            if (type === 'eft') document.getElementById('eftFields').classList.add('hidden');
+            if (type === 'crypto') document.getElementById('cryptoFields').classList.add('hidden');
         }
 
         function processPayment(e) {
@@ -1416,7 +1440,7 @@
             document.getElementById('msgTitle').innerText = "3D GÜVENLİ ÖDEME BAŞARIYLA ONAYLANDI!";
             document.getElementById('msgText').innerHTML = `
                 <p><strong>Paket:</strong> ${selectedPackage}</p>
-                <p><strong>Sunucu IP:</strong> <span class="text-white font-mono">${ipVal}</span></p>
+                <p><strong>Sunucu IP:</strong> <span class="text-white font-mono">${payVal}</span></p>
                 <p><strong>Ödenen Tutar:</strong> <span class="text-brand font-bold">${selectedPrice.toLocaleString('tr-TR')} ₺</span> (%10 İndirimli)</p>
                 <br>
                 <p><strong>Oluşturulan Lisans Anahtarınız:</strong><br><span class="bg-black px-3 py-1.5 rounded text-white border border-brand font-mono inline-block mt-1">${licenseKey}</span></p>
