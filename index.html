@@ -67,37 +67,56 @@
                             linear-gradient(to bottom, rgba(255, 107, 0, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
         }
-        /* Sitenin bir ucundan bir ucuna süzülen hareketli turuncu top animasyonu */
-        @keyframes floatBall {
-            0% { transform: translate(10vw, 10vh) scale(1); }
-            25% { transform: translate(85vw, 25vh) scale(1.2); }
-            50% { transform: translate(70vw, 75vh) scale(0.9); }
-            75% { transform: translate(20vw, 60vh) scale(1.1); }
-            100% { transform: translate(10vw, 10vh) scale(1); }
+        /* Belirgin Hareketli Turuncu Top */
+        @keyframes floatOrangeBall {
+            0% { transform: translate(5vw, 15vh) scale(1); }
+            30% { transform: translate(80vw, 30vh) scale(1.3); }
+            60% { transform: translate(60vw, 80vh) scale(0.9); }
+            90% { transform: translate(15vw, 65vh) scale(1.2); }
+            100% { transform: translate(5vw, 15vh) scale(1); }
         }
-        .moving-ball {
+        .moving-orange-ball {
             position: fixed;
-            width: 140px;
-            height: 140px;
-            background: radial-gradient(circle, rgba(255,107,0,0.35) 0%, rgba(255,107,0,0.05) 70%, transparent 100%);
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(255,107,0,0.65) 0%, rgba(255,107,0,0.15) 60%, transparent 100%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            filter: blur(20px);
+            animation: floatOrangeBall 18s infinite ease-in-out;
+        }
+        /* Bağımsız Hareketli Beyaz Top */
+        @keyframes floatWhiteBall {
+            0% { transform: translate(75vw, 75vh) scale(1); }
+            33% { transform: translate(10vw, 20vh) scale(1.4); }
+            66% { transform: translate(50vw, 40vh) scale(0.8); }
+            100% { transform: translate(75vw, 75vh) scale(1); }
+        }
+        .moving-white-ball {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.05) 65%, transparent 100%);
             border-radius: 50%;
             pointer-events: none;
             z-index: 1;
             filter: blur(25px);
-            animation: floatBall 22s infinite ease-in-out;
+            animation: floatWhiteBall 24s infinite ease-in-out;
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-brand selection:text-white cyber-grid relative">
 
-    <!-- Hareketli Turuncu Arka Plan Topu -->
-    <div class="moving-ball"></div>
+    <!-- Arka Plan Hareketli Toplar -->
+    <div class="moving-orange-ball"></div>
+    <div class="moving-white-ball"></div>
 
     <!-- NAVIGASYON / HEADER -->
     <header class="sticky top-0 z-40 bg-[#07090E]/90 backdrop-blur-md border-b border-brand-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- LOGO (Kalkan + Turuncu G) -->
+            <!-- LOGO -->
             <a href="#" class="flex items-center space-x-3 group">
                 <div class="w-12 h-12 relative flex items-center justify-center">
                     <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-[0_0_12px_rgba(255,107,0,0.5)] transition-transform group-hover:scale-105 duration-300">
@@ -123,13 +142,19 @@
                 <a href="#gizlilik" class="hover:text-brand transition-colors" data-i18n="navPrivacy">GİZLİLİK</a>
             </nav>
 
-            <!-- SAĞ AKSİYONLAR & DİL SEÇİCİ -->
-            <div class="flex items-center space-x-4">
-                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-[#05070A] border border-brand-border text-white text-xs font-bold rounded-lg px-2.5 py-2 focus:outline-none focus:border-brand cursor-pointer">
-                    <option value="tr">🇹🇷 Türkçe</option>
-                    <option value="en">🇬🇧 English</option>
-                    <option value="de">🇩🇪 Deutsch</option>
+            <!-- SAĞ AKSİYONLAR (DİL, SEPET, GİRİŞ) -->
+            <div class="flex items-center space-x-3">
+                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-[#05070A] border border-brand-border text-white text-xs font-bold rounded-lg px-2 py-2 focus:outline-none focus:border-brand cursor-pointer">
+                    <option value="tr">🇹🇷 TR</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="de">🇩🇪 DE</option>
                 </select>
+
+                <!-- ALIŞVERİŞ SEPETİ BUTONU -->
+                <button onclick="openCartModal()" class="relative bg-brand/10 hover:bg-brand/20 border border-brand/40 text-white p-2.5 rounded-xl transition-all flex items-center gap-2 group shadow-[0_0_15px_rgba(255,107,0,0.2)]">
+                    <i class="fa-solid fa-cart-shopping text-brand text-sm group-hover:scale-110 transition-transform"></i>
+                    <span id="cartBadgeCount" class="absolute -top-1.5 -right-1.5 bg-brand text-white font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
+                </button>
 
                 <button onclick="openAuthModal()" class="bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-bold text-xs uppercase px-5 py-2.5 rounded-lg tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(255,107,0,0.4)]" data-i18n="loginBtn">
                     GİRİŞ YAP
@@ -308,7 +333,7 @@
         </div>
     </section>
 
-    <!-- LİSANS PAKETLERİ (%10 İNDİRİMLİ FİYATLAR) -->
+    <!-- LİSANS PAKETLERİ (%10 İNDİRİMLİ & SEPETE EKLE Desteği) -->
     <section id="paketler" class="py-28 border-b border-brand-border relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -318,7 +343,7 @@
                 </h2>
                 <div class="w-16 h-1 bg-brand mx-auto rounded-full mb-4"></div>
                 <p class="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto" data-i18n="pkgDesc">
-                    Sunucunuzun kapasitesine uygun IP lisans paketini seçin, %10 özel indirim ve 3D Secure güvencesiyle hemen kullanmaya başlayın.
+                    Sunucunuzun kapasitesine uygun IP lisans paketini seçin, sepete ekleyerek toplu sepet alışverişi yapın ve 3D Secure ile anında tamamlayın.
                 </p>
             </div>
 
@@ -342,9 +367,14 @@
                             <li class="flex items-center gap-2 text-gray-500"><i class="fa-solid fa-xmark"></i> Özel Sürücü İmzası</li>
                         </ul>
                     </div>
-                    <button onclick="openPaymentModal('1 IP Lisansı', 809)" class="w-full bg-brand hover:bg-brand-hover text-white font-bold text-sm uppercase py-3.5 rounded-xl tracking-wider transition-all shadow-md">
-                        HEMEN SATIN AL
-                    </button>
+                    <div class="space-y-2">
+                        <button onclick="addToCart('1 IP Lisansı', 809)" class="w-full bg-brand/20 hover:bg-brand/30 border border-brand text-brand font-bold text-xs uppercase py-3 rounded-xl tracking-wider transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i> SEPETE EKLE
+                        </button>
+                        <button onclick="openPaymentModal('1 IP Lisansı', 809)" class="w-full bg-brand hover:bg-brand-hover text-white font-bold text-xs uppercase py-3 rounded-xl tracking-wider transition-all shadow-md">
+                            HEMEN SATIN AL
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 2 IP PAKET -->
@@ -369,9 +399,14 @@
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> 7/24 Öncelikli Teknik Destek</li>
                         </ul>
                     </div>
-                    <button onclick="openPaymentModal('2 IP Lisansı', 1619)" class="w-full bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-bold text-sm uppercase py-3.5 rounded-xl tracking-wider transition-all shadow-lg">
-                        HEMEN SATIN AL
-                    </button>
+                    <div class="space-y-2">
+                        <button onclick="addToCart('2 IP Lisansı', 1619)" class="w-full bg-brand/20 hover:bg-brand/30 border border-brand text-brand font-bold text-xs uppercase py-3 rounded-xl tracking-wider transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i> SEPETE EKLE
+                        </button>
+                        <button onclick="openPaymentModal('2 IP Lisansı', 1619)" class="w-full bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-bold text-xs uppercase py-3 rounded-xl tracking-wider transition-all shadow-lg">
+                            HEMEN SATIN AL
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 10 IP PAKET -->
@@ -393,9 +428,14 @@
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> Sınırsız Oyuncu Kapasitesi</li>
                         </ul>
                     </div>
-                    <button onclick="openPaymentModal('10 IP Lisansı', 11213)" class="w-full bg-brand hover:bg-brand-hover text-white font-bold text-sm uppercase py-3.5 rounded-xl tracking-wider transition-all shadow-md">
-                        HEMEN SATIN AL
-                    </button>
+                    <div class="space-y-2">
+                        <button onclick="addToCart('10 IP Lisansı', 11213)" class="w-full bg-brand/20 hover:bg-brand/30 border border-brand text-brand font-bold text-xs uppercase py-3 rounded-xl tracking-wider transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i> SEPETE EKLE
+                        </button>
+                        <button onclick="openPaymentModal('10 IP Lisansı', 11213)" class="w-full bg-brand hover:bg-brand-hover text-white font-bold text-xs uppercase py-3 rounded-xl tracking-wider transition-all shadow-md">
+                            HEMEN SATIN AL
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -590,7 +630,7 @@
         </button>
     </div>
 
-    <!-- SAĞ ALT 7/24 CANLI DESTEK ASİSTANI WIDGET (17 SORU/CEVAP) -->
+    <!-- SAĞ ALT 7/24 CANLI DESTEK ASİSTANI WIDGET -->
     <div class="fixed bottom-6 right-6 z-50">
         <button id="chatToggleBtn" onclick="toggleLiveChat()" class="bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white p-4 rounded-full shadow-[0_0_25px_rgba(255,107,0,0.6)] flex items-center justify-center text-xl transition-transform hover:scale-110 border-2 border-white/20 animate-bounce">
             <i class="fa-solid fa-comments"></i>
@@ -607,13 +647,13 @@
 
             <div id="chatMessages" class="p-4 h-72 overflow-y-auto custom-scrollbar space-y-3 text-xs bg-[#07090E]">
                 <div class="bg-brand/10 border border-brand/30 p-3 rounded-xl text-gray-200">
-                    👋 Merhaba! Ben Gnessac Asistanıyım. %10 indirim kampanyamız hakkında bilgi alabilir veya aşağıdaki 17 hazır sorumuza tıklayarak anında yanıt bulabilirsiniz.
+                    👋 Merhaba! Ben Gnessac Asistanıyım. Sepet ve %10 indirim kampanyamız hakkında bilgi alabilir veya aşağıdaki 17 hazır sorumuza tıklayabilirsiniz.
                 </div>
             </div>
 
             <!-- 17 Adet Hazır Soru -->
             <div class="p-3 bg-[#111827] border-t border-brand-border max-h-44 overflow-y-auto custom-scrollbar grid grid-cols-1 gap-1.5">
-                <button onclick="sendPresetChat(1)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">1. %10 indirim kampanyasından nasıl yararlanırım?</button>
+                <button onclick="sendPresetChat(1)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">1. Toplu sepet alışverişi ve %10 indirim nasıl uygulanır?</button>
                 <button onclick="sendPresetChat(2)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">2. Gnessac Anti-Cheat hangi oyunları destekliyor?</button>
                 <button onclick="sendPresetChat(3)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">3. Ring-0 Çekirdek koruması nedir?</button>
                 <button onclick="sendPresetChat(4)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">4. IP Lisansı satın aldıktan sonra nasıl kurarım?</button>
@@ -630,6 +670,48 @@
                 <button onclick="sendPresetChat(15)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">15. İstemci dosya boyutu ve indirme adımları</button>
                 <button onclick="sendPresetChat(16)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">16. Sunucu tarafında DDoS koruması sağlanıyor mu?</button>
                 <button onclick="sendPresetChat(17)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">17. Teknik destek ekibinize nasıl ulaşabilirim? (+0216 255 53 53)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: ALIŞVERİŞ SEPETİ -->
+    <div id="cartModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-brand-card border-2 border-brand/80 rounded-3xl max-w-xl w-full p-8 relative shadow-[0_0_50px_rgba(255,107,0,0.3)] max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <button onclick="closeCartModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white bg-neutral-800 p-2 rounded-full"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <div class="flex items-center gap-3 mb-6 border-b border-neutral-800 pb-4">
+                <div class="w-12 h-12 rounded-2xl bg-brand/10 border border-brand flex items-center justify-center text-brand text-xl">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-black text-white uppercase tracking-wider">KURUMSAL LİSANS SEPETİNİZ</h3>
+                    <p class="text-xs text-gray-400">Toplu sepet alışverişi ve %10 indirimli total ödeme özeti.</p>
+                </div>
+            </div>
+
+            <div id="cartItemsContainer" class="space-y-3 mb-6 max-h-60 overflow-y-auto custom-scrollbar">
+                <!-- Sepet içeriği JS ile dolacak -->
+            </div>
+
+            <div class="bg-[#05070A] border border-brand-border rounded-2xl p-5 mb-6 space-y-2">
+                <div class="flex justify-between text-xs text-gray-400">
+                    <span>Ara Toplam:</span>
+                    <span id="cartSubtotal">0 ₺</span>
+                </div>
+                <div class="flex justify-between text-xs text-brand font-bold">
+                    <span>%10 Hoş Geldin İndirimi:</span>
+                    <span id="cartDiscount">-0 ₺</span>
+                </div>
+                <div class="pt-3 border-t border-neutral-800 flex justify-between items-center">
+                    <span class="text-sm font-black text-white uppercase">Ödenecek Toplam Tutar:</span>
+                    <span id="cartTotal" class="text-2xl font-black text-brand">0 ₺</span>
+                </div>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="clearCart()" class="w-1/3 bg-neutral-800 hover:bg-neutral-700 text-gray-300 font-bold text-xs uppercase py-3.5 rounded-xl transition-all">SEPETİ BOŞALT</button>
+                <button onclick="checkoutCart()" class="w-2/3 bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-extrabold text-xs uppercase py-3.5 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-lock"></i> 3D SECURE İLE ÖDEMEYİ TAMAMLA
+                </button>
             </div>
         </div>
     </div>
@@ -734,7 +816,7 @@
             </div>
             <div class="bg-[#05070A] border border-brand-border rounded-xl p-4 mb-6 flex items-center justify-between">
                 <div>
-                    <span class="text-[10px] uppercase font-extrabold text-brand tracking-widest block">SEÇİLEN LİSANS (%10 İNDİRİM UYGULANDI)</span>
+                    <span class="text-[10px] uppercase font-extrabold text-brand tracking-widest block">ÖDEME DETAYI</span>
                     <h3 id="payModalTitle" class="text-lg font-black text-white uppercase">1 IP LİSANSİ</h3>
                 </div>
                 <div class="text-right">
@@ -764,7 +846,7 @@
             <span class="text-xs font-extrabold text-brand uppercase tracking-widest bg-brand/10 border border-brand/30 px-3 py-1 rounded-full">ÖZEL KAMPANYA</span>
             <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider mt-3 mb-3">TÜM LİSANSLARDA <span class="text-brand">%10 İNDİRİM!</span></h3>
             <p class="text-xs sm:text-sm text-gray-300 mb-6 leading-relaxed">
-                Gnessac Anti-Cheat sistemlerine katılan tüm yeni sunucu sahiplerimize özel tüm aylık IP lisans paketlerinde anında <strong class="text-white font-bold">%10 indirim</strong> fırsatı sunuluyor. Fiyatlarımıza indirim otomatik olarak yansıtılmıştır!
+                Gnessac Anti-Cheat sistemlerine katılan tüm yeni sunucu sahiplerimize özel tüm aylık IP lisans paketlerinde anında <strong class="text-white font-bold">%10 indirim</strong> fırsatı sunuluyor. Fiyatlarımıza sepet ve paketlerde indirim otomatik olarak yansıtılmıştır!
             </p>
             <button onclick="closePromoModal()" class="w-full bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-black text-xs uppercase py-4 rounded-xl tracking-wider transition-all shadow-lg">
                 FIRSATI YAKALA & İNCELE
@@ -790,6 +872,94 @@
             document.getElementById('promoModal').classList.add('hidden');
         }
 
+        // Sepet Mantığı
+        let cart = [];
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+            
+            // Bildirim
+            document.getElementById('msgTitle').innerText = "SEPETE EKLENDİ";
+            document.getElementById('msgText').innerHTML = `<strong>${name}</strong> başarıyla sepetinize eklendi.<br>Sağ üstteki sepet ikonuna tıklayarak sepetinizi inceleyebilir ve %10 indirimli total ödemenizi tamamlayabilirsiniz.`;
+            document.getElementById('messageModal').classList.remove('hidden');
+        }
+
+        function updateCartUI() {
+            const countBadge = document.getElementById('cartBadgeCount');
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            countBadge.innerText = totalQty;
+
+            const container = document.getElementById('cartItemsContainer');
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-400 text-center py-6">Sepetinizde henüz lisans paketi bulunmamaktadır.</p>`;
+                document.getElementById('cartSubtotal').innerText = "0 ₺";
+                document.getElementById('cartDiscount').innerText = "-0 ₺";
+                document.getElementById('cartTotal').innerText = "0 ₺";
+                return;
+            }
+
+            let html = '';
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                html += `
+                    <div class="bg-[#05070A] border border-brand-border rounded-xl p-3 flex items-center justify-between text-xs">
+                        <div>
+                            <strong class="text-white block font-black">${item.name}</strong>
+                            <span class="text-brand font-semibold">${item.price.toLocaleString('tr-TR')} ₺ / Adet</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-gray-300 font-bold">Adet: ${item.qty}</span>
+                            <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-300 p-1"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            // Zaten paketler %10 indirimli fiyat olduğu için toplam üzerinden gösterim
+            document.getElementById('cartSubtotal').innerText = subtotal.toLocaleString('tr-TR') + " ₺";
+            document.getElementById('cartDiscount').innerText = "Aktif (%10 İndirim Yansıtıldı)";
+            document.getElementById('cartTotal').innerText = subtotal.toLocaleString('tr-TR') + " ₺";
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartUI();
+        }
+
+        function openCartModal() {
+            updateCartUI();
+            document.getElementById('cartModal').classList.remove('hidden');
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModal').classList.add('hidden');
+        }
+
+        function checkoutCart() {
+            if (cart.length === 0) {
+                alert("Sepetiniz boş!");
+                return;
+            }
+            closeCartModal();
+            const totalStr = document.getElementById('cartTotal').innerText;
+            openPaymentModal('Toplu Sepet Lisans Paketi (' + cart.reduce((s, i) => s + i.qty, 0) + ' Adet)', parseInt(document.getElementById('cartSubtotal').innerText.replace(/\D/g, '')));
+        }
+
         const translations = {
             tr: {
                 subHeader: "ÇEKİRDEK KORUMA SİSTEMİ",
@@ -802,9 +972,9 @@
                 gamesTitle: "DESTEKLENEN OYUNLAR VE KORUMA DETAYLARI",
                 gamesDesc: "Gnessac Anti-Cheat, Metin2, Knight Online, CS2, VALORANT ve League of Legends altyapıları için özel olarak geliştirilmiş Ring-0 çekirdek modülleri ile hile yazılımlarını milisaniyeler içinde bloke eder.",
                 pkgTitle: "LİSANS SATIN ALMA PAKETLERİ",
-                pkgDesc: "Sunucunuzun kapasitesine uygun IP lisans paketini seçin, %10 özel indirim ve 3D Secure güvencesiyle hemen kullanmaya başlayın.",
-                aboutTitle: "KAPSAMLI HAKKIMIZDA VE EKSTRA HİZMETLERİMİZ",
-                faqTitle: "SIKÇA SORULAN SORULAR",
+                pkgDesc: "Sunucunuzun kapasitesine uygun IP lisans paketini seçin, sepete ekleyerek toplu sepet alışverişi yapın ve 3D Secure ile anında tamamlayın.",
+                aboutTitle: "Kapsamlı Hakkımızda ve Ekstra Hizmetlerimiz",
+                faqTitle: "Sıkça Sorulan Sorular",
                 footerDesc: "Çevrimiçi oyun dünyasında sıfır tolerans ve %100 adil rekabet ortamı sunan profesyonel çekirdek tabanlı koruma platformu.",
                 supportBtn: "DESTEK TALEBİ OLUŞTUR"
             },
@@ -859,7 +1029,7 @@
 
         /* 17 Adet Canlı Destek Soru ve Yanıtı */
         const chatAnswers = {
-            1: "Tüm yeni müşterilerimize özel sepet fiyatları üzerinden otomatik olarak %10 indirim uygulanmıştır. Lisans paketleri kısmından indirimli fiyatları inceleyebilirsiniz.",
+            1: "Sağ üstteki sepet ikonunu kullanarak dilediğiniz lisansları sepetinize ekleyebilir, toplu sepet alışverişi yapabilir ve %10 indirimli total ödemenizi 3D Secure ile tamamlayabilirsiniz.",
             2: "Gnessac Anti-Cheat; Metin2, Knight Online, CS2, VALORANT ve League of Legends (LoL) oyun sunucuları için tam uyumlu Ring-0 çekirdek koruması sağlamaktadır.",
             3: "Ring-0 (Kernel), işletim sisteminin en yetkili çekirdek katmanıdır. Sıradan hileler bu seviyeye erişemez, böylece %99.9 oranında kusursuz güvenlik sağlanır.",
             4: "Ödemeniz onaylandığı anda IP lisans anahtarınız ve entegrasyon dosyalarınız müşteri panelinize iletilir. 5 dakika içinde sunucunuza entegre edebilirsiniz.",
