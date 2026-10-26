@@ -218,7 +218,10 @@
                     <span class="text-2xl font-black tracking-wider uppercase flex items-center gap-1.5">
                         GNESSAC <span class="text-brand text-xs px-2 py-0.5 rounded-md bg-brand/10 border border-brand/30 shadow-[0_0_10px_rgba(255,107,0,0.2)]">PRO</span>
                     </span>
-                    <span class="text-[10px] text-gray-400 tracking-widest uppercase font-semibold">ÇEKİRDEK KORUMA SİSTEMİ</span>
+                    <span class="text-[10px] text-gray-400 tracking-widest uppercase font-semibold flex items-center gap-1.5">
+                        <!-- Türk Bayrağı Emoji (Tüm tarayıcılarda aktif) -->
+                        <span class="inline-block text-xs leading-none" role="img" aria-label="Türkiye Bayrağı">&#x1F1F9;&#x1F1F7;</span> ÇEKİRDEK KORUMA SİSTEMİ
+                    </span>
                 </div>
             </a>
 
@@ -824,6 +827,16 @@
         </div>
     </footer>
 
+    <!-- HIZLI AŞAĞI VE YUKARI ÇIKMA / İNME BUTONLARI -->
+    <div class="fixed right-6 bottom-24 z-40 flex flex-col gap-2">
+        <button onclick="scrollToTop()" title="En Yukarı Çık" class="bg-brand/20 hover:bg-brand border border-brand/50 text-brand hover:text-white w-10 h-10 rounded-xl shadow-[0_0_15px_rgba(255,107,0,0.3)] transition-all flex items-center justify-center group">
+            <i class="fa-solid fa-arrow-up group-hover:-translate-y-0.5 transition-transform"></i>
+        </button>
+        <button onclick="scrollToBottom()" title="En Aşağı İn" class="bg-brand/20 hover:bg-brand border border-brand/50 text-brand hover:text-white w-10 h-10 rounded-xl shadow-[0_0_15px_rgba(255,107,0,0.3)] transition-all flex items-center justify-center group">
+            <i class="fa-solid fa-arrow-down group-hover:translate-y-0.5 transition-transform"></i>
+        </button>
+    </div>
+
     <!-- DESTEK TALEBİ OLUŞTUR YÜZEN BUTON -->
     <div class="fixed bottom-6 left-6 z-40">
         <button onclick="openSupportModal()" class="bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-extrabold text-xs uppercase px-6 py-4 rounded-full shadow-[0_0_30px_rgba(255,107,0,0.5)] flex items-center gap-3 transition-all transform hover:scale-105 border border-brand/40">
@@ -1190,6 +1203,14 @@
             }, 3000);
         });
 
+        // Hızlı Yukarı ve Aşağı Kaydırma Fonksiyonları
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function scrollToBottom() {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+
         // Tema Değiştirme Fonksiyonu
         function toggleTheme() {
             const body = document.body;
@@ -1306,7 +1327,7 @@
             2: "Gnessac Hile Önleme Sistemi; Metin2, Knight Online, Counter-Strike 2, VALORANT, League of Legends ve EVE Online oyun sunucuları için tam uyumlu Ring-0 çekirdek koruması sağlamaktadır.",
             3: "Ring-0 (Çekirdek), işletim sisteminin en yetkili katmanıdır. Sıradan hileler bu seviyeye erişemez, böylece %99.9 oranında kusursuz güvenlik sağlanır.",
             4: "Ödemeniz onaylandığı anda IP lisans anahtarınız ve entegrasyon dosyalarınız müşteri panelinize iletilir. 5 dakika içinde sunucunuza entegre edebilirsiniz.",
-            5: "Kesinlikle hayır! Asenkron C++ mimarisi sayesinde işlemci ve bellek tüketimi %0.1'in altındadır, oyuncularınızın kare hızı değerlerine asla etki etmez.",
+            5: "Kesinlikle hayır! Asenkron C++ mimarisi sayesinde işlemci ve bellek kullanımı %0.1'in altındadır, oyuncularınızın kare hızı değerlerine asla etki etmez.",
             6: "Asla! Gnessac yalnızca oyun sürecinin bellek adres alanını tarar. Kişisel dosyalarınız, fotoğraflarınız veya tarayıcı geçmişiniz asla okunmaz ve depolanmaz.",
             7: "Tüm ödemeler 256-bit SSL ve 3D Güvenli Ödeme altyapısıyla korunmaktadır. Ödeme sonrasında bireysel veya kurumsal faturanız e-posta adresinize gönderilir.",
             8: "Donanım banları anakart ve disk seri numaralarınıza göre atılır. Yanlış pozitif durumlarında destek talebi oluşturarak inceletebilirsiniz.",
@@ -1422,8 +1443,8 @@
             document.getElementById('cryptoFields').classList.add('hidden');
 
             if (type === 'cc') document.getElementById('ccFields').classList.remove('hidden');
-            if (type === 'eft') document.getElementById('eftFields').classList.add('hidden');
-            if (type === 'crypto') document.getElementById('cryptoFields').classList.add('hidden');
+            if (type === 'eft') document.getElementById('eftFields').classList.remove('hidden');
+            if (type === 'crypto') document.getElementById('cryptoFields').classList.remove('hidden');
         }
 
         function processPayment(e) {
@@ -1440,7 +1461,7 @@
             document.getElementById('msgTitle').innerText = "3D GÜVENLİ ÖDEME BAŞARIYLA ONAYLANDI!";
             document.getElementById('msgText').innerHTML = `
                 <p><strong>Paket:</strong> ${selectedPackage}</p>
-                <p><strong>Sunucu IP:</strong> <span class="text-white font-mono">${payVal}</span></p>
+                <p><strong>Sunucu IP:</strong> <span class="text-white font-mono">${ipVal}</span></p>
                 <p><strong>Ödenen Tutar:</strong> <span class="text-brand font-bold">${selectedPrice.toLocaleString('tr-TR')} ₺</span> (%10 İndirimli)</p>
                 <br>
                 <p><strong>Oluşturulan Lisans Anahtarınız:</strong><br><span class="bg-black px-3 py-1.5 rounded text-white border border-brand font-mono inline-block mt-1">${licenseKey}</span></p>
