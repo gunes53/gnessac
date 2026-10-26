@@ -41,6 +41,7 @@
             background-color: #07090E;
             color: #F3F4F6;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         .orange-underline {
             text-decoration: underline;
@@ -66,9 +67,31 @@
                             linear-gradient(to bottom, rgba(255, 107, 0, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
         }
+        /* Sitenin bir ucundan bir ucuna süzülen hareketli turuncu top animasyonu */
+        @keyframes floatBall {
+            0% { transform: translate(10vw, 10vh) scale(1); }
+            25% { transform: translate(85vw, 25vh) scale(1.2); }
+            50% { transform: translate(70vw, 75vh) scale(0.9); }
+            75% { transform: translate(20vw, 60vh) scale(1.1); }
+            100% { transform: translate(10vw, 10vh) scale(1); }
+        }
+        .moving-ball {
+            position: fixed;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(255,107,0,0.35) 0%, rgba(255,107,0,0.05) 70%, transparent 100%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            filter: blur(25px);
+            animation: floatBall 22s infinite ease-in-out;
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-brand selection:text-white cyber-grid">
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand selection:text-white cyber-grid relative">
+
+    <!-- Hareketli Turuncu Arka Plan Topu -->
+    <div class="moving-ball"></div>
 
     <!-- NAVIGASYON / HEADER -->
     <header class="sticky top-0 z-40 bg-[#07090E]/90 backdrop-blur-md border-b border-brand-border">
@@ -116,7 +139,7 @@
     </header>
 
     <!-- HERO BÖLÜMÜ -->
-    <section class="relative py-24 md:py-32 overflow-hidden border-b border-brand-border">
+    <section class="relative py-24 md:py-32 overflow-hidden border-b border-brand-border z-10">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[500px] bg-brand/10 blur-[180px] rounded-full pointer-events-none"></div>
 
         <div class="max-w-5xl mx-auto px-4 text-center relative z-10 flex flex-col items-center justify-center">
@@ -188,8 +211,8 @@
         </div>
     </section>
 
-    <!-- DESTEKLENEN OYUNLAR (5'Lİ GRID: METİN2, KO, CS2, VALORANT, LOL) -->
-    <section id="oyunlar" class="py-24 border-b border-brand-border bg-[#05070A]/60">
+    <!-- DESTEKLENEN OYUNLAR (5'Lİ GRID) -->
+    <section id="oyunlar" class="py-24 border-b border-brand-border bg-[#05070A]/60 z-10 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-wider mb-4" data-i18n="gamesTitle">
@@ -266,7 +289,7 @@
                     </div>
                 </div>
 
-                <!-- LEAGUE OF LEGENDS (YENİ EKLENDİ) -->
+                <!-- LEAGUE OF LEGENDS -->
                 <div class="bg-brand-card border border-brand-border rounded-2xl p-6 hover:border-brand/60 transition-all duration-300 flex flex-col justify-between group shadow-xl">
                     <div>
                         <div class="w-16 h-16 rounded-2xl bg-[#07090E] border-2 border-brand flex items-center justify-center mb-5 shadow-[0_0_20px_rgba(255,107,0,0.25)] group-hover:scale-105 transition-transform">
@@ -286,7 +309,7 @@
     </section>
 
     <!-- LİSANS PAKETLERİ (%10 İNDİRİMLİ FİYATLAR) -->
-    <section id="paketler" class="py-28 border-b border-brand-border relative">
+    <section id="paketler" class="py-28 border-b border-brand-border relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="bg-brand/10 border border-brand text-brand text-xs font-black uppercase px-4 py-1.5 rounded-full inline-block mb-3 shadow-[0_0_15px_rgba(255,107,0,0.3)]">🎉 %10 Hoş Geldin İndirimi Aktif!</span>
@@ -300,7 +323,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- 1 IP PAKET (%10 İndirimli: 809 ₺ / Eski: 899 ₺) -->
+                <!-- 1 IP PAKET -->
                 <div class="bg-brand-card border border-brand-border rounded-2xl p-8 flex flex-col justify-between hover:border-brand transition-all duration-300 relative overflow-hidden shadow-xl">
                     <div>
                         <div class="text-xs font-extrabold text-brand uppercase tracking-widest mb-2">%10 İNDİRİMLİ BAŞLANGIÇ</div>
@@ -324,7 +347,7 @@
                     </button>
                 </div>
 
-                <!-- 2 IP PAKET (%10 İndirimli: 1.619 ₺ / Eski: 1.799 ₺) (ÖNE ÇIKAN) -->
+                <!-- 2 IP PAKET -->
                 <div class="bg-brand-card border-2 border-brand rounded-2xl p-8 flex flex-col justify-between shadow-[0_0_35px_rgba(255,107,0,0.2)] relative overflow-hidden transform md:-translate-y-2">
                     <div class="absolute top-0 right-0 bg-brand text-white font-extrabold text-[10px] uppercase px-4 py-1.5 rounded-bl-xl tracking-wider shadow-sm">
                         EN POPÜLER (%10 İNDİRİMLİ)
@@ -351,7 +374,7 @@
                     </button>
                 </div>
 
-                <!-- 10 IP PAKET (%10 İndirimli: 11.213 ₺ / Eski: 12.459 ₺) -->
+                <!-- 10 IP PAKET -->
                 <div class="bg-brand-card border border-brand-border rounded-2xl p-8 flex flex-col justify-between hover:border-brand transition-all duration-300 relative overflow-hidden shadow-xl">
                     <div>
                         <div class="text-xs font-extrabold text-brand uppercase tracking-widest mb-2">KURUMSAL SUNUCU FİLOSU</div>
@@ -378,8 +401,8 @@
         </div>
     </section>
 
-    <!-- HAKKIMIZDA BÖLÜMÜ (EKSTRA HİZMETLER DAHİL) -->
-    <section id="hakkimizda" class="py-28 border-b border-brand-border bg-[#05070A]/60">
+    <!-- HAKKIMIZDA BÖLÜMÜ -->
+    <section id="hakkimizda" class="py-28 border-b border-brand-border bg-[#05070A]/60 z-10 relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-wider mb-4" data-i18n="aboutTitle">
@@ -409,7 +432,7 @@
     </section>
 
     <!-- SIKÇA SORULAN SORULAR (SSS) -->
-    <section id="sss" class="py-28 border-b border-brand-border">
+    <section id="sss" class="py-28 border-b border-brand-border z-10 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-wider mb-4" data-i18n="faqTitle">
@@ -464,7 +487,7 @@
     </section>
 
     <!-- HİZMET ŞARTLARI -->
-    <section id="sartlar" class="py-28 border-b border-brand-border bg-[#05070A]/60">
+    <section id="sartlar" class="py-28 border-b border-brand-border bg-[#05070A]/60 z-10 relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-wider mb-4">HİZMET ŞARTLARI</h2>
@@ -482,7 +505,7 @@
     </section>
 
     <!-- GİZLİLİK POLİTİKASI -->
-    <section id="gizlilik" class="py-28 border-b border-brand-border">
+    <section id="gizlilik" class="py-28 border-b border-brand-border z-10 relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-wider mb-4">GİZLİLİK POLİTİKASI</h2>
@@ -499,7 +522,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-[#040609] pt-20 pb-12 border-t border-brand-border relative overflow-hidden">
+    <footer class="bg-[#040609] pt-20 pb-12 border-t border-brand-border relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-center">
                 <div class="lg:col-span-4 bg-brand-card/60 backdrop-blur-md border border-brand-border rounded-3xl p-8 shadow-xl flex flex-col items-start justify-center h-full">
@@ -638,41 +661,58 @@
         </div>
     </div>
 
-    <!-- MODAL 2: DESTEK TALEBİ -->
+    <!-- MODAL 2: DESTEK TALEBİ (14 KURUMSAL SEÇENEK İLE) -->
     <div id="supportModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-brand-card border border-brand-border rounded-2xl max-w-lg w-full p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto custom-scrollbar">
-            <button onclick="closeSupportModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
-            <div class="text-center mb-6">
-                <h3 class="text-2xl font-black text-white uppercase">DESTEK TALEBİ OLUŞTUR</h3>
-                <p class="text-xs text-gray-400 mt-1">Doğru e-posta adresinize kurumsal geri bildirim maili gönderilecektir.</p>
+        <div class="bg-brand-card border-2 border-brand/60 rounded-3xl max-w-xl w-full p-8 relative shadow-[0_0_50px_rgba(255,107,0,0.25)] max-h-[92vh] overflow-y-auto custom-scrollbar">
+            <button onclick="closeSupportModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white bg-neutral-800 p-2 rounded-full"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <div class="flex items-center gap-3 mb-6 border-b border-neutral-800 pb-4">
+                <div class="w-12 h-12 rounded-2xl bg-brand/10 border border-brand flex items-center justify-center text-brand text-xl">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-black text-white uppercase tracking-wider">KURUMSAL DESTEK TALEBİ</h3>
+                    <p class="text-xs text-gray-400">7/24 uzman mühendislik ekibimize talebinizi iletin.</p>
+                </div>
             </div>
             <form onsubmit="handleSupportSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 uppercase mb-1">AD SOYAD / UNVAN</label>
-                    <input type="text" id="suppName" required class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand" placeholder="Ahmet Yılmaz">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] font-extrabold text-brand uppercase tracking-wider mb-1">AD SOYAD / UNVAN</label>
+                        <input type="text" id="suppName" required class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand" placeholder="Ahmet Yılmaz">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-extrabold text-brand uppercase tracking-wider mb-1">E-POSTA ADRESİ</label>
+                        <input type="email" id="suppEmail" required class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand" placeholder="ahmet@domain.com">
+                    </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-gray-300 uppercase mb-1">E-POSTA ADRESİ</label>
-                    <input type="email" id="suppEmail" required class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand" placeholder="ahmet@domain.com">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 uppercase mb-1">DESTEK KONUSU</label>
-                    <select id="suppSubject" required class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand cursor-pointer">
-                        <option value="">-- Lütfen Konu Seçiniz --</option>
-                        <option value="League of Legends Script Koruması">1. League of Legends Script ve Mod Koruması</option>
-                        <option value="Metin2 Kernel Sürücü Çakışması">2. Metin2 Kernel Sürücü Çakışması ve Açılış Hatası</option>
-                        <option value="Knight Online HackShield">3. Knight Online HackShield Entegrasyonu</option>
-                        <option value="CS2 / VALORANT Eklentisi">4. CS2 & VALORANT Sunucu Entegrasyon Desteği</option>
-                        <option value="IP Lisansı Güncelleme">5. IP Lisansı Güncelleme ve Adres Değişikliği</option>
-                        <option value="HWID Donanım Banı İncelemesi">6. HWID Donanım Banı Kaldırma Talebi</option>
-                        <option value="Genel Soru ve Öneri">7. Genel Soru, Şikayet ve Öneriler</option>
+                    <label class="block text-[11px] font-extrabold text-brand uppercase tracking-wider mb-1">DESTEK TALEBİ KONUSU (14 UZMANLIK ALANI)</label>
+                    <select id="suppSubject" required class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand cursor-pointer font-semibold">
+                        <option value="">-- Lütfen Kurumsal Talep Konusu Seçiniz --</option>
+                        <option value="1. League of Legends Script ve Mod Koruması">1. League of Legends Script ve Mod Koruması</option>
+                        <option value="2. Metin2 Kernel Sürücü Çakışması ve Açılış Hatası">2. Metin2 Kernel Sürücü Çakışması ve Açılış Hatası</option>
+                        <option value="3. Knight Online HackShield ve Paket Aşımı">3. Knight Online HackShield ve Paket Aşımı</option>
+                        <option value="4. CS2 & VALORANT Sunucu Entegrasyon Desteği">4. CS2 & VALORANT Sunucu Entegrasyon Desteği</option>
+                        <option value="5. IP Lisansı Güncelleme ve Adres Değişikliği">5. IP Lisansı Güncelleme ve Adres Değişikliği</option>
+                        <option value="6. HWID Donanım Banı İncelemesi ve Yanlış Pozitif">6. HWID Donanım Banı İncelemesi ve Yanlış Pozitif</option>
+                        <option value="7. %10 İndirim Kampanyası ve Fatura İşlemleri">7. %10 İndirim Kampanyası ve Fatura İşlemleri</option>
+                        <option value="8. Özel Sürücü (Driver) İmzalama ve Maskeleme">8. Özel Sürücü (Driver) İmzalama ve Maskeleme</option>
+                        <option value="9. Kurumsal 10 IP Filosu ve İndirim Başvurusu">9. Kurumsal 10 IP Filosu ve İndirim Başvurusu</option>
+                        <option value="10. Windows 11 Secure Boot & TPM 2.0 Sorunları">10. Windows 11 Secure Boot & TPM 2.0 Sorunları</option>
+                        <option value="11. DDoS Koruma ve Sunucu Güvenlik Duvarı">11. DDoS Koruma ve Sunucu Güvenlik Duvarı</option>
+                        <option value="12. Müşteri Paneli Giriş ve Lisans Anahtarı Sorunu">12. Müşteri Paneli Giriş ve Lisans Anahtarı Sorunu</option>
+                        <option value="13. 4.89 GB İstemci Dosyası İndirme ve Kurulum Hatası">13. 4.89 GB İstemci Dosyası İndirme ve Kurulum Hatası</option>
+                        <option value="14. Genel Soru, İş Birliği, Şikayet ve Öneriler">14. Genel Soru, İş Birliği, Şikayet ve Öneriler</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-gray-300 uppercase mb-1">TALEP DETAYI / SORU / ŞİKAYET</label>
-                    <textarea id="suppDetails" required rows="4" class="w-full bg-[#05070A] border border-brand-border rounded-xl p-3 text-sm text-white focus:outline-none focus:border-brand" placeholder="Sorununuzu detaylıca açıklayınız..."></textarea>
+                    <label class="block text-[11px] font-extrabold text-brand uppercase tracking-wider mb-1">DETAYLI AÇIKLAMA / HATA RAPORU</label>
+                    <textarea id="suppDetails" required rows="4" class="w-full bg-[#05070A] border border-brand-border rounded-xl p-3 text-sm text-white focus:outline-none focus:border-brand" placeholder="Yaşadığınız teknik durumu veya talebinizi detaylıca açıklayınız..."></textarea>
                 </div>
-                <button type="submit" class="w-full bg-brand hover:bg-brand-hover text-white font-extrabold text-xs uppercase py-3.5 rounded-xl transition-all shadow-md">TALEBİ GÖNDER & KURUMSAL MAİL AL</button>
+                <button type="submit" class="w-full bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-extrabold text-xs uppercase py-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>TALEBİ GÖNDER & KURUMSAL MAİL AL</span>
+                </button>
             </form>
         </div>
     </div>
@@ -715,7 +755,7 @@
         </div>
     </div>
 
-    <!-- MODAL 4: %10 İNDİRİM KARŞILAMA PENCERE MODALI (SİTE GİRİŞİNDE AÇILIR) -->
+    <!-- MODAL 4: %10 İNDİRİM KARŞILAMA PENCERE MODALI -->
     <div id="promoModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-gradient-to-b from-[#111827] to-[#0B0F19] border-2 border-brand rounded-3xl max-w-lg w-full p-8 text-center relative shadow-[0_0_60px_rgba(255,107,0,0.5)]">
             <div class="w-20 h-20 bg-brand/20 border-2 border-brand text-brand rounded-full flex items-center justify-center mx-auto mb-5 text-3xl shadow-[0_0_25px_rgba(255,107,0,0.6)] animate-pulse">
