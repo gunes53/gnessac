@@ -392,43 +392,66 @@
         </div>
     </div>
 
-    <!-- PROFESYONEL ÖDEME SİSTEMİ (CHECKOUT MODALI) -->
+    <!-- PRESTİJLİ KURUMSAL ÖDEME SİSTEMİ (CHECKOUT MODALI) -->
     <div id="paymentModal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-[#111827] border-2 border-brand rounded-3xl max-w-2xl w-full p-8 relative shadow-[0_0_60px_rgba(255,107,0,0.4)] max-h-[92vh] overflow-y-auto custom-scrollbar">
-            <button onclick="closePaymentModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white bg-neutral-800 p-2.5 rounded-full"><i class="fa-solid fa-xmark text-lg"></i></button>
+        <div class="bg-[#0B0F19] border-2 border-brand/80 rounded-3xl max-w-2xl w-full p-8 relative shadow-[0_0_80px_rgba(255,107,0,0.35)] max-h-[92vh] overflow-y-auto custom-scrollbar">
+            <button onclick="closePaymentModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white bg-neutral-800 hover:bg-brand hover:text-white transition-colors p-2.5 rounded-full"><i class="fa-solid fa-xmark text-lg"></i></button>
             
-            <div class="flex items-center gap-3 mb-6 border-b border-neutral-800 pb-4">
-                <div class="w-12 h-12 rounded-2xl bg-brand/10 border border-brand flex items-center justify-center text-brand text-xl">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-black text-white uppercase tracking-wider">GNESSAC GÜVENLİ ÖDEME AĞI</h3>
-                    <p class="text-xs text-gray-400">256-Bit SSL, 3D Secure ve Anında Lisans Teslimatı</p>
+            <!-- Kurumsal Başlık & Güven Rozetleri -->
+            <div class="flex items-center justify-between mb-6 border-b border-neutral-800 pb-4 pr-10">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-brand/10 border border-brand flex items-center justify-center text-brand text-xl shadow-[0_0_15px_rgba(255,107,0,0.3)]">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-black text-white uppercase tracking-wider">GNESSAC GÜVENLİ ÖDEME TERMİNALİ</h3>
+                        <p class="text-[11px] text-gray-400 flex items-center gap-2 mt-0.5">
+                            <span class="text-green-400 flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> 256-Bit SSL</span>
+                            <span>•</span>
+                            <span class="text-brand flex items-center gap-1"><i class="fa-solid fa-bolt"></i> Anında Otomatik Teslimat</span>
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Özet Bilgi -->
-            <div class="bg-[#05070A] border border-brand-border rounded-2xl p-4 mb-6 flex items-center justify-between">
+            <!-- Özet Tutar Alanı -->
+            <div class="bg-gradient-to-r from-brand-card to-[#05070A] border border-brand/40 rounded-2xl p-4 mb-6 flex items-center justify-between shadow-inner">
                 <div>
-                    <span class="text-[10px] uppercase font-extrabold text-brand tracking-widest block">SEÇİLEN LİSANS / SEPET</span>
+                    <span class="text-[10px] uppercase font-extrabold text-brand tracking-widest block">SEÇİLEN LİSANS / SEPET ÖZETİ</span>
                     <h4 id="payModalTitle" class="text-base font-black text-white uppercase">1 IP Lisansı</h4>
                 </div>
                 <div class="text-right">
-                    <span class="text-[10px] uppercase font-extrabold text-gray-400 tracking-widest block">İNDİRİMLİ TOPLAM</span>
+                    <span class="text-[10px] uppercase font-extrabold text-gray-400 tracking-widest block">ÖDENECEK TOPLAM (%10 İNDİRİMLİ)</span>
                     <span id="payModalPrice" class="text-2xl font-black text-brand">809 ₺</span>
                 </div>
             </div>
 
-            <form onsubmit="processPayment(event)" class="space-y-5">
+            <form onsubmit="processPayment(event)" class="space-y-4">
                 <!-- IP Adresi -->
                 <div>
                     <label class="block text-[11px] font-extrabold text-brand uppercase tracking-wider mb-1">LİSANSLANACAK SUNUCU IP ADRESİ *</label>
                     <input type="text" id="serverIpInput" required placeholder="örn: 185.120.10.25" class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand font-mono">
+                    <span class="text-[10px] text-gray-400 mt-1 block">Lisans anahtarınız doğrudan bu IP adresine otomatik olarak tanımlanacaktır.</span>
+                </div>
+
+                <!-- Fatura Türü Seçimi -->
+                <div class="grid grid-cols-2 gap-3 pt-1">
+                    <div>
+                        <label class="block text-[10px] font-bold text-gray-300 uppercase mb-1">FATURA TÜRÜ</label>
+                        <select class="w-full bg-[#05070A] border border-brand-border rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-brand">
+                            <option>Bireysel Fatura</option>
+                            <option>Kurumsal Fatura (Şirket)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-gray-300 uppercase mb-1">E-POSTA (FATURA & LİSANS İÇİN)</label>
+                        <input type="email" required placeholder="sunucu@domain.com" class="w-full bg-[#05070A] border border-brand-border rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-brand">
+                    </div>
                 </div>
 
                 <!-- Ödeme Yöntemi Seçimi -->
-                <div>
-                    <label class="block text-[11px] font-extrabold text-brand uppercase tracking-wider mb-2">ÖDEME YÖNTEMİ SEÇİNİZ *</label>
+                <div class="pt-2">
+                    <label class="block text-[11px] font-extrabold text-brand uppercase tracking-wider mb-2">ÖDEME YÖNTEMİNİ SEÇİNİZ *</label>
                     <div class="grid grid-cols-3 gap-3">
                         <label class="cursor-pointer bg-[#05070A] border-2 border-brand rounded-xl p-3 flex flex-col items-center justify-center gap-1 text-center transition-all">
                             <input type="radio" name="payMethod" value="cc" checked onchange="togglePaymentFields('cc')" class="hidden">
@@ -449,7 +472,7 @@
                 </div>
 
                 <!-- Kredi Kartı Alanı -->
-                <div id="ccFields" class="space-y-4 pt-2">
+                <div id="ccFields" class="space-y-3 pt-1">
                     <div>
                         <label class="block text-[10px] font-bold text-gray-300 uppercase mb-1">KART ÜZERİNDEKİ AD SOYAD</label>
                         <input type="text" placeholder="Ahmet Yılmaz" class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand">
@@ -486,10 +509,20 @@
                     <p class="text-[10px] text-gray-400">Gönderim yaptıktan sonra TXID kodunu canlı desteğe iletiniz.</p>
                 </div>
 
-                <button type="submit" class="w-full bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-extrabold text-xs uppercase py-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-lock text-sm"></i>
-                    <span>ÖDEMEYİ ONAYLA & LİSANSI ANINDA TESLİM AL</span>
-                </button>
+                <!-- Güvenlik Bilgilendirmesi ve Buton -->
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-extrabold text-xs uppercase py-4 rounded-xl transition-all shadow-[0_0_25px_rgba(255,107,0,0.4)] flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-lock text-sm"></i>
+                        <span>ÖDEMEYİ ONAYLA & LİSANSI ANINDA TESLİM AL</span>
+                    </button>
+                    <div class="flex items-center justify-center gap-4 text-[10px] text-gray-400 mt-3">
+                        <span><i class="fa-solid fa-shield text-brand"></i> %100 Güvenli Altyapı</span>
+                        <span>•</span>
+                        <span><i class="fa-solid fa-rotate-left text-brand"></i> 7 Gün İade Garantisi</span>
+                        <span>•</span>
+                        <span><i class="fa-solid fa-headset text-brand"></i> 7/24 Destek</span>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -647,7 +680,7 @@
             closePaymentModal();
             const licenseKey = "GNESSAC-" + Math.random().toString(36).substring(2, 8).toUpperCase() + "-" + Math.random().toString(36).substring(2, 8).toUpperCase();
             
-            document.getElementById('msgTitle').innerText = "ÖDEMENİZ BAŞARIYLA ONALANDI!";
+            document.getElementById('msgTitle').innerText = "ÖDEMENİZ BAŞARIYLA ONAYLANDI!";
             document.getElementById('msgText').innerHTML = `
                 <p><strong>Paket:</strong> ${selectedPackage}</p>
                 <p><strong>Sunucu IP:</strong> <span class="text-white font-mono">${ipVal}</span></p>
@@ -667,7 +700,7 @@
         function handleAuthSubmit(e) {
             e.preventDefault();
             closeAuthModal();
-            document.getElementById('msgTitle').innerText = "AKTİf LİSANS BULUNAMADI";
+            document.getElementById('msgTitle').innerText = "AKTİF LİSANS BULUNAMADI";
             document.getElementById('msgText').innerHTML = "Müşteri paneline giriş yapabilmeniz için onaylanmış bir IP lisans paketinizin bulunması gerekmektedir.";
             document.getElementById('messageModal').classList.remove('hidden');
         }
