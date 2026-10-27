@@ -102,19 +102,6 @@
             filter: blur(25px);
             animation: floatWhiteBall 24s infinite ease-in-out;
         }
-        /* Fare İmleci Arkası Turuncu Enerji Parçacığı Stilleri */
-        .cursor-particle {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: radial-gradient(circle, #FF6B00 0%, rgba(255,107,0,0.5) 60%, transparent 100%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 0 10px #FF6B00;
-        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-brand selection:text-white cyber-grid relative dark">
@@ -268,7 +255,7 @@
     <!-- TEKNOLOJİ LOGOLARI ŞERİDİ -->
     <section class="py-12 border-b border-brand-border bg-[#05070A]/80 z-10 relative transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="text-[11px] font-black text-brand uppercase tracking-widest block mb-6">ALTYAPIMIZda KULLANILAN PROFESYONEL TEKNOLOJİLER</span>
+            <span class="text-[11px] font-black text-brand uppercase tracking-widest block mb-6">ALTYAPIMIZDA KULLANILAN PROFESYONEL TEKNOLOJİLER</span>
             <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6 items-center justify-center">
                 <div class="bg-brand-card border border-brand-border hover:border-brand p-4 rounded-xl flex flex-col items-center justify-center gap-2 transition-all shadow-sm group">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" class="w-8 h-8 group-hover:scale-110 transition-transform">
@@ -352,20 +339,18 @@
                     </div>
                 </div>
 
-                <!-- CS2 (İSTEDİĞİNİZ KUSURSUZ METİN HİZALAMA VE SIĞDIRMA OPTİMİZASYONU) -->
-                <div class="bg-brand-card border border-brand-border rounded-2xl p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl">
+                <!-- CS2 (DÜZELTİLDİ: KUTU İÇİNE TAM SIĞACAK ŞEKİLDE OPTİMİZE EDİLDİ) -->
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-4 sm:p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl">
                     <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 rounded-2xl bg-[#07090E] border-2 border-brand flex items-center justify-center shadow-[0_0_15px_rgba(255,107,0,0.2)] group-hover:scale-105 transition-transform flex-shrink-0">
-                                <span class="text-sm font-black text-brand tracking-wider">CS2</span>
-                            </div>
-                            <h3 class="text-base font-extrabold text-white leading-tight">Counter-Strike 2</h3>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#07090E] border-2 border-brand flex items-center justify-center mb-3 shadow-[0_0_15px_rgba(255,107,0,0.2)] group-hover:scale-105 transition-transform">
+                            <span class="text-base sm:text-xl font-black text-brand tracking-widest">CS2</span>
                         </div>
-                        <p class="text-gray-300 text-[11px] leading-relaxed mb-4">
+                        <h3 class="text-base sm:text-lg font-extrabold mb-1.5 text-white">Counter-Strike 2</h3>
+                        <p class="text-gray-300 text-[10px] sm:text-[11px] leading-snug sm:leading-relaxed mb-3">
                             Otomatik nişan alma, duvar arkası görme, ekstra duyusal algı, tetik botu ve radar hilelerini sezgisel tarama motoruyla yakalar.
                         </p>
                     </div>
-                    <div class="pt-3 border-t border-neutral-800 text-[10px] text-brand font-semibold flex items-center gap-1.5">
+                    <div class="pt-2 sm:pt-3 border-t border-neutral-800 text-[10px] text-brand font-semibold flex items-center gap-1.5">
                         <i class="fa-solid fa-shield-halved"></i> <span>Çekirdek Aktif</span>
                     </div>
                 </div>
@@ -421,7 +406,7 @@
         </div>
     </section>
 
-    <!-- LİSANS SATIN ALMA PAKETLERİ & WEB TASARIM HİZMETİ -->
+    <!-- LİSANS SATIN ALMA PAKETLERİ & WEB TASARIM HİZMETİ (₺ DÜZELTİLDİ) -->
     <section id="paketler" class="py-28 border-b border-brand-border relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -431,7 +416,7 @@
                 </h2>
                 <div class="w-16 h-1 bg-brand mx-auto rounded-full mb-4"></div>
                 <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto">
-                    Sunucunuzun kapasitesine uygun IP lisans paketimizi veya kurumsal web tasarımı hizmetimizi seçin, sepetinize ekleyerek 3D Güvenli Ödeme ile anında tamamlayın.
+                    Sunucunuzun kapasitesine uygun IP lisans paketini veya kurumsal web tasarımı hizmetimizi seçin, sepetinize ekleyerek 3D Güvenli Ödeme ile anında tamamlayın.
                 </p>
             </div>
 
@@ -540,7 +525,7 @@
                     </div>
                 </div>
 
-                <!-- WEB SİTESİ TASARIM SATIŞ HİZMET PAKETİ -->
+                <!-- WEB SİTESİ TASARIM SATIŞ HİZMET PAKETİ (₺ DÜZELTİLDİ) -->
                 <div class="bg-brand-card border-2 border-brand rounded-2xl p-6 flex flex-col justify-between shadow-[0_0_35px_rgba(255,107,0,0.25)] relative overflow-hidden transform lg:-translate-y-2">
                     <div class="absolute top-0 right-0 bg-brand text-white font-extrabold text-[9px] uppercase px-3 py-1 rounded-bl-xl tracking-wider shadow-sm">
                         ÖZEL KURUMSAL HİZMET
@@ -1481,7 +1466,7 @@
         </div>
     </div>
 
-    <!-- MODAL 4: KURUMSAL WEB TASARIM HİZMETİ BİLGİLENDİRME PENCERESİ -->
+    <!-- MODAL 4: KURUMSAL WEB TASARIM HİZMETİ BİLGİLENDİRME PENCERESİ (STİLİZE EDİLDİ) -->
     <div id="promoModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-gradient-to-b from-[#111827] to-[#0B0F19] border-2 border-brand/90 rounded-3xl max-w-lg w-full p-8 text-center relative shadow-[0_0_80px_rgba(255,107,0,0.5)]">
             <button onclick="closePromoModal()" class="absolute top-5 right-5 text-gray-300 hover:text-white bg-neutral-800 hover:bg-brand transition-colors p-2.5 rounded-full"><i class="fa-solid fa-xmark text-lg"></i></button>
@@ -1514,7 +1499,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // Sayfa Yüklendiğinde Oturum Durumunu Kontrol Et & Cursor Trail (İmleç Parçacığı) Başlat
+        // Sayfa Yüklendiğinde Oturum Durumunu Kontrol Et
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const dot = document.getElementById('chatNotificationDot');
@@ -1522,48 +1507,7 @@
             }, 2000);
 
             checkActiveSession();
-            initCursorTrail();
         });
-
-        // Fare İmleci Arkasında Turuncu Enerji Parçacığı İzi (Cursor Trail)
-        function initCursorTrail() {
-            const particleCount = 12;
-            const particles = [];
-            
-            for(let i=0; i<particleCount; i++) {
-                const p = document.createElement('div');
-                p.className = 'cursor-particle';
-                p.style.opacity = (1 - (i / particleCount)) * 0.7;
-                document.body.appendChild(p);
-                particles.push({ el: p, x: 0, y: 0 });
-            }
-
-            let mouseX = window.innerWidth / 2;
-            let mouseY = window.innerHeight / 2;
-
-            window.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-
-            function animateTrail() {
-                let currentX = mouseX;
-                let currentY = mouseY;
-
-                particles.forEach((p, index) => {
-                    p.x += (currentX - p.x) * 0.35;
-                    p.y += (currentY - p.y) * 0.35;
-                    p.el.style.left = p.x + 'px';
-                    p.el.style.top = p.y + 'px';
-                    
-                    currentX = p.x;
-                    currentY = p.y;
-                });
-
-                requestAnimationFrame(animateTrail);
-            }
-            animateTrail();
-        }
 
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1589,7 +1533,7 @@
             if(type === 'terms') {
                 titleEl.innerText = "Üyelik Sözleşmesi ve Kullanım Şartları";
                 bodyEl.innerHTML = `
-                    <p><strong>1. Taraflar ve Kapsam:</strong> İşbu sözleşme Gnessac Yazılım Limited Şirketi ile siteye kayıt olan müşteri arasında elektronik ortamda akdedilmiştir. Sunulan tüm çekirdek koruma ve yazılım hizmetleri bu şartlara tabidir.</p>
+                    <p><strong>1. Taraflار ve Kapsam:</strong> İşbu sözleşme Gnessac Yazılım Limited Şirketi ile siteye kayıt olan müşteri arasında elektronik ortamda akdedilmiştir. Sunulan tüm çekirdek koruma ve yazılım hizmetleri bu şartlara tabidir.</p>
                     <p><strong>2. Lisans Hakları:</strong> Sağlanan çekirdek sürücüleri ve API uç noktaları yalnızca onaylı sunucu IP adreslerinde çalışır. Tersine mühendislik (reverse engineering) ve bellek dökümü almak kesinlikle yasaktır.</p>
                     <p><strong>3. Sorumluluk Beyanı:</strong> Müşteri, üyelik formunda beyan ettiği TC Kimlik Numarası, vergi bilgileri ve iletişim adreslerinin tam ve doğru olduğunu kabul eder.</p>
                 `;
@@ -1680,4 +1624,399 @@
         }
 
         function handleRegisterSubmit(e) {
-            e.
+            e.preventDefault();
+
+            const name = document.getElementById('regName').value.trim();
+            const tc = document.getElementById('regTc').value.trim();
+            const email = document.getElementById('regEmail').value.trim().toLowerCase();
+            const phone = document.getElementById('regPhone').value.trim();
+            const pass = document.getElementById('regPass').value;
+            const passConfirm = document.getElementById('regPassConfirm').value;
+            const address = document.getElementById('regAddress').value.trim();
+            const terms = document.getElementById('regTerms').checked;
+            const privacy = document.getElementById('regPrivacy').checked;
+            const isKurumsal = document.querySelector('input[name="accountType"]:checked').value === 'kurumsal';
+
+            if (pass !== passConfirm) {
+                alert("Kayıt Hatası: Şifreler birbiriyle uyuşmuyor! Lütfen kontrol ediniz.");
+                return;
+            }
+            if (tc.length !== 11 || isNaN(tc)) {
+                alert("Kayıt Hatası: TC Kimlik Numarası eksik veya hatalı (11 hane olmalıdır)!");
+                return;
+            }
+            if (phone.length < 10) {
+                alert("Kayıt Hatası: Geçerli bir telefon numarası giriniz!");
+                return;
+            }
+            if (!terms || !privacy) {
+                alert("Kayıt Hatası: Üyelik Sözleşmesi ve Gizlilik Politikasını onaylamalısınız!");
+                return;
+            }
+
+            let users = getRegisteredUsers();
+            if(users.some(u => u.email === email)) {
+                alert("Kayıt Hatası: Bu e-posta adresi ile zaten kayıtlı bir hesap bulunmaktadır! Lütfen giriş yapınız.");
+                return;
+            }
+
+            const newUser = {
+                name: name,
+                email: email,
+                pass: pass,
+                phone: phone,
+                address: address,
+                type: isKurumsal ? 'Kurumsal Firma Müşterisi' : 'Bireysel Müşteri',
+                ip: '185.120.10.45'
+            };
+
+            users.push(newUser);
+            saveRegisteredUsers(users);
+            setActiveUser(newUser);
+
+            closeRegisterModal();
+            
+            // Kurumsal Detaylı Başarı Mesajı
+            document.getElementById('msgTitle').innerText = "GNESSAC KURUMSAL ÜYELİK BAŞARIYLA OLUŞTURULDU";
+            document.getElementById('msgText').innerHTML = `
+                <p>Sayın <strong>${name}</strong>,</p>
+                <p>Gnessac Yazılım Limited Şirketi müşteri veritabanına kaydınız başarıyla işlenmiştir. Kimlik doğrulama işlemleriniz tamamlanmış olup kurumsal müşteri panelinize güvenli oturum açılmıştır.</p>
+                <br>
+                <p><strong>Kayıtlı E-Posta:</strong> <span class="text-white font-mono">${email}</span></p>
+                <p><strong>Hesap Türü:</strong> <span class="text-brand font-bold">${newUser.type}</span></p>
+                <br>
+                <p class="text-xs text-gray-300">Sağ üst köşede adınız sürekli aktif kalacak olup dilediğiniz an panelinize erişebilirsiniz.</p>
+            `;
+            document.getElementById('messageModal').classList.remove('hidden');
+        }
+
+        function handleAuthSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+            const pass = document.getElementById('loginPass').value;
+
+            const users = getRegisteredUsers();
+            const foundUser = users.find(u => u.email === email && u.pass === pass);
+
+            if(!foundUser) {
+                alert("Kimlik Doğrulama Hatası: E-posta adresi veya şifre hatalı! Lütfen kayıtlı bilgilerinizle giriş yapınız veya 'Müşteri Ol' butonunu kullanarak yeni hesap oluşturunuz.");
+                return;
+            }
+
+            setActiveUser(foundUser);
+            closeAuthModal();
+
+            document.getElementById('msgTitle').innerText = "GÜVENLİ MÜŞTERİ OTURUMU AÇILDI";
+            document.getElementById('msgText').innerHTML = `
+                <p>Hoş geldiniz, sayın <strong>${foundUser.name}</strong>.</p>
+                <p>Gnessac Çekirdek Güvenlik Sunucuları ile kimliğiniz doğrulandı ve müşteri paneline başarıyla bağlandınız.</p>
+                <br>
+                <p><strong>Oturum Yetkisi:</strong> <span class="text-brand font-bold">${foundUser.type}</span></p>
+                <p><strong>Son Bağlantı IP:</strong> <span class="text-white font-mono">${foundUser.ip}</span></p>
+                <br>
+                <p class="text-xs text-gray-300">Sağ üst köşedeki isim butonunu kullanarak kişisel panelinize her zaman ulaşabilirsiniz.</p>
+            `;
+            document.getElementById('messageModal').classList.remove('hidden');
+        }
+
+        function openDashboardModal() {
+            const active = getActiveUser();
+            if(!active) {
+                openAuthModal();
+                return;
+            }
+            document.getElementById('dashUserName').innerText = active.name;
+            document.getElementById('dashUserRole').innerText = active.type + " • Güvenli Oturum Aktif";
+            document.getElementById('dashUserIp').innerText = active.ip;
+            document.getElementById('dashEmail').value = active.email;
+            document.getElementById('dashPhone').value = active.phone;
+            document.getElementById('dashAddress').value = active.address;
+
+            document.getElementById('userDashboardModal').classList.remove('hidden');
+        }
+
+        function closeDashboardModal() {
+            document.getElementById('userDashboardModal').classList.add('hidden');
+        }
+
+        function handleProfileUpdate(e) {
+            e.preventDefault();
+            let active = getActiveUser();
+            if(!active) return;
+
+            active.email = document.getElementById('dashEmail').value.trim();
+            active.phone = document.getElementById('dashPhone').value.trim();
+            active.address = document.getElementById('dashAddress').value.trim();
+
+            setActiveUser(active);
+
+            let users = getRegisteredUsers();
+            users = users.map(u => u.email === active.email ? active : u);
+            saveRegisteredUsers(users);
+
+            alert("Müşteri profiliniz ve fatura bilgileriniz Gnessac veritabanında başarıyla güncellendi!");
+        }
+
+        function logoutUser() {
+            setActiveUser(null);
+            closeDashboardModal();
+            alert("Oturumunuz güvenli bir şekilde kapatıldı. Sağ üst menüden tekrar giriş yapabilirsiniz.");
+        }
+
+        let cart = [];
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+            
+            document.getElementById('msgTitle').innerText = "SEPETE EKLENDİ";
+            document.getElementById('msgText').innerHTML = `<strong>${name}</strong> başarıyla sepetinize eklendi.<br>Sağ üstteki sepet ikonuna tıklayarak sepetinizi inceleyebilir ve güvenli ödemenizi tamamlayabilirsiniz.`;
+            document.getElementById('messageModal').classList.remove('hidden');
+        }
+
+        function updateCartUI() {
+            const countBadge = document.getElementById('cartBadgeCount');
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            countBadge.innerText = totalQty;
+
+            const container = document.getElementById('cartItemsContainer');
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-300 text-center py-6">Sepetinizde henüz ürün veya hizmet bulunmamaktadır.</p>`;
+                document.getElementById('cartSubtotal').innerText = "0 ₺";
+                document.getElementById('cartTotal').innerText = "0 ₺";
+                return;
+            }
+
+            let html = '';
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                html += `
+                    <div class="bg-[#05070A] border border-brand-border rounded-xl p-3 flex items-center justify-between text-xs">
+                        <div>
+                            <strong class="text-white block font-black">${item.name}</strong>
+                            <span class="text-brand font-semibold">${item.price.toLocaleString('tr-TR')} ₺ / Adet</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-gray-200 font-bold">Adet: ${item.qty}</span>
+                            <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-300 p-1"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            document.getElementById('cartSubtotal').innerText = subtotal.toLocaleString('tr-TR') + " ₺";
+            document.getElementById('cartTotal').innerText = subtotal.toLocaleString('tr-TR') + " ₺";
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartUI();
+        }
+
+        function openCartModal() {
+            updateCartUI();
+            document.getElementById('cartModal').classList.remove('hidden');
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModal').classList.add('hidden');
+        }
+
+        function checkoutCart() {
+            if (cart.length === 0) {
+                alert("Sepetiniz boş!");
+                return;
+            }
+            closeCartModal();
+            const totalSum = parseInt(document.getElementById('cartSubtotal').innerText.replace(/\D/g, ''));
+            openPaymentModal('Toplu Sepet Alışverişi (' + cart.reduce((s, i) => s + i.qty, 0) + ' Adet)', totalSum);
+        }
+
+        function toggleLiveChat() {
+            document.getElementById('liveChatWindow').classList.toggle('hidden');
+            document.getElementById('chatNotificationDot').classList.add('hidden');
+        }
+
+        const chatAnswers = {
+            1: "1.349 TL tutarındaki Kurumsal Web Tasarım Paketimiz; özel arayüz tasarımı, mobil uyumlu responsive altyapı, SEO optimizasyonu ve hızlı teslimat hizmetlerini tek seferlik ücretle kapsar.",
+            2: "Gnessac Anti-Cheat; Metin2, Knight Online, Counter-Strike 2, VALORANT, League of Legends ve EVE Online oyun sunucuları için tam uyumlu Ring-0 çekirdek koruması sağlar.",
+            3: "Ring-0 (Çekirdek), işletim sisteminin en yetkili katmanıdır. Sıradan hileler bu seviyeye erişemez, böylece %99.9 oranında kusursuz güvenlik sağlanır.",
+            4: "Ödemeniz onaylandığı anda IP lisans anahtarınız ve entegrasyon dosyalarınız müşteri panelinize iletilir. 5 dakika içinde sunucunuza entegre edebilirsiniz.",
+            5: "Kesinlikle hayır! Asenkron C++ mimarisi sayesinde işlemci ve bellek kullanımı %0.1'in altındadır, oyuncularınızın kare hızı değerlerine asla etki etmez.",
+            6: "Asla! Gnessac yalnızca oyun sürecinin bellek adres alanını tarar. Kişisel dosyalarınız, fotoğraflarınız veya tarayıcı geçmişiniz asla okunmaz ve depolanmaz.",
+            7: "Tüm ödemeler 256-bit SSL ve 3D Güvenli Ödeme altyapısıyla korunmaktadır. Ödeme sonrasında yasal faturanız e-posta adresinize gönderilir.",
+            8: "Donanım banları anakart ve disk seri numaralarına göre atılır. Destek talebi oluşturarak kolayca inceletebilirsiniz.",
+            9: "Windows 11 sistemlerde Güvenli Önyükleme ve TPM gereksinimleri tam uyumludur. Mavi ekran riski sıfırdır.",
+            10: "Dilediğiniz lisansları ve web tasarım hizmetini sepete ekleyerek tek seferde güvenli toplu ödeme yapabilirsiniz.",
+            11: "Banka Havale / EFT ile yapılan ödemelerde açıklama kısmına sunucu IP adresiniz veya proje adınız yazılmalıdır.",
+            12: "Müşteri paneliniz üzerinden veya destek talebi oluşturarak lisanslı IP adresinizi kolaylıkla güncelleyebilirsiniz.",
+            13: "Bize 7/24 resmi telefon hattımız olan +0216 255 53 53 üzerinden veya destek paneli aracılığıyla her zaman ulaşabilirsiniz.",
+            14: "Gnessac Yazılım Limited Şirketi merkezimiz Türkiye / İstanbul - Bostancı'da yer almaktadır.",
+            15: "Metin2 sunucularında Python bayt kod manipülasyonları ve DLL enjeksiyonları Ring-0 seviyesinde engellenir.",
+            16: "Knight Online oyununda paket manipülasyonları, makro pedallar ve çoklu istemciler filtrelenir.",
+            17: "Counter-Strike 2 oyununda aimbot, wallhack ve tetik botu sezgisel tarama motoruyla yakalanır.",
+            18: "VALORANT için Vanguard tamamlayıcı Ring-0 modülleriyle piksel nişan alma engellenir.",
+            19: "League of Legends oyununda script, dodge ve zoom hack girişimleri engellenir.",
+            20: "EVE Online çoklu kutu bot yazılımları ve madencilik botları tamamen bloke edilir.",
+            21: "Sağ üstteki 'Müşteri Ol' butonundan bireysel veya kurumsal hesap açarak panelinize bağlanabilirsiniz.",
+            22: "Kurumsal firma kayıtlarında Firma Unvanı, Vergi Dairesi ve 10 haneli Vergi Numarası zorunludur.",
+            23: "İstemci dosya boyutu 4.89 GB olup aktif lisans onayından sonra indirilebilir.",
+            24: "10 IP Lisans filomuzda özel sürücü imzalama ve maskeleme avantajı sunulur.",
+            25: "USDT TRC20 cüzdanımız üzerinden yapılan kripto ödemeleri otomatik onaylanır.",
+            26: "Web tasarım paketimiz SEO uyumlu ve tam mobil responsive altyapıyla sunulur.",
+            27: "Abonelik bitiminde yenilenmeyen lisansların koruma modülleri askıya alınır.",
+            28: "Müşteri panelinizdeki profil formundan e-posta, telefon ve adresinizi güncelleyebilirsiniz.",
+            29: "Şifre eşleşmeme veya eksik TC kimlik no durumunda sistem uyarı verir.",
+            30: "Özel sürücü imzalama ve gizleme hizmetimizle hile koruması güçlendirilir.",
+            31: "Dağıtık hizmet engelleme (DDoS) koruması ve güvenlik duvarı altyapıya dahildir.",
+            32: "Dijital yazılım lisanslarında anında teslimat yapıldığından iade koşulları sözleşmeye tabidir."
+        };
+
+        function sendPresetChat(qIndex) {
+            const container = document.getElementById('chatMessages');
+            const userQ = document.createElement('div');
+            userQ.className = "bg-brand text-white p-2.5 rounded-xl ml-auto max-w-[85%] font-medium";
+            userQ.innerText = document.querySelectorAll('#liveChatWindow button')[qIndex-1].innerText.replace(/^\d+\.\s*/, '');
+            container.appendChild(userQ);
+
+            setTimeout(() => {
+                const botA = document.createElement('div');
+                botA.className = "bg-[#111827] border border-brand/30 text-gray-200 p-3 rounded-xl mr-auto max-w-[85%] leading-relaxed";
+                botA.innerHTML = `<strong class="text-brand block mb-1">Gnessac Asistanı:</strong> ${chatAnswers[qIndex]}`;
+                container.appendChild(botA);
+                container.scrollTop = container.scrollHeight;
+            }, 400);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function openSupportModal() { document.getElementById('supportModal').classList.remove('hidden'); }
+        function closeSupportModal() { document.getElementById('supportModal').classList.add('hidden'); }
+
+        function handleSupportSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('suppName').value;
+            const email = document.getElementById('suppEmail').value;
+            const subject = document.getElementById('suppSubject').value;
+            const details = document.getElementById('suppDetails').value;
+
+            closeSupportModal();
+
+            const mailHTML = `
+                <div class="border-b border-neutral-700 pb-3 mb-3">
+                    <span class="text-brand font-bold text-xs uppercase">ALICI:</span> <strong class="text-white">${email}</strong><br>
+                    <span class="text-brand font-bold text-xs uppercase">KONU:</span> <strong class="text-white">RE: [Gnessac Destek] ${subject}</strong>
+                </div>
+                <p>Sayın <strong>${name}</strong>,</p>
+                <p>Gnessac Hile Önleme Sistemleri destek birimine ilettiğiniz <em class="text-brand">"${subject}"</em> konulu talebiniz başarıyla alınmıştır. Teknik destek ekibimiz incelemeye başlamıştır.</p>
+                <p><strong>Talep Detayınız:</strong> ${details}</p>
+                <br>
+                <div class="pt-4 border-t border-brand/40 text-[11px] text-gray-300">
+                    <strong class="text-white text-xs block">Gnessac Yazılım Limited Şirketi | Kurumsal Destek Departmanı</strong>
+                    📞 Telefon: +0216 255 53 53<br>
+                    ✉️ E-Posta: gnesssoftware@outlook.com<br>
+                    🌐 Web: https://gnessac.pro
+                </div>
+            `;
+
+            document.getElementById('msgTitle').innerText = "KURUMSAL E-POSTA BAŞARIYLA GÖNDERİLDİ!";
+            document.getElementById('msgText').innerHTML = mailHTML;
+            document.getElementById('messageModal').classList.remove('hidden');
+        }
+
+        function triggerClientDownload() {
+            document.getElementById('msgTitle').innerText = "LİSANS DOĞRULAMASI GEREKLİ";
+            document.getElementById('msgText').innerHTML = "İstemciyi (Dosya Boyutu: 4.89 GB) indirebilmek için aktif bir Gnessac IP lisans paketine sahip olmanız gerekmektedir. Şimdi Lisans Paketleri bölümüne yönlendiriliyorsunuz.";
+            document.getElementById('messageModal').classList.remove('hidden');
+        }
+
+        function openAuthModal() { document.getElementById('authModal').classList.remove('hidden'); }
+        function closeAuthModal() { document.getElementById('authModal').classList.add('hidden'); }
+
+        let selectedPackage = '';
+        let selectedPrice = 0;
+
+        function openPaymentModal(pkgName, price) {
+            selectedPackage = pkgName;
+            selectedPrice = price;
+            document.getElementById('payModalTitle').innerText = pkgName;
+            document.getElementById('payModalPrice').innerText = price.toLocaleString('tr-TR') + " ₺";
+            document.getElementById('paymentModal').classList.remove('hidden');
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+        }
+
+        function togglePaymentFields(type) {
+            document.getElementById('ccFields').classList.add('hidden');
+            document.getElementById('eftFields').classList.add('hidden');
+            document.getElementById('cryptoFields').classList.add('hidden');
+
+            if (type === 'cc') document.getElementById('ccFields').classList.remove('hidden');
+            if (type === 'eft') document.getElementById('eftFields').classList.remove('hidden');
+            if (type === 'crypto') document.getElementById('cryptoFields').classList.remove('hidden');
+        }
+
+        function processPayment(e) {
+            e.preventDefault();
+            const ipVal = document.getElementById('serverIpInput').value;
+            if(!ipVal) {
+                alert("Lütfen gerekli bilgiyi giriniz!");
+                return;
+            }
+
+            closePaymentModal();
+            const licenseKey = "GNESSAC-" + Math.random().toString(36).substring(2, 8).toUpperCase() + "-" + Math.random().toString(36).substring(2, 8).toUpperCase();
+            
+            document.getElementById('msgTitle').innerText = "3D GÜVENLİ ÖDEME BAŞARIYLA ONAYLANDI!";
+            document.getElementById('msgText').innerHTML = `
+                <p><strong>Ürün / Hizmet:</strong> ${selectedPackage}</p>
+                <p><strong>Bilgi / IP:</strong> <span class="text-white font-mono">${ipVal}</span></p>
+                <p><strong>Ödenen Tutar:</strong> <span class="text-brand font-bold">${selectedPrice.toLocaleString('tr-TR')} ₺</span></p>
+                <br>
+                <p><strong>Oluşturulan Kayıt Anahtarınız:</strong><br><span class="bg-black px-3 py-1.5 rounded text-white border border-brand font-mono inline-block mt-1">${licenseKey}</span></p>
+                <br>
+                <p class="text-xs text-gray-300">Kurulum dosyaları ve erişim bilgileri e-posta adresinize ve müşteri panelinize tanımlanmıştır.</p>
+            `;
+            document.getElementById('messageModal').classList.remove('hidden');
+            cart = [];
+            updateCartUI();
+        }
+
+        function toggleFaq(index) {
+            const ans = document.getElementById(`faqAns-${index}`);
+            const icon = document.getElementById(`faqIcon-${index}`);
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                ans.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        function closeMessageModal() {
+            document.getElementById('messageModal').classList.add('hidden');
+            if(document.getElementById('msgTitle').innerText.includes('LİSANS DOĞRULAMASI')) {
+                setTimeout(() => {
+                    document.getElementById('paketler').scrollIntoView({ behavior: 'smooth' });
+                }, 200);
+            }
+        }
+    </script>
+</body>
+</html>
