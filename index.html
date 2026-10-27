@@ -130,12 +130,12 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-brand selection:text-white cyber-grid relative dark">
 
-    <!-- İLK GİRİŞ TANITIM / KAMPANYA EKRANI (İSTEDİĞİNİZ GÖRSEL TARZI) -->
+    <!-- İLK GİRİŞ TANITIM / KAMPANYA EKRANI (DÜZELTİLDİ VE AKTİFLEŞTİRİLDİ) -->
     <div id="introSplashModal" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6 transition-all duration-500">
         <div class="max-w-6xl w-full bg-gradient-to-br from-[#111827] via-[#0B0F19] to-[#05070A] border-2 border-brand/80 rounded-3xl shadow-[0_0_100px_rgba(255,107,0,0.4)] overflow-hidden grid grid-cols-1 lg:grid-cols-12 relative">
             
-            <button onclick="closeIntroSplash()" class="absolute top-4 right-4 z-20 text-gray-400 hover:text-white bg-neutral-900/80 hover:bg-brand p-2.5 rounded-full transition-colors">
-                <i class="fa-solid fa-xmark text-lg"></i>
+            <button type="button" onclick="closeIntroSplash()" class="absolute top-4 right-4 z-30 text-gray-400 hover:text-white bg-neutral-900/90 hover:bg-brand p-3 rounded-full transition-colors cursor-pointer">
+                <i class="fa-solid fa-xmark text-xl"></i>
             </button>
 
             <!-- SOL TARAF: GNESSAC VİZYONU & HİZMETLER -->
@@ -199,7 +199,7 @@
                     Güvenli çekirdek koruma ağımıza ve kurumsal web tasarım hizmetlerimize geçiş yapmak için aşağıdaki butona tıklayınız.
                 </p>
 
-                <button onclick="closeIntroSplash()" class="w-full max-w-xs bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-black text-sm uppercase py-4 rounded-xl tracking-widest shadow-[0_0_35px_rgba(255,107,0,0.5)] transition-all transform hover:scale-105 flex items-center justify-center gap-3">
+                <button type="button" onclick="closeIntroSplash()" class="w-full max-w-xs bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-black text-sm uppercase py-4 rounded-xl tracking-widest shadow-[0_0_35px_rgba(255,107,0,0.5)] transition-all transform hover:scale-105 flex items-center justify-center gap-3 cursor-pointer">
                     <span>SİTEYE GİT</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -309,7 +309,7 @@
                 </div>
             </div>
 
-            <!-- SAYISAL SAYAÇLAR (AKTİF SUNUCU SAYACI GERÇEKÇİ 187 DEĞERİNE ÇEKİLDİ) -->
+            <!-- SAYISAL SAYAÇLAR (187 DEĞERİ) -->
             <div class="w-full max-w-4xl mb-8 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="bg-brand-card border border-brand/30 rounded-2xl p-5 text-center shadow-lg">
                     <span class="text-2xl sm:text-3xl font-black text-brand block mb-1"><span class="stat-counter" data-target="99.9" data-decimals="1">0</span>%</span>
@@ -371,7 +371,7 @@
     <!-- TEKNOLOJİ LOGOLARI ŞERİDİ -->
     <section class="py-12 border-b border-brand-border bg-[#05070A]/80 z-10 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="text-[11px] font-black text-brand uppercase tracking-widest block mb-6">ALTYAPIMIZDA KULLANILAN PROFESYONEL TEKNOLOJİLER</span>
+            <span class="text-[11px] font-black text-brand uppercase tracking-widest block mb-6">ALTYAPIMIZda KULLANILAN PROFESYONEL TEKNOLOJİLER</span>
             <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6 items-center justify-center">
                 <div class="bg-brand-card border border-brand-border hover:border-brand p-4 rounded-xl flex flex-col items-center justify-center gap-2 transition-all shadow-sm group">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" class="w-8 h-8 group-hover:scale-110 transition-transform">
@@ -1573,7 +1573,7 @@
         </div>
     </div>
 
-    <!-- MODAL: BİLGİLENDİRME / MESAJ (GÖZ ALICI ŞAHANE OTURUM AÇILDI TASARIMI) -->
+    <!-- MODAL: BİLGİLENDİRME / MESAJ -->
     <div id="messageModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-gradient-to-b from-[#111827] to-[#0B0F19] border-2 border-brand rounded-3xl max-w-xl w-full p-8 text-center relative shadow-[0_0_80px_rgba(255,107,0,0.5)] transform transition-all overflow-hidden">
             <div class="absolute -top-20 -left-20 w-48 h-48 bg-brand/20 blur-3xl rounded-full pointer-events-none"></div>
@@ -1606,11 +1606,14 @@
 
         function closeIntroSplash() {
             const splash = document.getElementById('introSplashModal');
-            splash.style.opacity = '0';
-            splash.style.transition = 'opacity 0.4s ease';
-            setTimeout(() => {
-                splash.classList.add('hidden');
-            }, 400);
+            if (splash) {
+                splash.style.opacity = '0';
+                splash.style.transition = 'opacity 0.4s ease';
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                    splash.classList.add('hidden');
+                }, 400);
+            }
         }
 
         // PERFORMANSLI SAYI YUVARLANMA EFEKTİ
@@ -1626,3 +1629,363 @@
                     const elapsed = currentTime - startTime;
                     const progress = Math.min(elapsed / duration, 1);
                     const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                    const currentVal = easeProgress * target;
+
+                    counter.innerText = currentVal.toFixed(decimals);
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target.toFixed(decimals);
+                    }
+                }
+                requestAnimationFrame(updateCounter);
+            });
+        }
+
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        function scrollToBottom() { window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }
+
+        function openModalDoc(type) {
+            const titleEl = document.getElementById('docModalTitle');
+            const bodyEl = document.getElementById('docModalBody');
+            
+            if(type === 'terms') {
+                titleEl.innerText = "Üyelik Sözleşmesi ve Kullanım Şartları";
+                bodyEl.innerHTML = `<p>Gnessac Yazılım Limited Şirketi kurumsal çekirdek koruma ve lisans sözleşmesi şartları.</p>`;
+            } else {
+                titleEl.innerText = "Kurumsal Gizlilik ve Veri Koruma Politikası";
+                bodyEl.innerHTML = `<p>6698 sayılı KVKK ve gizlilik politikası ilkeleri.</p>`;
+            }
+            document.getElementById('docModal').classList.remove('hidden');
+        }
+        function closeModalDoc() { document.getElementById('docModal').classList.add('hidden'); }
+
+        function getRegisteredUsers() {
+            const users = localStorage.getItem('gnessac_users');
+            return users ? JSON.parse(users) : [
+                { name: "Ahmet Yılmaz", email: "ahmet@ornek.com", pass: "123456", phone: "05554443322", address: "Kadıköy / İstanbul", type: "Bireysel Müşteri", ip: "185.120.10.45" }
+            ];
+        }
+        function saveRegisteredUsers(users) { localStorage.setItem('gnessac_users', JSON.stringify(users)); }
+        function getActiveUser() {
+            const user = localStorage.getItem('gnessac_active_user');
+            return user ? JSON.parse(user) : null;
+        }
+        function setActiveUser(user) {
+            if(user) { localStorage.setItem('gnessac_active_user', JSON.stringify(user)); }
+            else { localStorage.removeItem('gnessac_active_user'); }
+            checkActiveSession();
+        }
+
+        function checkActiveSession() {
+            const active = getActiveUser();
+            const container = document.getElementById('authButtonsContainer');
+            if(active) {
+                container.innerHTML = `
+                    <button onclick="openDashboardModal()" class="bg-brand/20 hover:bg-brand/30 border border-brand text-white font-black text-xs uppercase px-4 py-2.5 rounded-xl tracking-wider transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(255,107,0,0.3)]">
+                        <i class="fa-solid fa-user-shield text-brand"></i>
+                        <span class="truncate max-w-[120px] sm:max-w-[180px]">${active.name}</span>
+                    </button>
+                `;
+            } else {
+                container.innerHTML = `
+                    <button onclick="openAuthModal()" class="bg-neutral-800 hover:bg-neutral-700 text-white font-bold text-xs uppercase px-4 py-2.5 rounded-lg tracking-wider transition-all duration-300 border border-brand/30">GİRİŞ YAP</button>
+                    <button onclick="openRegisterModal()" class="bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-bold text-xs uppercase px-5 py-2.5 rounded-lg tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(255,107,0,0.4)]">MÜŞTERİ OL</button>
+                `;
+            }
+        }
+
+        function openRegisterModal() { document.getElementById('registerModal').classList.remove('hidden'); }
+        function closeRegisterModal() { document.getElementById('registerModal').classList.add('hidden'); }
+
+        function toggleAccountType(type) {
+            const kurumsalDiv = document.getElementById('kurumsalFields');
+            if (type === 'kurumsal') {
+                kurumsalDiv.classList.remove('hidden');
+                document.getElementById('regCompany').setAttribute('required', 'true');
+                document.getElementById('regTaxOffice').setAttribute('required', 'true');
+                document.getElementById('regTaxNo').setAttribute('required', 'true');
+            } else {
+                kurumsalDiv.classList.add('hidden');
+                document.getElementById('regCompany').removeAttribute('required');
+                document.getElementById('regTaxOffice').removeAttribute('required');
+                document.getElementById('regTaxNo').removeAttribute('required');
+            }
+        }
+
+        function handleRegisterSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value.trim();
+            const tc = document.getElementById('regTc').value.trim();
+            const email = document.getElementById('regEmail').value.trim().toLowerCase();
+            const phone = document.getElementById('regPhone').value.trim();
+            const pass = document.getElementById('regPass').value;
+            const passConfirm = document.getElementById('regPassConfirm').value;
+            const address = document.getElementById('regAddress').value.trim();
+            const terms = document.getElementById('regTerms').checked;
+            const privacy = document.getElementById('regPrivacy').checked;
+            const isKurumsal = document.querySelector('input[name="accountType"]:checked').value === 'kurumsal';
+
+            if (pass !== passConfirm) { alert("Şifreler uyuşmuyor!"); return; }
+            if (tc.length !== 11 || isNaN(tc)) { alert("TC Kimlik 11 hane olmalıdır!"); return; }
+            if (!terms || !privacy) { alert("Sözleşmeleri onaylamalısınız!"); return; }
+
+            let users = getRegisteredUsers();
+            if(users.some(u => u.email === email)) { alert("Bu e-posta kayıtlı!"); return; }
+
+            const newUser = { name, email, pass, phone, address, type: isKurumsal ? 'Kurumsal Firma Müşterisi' : 'Bireysel Müşteri', ip: '185.120.10.45' };
+            users.push(newUser);
+            saveRegisteredUsers(users);
+            setActiveUser(newUser);
+            closeRegisterModal();
+            
+            document.getElementById('msgTitle').innerText = "OTURUM AÇILDI • HOŞ GELDİNİZ";
+            document.getElementById('msgText').innerHTML = `
+                <p class="text-white font-extrabold text-base mb-1">Sayın ${name}</p>
+                <p class="text-brand font-semibold text-xs mb-2">${newUser.type}</p>
+                <p class="text-gray-300 text-xs">Gnessac Çekirdek Güvenlik sistemine başarıyla kaydoldunuz ve oturumunuz açıldı. Güvenli portaldan lisanslarınızı yönetebilirsiniz.</p>
+            `;
+            document.getElementById('messageModal').classList.remove('hidden');
+        }
+
+        function handleAuthSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+            const pass = document.getElementById('loginPass').value;
+
+            const users = getRegisteredUsers();
+            const foundUser = users.find(u => u.email === email && u.pass === pass);
+
+            if(!foundUser) { alert("E-posta veya şifre hatalı!"); return; }
+
+            setActiveUser(foundUser);
+            closeAuthModal();
+
+            document.getElementById('msgTitle').innerText = "OTURUM AÇILDI • HOŞ GELDİNİZ";
+            document.getElementById('msgText').innerHTML = `
+                <p class="text-white font-extrabold text-base mb-1">Tekrar hoş geldiniz, ${foundUser.name}</p>
+                <p class="text-brand font-semibold text-xs mb-2">${foundUser.type}</p>
+                <p class="text-gray-300 text-xs">Çekirdek koruma veritabanımız ile kimliğiniz doğrulandı. Güvenli müşteri panelinize aktarıldınız.</p>
+            `;
+            document.getElementById('messageModal').classList.remove('hidden');
+        }
+
+        function openDashboardModal() {
+            const active = getActiveUser();
+            if(!active) { openAuthModal(); return; }
+            document.getElementById('dashUserName').innerText = active.name;
+            document.getElementById('dashUserRole').innerText = active.type + " • Aktif";
+            document.getElementById('dashUserIp').innerText = active.ip;
+            document.getElementById('dashEmail').value = active.email;
+            document.getElementById('dashPhone').value = active.phone;
+            document.getElementById('dashAddress').value = active.address;
+            document.getElementById('userDashboardModal').classList.remove('hidden');
+        }
+        function closeDashboardModal() { document.getElementById('userDashboardModal').classList.add('hidden'); }
+
+        function handleProfileUpdate(e) {
+            e.preventDefault();
+            let active = getActiveUser();
+            if(!active) return;
+            active.email = document.getElementById('dashEmail').value.trim();
+            active.phone = document.getElementById('dashPhone').value.trim();
+            active.address = document.getElementById('dashAddress').value.trim();
+            setActiveUser(active);
+            let users = getRegisteredUsers();
+            users = users.map(u => u.email === active.email ? active : u);
+            saveRegisteredUsers(users);
+            alert("Profil güncellendi!");
+        }
+
+        function logoutUser() {
+            setActiveUser(null);
+            closeDashboardModal();
+            alert("Oturum kapatıldı.");
+        }
+
+        let cart = [];
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) { existing.qty += 1; } else { cart.push({ name, price, qty: 1 }); }
+            updateCartUI();
+            document.getElementById('msgTitle').innerText = "SEPETE EKLENDİ";
+            document.getElementById('msgText').innerHTML = `<strong>${name}</strong> sepetinize eklendi.`;
+            document.getElementById('messageModal').classList.remove('hidden');
+        }
+
+        function updateCartUI() {
+            const countBadge = document.getElementById('cartBadgeCount');
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            countBadge.innerText = totalQty;
+            const container = document.getElementById('cartItemsContainer');
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-300 text-center py-6">Sepetiniz boş.</p>`;
+                document.getElementById('cartSubtotal').innerText = "0 ₺";
+                document.getElementById('cartTotal').innerText = "0 ₺";
+                return;
+            }
+            let html = '';
+            let subtotal = 0;
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                html += `
+                    <div class="bg-[#05070A] border border-brand-border rounded-xl p-3 flex items-center justify-between text-xs">
+                        <div><strong class="text-white block">${item.name}</strong><span class="text-brand">${item.price} ₺</span></div>
+                        <div class="flex items-center gap-3"><span class="text-gray-200 font-bold">Adet: ${item.qty}</span><button onclick="removeFromCart(${index})" class="text-red-400"><i class="fa-solid fa-trash"></i></button></div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+            document.getElementById('cartSubtotal').innerText = subtotal.toLocaleString('tr-TR') + " ₺";
+            document.getElementById('cartTotal').innerText = subtotal.toLocaleString('tr-TR') + " ₺";
+        }
+
+        function removeFromCart(index) { cart.splice(index, 1); updateCartUI(); }
+        function clearCart() { cart = []; updateCartUI(); }
+        function openCartModal() { updateCartUI(); document.getElementById('cartModal').classList.remove('hidden'); }
+        function closeCartModal() { document.getElementById('cartModal').classList.add('hidden'); }
+        function checkoutCart() {
+            if (cart.length === 0) { alert("Sepetiniz boş!"); return; }
+            closeCartModal();
+            const totalSum = parseInt(document.getElementById('cartSubtotal').innerText.replace(/\D/g, ''));
+            openPaymentModal('Toplu Sepet', totalSum);
+        }
+
+        function toggleLiveChat() {
+            document.getElementById('liveChatWindow').classList.toggle('hidden');
+            document.getElementById('chatNotificationDot').classList.add('hidden');
+        }
+
+        const chatAnswers = {
+            1: "1.349 TL'lik Kurumsal Web Tasarım Paketi özel arayüz, mobil uyum ve %7 indirim kampanyasını kapsar.",
+            2: "Metin2, Knight Online, Warframe, VALORANT, League of Legends ve EVE Online desteklenir.",
+            3: "Ring-0 Çekirdek, işletim sisteminin en yetkili katmanıdır ve hileleri kökten engeller.",
+            4: "Ödemeden hemen sonra lisans anahtarınız ve entegrasyon dosyalarınız panelinize tanımlanır.",
+            5: "Asenkron mimariyle çalıştığı için FPS düşüşü yapmaz (%0.1 altı CPU tüketimi).",
+            6: "Kişisel dosyalarınız asla taranmaz; yalnızca oyun süreç bellek alanı incelenir.",
+            7: "Tüm işlemler 256-bit SSL ve 3D Secure ile korunur, e-fatura kesilir.",
+            8: "Donanım banları anakart ve disk seri numaralarına göre otomatik uygulanır.",
+            9: "Windows 10/11 UEFI ve Güvenli Önyükleme desteği gereklidir.",
+            10: "Birden çok lisans veya hizmeti sepete ekleyerek tek seferde alabilirsiniz.",
+            11: "Havale/EFT bildirimleriniz onaylandıktan sonra lisansınız aktifleşir.",
+            12: "Müşteri panelinizden lisanslı IP adresinizi güncelleyebilirsiniz.",
+            13: "Bize 7/24 +0216 255 53 53 numaralı hattan ulaşabilirsiniz.",
+            14: "Gnessac Yazılım Limited Şirketi Bostancı / İstanbul'dadır.",
+            15: "Metin2 Python bayt kod manipülasyonları Ring-0 seviyesinde engellenir.",
+            16: "Knight Online makro pedal ve paket hileleri filtrelenir.",
+            17: "Warframe bot ve bellek okuma hileleri çekirdek seviyesinde bloke edilir.",
+            18: "VALORANT için Vanguard uyumlu Ring-0 modülleri kullanılır.",
+            19: "League of Legends script ve dodge engellemesi aktiftir.",
+            20: "EVE Online çoklu kutu bot ve madencilik koruması sağlanır.",
+            21: "Müşteri ol butonundan kolayca hesap oluşturabilirsiniz.",
+            22: "Kurumsal kayıtlar için Vergi Dairesi ve No zorunludur.",
+            23: "İstemci dosyası aktif lisans onayı sonrasında indirilebilir.",
+            24: "10 IP Lisans filosu özel sürücü maskelemesi sunar.",
+            25: "USDT TRC20 cüzdan ödemeleri otomatik onaylanır.",
+            26: "Web tasarım paketimiz tam responsive ve SEO uyumludur.",
+            27: "Abonelik bitiminde yenilenmeyen lisanslar askıya alınır.",
+            28: "Profil panelinizden bilgilerinizi güncelleyebilirsiniz.",
+            29: "TC Kimlik no 11 haneli ve eksiksiz olmalıdır.",
+            30: "Özel sürücü imzalama ve gizleme hizmeti verilir.",
+            31: "DDoS koruması altyapıya dahildir.",
+            32: "Dijital yazılım lisanslarında iade koşulları sözleşmeye tabidir."
+        };
+
+        function sendPresetChat(qIndex) {
+            const container = document.getElementById('chatMessages');
+            const userQ = document.createElement('div');
+            userQ.className = "bg-brand text-white p-2.5 rounded-xl ml-auto max-w-[85%] font-medium";
+            userQ.innerText = document.querySelectorAll('#liveChatWindow button')[qIndex-1].innerText.replace(/^\d+\.\s*/, '');
+            container.appendChild(userQ);
+
+            setTimeout(() => {
+                const botA = document.createElement('div');
+                botA.className = "bg-[#111827] border border-brand/30 text-gray-200 p-3 rounded-xl mr-auto max-w-[85%] leading-relaxed";
+                botA.innerHTML = `<strong class="text-brand block mb-1">Gnessac Asistanı:</strong> ${chatAnswers[qIndex]}`;
+                container.appendChild(botA);
+                container.scrollTop = container.scrollHeight;
+            }, 300);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function openSupportModal() { document.getElementById('supportModal').classList.remove('hidden'); }
+        function closeSupportModal() { document.getElementById('supportModal').classList.add('hidden'); }
+
+        function handleSupportSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('suppName').value;
+            const subject = document.getElementById('suppSubject').value;
+            closeSupportModal();
+            document.getElementById('msgTitle').innerText = "DESTEK TALEBİ ALINDI";
+            document.getElementById('msgText').innerHTML = `<p>Sayın <strong>${name}</strong>, <em>"${subject}"</em> konulu talebiniz mühendislik ekibimize iletildi.</p>`;
+            document.getElementById('messageModal').classList.remove('hidden');
+        }
+
+        function triggerClientDownload() {
+            document.getElementById('msgTitle').innerText = "LİSANS DOĞRULAMASI GEREKLİ";
+            document.getElementById('msgText').innerHTML = "<p>İstemciyi indirebilmek için aktif bir Gnessac IP lisans paketine sahip olmanız gerekmektedir.</p>";
+            document.getElementById('messageModal').classList.remove('hidden');
+        }
+
+        function openAuthModal() { document.getElementById('authModal').classList.remove('hidden'); }
+        function closeAuthModal() { document.getElementById('authModal').classList.add('hidden'); }
+
+        let selectedPackage = '';
+        let selectedPrice = 0;
+
+        function openPaymentModal(pkgName, price) {
+            selectedPackage = pkgName;
+            selectedPrice = price;
+            document.getElementById('payModalTitle').innerText = pkgName;
+            document.getElementById('payModalPrice').innerText = price.toLocaleString('tr-TR') + " ₺";
+            document.getElementById('paymentModal').classList.remove('hidden');
+        }
+        function closePaymentModal() { document.getElementById('paymentModal').classList.add('hidden'); }
+
+        function togglePaymentFields(type) {
+            document.getElementById('ccFields').classList.add('hidden');
+            document.getElementById('eftFields').classList.add('hidden');
+            document.getElementById('cryptoFields').classList.add('hidden');
+            if (type === 'cc') document.getElementById('ccFields').classList.remove('hidden');
+            if (type === 'eft') document.getElementById('eftFields').classList.remove('hidden');
+            if (type === 'crypto') document.getElementById('cryptoFields').classList.add('hidden');
+        }
+
+        function processPayment(e) {
+            e.preventDefault();
+            const ipVal = document.getElementById('serverIpInput').value;
+            if(!ipVal) { alert("Lütfen gerekli bilgiyi giriniz!"); return; }
+            closePaymentModal();
+            const licenseKey = "GNESSAC-" + Math.random().toString(36).substring(2, 8).toUpperCase() + "-" + Math.random().toString(36).substring(2, 8).toUpperCase();
+            document.getElementById('msgTitle').innerText = "ÖDEME ONAYLANDI";
+            document.getElementById('msgText').innerHTML = `<p><strong>Ürün:</strong> ${selectedPackage}</p><p><strong>Lisans Anahtarınız:</strong><br><span class="bg-black px-3 py-1.5 rounded text-white border border-brand font-mono inline-block mt-1">${licenseKey}</span></p>`;
+            document.getElementById('messageModal').classList.remove('hidden');
+            cart = [];
+            updateCartUI();
+        }
+
+        function toggleFaq(index) {
+            const ans = document.getElementById(`faqAns-${index}`);
+            const icon = document.getElementById(`faqIcon-${index}`);
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                ans.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        function closeMessageModal() {
+            document.getElementById('messageModal').classList.add('hidden');
+            if(document.getElementById('msgTitle').innerText.includes('LİSANS DOĞRULAMASI')) {
+                setTimeout(() => {
+                    document.getElementById('paketler').scrollIntoView({ behavior: 'smooth' });
+                }, 200);
+            }
+        }
+    </script>
+</body>
+</html>
