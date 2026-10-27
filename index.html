@@ -64,7 +64,7 @@
         }
         .cyber-grid {
             background-image: linear-gradient(to right, rgba(255, 107, 0, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 107, 0, 0.03) 1px, transparent 1px);
+                            linear-gradient(to bottom, rgba(255, 107, 0, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
         }
         @keyframes floatOrangeBall {
@@ -101,6 +101,35 @@
             z-index: 1;
             filter: blur(25px);
             animation: floatWhiteBall 24s infinite ease-in-out;
+        }
+
+        /* HOLOGRAFİK IŞIK SÜZMESİ (HOLOFOIL HOVER) EFEKTİ */
+        .holofoil-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .holofoil-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                135deg,
+                transparent 40%,
+                rgba(255, 107, 0, 0.15) 45%,
+                rgba(255, 255, 255, 0.25) 50%,
+                rgba(255, 107, 0, 0.15) 55%,
+                transparent 60%
+            );
+            transform: rotate(35deg) translateY(-100%);
+            transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .holofoil-card:hover::after {
+            transform: rotate(35deg) translateY(100%);
         }
     </style>
 </head>
@@ -194,7 +223,7 @@
                 </div>
 
                 <p class="text-xs sm:text-sm md:text-base leading-relaxed font-normal max-w-3xl mx-auto mb-6 text-gray-200">
-                    Profesyonel oyuncular, rekabetçi ligler ve devasa topluluk sunucuları tarafından tercih edilen; Ring-0 Çekirdek (Kernel) seviyesinde çalışan sıfır gecikmeli koruma mimarisi. Metin2, Knight Online, Counter-Strike 2, VALORANT, League of Legends ve EVE Online altyapılarında bellek bütünlüğünü %99.9 oranında garanti altına alır, donanım tabanlı biyometrik engelleme sunar.
+                    Profesyonel oyuncular, rekabetçi ligler ve devasa topluluk sunucuları tarafından tercih edilen; Ring-0 Çekirdek (Kernel) seviyesinde çalışan sıfır gecikmeli koruma mimarisi. Metin2, Knight Online, Apex Legends, VALORANT, League of Legends ve EVE Online altyapılarında bellek bütünlüğünü %99.9 oranında garanti altına alır, donanım tabanlı biyometrik engelleme sunar.
                 </p>
 
                 <div class="pt-6 border-t border-neutral-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-bold">
@@ -302,13 +331,13 @@
                 </h2>
                 <div class="w-16 h-1 bg-brand mx-auto rounded-full mb-4"></div>
                 <p class="text-gray-300 text-sm sm:text-base max-w-3xl mx-auto">
-                    Gnessac Anti-Cheat, Metin2, Knight Online, Counter-Strike 2, VALORANT, League of Legends ve EVE Online altyapıları için özel olarak geliştirilmiş Ring-0 çekirdek modülleri ile oyun içi bellek bütünlüğünü %99.9 oranında korur.
+                    Gnessac Anti-Cheat, Metin2, Knight Online, Apex Legends, VALORANT, League of Legends ve EVE Online altyapıları için özel olarak geliştirilmiş Ring-0 çekirdek modülleri ile oyun içi bellek bütünlüğünü %99.9 oranında korur.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5">
                 <!-- METİN2 -->
-                <div class="bg-brand-card border border-brand-border rounded-2xl p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl">
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl holofoil-card">
                     <div>
                         <div class="w-14 h-14 rounded-2xl bg-[#07090E] border-2 border-brand flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(255,107,0,0.2)] group-hover:scale-105 transition-transform">
                             <span class="text-xl font-black text-brand tracking-widest">M2</span>
@@ -324,7 +353,7 @@
                 </div>
 
                 <!-- KNIGHT ONLINE -->
-                <div class="bg-brand-card border border-brand-border rounded-2xl p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl">
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl holofoil-card">
                     <div>
                         <div class="w-14 h-14 rounded-2xl bg-[#07090E] border-2 border-brand flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(255,107,0,0.2)] group-hover:scale-105 transition-transform">
                             <span class="text-xl font-black text-brand tracking-widest">KO</span>
@@ -339,15 +368,15 @@
                     </div>
                 </div>
 
-                <!-- CS2 (DÜZELTİLDİ: KUTU İÇİNE TAM SIĞACAK ŞEKİLDE OPTİMİZE EDİLDİ) -->
-                <div class="bg-brand-card border border-brand-border rounded-2xl p-4 sm:p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl">
+                <!-- APEX LEGENDS (CS2 YERİNE EKLENDİ) -->
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-4 sm:p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl holofoil-card">
                     <div>
                         <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#07090E] border-2 border-brand flex items-center justify-center mb-3 shadow-[0_0_15px_rgba(255,107,0,0.2)] group-hover:scale-105 transition-transform">
-                            <span class="text-base sm:text-xl font-black text-brand tracking-widest">CS2</span>
+                            <span class="text-base sm:text-xl font-black text-brand tracking-widest">APEX</span>
                         </div>
-                        <h3 class="text-base sm:text-lg font-extrabold mb-1.5 text-white">Counter-Strike 2</h3>
+                        <h3 class="text-base sm:text-lg font-extrabold mb-1.5 text-white">Apex Legends</h3>
                         <p class="text-gray-300 text-[10px] sm:text-[11px] leading-snug sm:leading-relaxed mb-3">
-                            Otomatik nişan alma, duvar arkası görme, ekstra duyusal algı, tetik botu ve radar hilelerini sezgisel tarama motoruyla yakalar.
+                            Easy Anti-Cheat entegrasyonlu Ring-0 korumasıyla harici aimbot, glow hack, wallhack ve bellek okuma hilelerini anında bloke eder.
                         </p>
                     </div>
                     <div class="pt-2 sm:pt-3 border-t border-neutral-800 text-[10px] text-brand font-semibold flex items-center gap-1.5">
@@ -356,7 +385,7 @@
                 </div>
 
                 <!-- VALORANT -->
-                <div class="bg-brand-card border border-brand-border rounded-2xl p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl">
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl holofoil-card">
                     <div>
                         <div class="w-14 h-14 rounded-2xl bg-[#07090E] border-2 border-brand flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(255,107,0,0.2)] group-hover:scale-105 transition-transform">
                             <span class="text-lg font-black text-brand tracking-widest">VAL</span>
@@ -372,7 +401,7 @@
                 </div>
 
                 <!-- LEAGUE OF LEGENDS -->
-                <div class="bg-brand-card border border-brand-border rounded-2xl p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl">
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl holofoil-card">
                     <div>
                         <div class="w-14 h-14 rounded-2xl bg-[#07090E] border-2 border-brand flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(255,107,0,0.2)] group-hover:scale-105 transition-transform">
                             <span class="text-lg font-black text-brand tracking-widest">LoL</span>
@@ -388,7 +417,7 @@
                 </div>
 
                 <!-- EVE ONLINE -->
-                <div class="bg-brand-card border border-brand-border rounded-2xl p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl">
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl holofoil-card">
                     <div>
                         <div class="w-14 h-14 rounded-2xl bg-[#07090E] border-2 border-brand flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(255,107,0,0.2)] group-hover:scale-105 transition-transform">
                             <span class="text-lg font-black text-brand tracking-widest">EVE</span>
@@ -422,7 +451,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 items-stretch">
                 <!-- 1 IP PAKET -->
-                <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand transition-all duration-300 relative overflow-hidden shadow-xl">
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand transition-all duration-300 relative overflow-hidden shadow-xl holofoil-card">
                     <div>
                         <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">BAŞLANGIÇ LİSANSI</div>
                         <h3 class="text-2xl font-black mb-3 text-white">1 IP Lisansı</h3>
@@ -448,7 +477,7 @@
                 </div>
 
                 <!-- 2 IP PAKET -->
-                <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand transition-all duration-300 relative overflow-hidden shadow-xl">
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand transition-all duration-300 relative overflow-hidden shadow-xl holofoil-card">
                     <div>
                         <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">PROFESYONEL PRO</div>
                         <h3 class="text-2xl font-black mb-3 text-white">2 IP Lisansı</h3>
@@ -474,7 +503,7 @@
                 </div>
 
                 <!-- 10 IP PAKET -->
-                <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand transition-all duration-300 relative overflow-hidden shadow-xl">
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand transition-all duration-300 relative overflow-hidden shadow-xl holofoil-card">
                     <div>
                         <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">KURUMSAL FİLO</div>
                         <h3 class="text-2xl font-black mb-3 text-white">10 IP Lisansı</h3>
@@ -500,7 +529,7 @@
                 </div>
 
                 <!-- 25 IP MEGA FİLO -->
-                <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand transition-all duration-300 relative overflow-hidden shadow-xl">
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand transition-all duration-300 relative overflow-hidden shadow-xl holofoil-card">
                     <div>
                         <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">SINIRSIZ AĞ</div>
                         <h3 class="text-2xl font-black mb-3 text-white">25 IP Mega Filo</h3>
@@ -526,7 +555,7 @@
                 </div>
 
                 <!-- WEB SİTESİ TASARIM SATIŞ HİZMET PAKETİ (₺ DÜZELTİLDİ) -->
-                <div class="bg-brand-card border-2 border-brand rounded-2xl p-6 flex flex-col justify-between shadow-[0_0_35px_rgba(255,107,0,0.25)] relative overflow-hidden transform lg:-translate-y-2">
+                <div class="bg-brand-card border-2 border-brand rounded-2xl p-6 flex flex-col justify-between shadow-[0_0_35px_rgba(255,107,0,0.25)] relative overflow-hidden transform lg:-translate-y-2 holofoil-card">
                     <div class="absolute top-0 right-0 bg-brand text-white font-extrabold text-[9px] uppercase px-3 py-1 rounded-bl-xl tracking-wider shadow-sm">
                         ÖZEL KURUMSAL HİZMET
                     </div>
@@ -572,7 +601,7 @@
                     <strong class="text-white">Gnessac Hile Önleme Sistemleri</strong>, çevrimiçi oyun ekosisteminde adil rekabet ortamını yeniden tesis etmek ve sunucu sahiplerinin yatırımlarını korumak amacıyla kurulmuş yüksek teknolojili bir siber güvenlik şirketidir. Geliştirdiğimiz mimari doğrudan işletim sisteminin kalbinde, yani <strong class="text-brand">Windows Çekirdeği (Ring-0)</strong> seviyesinde çalışır.
                 </p>
                 <p>
-                    Metin2, Knight Online, Counter-Strike 2, VALORANT, League of Legends ve EVE Online gibi milyonlarca aktif oyuncuya sahip devasa yapımların veri hatlarını analiz ediyoruz. Bellek enjeksiyonları, kod manipülasyonları ve gizli sürücü hilelerini milisaniyeler içerisinde tespit eder.
+                    Metin2, Knight Online, Apex Legends, VALORANT, League of Legends ve EVE Online gibi milyonlarca aktif oyuncuya sahip devasa yapımların veri hatlarını analiz ediyoruz. Bellek enjeksiyonları, kod manipülasyonları ve gizli sürücü hilelerini milisaniyeler içerisinde tespit eder.
                 </p>
                 <div class="pt-4 border-t border-neutral-800">
                     <h4 class="font-black text-base uppercase mb-3 text-brand">Ekstra Kurumsal Hizmetlerimiz</h4>
@@ -655,7 +684,7 @@
                         <i id="faqIcon-6" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
                     </button>
                     <div id="faqAns-6" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
-                        Metin2, Knight Online, Counter-Strike 2, VALORANT, League of Legends ve EVE Online oyun sunucuları tam destek kapsamındadır.
+                        Metin2, Knight Online, Apex Legends, VALORANT, League of Legends ve EVE Online oyun sunucuları tam destek kapsamındadır.
                     </div>
                 </div>
 
@@ -999,7 +1028,7 @@
                 <button onclick="sendPresetChat(14)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">14. Gnessac Yazılım resmi iletişim ve ofis adresi</button>
                 <button onclick="sendPresetChat(15)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">15. Metin2 sunucularında Python hileleri nasıl engellenir?</button>
                 <button onclick="sendPresetChat(16)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">16. Knight Online makro ve paket hilesi engelleme</button>
-                <button onclick="sendPresetChat(17)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">17. Counter-Strike 2 duvar arkası ve aimbot tespiti</button>
+                <button onclick="sendPresetChat(17)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">17. Apex Legends harici aimbot ve wallhack tespiti</button>
                 <button onclick="sendPresetChat(18)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">18. VALORANT Vanguard uyumlu çekirdek modülleri</button>
                 <button onclick="sendPresetChat(19)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">19. League of Legends script ve dodge engelleme</button>
                 <button onclick="sendPresetChat(20)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">20. EVE Online çoklu bot ve madencilik koruması</button>
@@ -1324,7 +1353,7 @@
                         <option value="14. Gnessac Yazılım Bostancı Merkez Ofis ve İletişim">14. Gnessac Yazılım Bostancı Merkez Ofis ve İletişim</option>
                         <option value="15. Metin2 Python Bayt Kod ve DLL Engelleme">15. Metin2 Python Bayt Kod ve DLL Engelleme</option>
                         <option value="16. Knight Online Makro Pedal ve Multi-Client Filtreleme">16. Knight Online Makro Pedal ve Multi-Client Filtreleme</option>
-                        <option value="17. Counter-Strike 2 Sezgisel Aimbot ve Wallhack Tespiti">17. Counter-Strike 2 Sezgisel Aimbot ve Wallhack Tespiti</option>
+                        <option value="17. Apex Legends Harici Aimbot ve Wallhack Tespiti">17. Apex Legends Harici Aimbot ve Wallhack Tespiti</option>
                         <option value="18. VALORANT Vanguard Tamamlayıcı Ring-0 Modülleri">18. VALORANT Vanguard Tamamlayıcı Ring-0 Modülleri</option>
                         <option value="19. League of Legends Script ve Zoom Hack Engelleme">19. League of Legends Script ve Zoom Hack Engelleme</option>
                         <option value="20. EVE Online Otomatik Madencilik Botu Engelleme">20. EVE Online Otomatik Madencilik Botu Engelleme</option>
@@ -1533,7 +1562,7 @@
             if(type === 'terms') {
                 titleEl.innerText = "Üyelik Sözleşmesi ve Kullanım Şartları";
                 bodyEl.innerHTML = `
-                    <p><strong>1. Taraflار ve Kapsam:</strong> İşbu sözleşme Gnessac Yazılım Limited Şirketi ile siteye kayıt olan müşteri arasında elektronik ortamda akdedilmiştir. Sunulan tüm çekirdek koruma ve yazılım hizmetleri bu şartlara tabidir.</p>
+                    <p><strong>1. Taraflar ve Kapsam:</strong> İşbu sözleşme Gnessac Yazılım Limited Şirketi ile siteye kayıt olan müşteri arasında elektronik ortamda akdedilmiştir. Sunulan tüm çekirdek koruma ve yazılım hizmetleri bu şartlara tabidir.</p>
                     <p><strong>2. Lisans Hakları:</strong> Sağlanan çekirdek sürücüleri ve API uç noktaları yalnızca onaylı sunucu IP adreslerinde çalışır. Tersine mühendislik (reverse engineering) ve bellek dökümü almak kesinlikle yasaktır.</p>
                     <p><strong>3. Sorumluluk Beyanı:</strong> Müşteri, üyelik formunda beyan ettiği TC Kimlik Numarası, vergi bilgileri ve iletişim adreslerinin tam ve doğru olduğunu kabul eder.</p>
                 `;
@@ -1853,7 +1882,7 @@
 
         const chatAnswers = {
             1: "1.349 TL tutarındaki Kurumsal Web Tasarım Paketimiz; özel arayüz tasarımı, mobil uyumlu responsive altyapı, SEO optimizasyonu ve hızlı teslimat hizmetlerini tek seferlik ücretle kapsar.",
-            2: "Gnessac Anti-Cheat; Metin2, Knight Online, Counter-Strike 2, VALORANT, League of Legends ve EVE Online oyun sunucuları için tam uyumlu Ring-0 çekirdek koruması sağlar.",
+            2: "Gnessac Anti-Cheat; Metin2, Knight Online, Apex Legends, VALORANT, League of Legends ve EVE Online oyun sunucuları için tam uyumlu Ring-0 çekirdek koruması sağlar.",
             3: "Ring-0 (Çekirdek), işletim sisteminin en yetkili katmanıdır. Sıradan hileler bu seviyeye erişemez, böylece %99.9 oranında kusursuz güvenlik sağlanır.",
             4: "Ödemeniz onaylandığı anda IP lisans anahtarınız ve entegrasyon dosyalarınız müşteri panelinize iletilir. 5 dakika içinde sunucunuza entegre edebilirsiniz.",
             5: "Kesinlikle hayır! Asenkron C++ mimarisi sayesinde işlemci ve bellek kullanımı %0.1'in altındadır, oyuncularınızın kare hızı değerlerine asla etki etmez.",
@@ -1868,7 +1897,7 @@
             14: "Gnessac Yazılım Limited Şirketi merkezimiz Türkiye / İstanbul - Bostancı'da yer almaktadır.",
             15: "Metin2 sunucularında Python bayt kod manipülasyonları ve DLL enjeksiyonları Ring-0 seviyesinde engellenir.",
             16: "Knight Online oyununda paket manipülasyonları, makro pedallar ve çoklu istemciler filtrelenir.",
-            17: "Counter-Strike 2 oyununda aimbot, wallhack ve tetik botu sezgisel tarama motoruyla yakalanır.",
+            17: "Apex Legends oyununda harici aimbot, wallhack ve glow hack hileleri sezgisel çekirdek motoruyla yakalanır.",
             18: "VALORANT için Vanguard tamamlayıcı Ring-0 modülleriyle piksel nişan alma engellenir.",
             19: "League of Legends oyununda script, dodge ve zoom hack girişimleri engellenir.",
             20: "EVE Online çoklu kutu bot yazılımları ve madencilik botları tamamen bloke edilir.",
