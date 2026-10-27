@@ -142,7 +142,7 @@
                 <a href="#gizlilik" class="hover:text-brand transition-colors text-gray-200">GİZLİLİK</a>
             </nav>
 
-            <!-- SAĞ AKSİYONLAR (SEPET, GİRİŞ YAP, MÜŞTERİ OL) -->
+            <!-- SAĞ AKSİYONLAR (SEPET, GİRİŞ YAP, MÜŞTERİ OL VEYA AKTİF KULLANICI İSMİ) -->
             <div class="flex items-center space-x-3">
                 <!-- ALIŞVERİŞ SEPETİ BUTONU -->
                 <button onclick="openCartModal()" class="relative bg-brand/10 hover:bg-brand/20 border border-brand/40 p-2.5 rounded-xl transition-all flex items-center gap-2 group shadow-[0_0_15px_rgba(255,107,0,0.2)]">
@@ -150,13 +150,15 @@
                     <span id="cartBadgeCount" class="absolute -top-1.5 -right-1.5 bg-brand text-white font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
                 </button>
 
-                <button onclick="openAuthModal()" class="bg-neutral-800 hover:bg-neutral-700 text-white font-bold text-xs uppercase px-4 py-2.5 rounded-lg tracking-wider transition-all duration-300 border border-brand/30">
-                    GİRİŞ YAP
-                </button>
-
-                <button onclick="openRegisterModal()" class="bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-bold text-xs uppercase px-5 py-2.5 rounded-lg tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(255,107,0,0.4)]">
-                    MÜŞTERİ OL
-                </button>
+                <!-- DİNAMİK OTURUM ALANI -->
+                <div id="authButtonsContainer" class="flex items-center space-x-3">
+                    <button onclick="openAuthModal()" class="bg-neutral-800 hover:bg-neutral-700 text-white font-bold text-xs uppercase px-4 py-2.5 rounded-lg tracking-wider transition-all duration-300 border border-brand/30">
+                        GİRİŞ YAP
+                    </button>
+                    <button onclick="openRegisterModal()" class="bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-bold text-xs uppercase px-5 py-2.5 rounded-lg tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(255,107,0,0.4)]">
+                        MÜŞTERİ OL
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -337,18 +339,18 @@
                     </div>
                 </div>
 
-                <!-- CS2 -->
-                <div class="bg-brand-card border border-brand-border rounded-2xl p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl">
+                <!-- CS2 (DÜZELTİLDİ: KUTU İÇİNE TAM SIĞACAK ŞEKİLDE OPTİMİZE EDİLDİ) -->
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-4 sm:p-5 hover:border-brand/65 transition-all duration-300 flex flex-col justify-between group shadow-xl">
                     <div>
-                        <div class="w-14 h-14 rounded-2xl bg-[#07090E] border-2 border-brand flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(255,107,0,0.2)] group-hover:scale-105 transition-transform">
-                            <span class="text-xl font-black text-brand tracking-widest">CS2</span>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#07090E] border-2 border-brand flex items-center justify-center mb-3 shadow-[0_0_15px_rgba(255,107,0,0.2)] group-hover:scale-105 transition-transform">
+                            <span class="text-base sm:text-xl font-black text-brand tracking-widest">CS2</span>
                         </div>
-                        <h3 class="text-lg font-extrabold mb-2 text-white">Counter-Strike 2</h3>
-                        <p class="text-gray-300 text-[11px] leading-relaxed mb-4">
+                        <h3 class="text-base sm:text-lg font-extrabold mb-1.5 text-white">Counter-Strike 2</h3>
+                        <p class="text-gray-300 text-[10px] sm:text-[11px] leading-snug sm:leading-relaxed mb-3">
                             Otomatik nişan alma, duvar arkası görme, ekstra duyusal algı, tetik botu ve radar hilelerini sezgisel tarama motoruyla yakalar.
                         </p>
                     </div>
-                    <div class="pt-3 border-t border-neutral-800 text-[10px] text-brand font-semibold flex items-center gap-1.5">
+                    <div class="pt-2 sm:pt-3 border-t border-neutral-800 text-[10px] text-brand font-semibold flex items-center gap-1.5">
                         <i class="fa-solid fa-shield-halved"></i> <span>Çekirdek Aktif</span>
                     </div>
                 </div>
@@ -404,7 +406,7 @@
         </div>
     </section>
 
-    <!-- LİSANS SATIN ALMA PAKETLERİ & WEB TASARIM HİZMETİ -->
+    <!-- LİSANS SATIN ALMA PAKETLERİ & WEB TASARIM HİZMETİ (₺ DÜZELTİLDİ) -->
     <section id="paketler" class="py-28 border-b border-brand-border relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -424,8 +426,8 @@
                     <div>
                         <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">BAŞLANGIÇ LİSANSI</div>
                         <h3 class="text-2xl font-black mb-3 text-white">1 IP Lisansı</h3>
-                        <div class="flex items-baseline mb-5">
-                            <span class="text-3xl font-extrabold text-white">899 ₺</span>
+                        <div class="flex items-baseline mb-5 whitespace-nowrap">
+                            <span class="text-2xl sm:text-3xl font-extrabold text-white">899 ₺</span>
                             <span class="text-gray-400 text-[10px] ml-1 uppercase font-semibold">/ Aylık</span>
                         </div>
                         <ul class="space-y-2.5 text-xs text-gray-200 mb-6 border-t border-neutral-800 pt-5">
@@ -450,8 +452,8 @@
                     <div>
                         <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">PROFESYONEL PRO</div>
                         <h3 class="text-2xl font-black mb-3 text-white">2 IP Lisansı</h3>
-                        <div class="flex items-baseline mb-5">
-                            <span class="text-3xl font-extrabold text-white">1.799 ₺</span>
+                        <div class="flex items-baseline mb-5 whitespace-nowrap">
+                            <span class="text-2xl sm:text-3xl font-extrabold text-white">1.799 ₺</span>
                             <span class="text-gray-400 text-[10px] ml-1 uppercase font-semibold">/ Aylık</span>
                         </div>
                         <ul class="space-y-2.5 text-xs text-gray-200 mb-6 border-t border-neutral-800 pt-5">
@@ -476,8 +478,8 @@
                     <div>
                         <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">KURUMSAL FİLO</div>
                         <h3 class="text-2xl font-black mb-3 text-white">10 IP Lisansı</h3>
-                        <div class="flex items-baseline mb-5">
-                            <span class="text-3xl font-extrabold text-white">12.459 ₺</span>
+                        <div class="flex items-baseline mb-5 whitespace-nowrap">
+                            <span class="text-2xl sm:text-3xl font-extrabold text-white">12.459 ₺</span>
                             <span class="text-gray-400 text-[10px] ml-1 uppercase font-semibold">/ Aylık</span>
                         </div>
                         <ul class="space-y-2.5 text-xs text-gray-200 mb-6 border-t border-neutral-800 pt-5">
@@ -502,8 +504,8 @@
                     <div>
                         <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">SINIRSIZ AĞ</div>
                         <h3 class="text-2xl font-black mb-3 text-white">25 IP Mega Filo</h3>
-                        <div class="flex items-baseline mb-5">
-                            <span class="text-3xl font-extrabold text-white">19.365 ₺</span>
+                        <div class="flex items-baseline mb-5 whitespace-nowrap">
+                            <span class="text-2xl sm:text-3xl font-extrabold text-white">19.365 ₺</span>
                             <span class="text-gray-400 text-[10px] ml-1 uppercase font-semibold">/ Aylık</span>
                         </div>
                         <ul class="space-y-2.5 text-xs text-gray-200 mb-6 border-t border-neutral-800 pt-5">
@@ -523,7 +525,7 @@
                     </div>
                 </div>
 
-                <!-- WEB SİTESİ TASARIM SATIŞ HİZMET PAKETİ (1349 TL) -->
+                <!-- WEB SİTESİ TASARIM SATIŞ HİZMET PAKETİ (₺ DÜZELTİLDİ) -->
                 <div class="bg-brand-card border-2 border-brand rounded-2xl p-6 flex flex-col justify-between shadow-[0_0_35px_rgba(255,107,0,0.25)] relative overflow-hidden transform lg:-translate-y-2">
                     <div class="absolute top-0 right-0 bg-brand text-white font-extrabold text-[9px] uppercase px-3 py-1 rounded-bl-xl tracking-wider shadow-sm">
                         ÖZEL KURUMSAL HİZMET
@@ -531,8 +533,8 @@
                     <div>
                         <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">WEB ÇÖZÜMLERİ</div>
                         <h3 class="text-2xl font-black mb-3 text-white">Web Tasarım Paketi</h3>
-                        <div class="flex items-baseline mb-5">
-                            <span class="text-3xl font-extrabold text-white">1.349 ₺</span>
+                        <div class="flex items-baseline mb-5 whitespace-nowrap">
+                            <span class="text-2xl sm:text-3xl font-extrabold text-white">1.349 ₺</span>
                             <span class="text-gray-400 text-[10px] ml-1 uppercase font-semibold">/ Tek Seferlik</span>
                         </div>
                         <ul class="space-y-2.5 text-xs text-gray-200 mb-6 border-t border-neutral-800 pt-5">
@@ -957,11 +959,11 @@
         </button>
     </div>
 
-    <!-- SAĞ ALT 7/24 CANLI DESTEK ASİSTANI WIDGET -->
+    <!-- SAĞ ALT 7/24 CANLI DESTEK ASİSTANI WIDGET (32 SORU & OTOMATİK BİLDİRİM) -->
     <div class="fixed bottom-6 right-6 z-50">
         <button id="chatToggleBtn" onclick="toggleLiveChat()" class="relative bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white p-4 rounded-full shadow-[0_0_25px_rgba(255,107,0,0.6)] flex items-center justify-center text-xl transition-transform hover:scale-110 border-2 border-white/20 animate-bounce">
             <i class="fa-solid fa-comments"></i>
-            <span id="chatNotificationDot" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center animate-ping hidden">1</span>
+            <span id="chatNotificationDot" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center animate-ping">1</span>
         </button>
 
         <div id="liveChatWindow" class="hidden absolute bottom-16 right-0 w-80 sm:w-96 bg-[#111827] border-2 border-brand rounded-2xl shadow-2xl overflow-hidden flex flex-col">
@@ -975,26 +977,44 @@
 
             <div id="chatMessages" class="p-4 h-72 overflow-y-auto custom-scrollbar space-y-3 text-xs bg-[#07090E]">
                 <div class="bg-brand/10 border border-brand/30 p-3 rounded-xl text-gray-200">
-                    👋 Merhaba! Ben Gnessac Asistanıyım. Üye kayıt paneli, müşteri ol süreci ve lisanslarımız hakkında bilgi alabilir veya aşağıdaki hazır sorularımıza tıklayabilirsiniz.
+                    👋 <strong>Otomatik Karşılama:</strong> Merhaba! Gnessac Çekirdek Güvenlik ve Web Tasarım platformumuza hoş geldiniz. Size nasıl yardımcı olabiliriz? Aşağıdaki 32 hazır sorudan dilediğinize tıklayabilirsiniz!
                 </div>
             </div>
 
-            <!-- Hazır Sorular -->
-            <div class="p-3 bg-[#111827] border-t border-brand-border max-h-44 overflow-y-auto custom-scrollbar grid grid-cols-1 gap-1.5">
-                <button onclick="sendPresetChat(1)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">1. Müşteri Ol (Üye Kayıt) paneli nasıl çalışır?</button>
-                <button onclick="sendPresetChat(2)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">2. Kurumsal şirket firma kayıtlarında hangi bilgiler istenir?</button>
-                <button onclick="sendPresetChat(3)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">3. Web Tasarım Paketi (1.349 TL) neleri kapsar?</button>
-                <button onclick="sendPresetChat(4)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">4. Gnessac Anti-Cheat hangi oyunları destekliyor?</button>
-                <button onclick="sendPresetChat(5)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">5. Ring-0 Çekirdek koruması nedir?</button>
-                <button onclick="sendPresetChat(6)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">6. IP Lisansı satın aldıktan sonra nasıl kurarım?</button>
-                <button onclick="sendPresetChat(7)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">7. Bilgisayarımda kare hızı düşüşü veya kasma yapar mı?</button>
-                <button onclick="sendPresetChat(8)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">8. Kişisel verilerim veya dosyalarım taranıyor mu?</button>
-                <button onclick="sendPresetChat(9)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">9. 3D Güvenli Ödeme güvenli mi? Fatura kesiliyor mu?</button>
-                <button onclick="sendPresetChat(10)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">10. Donanım banı kaldırma süreci nasıldır?</button>
-                <button onclick="sendPresetChat(11)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">11. Windows 11 Güvenli Önyükleme ve Mavi Ekran çözümü</button>
-                <button onclick="sendPresetChat(12)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">12. Banka Havale / EFT ile ödeme bildirim süreci</button>
+            <!-- 32 Adet Hazır Soru -->
+            <div class="p-3 bg-[#111827] border-t border-brand-border max-h-48 overflow-y-auto custom-scrollbar grid grid-cols-1 gap-1.5">
+                <button onclick="sendPresetChat(1)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">1. Web Tasarım Paketi (1.349 TL) neleri kapsar?</button>
+                <button onclick="sendPresetChat(2)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">2. Gnessac Anti-Cheat hangi oyunları destekler?</button>
+                <button onclick="sendPresetChat(3)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">3. Ring-0 Çekirdek koruması nedir?</button>
+                <button onclick="sendPresetChat(4)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">4. IP Lisansı satın aldıktan sonra nasıl kurarım?</button>
+                <button onclick="sendPresetChat(5)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">5. Bilgisayarımda FPS düşüşü veya kasma yapar mı?</button>
+                <button onclick="sendPresetChat(6)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">6. Kişisel verilerim veya dosyalarım taranıyor mu?</button>
+                <button onclick="sendPresetChat(7)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">7. 3D Güvenli Ödeme güvenli mi ve fatura kesiliyor mu?</button>
+                <button onclick="sendPresetChat(8)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">8. Donanım banı (HWID) sistemi nasıl çalışır?</button>
+                <button onclick="sendPresetChat(9)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">9. Windows 11 Güvenli Önyükleme gereksinimi zorunlu mu?</button>
+                <button onclick="sendPresetChat(10)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">10. Toplu sepet alışverişi nasıl yapılır?</button>
+                <button onclick="sendPresetChat(11)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">11. Banka Havale / EFT ile ödeme bildirim süreci</button>
+                <button onclick="sendPresetChat(12)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">12. Sunucu IP adresimi sonradan değiştirebilir miyim?</button>
                 <button onclick="sendPresetChat(13)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">13. Teknik destek ekibinize nasıl ulaşabilirim?</button>
                 <button onclick="sendPresetChat(14)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">14. Gnessac Yazılım resmi iletişim ve ofis adresi</button>
+                <button onclick="sendPresetChat(15)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">15. Metin2 sunucularında Python hileleri nasıl engellenir?</button>
+                <button onclick="sendPresetChat(16)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">16. Knight Online makro ve paket hilesi engelleme</button>
+                <button onclick="sendPresetChat(17)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">17. Counter-Strike 2 duvar arkası ve aimbot tespiti</button>
+                <button onclick="sendPresetChat(18)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">18. VALORANT Vanguard uyumlu çekirdek modülleri</button>
+                <button onclick="sendPresetChat(19)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">19. League of Legends script ve dodge engelleme</button>
+                <button onclick="sendPresetChat(20)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">20. EVE Online çoklu bot ve madencilik koruması</button>
+                <button onclick="sendPresetChat(21)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">21. Müşteri Ol / Üye Kayıt paneli nasıl kullanılır?</button>
+                <button onclick="sendPresetChat(22)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">22. Kurumsal firma kayıtlarında istenen vergi bilgileri</button>
+                <button onclick="sendPresetChat(23)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">23. İstemci 4.89 GB indirme dosyası nereden edinilir?</button>
+                <button onclick="sendPresetChat(24)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">24. 10 IP Lisans filosu avantajları ve özel maskeleme</button>
+                <button onclick="sendPresetChat(25)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">25. Kripto (USDT TRC20) ile ödeme onay süreci</button>
+                <button onclick="sendPresetChat(26)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">26. Web tasarım SEO optimizasyonu ve mobil uyumluluk</button>
+                <button onclick="sendPresetChat(27)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">27. Lisans aboneliği bitince sunucu koruması kapanır mı?</button>
+                <button onclick="sendPresetChat(28)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">28. Müşteri panelinden profil ve adres güncelleme</button>
+                <button onclick="sendPresetChat(29)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">29. Şifre eşleşmeme veya TC kimlik hata çözümü</button>
+                <button onclick="sendPresetChat(30)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">30. Özel sürücü imzalama ve gizleme hizmeti</button>
+                <button onclick="sendPresetChat(31)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">31. DDoS koruması ve güvenlik duvarı entegrasyonu</button>
+                <button onclick="sendPresetChat(32)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">32. Gnessac Yazılım iade ve iptal politikası şartları</button>
             </div>
         </div>
     </div>
@@ -1031,7 +1051,7 @@
                     </div>
                 </div>
 
-                <!-- KURUMSAL EK BİLGİLER (FİRMA TİPİ SEÇİLİNCE AKTİF) -->
+                <!-- KURUMSAL EK BİLGİLER -->
                 <div id="kurumsalFields" class="hidden bg-[#05070A] border border-brand/50 p-4 rounded-2xl space-y-3">
                     <span class="text-[10px] font-extrabold text-brand uppercase tracking-widest block"><i class="fa-solid fa-briefcase"></i> Kurumsal Firma Doğrulama Bilgileri</span>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -1098,11 +1118,11 @@
                 <div class="space-y-2 pt-2 border-t border-neutral-800">
                     <label class="flex items-center gap-2 cursor-pointer text-xs text-gray-200">
                         <input type="checkbox" id="regTerms" required class="w-4 h-4 rounded border-brand bg-[#05070A] text-brand focus:ring-brand">
-                        <span>Üyelik Sözleşmesini okudum ve kabul ediyorum. *</span>
+                        <span><button type="button" onclick="openModalDoc('terms')" class="text-brand underline hover:text-amber-500 font-bold">Üyelik Sözleşmesini</button> okudum ve kabul ediyorum. *</span>
                     </label>
                     <label class="flex items-center gap-2 cursor-pointer text-xs text-gray-200">
                         <input type="checkbox" id="regPrivacy" required class="w-4 h-4 rounded border-brand bg-[#05070A] text-brand focus:ring-brand">
-                        <span>Gizlilik Politikasını okudum ve kabul ediyorum. *</span>
+                        <span><button type="button" onclick="openModalDoc('privacy')" class="text-brand underline hover:text-amber-500 font-bold">Gizlilik Politikasını</button> okudum ve kabul ediyorum. *</span>
                     </label>
                 </div>
 
@@ -1114,10 +1134,22 @@
         </div>
     </div>
 
+    <!-- MODAL: SÖZLEŞME VE GİZLİLİK BELGE GÖSTERİCİSİ -->
+    <div id="docModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-brand-card border-2 border-brand rounded-3xl max-w-2xl w-full p-8 relative shadow-[0_0_50px_rgba(255,107,0,0.4)] max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <button onclick="closeModalDoc()" class="absolute top-5 right-5 text-gray-300 hover:text-white bg-neutral-800 p-2 rounded-full"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <h3 id="docModalTitle" class="text-xl font-black uppercase text-brand mb-4 border-b border-neutral-800 pb-3"></h3>
+            <div id="docModalBody" class="text-xs sm:text-sm text-gray-200 leading-relaxed space-y-4"></div>
+            <div class="mt-6 pt-4 border-t border-neutral-800 text-right">
+                <button onclick="closeModalDoc()" class="bg-brand hover:bg-brand-hover text-white font-bold text-xs uppercase px-6 py-2.5 rounded-xl">OKUDUM, KAPAT</button>
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL: KİŞİYE ÖZEL PROFESYONEL MÜŞTERİ PANELİ -->
     <div id="userDashboardModal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-[#0B0F19] border-2 border-brand rounded-3xl max-w-4xl w-full p-8 relative shadow-[0_0_80px_rgba(255,107,0,0.4)] max-h-[92vh] overflow-y-auto custom-scrollbar">
-            <button onclick="closeDashboardModal()" class="absolute top-5 right-5 text-gray-300 hover:text-white bg-neutral-800 hover:bg-brand p-2.5 rounded-full transition-colors"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <button onclick="closeDashboardModal()" class="absolute top-5 right-5 text-gray-300 hover:text-white bg-neutral-800 hover:bg-brand p-2.5 rounded-xl transition-colors"><i class="fa-solid fa-xmark text-lg"></i></button>
 
             <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8 border-b border-neutral-800 pb-6 pr-10">
                 <div class="flex items-center gap-4">
@@ -1139,7 +1171,7 @@
                 <div class="bg-brand-card border border-brand-border rounded-2xl p-5 shadow-lg">
                     <span class="text-[10px] font-bold text-gray-300 uppercase tracking-widest block mb-1">Aktif Lisans Durumu</span>
                     <h4 class="text-lg font-black text-white flex items-center gap-2">
-                        <span class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></span> Hazır / Tanımlanmadı
+                        <span class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></span> Aktif / Tanımlı Lisanslar
                     </h4>
                     <p class="text-[11px] text-gray-300 mt-2">Lisans paketlerinden veya web tasarım hizmetinden anında alabilirsiniz.</p>
                 </div>
@@ -1220,7 +1252,7 @@
         </div>
     </div>
 
-    <!-- MODAL 1: MÜŞTERİ PANELİ GİRİŞİ -->
+    <!-- MODAL 1: MÜŞTERİ PANELİ GİRİŞİ (GERÇEK DOĞRULAMA) -->
     <div id="authModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-brand-card border border-brand-border rounded-2xl max-w-md w-full p-8 relative shadow-2xl">
             <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-gray-300 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
@@ -1232,22 +1264,23 @@
                     </svg>
                 </div>
                 <h3 class="text-xl font-black uppercase text-white">MÜŞTERİ PANELİ GİRİŞİ</h3>
+                <p class="text-[11px] text-gray-300 mt-1">Lütfen kayıtlı e-posta ve şifrenizle kimlik doğrulayınız.</p>
             </div>
             <form onsubmit="handleAuthSubmit(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs font-bold text-gray-200 uppercase mb-1">E-POSTA ADRESİ</label>
-                    <input type="email" required class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand" placeholder="ornek@alanadi.com">
+                    <input type="email" id="loginEmail" required class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand" placeholder="ornek@alanadi.com">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-gray-200 uppercase mb-1">ŞİFRE</label>
-                    <input type="password" required class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand" placeholder="••••••••">
+                    <input type="password" id="loginPass" required class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand" placeholder="••••••••">
                 </div>
                 <button type="submit" class="w-full bg-brand hover:bg-brand-hover text-white font-extrabold text-xs uppercase py-3.5 rounded-xl transition-all shadow-md">OTURUM AÇ</button>
             </form>
         </div>
     </div>
 
-    <!-- MODAL 2: DESTEK TALEBİ -->
+    <!-- MODAL 2: DESTEK TALEBİ (27 KURUMSAL HİZMET SORUSU) -->
     <div id="supportModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-brand-card border-2 border-brand/60 rounded-3xl max-w-xl w-full p-8 relative shadow-[0_0_50px_rgba(255,107,0,0.25)] max-h-[92vh] overflow-y-auto custom-scrollbar">
             <button onclick="closeSupportModal()" class="absolute top-5 right-5 text-gray-300 hover:text-white bg-neutral-800 p-2 rounded-full"><i class="fa-solid fa-xmark text-lg"></i></button>
@@ -1272,14 +1305,36 @@
                     </div>
                 </div>
                 <div>
-                    <label class="block text-[11px] font-extrabold text-brand uppercase tracking-wider mb-1">DESTEK TALEBİ KONUSU</label>
+                    <label class="block text-[11px] font-extrabold text-brand uppercase tracking-wider mb-1">DESTEK TALEBİ KONUSU (27 UZMANLIK ALANI)</label>
                     <select id="suppSubject" required class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand cursor-pointer font-semibold">
-                        <option value="">-- Lütfen Kurumsal Talep Konusu Seçiniz --</option>
-                        <option value="Müşteri Kayıt ve Üyelik Paneli Sorunları">Müşteri Kayıt ve Üyelik Paneli Sorunları</option>
-                        <option value="Web Tasarım Hizmeti (1.349 TL) Bilgi ve Kurulum">Web Tasarım Hizmeti (1.349 TL) Bilgi ve Kurulum</option>
-                        <option value="League of Legends & EVE Online Bot/Script Koruması">League of Legends ve EVE Online Bot / Script Koruması</option>
-                        <option value="Metin2 Kernel Sürücü Çakışması ve Açılış Hatası">Metin2 Çekirdek Sürücü Çakışması ve Açılış Hatası</option>
-                        <option value="Genel Soru, İş Birliği, Şikayet ve Öneriler">Genel Soru, İş Birliği, Şikayet ve Öneriler</option>
+                        <option value="">-- Lütfen Kurumsal Hizmet Talebi Konusu Seçiniz --</option>
+                        <option value="1. Web Tasarım Paketi (1.349 TL) Bilgi ve Kurulum">1. Web Tasarım Paketi (1.349 TL) Bilgi ve Kurulum</option>
+                        <option value="2. Gnessac Anti-Cheat Genel Sistem ve Mimari Bilgisi">2. Gnessac Anti-Cheat Genel Sistem ve Mimari Bilgisi</option>
+                        <option value="3. Ring-0 Çekirdek (Kernel) Güvenlik Modülü Yetkileri">3. Ring-0 Çekirdek (Kernel) Güvenlik Modülü Yetkileri</option>
+                        <option value="4. IP Lisansı Satın Alımı ve Sunucu Entegrasyonu">4. IP Lisansı Satın Alımı ve Sunucu Entegrasyonu</option>
+                        <option value="5. Performans, FPS Değerleri ve İşlemci Tüketimi">5. Performans, FPS Değerleri ve İşlemci Tüketimi</option>
+                        <option value="6. Kişisel Veriler, KVKK ve Gizlilik Politikası">6. Kişisel Veriler, KVKK ve Gizlilik Politikası</option>
+                        <option value="7. 3D Secure Güvenli Ödeme ve E-Fatura Süreçleri">7. 3D Secure Güvenli Ödeme ve E-Fatura Süreçleri</option>
+                        <option value="8. Donanım Banı (HWID Ban) Yönetimi ve Sorgulama">8. Donanım Banı (HWID Ban) Yönetimi ve Sorgulama</option>
+                        <option value="9. Windows 10/11 UEFI ve Güvenli Önyükleme (Secure Boot)">9. Windows 10/11 UEFI ve Güvenli Önyükleme (Secure Boot)</option>
+                        <option value="10. Toplu Sepet Alışverişi ve İndirim/Ödeme Koşulları">10. Toplu Sepet Alışverişi ve İndirim/Ödeme Koşulları</option>
+                        <option value="11. Banka Havale / EFT Bildirim ve Onay İşlemleri">11. Banka Havale / EFT Bildirim ve Onay İşlemleri</option>
+                        <option value="12. Sunucu IP Adresi Değişikliği ve Panel Güncelleme">12. Sunucu IP Adresi Değişikliği ve Panel Güncelleme</option>
+                        <option value="13. 7/24 Teknik Destek, Mühendis Hattı ve İletişim">13. 7/24 Teknik Destek, Mühendis Hattı ve İletişim</option>
+                        <option value="14. Gnessac Yazılım Bostancı Merkez Ofis ve İletişim">14. Gnessac Yazılım Bostancı Merkez Ofis ve İletişim</option>
+                        <option value="15. Metin2 Python Bayt Kod ve DLL Engelleme">15. Metin2 Python Bayt Kod ve DLL Engelleme</option>
+                        <option value="16. Knight Online Makro Pedal ve Multi-Client Filtreleme">16. Knight Online Makro Pedal ve Multi-Client Filtreleme</option>
+                        <option value="17. Counter-Strike 2 Sezgisel Aimbot ve Wallhack Tespiti">17. Counter-Strike 2 Sezgisel Aimbot ve Wallhack Tespiti</option>
+                        <option value="18. VALORANT Vanguard Tamamlayıcı Ring-0 Modülleri">18. VALORANT Vanguard Tamamlayıcı Ring-0 Modülleri</option>
+                        <option value="19. League of Legends Script ve Zoom Hack Engelleme">19. League of Legends Script ve Zoom Hack Engelleme</option>
+                        <option value="20. EVE Online Otomatik Madencilik Botu Engelleme">20. EVE Online Otomatik Madencilik Botu Engelleme</option>
+                        <option value="21. Müşteri Ol / Üye Kayıt Paneli ve Hesap Doğrulama">21. Müşteri Ol / Üye Kayıt Paneli ve Hesap Doğrulama</option>
+                        <option value="22. Kurumsal Firma Vergi Levhası ve Unvan Eşleme">22. Kurumsal Firma Vergi Levhası ve Unvan Eşleme</option>
+                        <option value="23. İstemci 4.89 GB İndirme Dosyası ve Lisans Kilidi">23. İstemci 4.89 GB İndirme Dosyası ve Lisans Kilidi</option>
+                        <option value="24. 10 IP Lisans Filosu ve Özel Sürücü Maskeleme">24. 10 IP Lisans Filosu ve Özel Sürücü Maskeleme</option>
+                        <option value="25. Kripto Para (USDT TRC20) Yatırım ve Onay">25. Kripto Para (USDT TRC20) Yatırım ve Onay</option>
+                        <option value="26. Kurumsal Web Tasarım SEO ve Mobil Responsive">26. Kurumsal Web Tasarım SEO ve Mobil Responsive</option>
+                        <option value="27. Abonelik Süresi, Yenileme ve Sürücü Güncellemeleri">27. Abonelik Süresi, Yenileme ve Sürücü Güncellemeleri</option>
                     </select>
                 </div>
                 <div>
@@ -1411,21 +1466,21 @@
         </div>
     </div>
 
-    <!-- MODAL 4: KURUMSAL WEB TASARIM HİZMETİ BİLGİLENDİRME PENCERESİ -->
+    <!-- MODAL 4: KURUMSAL WEB TASARIM HİZMETİ BİLGİLENDİRME PENCERESİ (STİLİZE EDİLDİ) -->
     <div id="promoModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-gradient-to-b from-[#111827] to-[#0B0F19] border-2 border-brand rounded-3xl max-w-lg w-full p-8 text-center relative shadow-[0_0_60px_rgba(255,107,0,0.5)]">
+        <div class="bg-gradient-to-b from-[#111827] to-[#0B0F19] border-2 border-brand/90 rounded-3xl max-w-lg w-full p-8 text-center relative shadow-[0_0_80px_rgba(255,107,0,0.5)]">
             <button onclick="closePromoModal()" class="absolute top-5 right-5 text-gray-300 hover:text-white bg-neutral-800 hover:bg-brand transition-colors p-2.5 rounded-full"><i class="fa-solid fa-xmark text-lg"></i></button>
 
-            <div class="w-20 h-20 bg-brand/20 border-2 border-brand text-brand rounded-full flex items-center justify-center mx-auto mb-5 text-3xl shadow-[0_0_25px_rgba(255,107,0,0.6)] animate-pulse">
+            <div class="w-20 h-20 bg-brand/20 border-2 border-brand text-brand rounded-full flex items-center justify-center mx-auto mb-5 text-3xl shadow-[0_0_30px_rgba(255,107,0,0.6)] animate-pulse">
                 <i class="fa-solid fa-laptop-code"></i>
             </div>
-            <span class="text-xs font-extrabold text-brand uppercase tracking-widest bg-brand/10 border border-brand/30 px-3 py-1 rounded-full">YENİ KURUMSAL HİZMET</span>
-            <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider mt-3 mb-3">KURUMSAL WEB TASARIM <span class="text-brand">HİZMETİMİZ AKTİF!</span></h3>
-            <p class="text-xs sm:text-sm text-gray-200 mb-6 leading-relaxed">
-                Gnessac Yazılım güvencesiyle sunucularınız ve projeleriniz için özel olarak hazırlanan <strong>Kurumsal Web Sitesi Tasarım Hizmetimiz</strong> yayına girmiştir. Mobil uyumlu, SEO optimizasyonlu ve modern arayüzlü profesyonel web çözümlerine tek seferlik sadece <strong>1.349 ₺</strong> ile sahip olabilirsiniz.
+            <span class="text-xs font-extrabold text-brand uppercase tracking-widest bg-brand/10 border border-brand/30 px-3 py-1.5 rounded-full">YENİ NESİL KURUMSAL ÇÖZÜMLER</span>
+            <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider mt-4 mb-3">KURUMSAL WEB TASARIM <span class="text-brand">HİZMETİMİZ YAYINDA!</span></h3>
+            <p class="text-xs sm:text-sm text-gray-300 mb-6 leading-relaxed">
+                Gnessac Yazılım Limited Şirketi güvencesiyle oyun sunucuları ve teknoloji projeleri için özel olarak tasarlanan <strong>Kurumsal Web Sitesi Altyapımız</strong> aktif edilmiştir. Tam mobil uyumlu, yüksek SEO performanslı ve modern arayüzlü profesyonel web paketlerimize tek seferlik sadece <strong>1.349 ₺</strong> ayrıcalığıyla sahip olun.
             </p>
-            <button onclick="redirectToWebDesignPackage()" class="w-full bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-black text-xs uppercase py-4 rounded-xl tracking-wider transition-all shadow-lg flex items-center justify-center gap-2">
-                <i class="fa-solid fa-arrow-right"></i> HİZMETİ İNCELE & SATIN AL
+            <button onclick="redirectToWebDesignPackage()" class="w-full bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-black text-xs uppercase py-4 rounded-xl tracking-wider transition-all shadow-[0_0_25px_rgba(255,107,0,0.4)] flex items-center justify-center gap-2">
+                <i class="fa-solid fa-arrow-right"></i> HİZMETİ İNCELE & LİSANSLANDIR
             </button>
         </div>
     </div>
@@ -1436,7 +1491,7 @@
             <div class="w-16 h-16 bg-[#07090E] border-2 border-brand text-brand rounded-2xl flex items-center justify-center mb-4 text-2xl shadow-[0_0_20px_rgba(255,107,0,0.4)]">
                 <i class="fa-solid fa-envelope-circle-check"></i>
             </div>
-            <h3 id="msgTitle" class="text-lg sm:text-xl font-black text-white uppercase tracking-wider mb-3">KURUMSAL GERİ BİLDİRİM E-POSTANIZ GÖNDERİLDİ</h3>
+            <h3 id="msgTitle" class="text-lg sm:text-xl font-black text-white uppercase tracking-wider mb-3">KURUMSAL BİLGİLENDİRME</h3>
             <div id="msgText" class="text-xs sm:text-sm text-gray-200 mb-6 leading-relaxed bg-[#05070A] p-4 rounded-xl border border-brand/30 space-y-3"></div>
             <button onclick="closeMessageModal()" class="w-full bg-brand hover:bg-brand-hover text-white font-black text-xs uppercase py-3.5 rounded-xl tracking-wider transition-all shadow-md">KAPAT & DEVAM ET</button>
         </div>
@@ -1444,11 +1499,14 @@
 
     <!-- JAVASCRIPT -->
     <script>
+        // Sayfa Yüklendiğinde Oturum Durumunu Kontrol Et
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const dot = document.getElementById('chatNotificationDot');
                 if(dot) dot.classList.remove('hidden');
-            }, 3000);
+            }, 2000);
+
+            checkActiveSession();
         });
 
         function scrollToTop() {
@@ -1467,8 +1525,81 @@
             document.getElementById('paketler').scrollIntoView({ behavior: 'smooth' });
         }
 
-        /* ÜYE KAYIT VE PANEL FONKSİYONLARI */
-        let currentUser = null;
+        /* SÖZLEŞME VE GİZLİLİK BELGE MODAL FONKSİYONLARI */
+        function openModalDoc(type) {
+            const titleEl = document.getElementById('docModalTitle');
+            const bodyEl = document.getElementById('docModalBody');
+            
+            if(type === 'terms') {
+                titleEl.innerText = "Üyelik Sözleşmesi ve Kullanım Şartları";
+                bodyEl.innerHTML = `
+                    <p><strong>1. Taraflار ve Kapsam:</strong> İşbu sözleşme Gnessac Yazılım Limited Şirketi ile siteye kayıt olan müşteri arasında elektronik ortamda akdedilmiştir. Sunulan tüm çekirdek koruma ve yazılım hizmetleri bu şartlara tabidir.</p>
+                    <p><strong>2. Lisans Hakları:</strong> Sağlanan çekirdek sürücüleri ve API uç noktaları yalnızca onaylı sunucu IP adreslerinde çalışır. Tersine mühendislik (reverse engineering) ve bellek dökümü almak kesinlikle yasaktır.</p>
+                    <p><strong>3. Sorumluluk Beyanı:</strong> Müşteri, üyelik formunda beyan ettiği TC Kimlik Numarası, vergi bilgileri ve iletişim adreslerinin tam ve doğru olduğunu kabul eder.</p>
+                `;
+            } else {
+                titleEl.innerText = "Kurumsal Gizlilik ve Veri Koruma Politikası";
+                bodyEl.innerHTML = `
+                    <p><strong>1. Veri Güvenliği:</strong> 6698 sayılı KVKK ve uluslararası standartlar gereğince, toplanan donanım kimlikleri ve IP adresleri 256-Bit SSL ile şifrelenerek güvenli bulut sunucularımızda saklanır.</p>
+                    <p><strong>2. Üçüncü Taraflar:</strong> Verileriniz hiçbir ticari kurum, reklam ağı veya üçüncü şahısla paylaşılmaz; yalnızca yasal makamların resmi taleplerinde ibraz edilir.</p>
+                    <p><strong>3. Çerez Politikası:</strong> Oturum güvenliğini ve kullanıcı deneyimini optimize etmek amacıyla şifreli çerezler kullanılmaktadır.</p>
+                `;
+            }
+            document.getElementById('docModal').classList.remove('hidden');
+        }
+
+        function closeModalDoc() {
+            document.getElementById('docModal').classList.add('hidden');
+        }
+
+        /* GERÇEK ÜYELİK VE OTURUM YÖNETİMİ (LOCALSTORAGE TABANLI) */
+        function getRegisteredUsers() {
+            const users = localStorage.getItem('gnessac_users');
+            return users ? JSON.parse(users) : [
+                { name: "Ahmet Yılmaz", email: "ahmet@ornek.com", pass: "123456", phone: "05554443322", address: "Kadıköy / İstanbul", type: "Bireysel Müşteri", ip: "185.120.10.45" }
+            ];
+        }
+
+        function saveRegisteredUsers(users) {
+            localStorage.setItem('gnessac_users', JSON.stringify(users));
+        }
+
+        function getActiveUser() {
+            const user = localStorage.getItem('gnessac_active_user');
+            return user ? JSON.parse(user) : null;
+        }
+
+        function setActiveUser(user) {
+            if(user) {
+                localStorage.setItem('gnessac_active_user', JSON.stringify(user));
+            } else {
+                localStorage.removeItem('gnessac_active_user');
+            }
+            checkActiveSession();
+        }
+
+        function checkActiveSession() {
+            const active = getActiveUser();
+            const container = document.getElementById('authButtonsContainer');
+
+            if(active) {
+                container.innerHTML = `
+                    <button onclick="openDashboardModal()" class="bg-brand/20 hover:bg-brand/30 border border-brand text-white font-black text-xs uppercase px-4 py-2.5 rounded-xl tracking-wider transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(255,107,0,0.3)]">
+                        <i class="fa-solid fa-user-shield text-brand"></i>
+                        <span class="truncate max-w-[120px] sm:max-w-[180px]">${active.name}</span>
+                    </button>
+                `;
+            } else {
+                container.innerHTML = `
+                    <button onclick="openAuthModal()" class="bg-neutral-800 hover:bg-neutral-700 text-white font-bold text-xs uppercase px-4 py-2.5 rounded-lg tracking-wider transition-all duration-300 border border-brand/30">
+                        GİRİŞ YAP
+                    </button>
+                    <button onclick="openRegisterModal()" class="bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-bold text-xs uppercase px-5 py-2.5 rounded-lg tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(255,107,0,0.4)]">
+                        MÜŞTERİ OL
+                    </button>
+                `;
+            }
+        }
 
         function openRegisterModal() {
             document.getElementById('registerModal').classList.remove('hidden');
@@ -1497,7 +1628,7 @@
 
             const name = document.getElementById('regName').value.trim();
             const tc = document.getElementById('regTc').value.trim();
-            const email = document.getElementById('regEmail').value.trim();
+            const email = document.getElementById('regEmail').value.trim().toLowerCase();
             const phone = document.getElementById('regPhone').value.trim();
             const pass = document.getElementById('regPass').value;
             const passConfirm = document.getElementById('regPassConfirm').value;
@@ -1506,7 +1637,6 @@
             const privacy = document.getElementById('regPrivacy').checked;
             const isKurumsal = document.querySelector('input[name="accountType"]:checked').value === 'kurumsal';
 
-            // Doğrulama Kontrolleri (Hata Alınması Gereken Durumlar)
             if (pass !== passConfirm) {
                 alert("Kayıt Hatası: Şifreler birbiriyle uyuşmuyor! Lütfen kontrol ediniz.");
                 return;
@@ -1524,37 +1654,83 @@
                 return;
             }
 
-            if (isKurumsal) {
-                const company = document.getElementById('regCompany').value.trim();
-                const taxNo = document.getElementById('regTaxNo').value.trim();
-                if (!company || taxNo.length !== 10) {
-                    alert("Kayıt Hatası: Kurumsal firma bilgileri veya 10 haneli vergi numarası eksik/hatalı!");
-                    return;
-                }
+            let users = getRegisteredUsers();
+            if(users.some(u => u.email === email)) {
+                alert("Kayıt Hatası: Bu e-posta adresi ile zaten kayıtlı bir hesap bulunmaktadır! Lütfen giriş yapınız.");
+                return;
             }
 
-            // Kayıt Başarılı - Kullanıcıyı Nesne Olarak Sakla
-            currentUser = {
+            const newUser = {
                 name: name,
                 email: email,
+                pass: pass,
                 phone: phone,
                 address: address,
                 type: isKurumsal ? 'Kurumsal Firma Müşterisi' : 'Bireysel Müşteri',
                 ip: '185.120.10.45'
             };
 
+            users.push(newUser);
+            saveRegisteredUsers(users);
+            setActiveUser(newUser);
+
             closeRegisterModal();
-            openDashboardModal();
+            
+            // Kurumsal Detaylı Başarı Mesajı
+            document.getElementById('msgTitle').innerText = "GNESSAC KURUMSAL ÜYELİK BAŞARIYLA OLUŞTURULDU";
+            document.getElementById('msgText').innerHTML = `
+                <p>Sayın <strong>${name}</strong>,</p>
+                <p>Gnessac Yazılım Limited Şirketi müşteri veritabanına kaydınız başarıyla işlenmiştir. Kimlik doğrulama işlemleriniz tamamlanmış olup kurumsal müşteri panelinize güvenli oturum açılmıştır.</p>
+                <br>
+                <p><strong>Kayıtlı E-Posta:</strong> <span class="text-white font-mono">${email}</span></p>
+                <p><strong>Hesap Türü:</strong> <span class="text-brand font-bold">${newUser.type}</span></p>
+                <br>
+                <p class="text-xs text-gray-300">Sağ üst köşede adınız sürekli aktif kalacak olup dilediğiniz an panelinize erişebilirsiniz.</p>
+            `;
+            document.getElementById('messageModal').classList.remove('hidden');
+        }
+
+        function handleAuthSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+            const pass = document.getElementById('loginPass').value;
+
+            const users = getRegisteredUsers();
+            const foundUser = users.find(u => u.email === email && u.pass === pass);
+
+            if(!foundUser) {
+                alert("Kimlik Doğrulama Hatası: E-posta adresi veya şifre hatalı! Lütfen kayıtlı bilgilerinizle giriş yapınız veya 'Müşteri Ol' butonunu kullanarak yeni hesap oluşturunuz.");
+                return;
+            }
+
+            setActiveUser(foundUser);
+            closeAuthModal();
+
+            document.getElementById('msgTitle').innerText = "GÜVENLİ MÜŞTERİ OTURUMU AÇILDI";
+            document.getElementById('msgText').innerHTML = `
+                <p>Hoş geldiniz, sayın <strong>${foundUser.name}</strong>.</p>
+                <p>Gnessac Çekirdek Güvenlik Sunucuları ile kimliğiniz doğrulandı ve müşteri paneline başarıyla bağlandınız.</p>
+                <br>
+                <p><strong>Oturum Yetkisi:</strong> <span class="text-brand font-bold">${foundUser.type}</span></p>
+                <p><strong>Son Bağlantı IP:</strong> <span class="text-white font-mono">${foundUser.ip}</span></p>
+                <br>
+                <p class="text-xs text-gray-300">Sağ üst köşedeki isim butonunu kullanarak kişisel panelinize her zaman ulaşabilirsiniz.</p>
+            `;
+            document.getElementById('messageModal').classList.remove('hidden');
         }
 
         function openDashboardModal() {
-            if(!currentUser) return;
-            document.getElementById('dashUserName').innerText = currentUser.name;
-            document.getElementById('dashUserRole').innerText = currentUser.type + " • Güvenli Oturum Aktif";
-            document.getElementById('dashUserIp').innerText = currentUser.ip;
-            document.getElementById('dashEmail').value = currentUser.email;
-            document.getElementById('dashPhone').value = currentUser.phone;
-            document.getElementById('dashAddress').value = currentUser.address;
+            const active = getActiveUser();
+            if(!active) {
+                openAuthModal();
+                return;
+            }
+            document.getElementById('dashUserName').innerText = active.name;
+            document.getElementById('dashUserRole').innerText = active.type + " • Güvenli Oturum Aktif";
+            document.getElementById('dashUserIp').innerText = active.ip;
+            document.getElementById('dashEmail').value = active.email;
+            document.getElementById('dashPhone').value = active.phone;
+            document.getElementById('dashAddress').value = active.address;
 
             document.getElementById('userDashboardModal').classList.remove('hidden');
         }
@@ -1565,17 +1741,26 @@
 
         function handleProfileUpdate(e) {
             e.preventDefault();
-            currentUser.email = document.getElementById('dashEmail').value;
-            currentUser.phone = document.getElementById('dashPhone').value;
-            currentUser.address = document.getElementById('dashAddress').value;
+            let active = getActiveUser();
+            if(!active) return;
 
-            alert("Müşteri profiliniz başarıyla güncellendi ve kaydedildi!");
+            active.email = document.getElementById('dashEmail').value.trim();
+            active.phone = document.getElementById('dashPhone').value.trim();
+            active.address = document.getElementById('dashAddress').value.trim();
+
+            setActiveUser(active);
+
+            let users = getRegisteredUsers();
+            users = users.map(u => u.email === active.email ? active : u);
+            saveRegisteredUsers(users);
+
+            alert("Müşteri profiliniz ve fatura bilgileriniz Gnessac veritabanında başarıyla güncellendi!");
         }
 
         function logoutUser() {
-            currentUser = null;
+            setActiveUser(null);
             closeDashboardModal();
-            alert("Oturumunuz güvenli bir şekilde kapatıldı.");
+            alert("Oturumunuz güvenli bir şekilde kapatıldı. Sağ üst menüden tekrar giriş yapabilirsiniz.");
         }
 
         let cart = [];
@@ -1667,20 +1852,38 @@
         }
 
         const chatAnswers = {
-            1: "Sağ üstteki 'Müşteri Ol' butonuna tıklayarak üyelik formunu doldurabilir; bireysel veya kurumsal hesap açarak anında kendi panelinize yönlendirilebilirsiniz.",
-            2: "Kurumsal şirket firma kayıtlarında; Firma Unvanı, Vergi Dairesi ve 10 haneli Vergi Numarası bilgileri zorunlu olarak istenmektedir.",
-            3: "1.349 TL tutarındaki Kurumsal Web Tasarım Paketimiz; özel arayüz tasarımı, mobil uyumlu responsive altyapı, SEO optimizasyonu ve hızlı teslimat hizmetlerini kapsar.",
-            4: "Gnessac Anti-Cheat; Metin2, Knight Online, Counter-Strike 2, VALORANT, League of Legends ve EVE Online oyun sunucuları için tam uyumlu Ring-0 çekirdek koruması sağlar.",
-            5: "Ring-0 (Çekirdek), işletim sisteminin en yetkili katmanıdır. Sıradan hileler bu seviyeye erişemez, böylece %99.9 oranında kusursuz güvenlik sağlanır.",
-            6: "Ödemeniz onaylandığı anda IP lisans anahtarınız ve entegrasyon dosyalarınız müşteri panelinize tanımlanır. 5 dakika içinde sunucunuza entegre edebilirsiniz.",
-            7: "Kesinlikle hayır! Asenkron C++ mimarisi sayesinde işlemci ve bellek kullanımı %0.1'in altındadır, oyun performansınıza etki etmez.",
-            8: "Asla! Gnessac yalnızca oyun sürecinin bellek adres alanını tarar. Kişisel dosyalarınız, fotoğraflarınız veya tarayıcı geçmişiniz asla okunmaz ve depolanmaz.",
-            9: "Tüm ödemeler 256-bit SSL ve 3D Güvenli Ödeme altyapısıyla korunmaktadır. Ödeme sonrasında yasal faturanız e-posta adresinize gönderilir.",
-            10: "Donanım banları anakart ve disk seri numaralarına göre atılır. Destek talebi oluşturarak kolayca inceletebilirsiniz.",
-            11: "Windows 11 sistemlerde Güvenli Önyükleme ve TPM gereksinimleri tam uyumludur. Mavi ekran riski sıfırdır.",
-            12: "Banka Havale / EFT ile yapılan ödemelerde açıklama kısmına sunucu IP adresiniz veya proje adınız yazılmalıdır.",
+            1: "1.349 TL tutarındaki Kurumsal Web Tasarım Paketimiz; özel arayüz tasarımı, mobil uyumlu responsive altyapı, SEO optimizasyonu ve hızlı teslimat hizmetlerini tek seferlik ücretle kapsar.",
+            2: "Gnessac Anti-Cheat; Metin2, Knight Online, Counter-Strike 2, VALORANT, League of Legends ve EVE Online oyun sunucuları için tam uyumlu Ring-0 çekirdek koruması sağlar.",
+            3: "Ring-0 (Çekirdek), işletim sisteminin en yetkili katmanıdır. Sıradan hileler bu seviyeye erişemez, böylece %99.9 oranında kusursuz güvenlik sağlanır.",
+            4: "Ödemeniz onaylandığı anda IP lisans anahtarınız ve entegrasyon dosyalarınız müşteri panelinize iletilir. 5 dakika içinde sunucunuza entegre edebilirsiniz.",
+            5: "Kesinlikle hayır! Asenkron C++ mimarisi sayesinde işlemci ve bellek kullanımı %0.1'in altındadır, oyuncularınızın kare hızı değerlerine asla etki etmez.",
+            6: "Asla! Gnessac yalnızca oyun sürecinin bellek adres alanını tarar. Kişisel dosyalarınız, fotoğraflarınız veya tarayıcı geçmişiniz asla okunmaz ve depolanmaz.",
+            7: "Tüm ödemeler 256-bit SSL ve 3D Güvenli Ödeme altyapısıyla korunmaktadır. Ödeme sonrasında yasal faturanız e-posta adresinize gönderilir.",
+            8: "Donanım banları anakart ve disk seri numaralarına göre atılır. Destek talebi oluşturarak kolayca inceletebilirsiniz.",
+            9: "Windows 11 sistemlerde Güvenli Önyükleme ve TPM gereksinimleri tam uyumludur. Mavi ekran riski sıfırdır.",
+            10: "Dilediğiniz lisansları ve web tasarım hizmetini sepete ekleyerek tek seferde güvenli toplu ödeme yapabilirsiniz.",
+            11: "Banka Havale / EFT ile yapılan ödemelerde açıklama kısmına sunucu IP adresiniz veya proje adınız yazılmalıdır.",
+            12: "Müşteri paneliniz üzerinden veya destek talebi oluşturarak lisanslı IP adresinizi kolaylıkla güncelleyebilirsiniz.",
             13: "Bize 7/24 resmi telefon hattımız olan +0216 255 53 53 üzerinden veya destek paneli aracılığıyla her zaman ulaşabilirsiniz.",
-            14: "Gnessac Yazılım Limited Şirketi merkezimiz Türkiye / İstanbul - Bostancı'da yer almaktadır. Resmi iletişim kanallarımızdan bize ulaşabilirsiniz."
+            14: "Gnessac Yazılım Limited Şirketi merkezimiz Türkiye / İstanbul - Bostancı'da yer almaktadır.",
+            15: "Metin2 sunucularında Python bayt kod manipülasyonları ve DLL enjeksiyonları Ring-0 seviyesinde engellenir.",
+            16: "Knight Online oyununda paket manipülasyonları, makro pedallar ve çoklu istemciler filtrelenir.",
+            17: "Counter-Strike 2 oyununda aimbot, wallhack ve tetik botu sezgisel tarama motoruyla yakalanır.",
+            18: "VALORANT için Vanguard tamamlayıcı Ring-0 modülleriyle piksel nişan alma engellenir.",
+            19: "League of Legends oyununda script, dodge ve zoom hack girişimleri engellenir.",
+            20: "EVE Online çoklu kutu bot yazılımları ve madencilik botları tamamen bloke edilir.",
+            21: "Sağ üstteki 'Müşteri Ol' butonundan bireysel veya kurumsal hesap açarak panelinize bağlanabilirsiniz.",
+            22: "Kurumsal firma kayıtlarında Firma Unvanı, Vergi Dairesi ve 10 haneli Vergi Numarası zorunludur.",
+            23: "İstemci dosya boyutu 4.89 GB olup aktif lisans onayından sonra indirilebilir.",
+            24: "10 IP Lisans filomuzda özel sürücü imzalama ve maskeleme avantajı sunulur.",
+            25: "USDT TRC20 cüzdanımız üzerinden yapılan kripto ödemeleri otomatik onaylanır.",
+            26: "Web tasarım paketimiz SEO uyumlu ve tam mobil responsive altyapıyla sunulur.",
+            27: "Abonelik bitiminde yenilenmeyen lisansların koruma modülleri askıya alınır.",
+            28: "Müşteri panelinizdeki profil formundan e-posta, telefon ve adresinizi güncelleyebilirsiniz.",
+            29: "Şifre eşleşmeme veya eksik TC kimlik no durumunda sistem uyarı verir.",
+            30: "Özel sürücü imzalama ve gizleme hizmetimizle hile koruması güçlendirilir.",
+            31: "Dağıtık hizmet engelleme (DDoS) koruması ve güvenlik duvarı altyapıya dahildir.",
+            32: "Dijital yazılım lisanslarında anında teslimat yapıldığından iade koşulları sözleşmeye tabidir."
         };
 
         function sendPresetChat(qIndex) {
@@ -1742,13 +1945,6 @@
 
         function openAuthModal() { document.getElementById('authModal').classList.remove('hidden'); }
         function closeAuthModal() { document.getElementById('authModal').classList.add('hidden'); }
-        function handleAuthSubmit(e) {
-            e.preventDefault();
-            closeAuthModal();
-            document.getElementById('msgTitle').innerText = "OTURUM AÇILDI";
-            document.getElementById('msgText').innerHTML = "Müşteri paneline giriş yaptınız. Hoş geldiniz!";
-            document.getElementById('messageModal').classList.remove('hidden');
-        }
 
         let selectedPackage = '';
         let selectedPrice = 0;
