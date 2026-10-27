@@ -40,99 +40,9 @@
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
             overflow-x: hidden;
-        }
-        /* Varsayılan Siyah Tema Değerleri */
-        body.dark {
             background-color: #07090E;
             color: #F3F4F6;
         }
-        /* Beyaz Tema Değerleri - Kapsamlı Kontrast Optimizasyonu */
-        body.light {
-            background-color: #F8FAFC;
-            color: #0F172A;
-        }
-        body.light header {
-            background-color: rgba(255, 255, 255, 0.95) !important;
-            border-color: #CBD5E1 !important;
-        }
-        body.light .bg-brand-card {
-            background-color: #FFFFFF !important;
-            border-color: #CBD5E1 !important;
-            color: #0F172A !important;
-        }
-        
-        /* Beyaz Mod: Tüm Koyu Arka Planlı Kutular ve Şeritler */
-        body.light .hero-box-fix {
-            background: linear-gradient(to bottom, #FFFFFF, #F1F5F9) !important;
-            border-color: rgba(255, 107, 0, 0.4) !important;
-            color: #0F172A !important;
-        }
-        body.light .hero-box-fix p,
-        body.light .hero-box-fix span {
-            color: #1E293B !important;
-        }
-        body.light .hero-box-fix strong {
-            color: #0F172A !important;
-        }
-        body.light .hero-box-fix .sub-card-fix {
-            background-color: #FFFFFF !important;
-            border-color: rgba(255, 107, 0, 0.3) !important;
-            color: #0F172A !important;
-        }
-        body.light .hero-status-fix {
-            background-color: #FFFFFF !important;
-            border-color: #CBD5E1 !important;
-            color: #1E293B !important;
-        }
-        body.light .hero-status-fix strong {
-            color: #0F172A !important;
-        }
-
-        /* Diğer Koyu Alanlar ve Kartlar */
-        body.light .bg-\[\#05070A\],
-        body.light .bg-\[\#0B0F19\],
-        body.light .bg-\[\#040609\],
-        body.light #liveChatWindow,
-        body.light #chatMessages {
-            background-color: #FFFFFF !important;
-            color: #0F172A !important;
-            border-color: #CBD5E1 !important;
-        }
-        
-        body.light footer {
-            background-color: #E2E8F0 !important;
-            border-color: #CBD5E1 !important;
-            color: #0F172A !important;
-        }
-        body.light footer .bg-brand-card {
-            background-color: #FFFFFF !important;
-            border-color: #CBD5E1 !important;
-        }
-        
-        body.light nav a {
-            color: #0F172A !important;
-        }
-        body.light .text-white {
-            color: #0F172A !important;
-        }
-        body.light .text-gray-200,
-        body.light .text-gray-300,
-        body.light .text-gray-400 {
-            color: #334155 !important;
-        }
-        
-        body.light .border-brand-border,
-        body.light .border-neutral-800,
-        body.light .border-neutral-900 {
-            border-color: #CBD5E1 !important;
-        }
-
-        body.light input, body.light select, body.light textarea {
-            background-color: #F8FAFC !important;
-            color: #0F172A !important;
-            border-color: #CBD5E1 !important;
-        }
-
         .orange-underline {
             text-decoration: underline;
             text-decoration-color: #FF6B00;
@@ -154,10 +64,9 @@
         }
         .cyber-grid {
             background-image: linear-gradient(to right, rgba(255, 107, 0, 0.03) 1px, transparent 1px),
-                            linear-gradient(to bottom, rgba(255, 107, 0, 0.03) 1px, transparent 1px);
+                              linear-gradient(to bottom, rgba(255, 107, 0, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
         }
-        /* Belirgin Hareketli Turuncu Top */
         @keyframes floatOrangeBall {
             0% { transform: translate(5vw, 15vh) scale(1); }
             30% { transform: translate(80vw, 30vh) scale(1.3); }
@@ -176,7 +85,6 @@
             filter: blur(20px);
             animation: floatOrangeBall 18s infinite ease-in-out;
         }
-        /* Bağımsız Hareketli Beyaz Top */
         @keyframes floatWhiteBall {
             0% { transform: translate(75vw, 75vh) scale(1); }
             33% { transform: translate(10vw, 20vh) scale(1.4); }
@@ -203,7 +111,7 @@
     <div class="moving-white-ball"></div>
 
     <!-- NAVİGASYON / HEADER -->
-    <header class="sticky top-0 z-40 backdrop-blur-md border-b border-brand-border transition-colors duration-300">
+    <header class="sticky top-0 z-40 backdrop-blur-md border-b border-brand-border bg-[#0B0F19]/95 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
             <!-- LOGO -->
@@ -219,8 +127,7 @@
                         GNESSAC <span class="text-brand text-xs px-2 py-0.5 rounded-md bg-brand/10 border border-brand/30 shadow-[0_0_10px_rgba(255,107,0,0.2)]">PRO</span>
                     </span>
                     <span class="text-[10px] text-gray-300 tracking-widest uppercase font-semibold flex items-center gap-1.5">
-                        <!-- Türk Bayrağı Emoji (Tüm tarayıcılarda aktif) -->
-                        <span class="inline-block text-xs leading-none" role="img" aria-label="Türkiye Bayrağı">&#x1F1F9;&#x1F1F7;</span> ÇEKİRDEK KORUMA SİSTEMİ
+                        ÇEKİRDEK KORUMA SİSTEMİ
                     </span>
                 </div>
             </a>
@@ -235,13 +142,8 @@
                 <a href="#gizlilik" class="hover:text-brand transition-colors text-gray-200">GİZLİLİK</a>
             </nav>
 
-            <!-- SAĞ AKSİYONLAR (TEMA DEĞİŞTİRME, SEPET, GİRİŞ) -->
+            <!-- SAĞ AKSİYONLAR (SEPET, GİRİŞ) -->
             <div class="flex items-center space-x-3">
-                <!-- TEMA DEĞİŞTİRME BUTONU (SOL ÜST KISIMDA SEPETİN YANINDA) -->
-                <button onclick="toggleTheme()" class="bg-brand/10 hover:bg-brand/20 border border-brand/40 text-brand p-2.5 rounded-xl transition-all flex items-center justify-center shadow-[0_0_15px_rgba(255,107,0,0.2)]" title="Tema Değiştir">
-                    <i id="themeIcon" class="fa-solid fa-sun text-sm"></i>
-                </button>
-
                 <!-- ALIŞVERİŞ SEPETİ BUTONU -->
                 <button onclick="openCartModal()" class="relative bg-brand/10 hover:bg-brand/20 border border-brand/40 p-2.5 rounded-xl transition-all flex items-center gap-2 group shadow-[0_0_15px_rgba(255,107,0,0.2)]">
                     <i class="fa-solid fa-cart-shopping text-brand text-sm group-hover:scale-110 transition-transform"></i>
@@ -272,7 +174,7 @@
                 ÇEKİRDEK DÜZEYİNDE KORUMA ALTINDA OYNAYIN.
             </h1>
 
-            <div class="w-full max-w-4xl mb-10 hero-box-fix bg-gradient-to-b from-brand-card/95 to-[#0B0F19]/95 backdrop-blur-2xl border-2 border-brand/40 rounded-3xl p-8 sm:p-10 shadow-[0_0_50px_rgba(255,107,0,0.18)] text-center relative overflow-hidden transition-colors duration-300">
+            <div class="w-full max-w-4xl mb-10 bg-gradient-to-b from-brand-card/95 to-[#0B0F19]/95 backdrop-blur-2xl border-2 border-brand/40 rounded-3xl p-8 sm:p-10 shadow-[0_0_50px_rgba(255,107,0,0.18)] text-center relative overflow-hidden transition-colors duration-300">
                 <div class="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-brand/15 blur-3xl rounded-full pointer-events-none"></div>
                 
                 <div class="flex items-center justify-center gap-3 mb-5 border-b border-neutral-800 pb-4">
@@ -290,15 +192,15 @@
                 </p>
 
                 <div class="pt-6 border-t border-neutral-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-bold">
-                    <div class="sub-card-fix flex items-center justify-center gap-2 bg-[#05070A]/60 py-3 px-4 rounded-xl border border-brand/20 text-white">
+                    <div class="flex items-center justify-center gap-2 bg-[#05070A]/60 py-3 px-4 rounded-xl border border-brand/20 text-white">
                         <i class="fa-solid fa-bolt text-brand text-sm"></i>
                         <span>%0.1 Altı İşlemci / Bellek Tüketimi</span>
                     </div>
-                    <div class="sub-card-fix flex items-center justify-center gap-2 bg-[#05070A]/60 py-3 px-4 rounded-xl border border-brand/20 text-white">
+                    <div class="flex items-center justify-center gap-2 bg-[#05070A]/60 py-3 px-4 rounded-xl border border-brand/20 text-white">
                         <i class="fa-solid fa-microchip text-brand text-sm"></i>
                         <span>Ring-0 Enjeksiyon Engelleyici</span>
                     </div>
-                    <div class="sub-card-fix flex items-center justify-center gap-2 bg-[#05070A]/60 py-3 px-4 rounded-xl border border-brand/20 text-white">
+                    <div class="flex items-center justify-center gap-2 bg-[#05070A]/60 py-3 px-4 rounded-xl border border-brand/20 text-white">
                         <i class="fa-solid fa-clock-rotate-left text-brand text-sm"></i>
                         <span>7/24 Kesintisiz Canlı Tarama</span>
                     </div>
@@ -306,7 +208,7 @@
             </div>
 
             <!-- GERÇEK ZAMANLI SUNUCU DURUM PANELİ -->
-            <div class="hero-status-fix w-full max-w-4xl mb-8 bg-[#0B0F19]/90 border border-brand/40 rounded-2xl p-4 sm:p-5 shadow-lg flex flex-col sm:flex-row items-center justify-around gap-4 text-xs font-semibold text-gray-200 transition-colors duration-300">
+            <div class="w-full max-w-4xl mb-8 bg-[#0B0F19]/90 border border-brand/40 rounded-2xl p-4 sm:p-5 shadow-lg flex flex-col sm:flex-row items-center justify-around gap-4 text-xs font-semibold text-gray-200 transition-colors duration-300">
                 <div class="flex items-center gap-2.5">
                     <span class="w-3 h-3 rounded-full bg-green-500 animate-ping flex-shrink-0"></span>
                     <span>Gnessac Çekirdek Arayüzü: <strong class="text-white">Çevrim içi (%99.9)</strong></span>
@@ -331,7 +233,7 @@
                 </a>
             </div>
 
-            <div class="hero-box-fix max-w-3xl w-full bg-brand-card/80 border border-brand-border rounded-xl p-4 text-xs text-gray-200 flex flex-col md:flex-row items-center justify-around gap-4 shadow-inner transition-colors duration-300">
+            <div class="max-w-3xl w-full bg-brand-card/80 border border-brand-border rounded-xl p-4 text-xs text-gray-200 flex flex-col md:flex-row items-center justify-around gap-4 shadow-inner transition-colors duration-300">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-microchip text-brand text-base"></i>
                     <span><strong>İşlemci / İşletim Sistemi:</strong> Windows 10 / 11 (64-bit) UEFI & Güvenli Önyükleme Uyumlu</span>
@@ -385,7 +287,7 @@
         </div>
     </section>
 
-    <!-- DESTEKLENEN OYUNLAR (6'LI TEK SIRA) -->
+    <!-- DESTEKLENEN OYUNLAR -->
     <section id="oyunlar" class="py-24 border-b border-brand-border bg-[#05070A]/60 z-10 relative transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -498,32 +400,30 @@
         </div>
     </section>
 
-    <!-- LİSANS PAKETLERİ (4'LÜ TEK SIRA) -->
+    <!-- LİSANS SATIN ALMA PAKETLERİ & WEB TASARIM HİZMETİ (5'Lİ KUSURSUZ HİZALI GRID) -->
     <section id="paketler" class="py-28 border-b border-brand-border relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="bg-brand/10 border border-brand text-brand text-xs font-black uppercase px-4 py-1.5 rounded-full inline-block mb-3 shadow-[0_0_15px_rgba(255,107,0,0.3)]">🎉 %10 Hoş Geldin İndirimi Aktif!</span>
+                <span class="bg-brand/10 border border-brand text-brand text-xs font-black uppercase px-4 py-1.5 rounded-full inline-block mb-3 shadow-[0_0_15px_rgba(255,107,0,0.3)]">🛡️ Profesyonel Çekirdek & Kurumsal Çözümler</span>
                 <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-wider mb-4 text-white">
-                    LİSANS SATIN ALMA PAKETLERİ
+                    LİSANS SATIN ALMA VE HİZMET PAKETLERİ
                 </h2>
                 <div class="w-16 h-1 bg-brand mx-auto rounded-full mb-4"></div>
                 <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto">
-                    Sunucunuzun kapasitesine uygun IP lisans paketini seçin, sepete ekleyerek toplu sepet alışverişi yapın ve 3D Güvenli Ödeme ile anında tamamlayın.
+                    Sunucunuzun kapasitesine uygun IP lisans paketini veya kurumsal web tasarımı hizmetimizi seçin, sepetinize ekleyerek 3D Güvenli Ödeme ile anında tamamlayın.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 items-stretch">
                 <!-- 1 IP PAKET -->
                 <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand transition-all duration-300 relative overflow-hidden shadow-xl">
                     <div>
-                        <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">%10 İNDİRİMLİ BAŞLANGIÇ</div>
+                        <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">BAŞLANGIÇ LİSANSI</div>
                         <h3 class="text-2xl font-black mb-3 text-white">1 IP Lisansı</h3>
-                        <div class="flex items-baseline mb-2">
-                            <span class="text-3xl font-extrabold text-white">809 ₺</span>
-                            <span class="text-gray-400 text-xs ml-2 uppercase font-semibold line-through">899 ₺</span>
+                        <div class="flex items-baseline mb-5">
+                            <span class="text-3xl font-extrabold text-white">899 ₺</span>
                             <span class="text-gray-400 text-[10px] ml-1 uppercase font-semibold">/ Aylık</span>
                         </div>
-                        <div class="text-[10px] text-brand font-bold mb-5">Tasarruf: 90 ₺ İndirim</div>
                         <ul class="space-y-2.5 text-xs text-gray-200 mb-6 border-t border-neutral-800 pt-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>1 Adet Sunucu IP Tanımlama</span></li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>Ring-0 Çekirdek Koruma</span></li>
@@ -532,10 +432,10 @@
                         </ul>
                     </div>
                     <div class="space-y-2">
-                        <button onclick="addToCart('1 IP Lisansı', 809)" class="w-full bg-brand/20 hover:bg-brand/30 border border-brand text-brand font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all flex items-center justify-center gap-2">
+                        <button onclick="addToCart('1 IP Lisansı', 899)" class="w-full bg-brand/20 hover:bg-brand/30 border border-brand text-brand font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all flex items-center justify-center gap-2">
                             <i class="fa-solid fa-cart-plus"></i> <span>SEPETE EKLE</span>
                         </button>
-                        <button onclick="openPaymentModal('1 IP Lisansı', 809)" class="w-full bg-brand hover:bg-brand-hover text-white font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all shadow-md">
+                        <button onclick="openPaymentModal('1 IP Lisansı', 899)" class="w-full bg-brand hover:bg-brand-hover text-white font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all shadow-md">
                             HEMEN SATIN AL
                         </button>
                     </div>
@@ -546,12 +446,10 @@
                     <div>
                         <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">PROFESYONEL PRO</div>
                         <h3 class="text-2xl font-black mb-3 text-white">2 IP Lisansı</h3>
-                        <div class="flex items-baseline mb-2">
-                            <span class="text-3xl font-extrabold text-white">1.619 ₺</span>
-                            <span class="text-gray-400 text-xs ml-2 uppercase font-semibold line-through">1.799 ₺</span>
+                        <div class="flex items-baseline mb-5">
+                            <span class="text-3xl font-extrabold text-white">1.799 ₺</span>
                             <span class="text-gray-400 text-[10px] ml-1 uppercase font-semibold">/ Aylık</span>
                         </div>
-                        <div class="text-[10px] text-brand font-bold mb-5">Tasarruf: 180 ₺ İndirim</div>
                         <ul class="space-y-2.5 text-xs text-gray-200 mb-6 border-t border-neutral-800 pt-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>2 Adet Sunucu IP Tanımlama</span></li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>Ring-0 Çekirdek Koruma</span></li>
@@ -560,10 +458,10 @@
                         </ul>
                     </div>
                     <div class="space-y-2">
-                        <button onclick="addToCart('2 IP Lisansı', 1619)" class="w-full bg-brand/20 hover:bg-brand/30 border border-brand text-brand font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all flex items-center justify-center gap-2">
+                        <button onclick="addToCart('2 IP Lisansı', 1799)" class="w-full bg-brand/20 hover:bg-brand/30 border border-brand text-brand font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all flex items-center justify-center gap-2">
                             <i class="fa-solid fa-cart-plus"></i> <span>SEPETE EKLE</span>
                         </button>
-                        <button onclick="openPaymentModal('2 IP Lisansı', 1619)" class="w-full bg-brand hover:bg-brand-hover text-white font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all shadow-md">
+                        <button onclick="openPaymentModal('2 IP Lisansı', 1799)" class="w-full bg-brand hover:bg-brand-hover text-white font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all shadow-md">
                             HEMEN SATIN AL
                         </button>
                     </div>
@@ -572,14 +470,12 @@
                 <!-- 10 IP PAKET -->
                 <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand transition-all duration-300 relative overflow-hidden shadow-xl">
                     <div>
-                        <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">KURUMSAL SUNUCU FİLOSU</div>
+                        <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">KURUMSAL FİLO</div>
                         <h3 class="text-2xl font-black mb-3 text-white">10 IP Lisansı</h3>
-                        <div class="flex items-baseline mb-2">
-                            <span class="text-3xl font-extrabold text-white">11.213 ₺</span>
-                            <span class="text-gray-400 text-xs ml-2 uppercase font-semibold line-through">12.459 ₺</span>
+                        <div class="flex items-baseline mb-5">
+                            <span class="text-3xl font-extrabold text-white">12.459 ₺</span>
                             <span class="text-gray-400 text-[10px] ml-1 uppercase font-semibold">/ Aylık</span>
                         </div>
-                        <div class="text-[10px] text-brand font-bold mb-5">Tasarruf: 1.246 ₺ İndirim</div>
                         <ul class="space-y-2.5 text-xs text-gray-200 mb-6 border-t border-neutral-800 pt-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>10 Adet Sunucu IP Tanımlama</span></li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>Özel Sürücü İmzası ve Maskeleme</span></li>
@@ -588,41 +484,65 @@
                         </ul>
                     </div>
                     <div class="space-y-2">
-                        <button onclick="addToCart('10 IP Lisansı', 11213)" class="w-full bg-brand/20 hover:bg-brand/30 border border-brand text-brand font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all flex items-center justify-center gap-2">
+                        <button onclick="addToCart('10 IP Lisansı', 12459)" class="w-full bg-brand/20 hover:bg-brand/30 border border-brand text-brand font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all flex items-center justify-center gap-2">
                             <i class="fa-solid fa-cart-plus"></i> <span>SEPETE EKLE</span>
                         </button>
-                        <button onclick="openPaymentModal('10 IP Lisansı', 11213)" class="w-full bg-brand hover:bg-brand-hover text-white font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all shadow-md">
+                        <button onclick="openPaymentModal('10 IP Lisansı', 12459)" class="w-full bg-brand hover:bg-brand-hover text-white font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all shadow-md">
                             HEMEN SATIN AL
                         </button>
                     </div>
                 </div>
 
                 <!-- 25 IP MEGA FİLO -->
-                <div class="bg-brand-card border-2 border-brand rounded-2xl p-6 flex flex-col justify-between shadow-[0_0_35px_rgba(255,107,0,0.25)] relative overflow-hidden transform md:-translate-y-2">
-                    <div class="absolute top-0 right-0 bg-brand text-white font-extrabold text-[9px] uppercase px-3 py-1 rounded-bl-xl tracking-wider shadow-sm">
-                        MEGA FİLO (%10 İNDİRİMLİ)
-                    </div>
+                <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand transition-all duration-300 relative overflow-hidden shadow-xl">
                     <div>
                         <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">SINIRSIZ AĞ</div>
                         <h3 class="text-2xl font-black mb-3 text-white">25 IP Mega Filo</h3>
-                        <div class="flex items-baseline mb-2">
-                            <span class="text-3xl font-extrabold text-white">17.429 ₺</span>
-                            <span class="text-gray-400 text-xs ml-2 uppercase font-semibold line-through">19.365 ₺</span>
+                        <div class="flex items-baseline mb-5">
+                            <span class="text-3xl font-extrabold text-white">19.365 ₺</span>
                             <span class="text-gray-400 text-[10px] ml-1 uppercase font-semibold">/ Aylık</span>
                         </div>
-                        <div class="text-[10px] text-brand font-bold mb-5">Tasarruf: 1.936 ₺ İndirim</div>
                         <ul class="space-y-2.5 text-xs text-gray-200 mb-6 border-t border-neutral-800 pt-5">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>25 Adet Sunucu IP Tanımlama</span></li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>Özel Çekirdek Sürücüsü ve Maskeleme</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>Özel Sürücü ve Maskeleme</span></li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>VIP 7/24 Doğrudan Mühendis Hattı</span></li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>Sınırsız Oyuncu ve Dağıtık Hizmet Engelleme Koruması</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>DDoS Koruma Entegrasyonu</span></li>
                         </ul>
                     </div>
                     <div class="space-y-2">
-                        <button onclick="addToCart('25 IP Mega Filo', 17429)" class="w-full bg-brand/20 hover:bg-brand/30 border border-brand text-brand font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all flex items-center justify-center gap-2">
+                        <button onclick="addToCart('25 IP Mega Filo', 19365)" class="w-full bg-brand/20 hover:bg-brand/30 border border-brand text-brand font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all flex items-center justify-center gap-2">
                             <i class="fa-solid fa-cart-plus"></i> <span>SEPETE EKLE</span>
                         </button>
-                        <button onclick="openPaymentModal('25 IP Mega Filo', 17429)" class="w-full bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all shadow-lg">
+                        <button onclick="openPaymentModal('25 IP Mega Filo', 19365)" class="w-full bg-brand hover:bg-brand-hover text-white font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all shadow-md">
+                            HEMEN SATIN AL
+                        </button>
+                    </div>
+                </div>
+
+                <!-- YENİ: WEB SİTESİ TASARIM SATIŞ HİZMET PAKETİ (1349 TL) -->
+                <div class="bg-brand-card border-2 border-brand rounded-2xl p-6 flex flex-col justify-between shadow-[0_0_35px_rgba(255,107,0,0.25)] relative overflow-hidden transform lg:-translate-y-2">
+                    <div class="absolute top-0 right-0 bg-brand text-white font-extrabold text-[9px] uppercase px-3 py-1 rounded-bl-xl tracking-wider shadow-sm">
+                        ÖZEL KURUMSAL HİZMET
+                    </div>
+                    <div>
+                        <div class="text-[11px] font-extrabold text-brand uppercase tracking-widest mb-2">WEB ÇÖZÜMLERİ</div>
+                        <h3 class="text-2xl font-black mb-3 text-white">Web Tasarım Paketi</h3>
+                        <div class="flex items-baseline mb-5">
+                            <span class="text-3xl font-extrabold text-white">1.349 ₺</span>
+                            <span class="text-gray-400 text-[10px] ml-1 uppercase font-semibold">/ Tek Seferlik</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs text-gray-200 mb-6 border-t border-neutral-800 pt-5">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>Özel Kurumsal Arayüz Tasarımı</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>Mobil Uyumlu Responsive Altyapı</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>SEO Uyumlu Performans Optimizasyonu</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand"></i> <span>Hızlı Kurulum & Teknik Danışmanlık</span></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-2">
+                        <button onclick="addToCart('Web Tasarım Paketi', 1349)" class="w-full bg-brand/20 hover:bg-brand/30 border border-brand text-brand font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i> <span>SEPETE EKLE</span>
+                        </button>
+                        <button onclick="openPaymentModal('Web Tasarım Paketi', 1349)" class="w-full bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-bold text-[11px] uppercase py-2.5 rounded-xl tracking-wider transition-all shadow-lg">
                             HEMEN SATIN AL
                         </button>
                     </div>
@@ -661,7 +581,7 @@
         </div>
     </section>
 
-    <!-- SIKÇA SORULAN SORULAR (SSS) -->
+    <!-- SIKÇA SORULAN SORULAR (SSS - 14 ADET) -->
     <section id="sss" class="py-28 border-b border-brand-border z-10 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -669,13 +589,13 @@
                     SIKÇA SORULAN SORULAR
                 </h2>
                 <div class="w-16 h-1 bg-brand mx-auto rounded-full mb-3"></div>
-                <p class="text-gray-300 text-sm">Gnessac Hile Önleme Sistemi hakkında en çok merak edilen konular.</p>
+                <p class="text-gray-300 text-sm">Gnessac Hile Önleme Sistemi ve Web Tasarım Hizmeti hakkında en çok merak edilen 14 konu.</p>
             </div>
 
             <div class="space-y-4" id="faqAccordion">
                 <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
                     <button onclick="toggleFaq(1)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
-                        <span>Gnessac Hile Önleme Sistemi tam olarak nedir ve nasıl çalışır?</span>
+                        <span>1. Gnessac Hile Önleme Sistemi tam olarak nedir ve nasıl çalışır?</span>
                         <i id="faqIcon-1" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
                     </button>
                     <div id="faqAns-1" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
@@ -685,7 +605,7 @@
 
                 <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
                     <button onclick="toggleFaq(2)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
-                        <span>Gnessac bilgisayarımda kare hızı (FPS) düşüşü veya kasmaya yol açar mı?</span>
+                        <span>2. Gnessac bilgisayarımda kare hızı (FPS) düşüşü veya kasmaya yol açar mı?</span>
                         <i id="faqIcon-2" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
                     </button>
                     <div id="faqAns-2" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
@@ -695,7 +615,7 @@
 
                 <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
                     <button onclick="toggleFaq(3)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
-                        <span>Kişisel verilerimi veya özel dosyalarımı tarıyor musunuz?</span>
+                        <span>3. Kişisel verilerimi veya özel dosyalarımı tarıyor musunuz?</span>
                         <i id="faqIcon-3" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
                     </button>
                     <div id="faqAns-3" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
@@ -705,18 +625,118 @@
 
                 <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
                     <button onclick="toggleFaq(4)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
-                        <span>IP Lisansı satın aldıktan sonra kurulum nasıl yapılır?</span>
+                        <span>4. IP Lisansı satın aldıktan sonra kurulum nasıl yapılır?</span>
                         <i id="faqIcon-4" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
                     </button>
                     <div id="faqAns-4" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
                         Ödeme onaylandıktan hemen sonra lisans anahtarınız ve sunucu entegrasyon dosyalarınız müşteri panelinize tanımlanır. 7/24 teknik ekibimizle hızlıca kurabilirsiniz.
                     </div>
                 </div>
+
+                <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
+                    <button onclick="toggleFaq(5)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
+                        <span>5. 1.349 TL tutarındaki Web Tasarım Paketi neleri kapsar?</span>
+                        <i id="faqIcon-5" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
+                    </button>
+                    <div id="faqAns-5" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
+                        Kurumsal web tasarım paketimiz; özel arayüz tasarımı, tam mobil uyumluluk, SEO altyapı optimizasyonu ve hızlı teslimat avantajlarını tek seferlik ücretle sunar.
+                    </div>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
+                    <button onclick="toggleFaq(6)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
+                        <span>6. Hangi oyun altyapıları resmi olarak desteklenmektedir?</span>
+                        <i id="faqIcon-6" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
+                    </button>
+                    <div id="faqAns-6" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
+                        Metin2, Knight Online, Counter-Strike 2, VALORANT, League of Legends ve EVE Online oyun sunucuları tam destek kapsamındadır.
+                    </div>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
+                    <button onclick="toggleFaq(7)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
+                        <span>7. 3D Secure güvenli ödeme sisteminiz nasıl çalışıyor?</span>
+                        <i id="faqIcon-7" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
+                    </button>
+                    <div id="faqAns-7" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
+                        Tüm ödemeler 256-bit SSL sertifikası ve banka onaylı 3D Secure altyapısı ile şifrelenerek güvenle gerçekleştirilir.
+                    </div>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
+                    <button onclick="toggleFaq(8)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
+                        <span>8. Donanım banı (HWID Ban) sistemi nasıl yönetilir?</span>
+                        <i id="faqIcon-8" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
+                    </button>
+                    <div id="faqAns-8" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
+                        Donanım banları anakart ve disk kimlikleri baz alınarak otomatik uygulanır, yönetici paneli üzerinden kolayca denetlenir.
+                    </div>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
+                    <button onclick="toggleFaq(9)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
+                        <span>9. Windows 11 Güvenli Önyükleme gereksinimi zorunlu mu?</span>
+                        <i id="faqIcon-9" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
+                    </button>
+                    <div id="faqAns-9" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
+                        Evet, çekirdek güvenliğinin tam verimle çalışabilmesi için Windows 10/11 UEFI ve Güvenli Önyükleme desteği gereklidir.
+                    </div>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
+                    <button onclick="toggleFaq(10)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
+                        <span>10. Toplu sepet alışverişi yapmak mümkün mü?</span>
+                        <i id="faqIcon-10" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
+                    </button>
+                    <div id="faqAns-10" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
+                        Evet, dilediğiniz lisansları veya web tasarım hizmetini sepete ekleyerek tek seferde toplu ödeme yapabilirsiniz.
+                    </div>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
+                    <button onclick="toggleFaq(11)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
+                        <span>11. Banka Havale / EFT ile ödeme yapabilir miyim?</span>
+                        <i id="faqIcon-11" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
+                    </button>
+                    <div id="faqAns-11" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
+                        Evet, ödeme terminalimiz üzerinden Kredi Kartı, Havale/EFT veya Kripto (USDT) seçeneklerini tercih edebilirsiniz.
+                    </div>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
+                    <button onclick="toggleFaq(12)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
+                        <span>12. Sunucu IP adresimi sonradan değiştirebilir miyim?</span>
+                        <i id="faqIcon-12" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
+                    </button>
+                    <div id="faqAns-12" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
+                        Müşteri paneliniz üzerinden veya destek talebi oluşturarak lisanslı IP adresinizi kolaylıkla güncelleyebilirsiniz.
+                    </div>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
+                    <button onclick="toggleFaq(13)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
+                        <span>13. Teknik destek ekibinize nasıl ulaşabilirim?</span>
+                        <i id="faqIcon-13" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
+                    </button>
+                    <div id="faqAns-13" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
+                        7/24 canlı destek asistanımızdan, destek formu modülümüzden veya +0216 255 53 53 numaralı hattımızdan ulaşabilirsiniz.
+                    </div>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden shadow-md">
+                    <button onclick="toggleFaq(14)" class="w-full text-left p-6 font-extrabold flex justify-between items-center hover:text-brand transition-colors text-white">
+                        <span>14. Kurumsal fatura kesiliyor mu?</span>
+                        <i id="faqIcon-14" class="fa-solid fa-chevron-down text-brand transition-transform"></i>
+                    </button>
+                    <div id="faqAns-14" class="hidden p-6 pt-0 text-gray-200 text-sm leading-relaxed border-t border-neutral-900">
+                        Evet, tüm lisans ve web tasarım alımlarınızda yasal kurumsal veya bireysel e-fatura düzenlenerek tarafınıza iletilir.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- HİZMET ŞARTLARI VE KULLANIM SÖZLEŞMESİ (TEMA UYUMLU, KURUMSAL, BÜYÜK YAZI VE TURUNCU ÇİZGİLİ) -->
+    <!-- HİZMET ŞARTLARI VE KULLANIM SÖZLEŞMESİ -->
     <section id="sartlar" class="py-28 border-b border-brand-border bg-[#05070A]/60 z-10 relative transition-colors duration-300">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -785,7 +805,7 @@
         </div>
     </section>
 
-    <!-- KURUMSAL GİZLİLİK VE VERİ KORUMA POLİTİKASI (TEMA UYUMLU, KURUMSAL, BÜYÜK YAZI VE TURUNCU ÇİZGİLİ) -->
+    <!-- KURUMSAL GİZLİLİK VE VERİ KORUMA POLİTİKASI -->
     <section id="gizlilik" class="py-28 border-b border-brand-border z-10 relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -915,7 +935,7 @@
         </div>
     </footer>
 
-    <!-- HIZLI AŞAĞI VE YUKARI ÇIKMA / İNME BUTONLARI -->
+    <!-- HIZLI AŞAĞI VE YUKARI ÇIKMA BUTONLARI -->
     <div class="fixed right-6 bottom-24 z-40 flex flex-col gap-2">
         <button onclick="scrollToTop()" title="En Yukarı Çık" class="bg-brand/20 hover:bg-brand border border-brand/50 text-brand hover:text-white w-10 h-10 rounded-xl shadow-[0_0_15px_rgba(255,107,0,0.3)] transition-all flex items-center justify-center group">
             <i class="fa-solid fa-arrow-up group-hover:-translate-y-0.5 transition-transform"></i>
@@ -933,7 +953,7 @@
         </button>
     </div>
 
-    <!-- SAĞ ALT 7/24 CANLI DESTEK ASİSTANI WIDGET (30 ADET HAZIR SORU) -->
+    <!-- SAĞ ALT 7/24 CANLI DESTEK ASİSTANI WIDGET -->
     <div class="fixed bottom-6 right-6 z-50">
         <button id="chatToggleBtn" onclick="toggleLiveChat()" class="relative bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white p-4 rounded-full shadow-[0_0_25px_rgba(255,107,0,0.6)] flex items-center justify-center text-xl transition-transform hover:scale-110 border-2 border-white/20 animate-bounce">
             <i class="fa-solid fa-comments"></i>
@@ -951,14 +971,14 @@
 
             <div id="chatMessages" class="p-4 h-72 overflow-y-auto custom-scrollbar space-y-3 text-xs bg-[#07090E]">
                 <div class="bg-brand/10 border border-brand/30 p-3 rounded-xl text-gray-200">
-                    👋 Merhaba! Ben Gnessac Asistanıyım. Sepet ve %10 indirim kampanyamız hakkında bilgi alabilir veya aşağıdaki 30 hazır sorumuza tıklayabilirsiniz.
+                    👋 Merhaba! Ben Gnessac Asistanıyım. Kurumsal web tasarım paketimiz ve lisanslarımız hakkında bilgi alabilir veya aşağıdaki hazır sorularımıza tıklayabilirsiniz.
                 </div>
             </div>
 
-            <!-- 30 Adet Hazır Soru -->
+            <!-- Hazır Sorular -->
             <div class="p-3 bg-[#111827] border-t border-brand-border max-h-44 overflow-y-auto custom-scrollbar grid grid-cols-1 gap-1.5">
-                <button onclick="sendPresetChat(1)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">1. Toplu sepet alışverişi ve %10 indirim nasıl uygulanır?</button>
-                <button onclick="sendPresetChat(2)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">2. Gnessac Hile Önleme Sistemi hangi oyunları destekliyor?</button>
+                <button onclick="sendPresetChat(1)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">1. Web Tasarım Paketi (1.349 TL) neleri kapsar?</button>
+                <button onclick="sendPresetChat(2)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">2. Gnessac Anti-Cheat hangi oyunları destekliyor?</button>
                 <button onclick="sendPresetChat(3)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">3. Ring-0 Çekirdek koruması nedir?</button>
                 <button onclick="sendPresetChat(4)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">4. IP Lisansı satın aldıktan sonra nasıl kurarım?</button>
                 <button onclick="sendPresetChat(5)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">5. Bilgisayarımda kare hızı düşüşü veya kasma yapar mı?</button>
@@ -966,27 +986,11 @@
                 <button onclick="sendPresetChat(7)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">7. 3D Güvenli Ödeme güvenli mi? Fatura kesiliyor mu?</button>
                 <button onclick="sendPresetChat(8)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">8. Donanım banı kaldırma süreci nasıldır?</button>
                 <button onclick="sendPresetChat(9)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">9. Windows 11 Güvenli Önyükleme ve Mavi Ekran hatası çözümü</button>
-                <button onclick="sendPresetChat(10)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">10. Kurumsal 10 IP Lisans filosu indirimi var mı?</button>
+                <button onclick="sendPresetChat(10)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">10. Kurumsal 10 IP Lisans filosu avantajları nelerdir?</button>
                 <button onclick="sendPresetChat(11)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">11. League of Legends script koruması nasıl çalışır?</button>
-                <button onclick="sendPresetChat(12)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">12. Ekstra sürücü imzalama hizmetiniz var mı?</button>
-                <button onclick="sendPresetChat(13)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">13. Metin2 Python bayt kod koruması aktif mi?</button>
-                <button onclick="sendPresetChat(14)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">14. Knight Online çoklu istemci engelleme detayı</button>
-                <button onclick="sendPresetChat(15)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">15. İstemci dosya boyutu ve indirme adımları</button>
-                <button onclick="sendPresetChat(16)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">16. Sunucu tarafında DDoS koruması sağlanıyor mu?</button>
-                <button onclick="sendPresetChat(17)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">17. Teknik destek ekibinize nasıl ulaşabilirim? (+0216 255 53 53)</button>
-                <button onclick="sendPresetChat(18)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">18. EVE Online bot ve madencilik engelleme sistemi</button>
-                <button onclick="sendPresetChat(19)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">19. 25 IP Mega Filo avantajları ve fiyatlandırması</button>
-                <button onclick="sendPresetChat(20)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">20. Kripto para ile ödeme yaparak nasıl lisans alırım?</button>
-                <button onclick="sendPresetChat(21)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">21. Banka Havale / EFT ile ödeme bildirim süreci</button>
-                <button onclick="sendPresetChat(22)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">22. Müşteri paneli şifre sıfırlama ve erişim sorunları</button>
-                <button onclick="sendPresetChat(23)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">23. CS2 Nişan Alma ve Duvar Arkası Koruma Filtreleri</button>
-                <button onclick="sendPresetChat(24)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">24. VALORANT Vanguard uyumlu ek modüller</button>
-                <button onclick="sendPresetChat(25)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">25. Lisans süresi bitiminde sunucu otomatik kapanır mı?</button>
-                <button onclick="sendPresetChat(26)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">26. Sunucu IP adresi değişikliği nasıl yapılır?</button>
-                <button onclick="sendPresetChat(27)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">27. Kurumsal fatura bilgileri nasıl güncellenir?</button>
-                <button onclick="sendPresetChat(28)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">28. Donanımsal bellek edinme kartlarına karşı koruma</button>
-                <button onclick="sendPresetChat(29)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">29. 7/24 Canlı mühendislik ve entegrasyon hattı</button>
-                <button onclick="sendPresetChat(30)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">30. Gnessac Yazılım resmi iletişim ve ofis adresi</button>
+                <button onclick="sendPresetChat(12)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">12. Banka Havale / EFT ile ödeme bildirim süreci</button>
+                <button onclick="sendPresetChat(13)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">13. Teknik destek ekibinize nasıl ulaşabilirim?</button>
+                <button onclick="sendPresetChat(14)" class="text-left text-[11px] bg-[#05070A] hover:bg-brand/20 text-gray-300 hover:text-white p-2 rounded-lg border border-brand/20">14. Gnessac Yazılım resmi iletişim ve ofis adresi</button>
             </div>
         </div>
     </div>
@@ -1001,7 +1005,7 @@
                 </div>
                 <div>
                     <h3 class="text-xl font-black uppercase tracking-wider text-white">KURUMSAL LİSANS SEPETİNİZ</h3>
-                    <p class="text-xs text-gray-300">Toplu sepet alışverişi ve %10 indirimli toplam ödeme özeti.</p>
+                    <p class="text-xs text-gray-300">Toplu sepet alışverişi ve toplam ödeme özeti.</p>
                 </div>
             </div>
 
@@ -1011,10 +1015,6 @@
                 <div class="flex justify-between text-xs text-gray-300">
                     <span>Ara Toplam:</span>
                     <span id="cartSubtotal" class="text-white font-semibold">0 ₺</span>
-                </div>
-                <div class="flex justify-between text-xs text-brand font-bold">
-                    <span>%10 Hoş Geldin İndirimi:</span>
-                    <span id="cartDiscount">-0 ₺</span>
                 </div>
                 <div class="pt-3 border-t border-neutral-800 flex justify-between items-center">
                     <span class="text-sm font-black uppercase text-white">Ödenecek Toplam Tutar:</span>
@@ -1058,7 +1058,7 @@
         </div>
     </div>
 
-    <!-- MODAL 2: DESTEK TALEBİ (27 ADET UZMANLIK ALANI) -->
+    <!-- MODAL 2: DESTEK TALEBİ -->
     <div id="supportModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-brand-card border-2 border-brand/60 rounded-3xl max-w-xl w-full p-8 relative shadow-[0_0_50px_rgba(255,107,0,0.25)] max-h-[92vh] overflow-y-auto custom-scrollbar">
             <button onclick="closeSupportModal()" class="absolute top-5 right-5 text-gray-300 hover:text-white bg-neutral-800 p-2 rounded-full"><i class="fa-solid fa-xmark text-lg"></i></button>
@@ -1083,36 +1083,16 @@
                     </div>
                 </div>
                 <div>
-                    <label class="block text-[11px] font-extrabold text-brand uppercase tracking-wider mb-1">DESTEK TALEBİ KONUSU (27 UZMANLIK ALANI)</label>
+                    <label class="block text-[11px] font-extrabold text-brand uppercase tracking-wider mb-1">DESTEK TALEBİ KONUSU</label>
                     <select id="suppSubject" required class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-brand cursor-pointer font-semibold">
                         <option value="">-- Lütfen Kurumsal Talep Konusu Seçiniz --</option>
-                        <option value="1. League of Legends & EVE Online Bot/Script Koruması">1. League of Legends ve EVE Online Bot / Script Koruması</option>
-                        <option value="2. Metin2 Kernel Sürücü Çakışması ve Açılış Hatası">2. Metin2 Çekirdek Sürücü Çakışması ve Açılış Hatası</option>
-                        <option value="3. Knight Online HackShield ve Paket Aşımı">3. Knight Online HackShield ve Paket Aşımı</option>
-                        <option value="4. CS2 & VALORANT Sunucu Entegrasyon Desteği">4. Counter-Strike 2 ve VALORANT Sunucu Entegrasyon Desteği</option>
-                        <option value="5. IP Lisansı Güncelleme ve Adres Değişikliği">5. IP Lisansı Güncelleme ve Adres Değişikliği</option>
-                        <option value="6. HWID Donanım Banı İncelemesi ve Yanlış Pozitif">6. Donanım Banı İncelemesi ve Yanlış Pozitif</option>
-                        <option value="7. %10 İndirim Kampanyası ve Fatura İşlemleri">7. %10 İndirim Kampanyası ve Fatura İşlemleri</option>
-                        <option value="8. Özel Sürücü İmzalama ve Maskeleme">8. Özel Sürücü İmzalama ve Maskeleme</option>
-                        <option value="9. Kurumsal 25 IP Mega Filo ve İndirim Başvurusu">9. Kurumsal 25 IP Mega Filo ve İndirim Başvurusu</option>
-                        <option value="10. Windows 11 Güvenli Önyükleme Sorunları">10. Windows 11 Güvenli Önyükleme ve Güvenilir Platform Modülü Sorunları</option>
-                        <option value="11. DDoS Koruma ve Sunucu Güvenlik Duvarı">11. Dağıtık Hizmet Engelleme Koruması ve Sunucu Güvenlik Duvarı</option>
-                        <option value="12. Müşteri Paneli Giriş ve Lisans Anahtarı Sorunu">12. Müşteri Paneli Giriş ve Lisans Anahtarı Sorunu</option>
-                        <option value="13. 4.89 GB İstemci Dosyası İndirme ve Kurulum Hatası">13. 4.89 GB İstemci Dosyası İndirme ve Kurulum Hatası</option>
-                        <option value="14. 3D Secure Kredi Kartı Ödeme ve Provizyon Hatası">14. 3D Güvenli Ödeme Kredi Kartı Provizyon Hatası</option>
-                        <option value="15. Banka Havale / EFT Ödeme Bildirimi ve Onay Süreci">15. Banka Havale / EFT Ödeme Bildirimi ve Onay Süreci</option>
-                        <option value="16. Kripto Para Ödeme Doğrulaması">16. Kripto Para Ödeme Doğrulaması</option>
-                        <option value="17. Python Bayt Kod ve Kanca Bloklama Entegrasyonu">17. Python Bayt Kod ve Kanca Bloklama Entegrasyonu</option>
-                        <option value="18. Çoklu İstemci Sınırlandırma ve Lisans Limiti Artırımı">18. Çoklu İstemci Sınırlandırma ve Lisans Limiti Artırımı</option>
-                        <option value="19. Donanımsal Bellek Kartları ve Piksel Nişan Alma Engelleme">19. Donanımsal Bellek Kartları ve Piksel Nişan Alma Engelleme</option>
-                        <option value="20. Canlı Yönetici Web Paneli Yetkilendirme İşlemleri">20. Canlı Yönetici Web Paneli Yetkilendirme İşlemleri</option>
-                        <option value="21. Toplu Sepet İndirimi ve Fatura Kesim Talebi">21. Toplu Sepet İndirimi ve Fatura Kesim Talebi</option>
-                        <option value="22. Sunucu Bakım Dönemi Geçici Lisans Dondurma">22. Sunucu Bakım Dönemi Geçici Lisans Dondurma</option>
-                        <option value="23. Asenkron Çekirdek Performans ve Kare Hızı Optimizasyonu">23. Asenkron Çekirdek Performansı ve Kare Hızı Optimizasyonu</option>
-                        <option value="24. EVE Online Otomatik Madencilik Botu Engelleme">24. EVE Online Otomatik Madencilik Botu Engelleme</option>
-                        <option value="25. Mavi Ekran ve Sürücü Çakışma Analizi">25. Mavi Ekran ve Sürücü Çakışma Analizi</option>
-                        <option value="26. VIP 7/24 Doğrudan Mühendislik Hattı Talebi">26. VIP 7/24 Doğrudan Mühendislik Hattı Talebi</option>
-                        <option value="27. Genel Soru, İş Birliği, Şikayet ve Öneriler">27. Genel Soru, İş Birliği, Şikayet ve Öneriler</option>
+                        <option value="Web Tasarım Hizmeti (1.349 TL) Bilgi ve Kurulum">Web Tasarım Hizmeti (1.349 TL) Bilgi ve Kurulum</option>
+                        <option value="League of Legends & EVE Online Bot/Script Koruması">League of Legends ve EVE Online Bot / Script Koruması</option>
+                        <option value="Metin2 Kernel Sürücü Çakışması ve Açılış Hatası">Metin2 Çekirdek Sürücü Çakışması ve Açılış Hatası</option>
+                        <option value="Knight Online HackShield ve Paket Aşımı">Knight Online HackShield ve Paket Aşımı</option>
+                        <option value="CS2 & VALORANT Sunucu Entegrasyon Desteği">Counter-Strike 2 ve VALORANT Sunucu Entegrasyon Desteği</option>
+                        <option value="IP Lisansı Güncelleme ve Adres Değişikliği">IP Lisansı Güncelleme ve Adres Değişikliği</option>
+                        <option value="Genel Soru, İş Birliği, Şikayet ve Öneriler">Genel Soru, İş Birliği, Şikayet ve Öneriler</option>
                     </select>
                 </div>
                 <div>
@@ -1127,7 +1107,7 @@
         </div>
     </div>
 
-    <!-- MODAL 3: ÜST DÜZEY KURUMSAL 3D GÜVENLİ ÖDEME TERMİNALİ -->
+    <!-- MODAL 3: GÜVENLİ ÖDEME TERMİNALİ -->
     <div id="paymentModal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-[#0B0F19] border-2 border-brand/80 rounded-3xl max-w-2xl w-full p-8 relative shadow-[0_0_80px_rgba(255,107,0,0.35)] max-h-[92vh] overflow-y-auto custom-scrollbar">
             <button onclick="closePaymentModal()" class="absolute top-5 right-5 text-gray-300 hover:text-white bg-neutral-800 hover:bg-brand hover:text-white transition-colors p-2.5 rounded-full"><i class="fa-solid fa-xmark text-lg"></i></button>
@@ -1142,7 +1122,7 @@
                         <p class="text-[11px] text-gray-300 flex items-center gap-2 mt-0.5">
                             <span class="text-green-400 flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> 256-Bit SSL</span>
                             <span>•</span>
-                            <span class="text-brand flex items-center gap-1"><i class="fa-solid fa-bolt"></i> Anında Otomatik Lisans Teslimat</span>
+                            <span class="text-brand flex items-center gap-1"><i class="fa-solid fa-bolt"></i> Anında Otomatik Teslimat</span>
                         </p>
                     </div>
                 </div>
@@ -1150,20 +1130,20 @@
 
             <div class="bg-gradient-to-r from-brand-card to-[#05070A] border border-brand/40 rounded-2xl p-4 mb-6 flex items-center justify-between shadow-inner">
                 <div>
-                    <span class="text-[10px] uppercase font-extrabold text-brand tracking-widest block">SEÇİLEN LİSANS / SEPET ÖZETİ</span>
+                    <span class="text-[10px] uppercase font-extrabold text-brand tracking-widest block">SEÇİLEN ÜRÜN / HİZMET ÖZETİ</span>
                     <h4 id="payModalTitle" class="text-base font-black text-white uppercase">1 IP Lisansı</h4>
                 </div>
                 <div class="text-right">
-                    <span class="text-[10px] uppercase font-extrabold text-gray-300 tracking-widest block">ÖDENECEK TOPLAM (%10 İNDİRİMLİ)</span>
-                    <span id="payModalPrice" class="text-2xl font-black text-brand">809 ₺</span>
+                    <span class="text-[10px] uppercase font-extrabold text-gray-300 tracking-widest block">ÖDENECEK TOPLAM</span>
+                    <span id="payModalPrice" class="text-2xl font-black text-brand">899 ₺</span>
                 </div>
             </div>
 
             <form onsubmit="processPayment(event)" class="space-y-4">
                 <div>
-                    <label class="block text-[11px] font-extrabold text-brand uppercase tracking-wider mb-1">LİSANSLANACAK SUNUCU IP ADRESİ *</label>
-                    <input type="text" id="serverIpInput" required placeholder="örn: 185.120.10.25" class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand font-mono">
-                    <span class="text-[10px] text-gray-300 mt-1 block">Lisans anahtarınız doğrudan bu IP adresine otomatik olarak tanımlanacaktır.</span>
+                    <label class="block text-[11px] font-extrabold text-brand uppercase tracking-wider mb-1">SUNUCU IP ADRESİ VEYA PROJE BİLGİSİ *</label>
+                    <input type="text" id="serverIpInput" required placeholder="örn: 185.120.10.25 veya Web Tasarım Projesi" class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand font-mono">
+                    <span class="text-[10px] text-gray-300 mt-1 block">Lisans anahtarınız veya web tasarım hizmet detaylarınız bu bilgiye göre tanımlanır.</span>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
@@ -1175,8 +1155,8 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-[10px] font-bold text-gray-200 uppercase mb-1">E-POSTA (LİSANS & FATURA İÇİN)</label>
-                        <input type="email" required placeholder="sunucu@alanadi.com" class="w-full bg-[#05070A] border border-brand-border rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-brand">
+                        <label class="block text-[10px] font-bold text-gray-200 uppercase mb-1">E-POSTA ADRESİ</label>
+                        <input type="email" required placeholder="alanadi@ornek.com" class="w-full bg-[#05070A] border border-brand-border rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-brand">
                     </div>
                 </div>
 
@@ -1212,11 +1192,11 @@
                     </div>
                     <div class="grid grid-cols-2 gap-3">
                         <div>
-                            <label class="block text-[10px] font-bold text-gray-200 uppercase mb-1">SON KULLANMA TARİHİ (AY / YIL)</label>
+                            <label class="block text-[10px] font-bold text-gray-200 uppercase mb-1">SON KULLANMA (AY / YIL)</label>
                             <input type="text" maxlength="5" placeholder="06/28" class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand font-mono">
                         </div>
                         <div>
-                            <label class="block text-[10px] font-bold text-gray-200 uppercase mb-1">GÜVENLİK KODU (CVV)</label>
+                            <label class="block text-[10px] font-bold text-gray-200 uppercase mb-1">CVV KODU</label>
                             <input type="password" maxlength="4" placeholder="***" class="w-full bg-[#05070A] border border-brand-border rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand font-mono">
                         </div>
                     </div>
@@ -1227,45 +1207,39 @@
                     <p><strong>Banka:</strong> Ziraat Bankası / Yapı Kredi</p>
                     <p><strong>Alıcı Unvanı:</strong> Gnessac Yazılım Limited Şirketi</p>
                     <p><strong>IBAN:</strong> <span class="font-mono text-white">TR44 0001 0002 5555 3535 5353 01</span></p>
-                    <p class="text-[10px] text-gray-300 pt-1">Açıklama kısmına IP adresinizi yazınız. Ödeme onayından sonra lisansınız aktifleşir.</p>
                 </div>
 
                 <div id="cryptoFields" class="hidden bg-[#05070A] border border-brand-border rounded-xl p-4 text-xs text-gray-200 space-y-2">
                     <p class="font-bold text-brand uppercase">USDT TRC20 Cüzdan Adresi:</p>
                     <p class="font-mono text-white bg-black p-2 rounded border border-brand/30 text-[11px] select-all">T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb</p>
-                    <p class="text-[10px] text-gray-300">Gönderim yaptıktan sonra işlem kodunu canlı desteğe iletiniz.</p>
                 </div>
 
                 <div class="pt-2">
                     <button type="submit" class="w-full bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-extrabold text-xs uppercase py-4 rounded-xl transition-all shadow-[0_0_25px_rgba(255,107,0,0.4)] flex items-center justify-center gap-2">
                         <i class="fa-solid fa-lock text-sm"></i>
-                        <span>3D GÜVENLİ ÖDEMEYİ ONAYLA & LİSANSI ANINDA AL</span>
+                        <span>3D GÜVENLİ ÖDEMEYİ ONAYLA & ANINDA BAŞLAT</span>
                     </button>
-                    <div class="flex items-center justify-center gap-4 text-[10px] text-gray-300 mt-3">
-                        <span><i class="fa-solid fa-shield text-brand"></i> %100 Güvenli Altyapı</span>
-                        <span>•</span>
-                        <span><i class="fa-solid fa-rotate-left text-brand"></i> 7 Gün İade Garantisi</span>
-                        <span>•</span>
-                        <span><i class="fa-solid fa-headset text-brand"></i> 7/24 Destek</span>
-                    </div>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- MODAL 4: %10 İNDİRİM KARŞILAMA PENCERE MODALI -->
+    <!-- MODAL 4: KURUMSAL WEB TASARIM HİZMETİ BİLGİLENDİRME PENCERESİ -->
     <div id="promoModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
         <div class="bg-gradient-to-b from-[#111827] to-[#0B0F19] border-2 border-brand rounded-3xl max-w-lg w-full p-8 text-center relative shadow-[0_0_60px_rgba(255,107,0,0.5)]">
+            <!-- Sağ Üst Kısımdan X Kapama Tuşu -->
+            <button onclick="closePromoModal()" class="absolute top-5 right-5 text-gray-300 hover:text-white bg-neutral-800 hover:bg-brand transition-colors p-2.5 rounded-full"><i class="fa-solid fa-xmark text-lg"></i></button>
+
             <div class="w-20 h-20 bg-brand/20 border-2 border-brand text-brand rounded-full flex items-center justify-center mx-auto mb-5 text-3xl shadow-[0_0_25px_rgba(255,107,0,0.6)] animate-pulse">
-                <i class="fa-solid fa-tags"></i>
+                <i class="fa-solid fa-laptop-code"></i>
             </div>
-            <span class="text-xs font-extrabold text-brand uppercase tracking-widest bg-brand/10 border border-brand/30 px-3 py-1 rounded-full">ÖZEL KAMPANYA</span>
-            <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider mt-3 mb-3">TÜM LİSANSLARDA <span class="text-brand">%10 İNDİRİM!</span></h3>
+            <span class="text-xs font-extrabold text-brand uppercase tracking-widest bg-brand/10 border border-brand/30 px-3 py-1 rounded-full">YENİ KURUMSAL HİZMET</span>
+            <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider mt-3 mb-3">KURUMSAL WEB TASARIM <span class="text-brand">HİZMETİMİZ AKTİF!</span></h3>
             <p class="text-xs sm:text-sm text-gray-200 mb-6 leading-relaxed">
-                Gnessac Hile Önleme Sistemlerine katılan tüm yeni sunucu sahiplerimize özel tüm aylık IP lisans paketlerinde anında <strong class="text-white font-bold">%10 indirim</strong> fırsatı sunuluyor. Fiyatlarımıza sepet ve paketlerde indirim otomatik olarak yansıtılmıştır!
+                Gnessac Yazılım güvencesiyle sunucularınız ve projeleriniz için özel olarak hazırlanan <strong>Kurumsal Web Sitesi Tasarım Hizmetimiz</strong> yayına girmiştir. Mobil uyumlu, SEO optimizasyonlu ve modern arayüzlü profesyonel web çözümlerine tek seferlik sadece <strong>1.349 ₺</strong> ile sahip olabilirsiniz.
             </p>
-            <button onclick="closePromoModal()" class="w-full bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-black text-xs uppercase py-4 rounded-xl tracking-wider transition-all shadow-lg">
-                FIRSATI YAKALA & İNCELE
+            <button onclick="redirectToWebDesignPackage()" class="w-full bg-gradient-to-r from-brand to-amber-600 hover:from-brand-hover hover:to-amber-500 text-white font-black text-xs uppercase py-4 rounded-xl tracking-wider transition-all shadow-lg flex items-center justify-center gap-2">
+                <i class="fa-solid fa-arrow-right"></i> HİZMETİ İNCELE & SATIN AL
             </button>
         </div>
     </div>
@@ -1291,7 +1265,6 @@
             }, 3000);
         });
 
-        // Hızlı Yukarı ve Aşağı Kaydırma Fonksiyonları
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -1299,25 +1272,13 @@
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
 
-        // Tema Değiştirme Fonksiyonu
-        function toggleTheme() {
-            const body = document.body;
-            const themeIcon = document.getElementById('themeIcon');
-            if (body.classList.contains('dark')) {
-                body.classList.remove('dark');
-                body.classList.add('light');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            } else {
-                body.classList.remove('light');
-                body.classList.add('dark');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            }
-        }
-
         function closePromoModal() {
             document.getElementById('promoModal').classList.add('hidden');
+        }
+
+        function redirectToWebDesignPackage() {
+            closePromoModal();
+            document.getElementById('paketler').scrollIntoView({ behavior: 'smooth' });
         }
 
         let cart = [];
@@ -1332,7 +1293,7 @@
             updateCartUI();
             
             document.getElementById('msgTitle').innerText = "SEPETE EKLENDİ";
-            document.getElementById('msgText').innerHTML = `<strong>${name}</strong> başarıyla sepetinize eklendi.<br>Sağ üstteki sepet ikonuna tıklayarak sepetinizi inceleyebilir ve %10 indirimli toplam ödemenizi tamamlayabilirsiniz.`;
+            document.getElementById('msgText').innerHTML = `<strong>${name}</strong> başarıyla sepetinize eklendi.<br>Sağ üstteki sepet ikonuna tıklayarak sepetinizi inceleyebilir ve güvenli ödemenizi tamamlayabilirsiniz.`;
             document.getElementById('messageModal').classList.remove('hidden');
         }
 
@@ -1343,9 +1304,8 @@
 
             const container = document.getElementById('cartItemsContainer');
             if (cart.length === 0) {
-                container.innerHTML = `<p class="text-xs text-gray-300 text-center py-6">Sepetinizde henüz lisans paketi bulunmamaktadır.</p>`;
+                container.innerHTML = `<p class="text-xs text-gray-300 text-center py-6">Sepetinizde henüz ürün veya hizmet bulunmamaktadır.</p>`;
                 document.getElementById('cartSubtotal').innerText = "0 ₺";
-                document.getElementById('cartDiscount').innerText = "-0 ₺";
                 document.getElementById('cartTotal').innerText = "0 ₺";
                 return;
             }
@@ -1372,7 +1332,6 @@
 
             container.innerHTML = html;
             document.getElementById('cartSubtotal').innerText = subtotal.toLocaleString('tr-TR') + " ₺";
-            document.getElementById('cartDiscount').innerText = "Aktif (%10 İndirim Yansıtıldı)";
             document.getElementById('cartTotal').innerText = subtotal.toLocaleString('tr-TR') + " ₺";
         }
 
@@ -1402,7 +1361,7 @@
             }
             closeCartModal();
             const totalSum = parseInt(document.getElementById('cartSubtotal').innerText.replace(/\D/g, ''));
-            openPaymentModal('Toplu Sepet Lisans Paketi (' + cart.reduce((s, i) => s + i.qty, 0) + ' Adet)', totalSum);
+            openPaymentModal('Toplu Sepet Alışverişi (' + cart.reduce((s, i) => s + i.qty, 0) + ' Adet)', totalSum);
         }
 
         function toggleLiveChat() {
@@ -1411,36 +1370,20 @@
         }
 
         const chatAnswers = {
-            1: "Sağ üstteki sepet ikonunu kullanarak dilediğiniz lisansları sepetinize ekleyebilir, toplu sepet alışverişi yapabilir ve %10 indirimli toplam ödemenizi 3D Güvenli Ödeme ile tamamlayabilirsiniz.",
-            2: "Gnessac Hile Önleme Sistemi; Metin2, Knight Online, Counter-Strike 2, VALORANT, League of Legends ve EVE Online oyun sunucuları için tam uyumlu Ring-0 çekirdek koruması sağlamaktadır.",
+            1: "1.349 TL tutarındaki Kurumsal Web Tasarım Paketimiz; özel arayüz tasarımı, mobil uyumlu responsive altyapı, SEO optimizasyonu ve hızlı teslimat hizmetlerini tek seferlik ücretle kapsar.",
+            2: "Gnessac Anti-Cheat; Metin2, Knight Online, Counter-Strike 2, VALORANT, League of Legends ve EVE Online oyun sunucuları için tam uyumlu Ring-0 çekirdek koruması sağlar.",
             3: "Ring-0 (Çekirdek), işletim sisteminin en yetkili katmanıdır. Sıradan hileler bu seviyeye erişemez, böylece %99.9 oranında kusursuz güvenlik sağlanır.",
             4: "Ödemeniz onaylandığı anda IP lisans anahtarınız ve entegrasyon dosyalarınız müşteri panelinize iletilir. 5 dakika içinde sunucunuza entegre edebilirsiniz.",
             5: "Kesinlikle hayır! Asenkron C++ mimarisi sayesinde işlemci ve bellek kullanımı %0.1'in altındadır, oyuncularınızın kare hızı değerlerine asla etki etmez.",
             6: "Asla! Gnessac yalnızca oyun sürecinin bellek adres alanını tarar. Kişisel dosyalarınız, fotoğraflarınız veya tarayıcı geçmişiniz asla okunmaz ve depolanmaz.",
-            7: "Tüm ödemeler 256-bit SSL ve 3D Güvenli Ödeme altyapısıyla korunmaktadır. Ödeme sonrasında bireysel veya kurumsal faturanız e-posta adresinize gönderilir.",
-            8: "Donanım banları anakart ve disk seri numaralarınıza göre atılır. Yanlış pozitif durumlarında destek talebi oluşturarak inceletebilirsiniz.",
-            9: "Windows 11 sistemlerde Güvenli Önyükleme ve Güvenilir Platform Modülü gereksinimleri tamamen desteklenmektedir. Mavi ekran riski sıfırdır.",
-            10: "Evet! Kurumsal 25 IP Mega Filo ve 10 IP Lisans paketlerimizde %10 indirim ve özel sürücü maskeleme avantajları sunulmaktadır.",
-            11: "League of Legends ve EVE Online için geliştirilen özel modüllerimiz bot, script ve bellek tabanlı manipülasyonları Ring-0 seviyesinde engeller.",
-            12: "Evet, kurumsal paketlerimizde özel sürücü imzalama ve sunucu koruma maskeleme hizmetlerimiz bulunmaktadır.",
-            13: "Evet, Metin2 sunucuları için Python bayt kod ve kanca bloklamaları tam aktif olarak çalışmaktadır.",
-            14: "Knight Online sunucularında çoklu istemci sınırlandırması ve paket sızıntı koruması kusursuz şekilde filtrelenir.",
-            15: "İstemci dosya boyutu 4.89 GB'dır ve lisans onayı sonrasında doğrudan panelinizden indirilebilir.",
-            16: "Anti-cheat korumamıza ek olarak kurumsal altyapı müşterilerimize Dağıtık Hizmet Engelleme (DDoS) ve ağ güvenliği danışmanlığı sağlanmaktadır.",
-            17: "Bize 7/24 resmi telefon hattımız olan **+0216 255 53 53** üzerinden veya destek paneli aracılığıyla her zaman ulaşabilirsiniz.",
-            18: "EVE Online sunucularında otomatik madencilik ve yasal olmayan çoklu kutu bot yazılımları anında Ring-0 motoru ile bloklanır.",
-            19: "25 IP Mega Filo paketimiz sınırsız oyuncu kapasitesi, VIP öncelikli mühendis desteği ve %10 indirimli özel fiyatla sunulur.",
-            20: "Kripto para ile ödeme yaptığınızda işlem kodunu canlı desteğe ileterek lisansınızı anında aktif edebilirsiniz.",
-            21: "Banka Havale / EFT ile yapılan ödemelerde açıklama kısmına sunucu IP adresiniz yazılmalı ve bildirim yapılmalıdır.",
-            22: "Müşteri paneli şifrenizi unuttuysanız giriş ekranından sıfırlayabilir veya destek ekibimizden geçici şifre talep edebilirsiniz.",
-            23: "Counter-Strike 2 için geliştirilen sezgisel tarama motorumuz nişan alma, duvar arkası görme, ekstra duyusal algı ve tetik botu hilelerini anında yakalar.",
-            24: "VALORANT altyapısında Riot Vanguard ile uyumlu çalışan ek Ring-0 modüllerimiz piksel nişan alma ve renkli model hilelerini engeller.",
-            25: "Lisans süreniz dolduğunda sunucu güvenliği askıya alınır, sürenizi yenilediğiniz an otomatik olarak tekrar aktifleşir.",
-            26: "Sunucu IP adresiniz değiştiğinde müşteri panelinizden veya destek talebi açarak 1 tıkla yeni IP adresinize güncelleyebilirsiniz.",
-            27: "Kurumsal fatura bilgilerinizi (Vergi Numarası, Daire, Unvan) ödeme esnasında veya destek talebi ile dilediğiniz zaman güncelleyebilirsiniz.",
-            28: "Donanımsal bellek edinme kartları ve donanım atlatma girişimleri özel donanım filtrelerimizle engellenir.",
-            29: "Kurumsal müşterilerimize özel olarak sunulan VIP 7/24 canlı mühendislik hattımız ile anında bağlantı sağlanır.",
-            30: "Gnessac Yazılım Limited Şirketi merkezimiz Türkiye / İstanbul - Bostancı'da yer almaktadır. Resmi iletişim kanallarımızdan bize ulaşabilirsiniz."
+            7: "Tüm ödemeler 256-bit SSL ve 3D Güvenli Ödeme altyapısıyla korunmaktadır. Ödeme sonrasında yasal faturanız e-posta adresinize gönderilir.",
+            8: "Donanım banları anakart ve disk seri numaralarına göre atılır. Destek talebi oluşturarak kolayca inceletebilirsiniz.",
+            9: "Windows 11 sistemlerde Güvenli Önyükleme ve TPM gereksinimleri tam uyumludur. Mavi ekran riski sıfırdır.",
+            10: "10 IP Lisans paketimizde özel sürücü imzalama, maskeleme ve tam çekirdek koruması avantajları kurumsal olarak sağlanır.",
+            11: "League of Legends için geliştirilen özel modüllerimiz bot, script ve bellek tabanlı manipülasyonları Ring-0 seviyesinde engeller.",
+            12: "Banka Havale / EFT ile yapılan ödemelerde açıklama kısmına sunucu IP adresiniz veya proje adınız yazılmalıdır.",
+            13: "Bize 7/24 resmi telefon hattımız olan +0216 255 53 53 üzerinden veya destek paneli aracılığıyla her zaman ulaşabilirsiniz.",
+            14: "Gnessac Yazılım Limited Şirketi merkezimiz Türkiye / İstanbul - Bostancı'da yer almaktadır. Resmi iletişim kanallarımızdan bize ulaşabilirsiniz."
         };
 
         function sendPresetChat(qIndex) {
@@ -1496,7 +1439,7 @@
 
         function triggerClientDownload() {
             document.getElementById('msgTitle').innerText = "LİSANS DOĞRULAMASI GEREKLİ";
-            document.getElementById('msgText').innerHTML = "İstemciyi (Dosya Boyutu: 4.89 GB) indirebilmek için aktif bir Gnessac IP lisans paketine sahip olmanız gerekmektedir. Şimdi %10 indirimli Lisans Paketleri bölümüne yönlendiriliyorsunuz.";
+            document.getElementById('msgText').innerHTML = "İstemciyi (Dosya Boyutu: 4.89 GB) indirebilmek için aktif bir Gnessac IP lisans paketine sahip olmanız gerekmektedir. Şimdi Lisans Paketleri bölümüne yönlendiriliyorsunuz.";
             document.getElementById('messageModal').classList.remove('hidden');
         }
 
@@ -1539,7 +1482,7 @@
             e.preventDefault();
             const ipVal = document.getElementById('serverIpInput').value;
             if(!ipVal) {
-                alert("Lütfen lisanlanacak sunucu IP adresini giriniz!");
+                alert("Lütfen gerekli bilgiyi giriniz!");
                 return;
             }
 
@@ -1548,13 +1491,13 @@
             
             document.getElementById('msgTitle').innerText = "3D GÜVENLİ ÖDEME BAŞARIYLA ONAYLANDI!";
             document.getElementById('msgText').innerHTML = `
-                <p><strong>Paket:</strong> ${selectedPackage}</p>
-                <p><strong>Sunucu IP:</strong> <span class="text-white font-mono">${ipVal}</span></p>
-                <p><strong>Ödenen Tutar:</strong> <span class="text-brand font-bold">${selectedPrice.toLocaleString('tr-TR')} ₺</span> (%10 İndirimli)</p>
+                <p><strong>Ürün / Hizmet:</strong> ${selectedPackage}</p>
+                <p><strong>Bilgi / IP:</strong> <span class="text-white font-mono">${ipVal}</span></p>
+                <p><strong>Ödenen Tutar:</strong> <span class="text-brand font-bold">${selectedPrice.toLocaleString('tr-TR')} ₺</span></p>
                 <br>
-                <p><strong>Oluşturulan Lisans Anahtarınız:</strong><br><span class="bg-black px-3 py-1.5 rounded text-white border border-brand font-mono inline-block mt-1">${licenseKey}</span></p>
+                <p><strong>Oluşturulan Kayıt Anahtarınız:</strong><br><span class="bg-black px-3 py-1.5 rounded text-white border border-brand font-mono inline-block mt-1">${licenseKey}</span></p>
                 <br>
-                <p class="text-xs text-gray-300">Kurulum dosyaları ve 4.89 GB istemci erişimi e-posta adresinize ve müşteri panelinize tanımlanmıştır.</p>
+                <p class="text-xs text-gray-300">Kurulum dosyaları ve erişim bilgileri e-posta adresinize ve müşteri panelinize tanımlanmıştır.</p>
             `;
             document.getElementById('messageModal').classList.remove('hidden');
             cart = [];
