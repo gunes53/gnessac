@@ -307,14 +307,25 @@
             margin-bottom: 30px;
             color: #1e3a8a;
         }
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
         .pricing-card {
             max-width: 420px;
-            margin: 0 auto;
+            width: 100%;
             background: #ffffff;
             border: 1px solid #e5e7eb;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(30, 58, 138, 0.12);
         }
         .pricing-header {
             background: #1e3a8a;
@@ -541,6 +552,38 @@
         .legal-content.active {
             display: block;
         }
+
+        /* Quick Navigation Buttons (Bottom Right) */
+        .quick-nav {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 999;
+        }
+        .quick-nav-btn {
+            background-color: #1e3a8a;
+            color: #ffffff;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: background-color 0.2s, transform 0.2s;
+            border: 2px solid #ffffff;
+            cursor: pointer;
+        }
+        .quick-nav-btn:hover {
+            background-color: #1e40af;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -618,21 +661,42 @@
             <!-- Pricing Section -->
             <div class="pricing-section">
                 <h2>Ücretlendirme Seçenekleri</h2>
-                <div class="pricing-card">
-                    <div class="pricing-header">Bireysel Paket</div>
-                    <div class="pricing-body">
-                        <div class="price-tag">
-                            <span class="old-price">1159₺</span>
-                            <span>1066₺</span>
-                            <span class="discount-badge">%8 İndirim</span>
+                <div class="pricing-grid">
+                    <!-- Paket 1 -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">Bireysel Paket</div>
+                        <div class="pricing-body">
+                            <div class="price-tag">
+                                <span class="old-price">1159₺</span>
+                                <span>1066₺</span>
+                                <span class="discount-badge">%8 İndirim</span>
+                            </div>
+                            <ul class="pricing-features">
+                                <li>1 Adet IP Barındırma</li>
+                                <li>Sunucu Taraflı Hile Engel</li>
+                                <li>1 Gün Ücretsiz Deneme İmkanı</li>
+                                <li>%8 Özel Lansman İndirimi</li>
+                            </ul>
+                            <button class="btn-submit" onclick="openSupportTicketModal()">Satın Al</button>
                         </div>
-                        <ul class="pricing-features">
-                            <li>1 Adet IP Barındırma</li>
-                            <li>Sunucu Taraflı Hile Engel</li>
-                            <li>1 Gün Ücretsiz Deneme İmkanı</li>
-                            <li>%8 Özel Lansman İndirimi</li>
-                        </ul>
-                        <button class="btn-submit" onclick="openSupportTicketModal()">Satın Al</button>
+                    </div>
+                    <!-- Paket 2 -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">Gelişmiş Paket</div>
+                        <div class="pricing-body">
+                            <div class="price-tag">
+                                <span class="old-price">1945₺</span>
+                                <span>1789₺</span>
+                                <span class="discount-badge">%8 İndirim</span>
+                            </div>
+                            <ul class="pricing-features">
+                                <li>2 Adet IP Barındırma</li>
+                                <li>Sunucu Taraflı Hile Engel</li>
+                                <li>1 Gün Ücretsiz Deneme İmkanı</li>
+                                <li>%8 Özel Lansman İndirimi</li>
+                            </ul>
+                            <button class="btn-submit" onclick="openSupportTicketModal()">Satın Al</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -670,60 +734,16 @@
                         <div class="faq-answer">Evet, sistemimizi test etmeniz için 1 günlük ücretsiz deneme imkanı tanıyoruz.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">8. Ödeme yöntemleri nelerdir?</div>
-                        <div class="faq-answer">Kredi/banka kartı ve güvenli kripto para birimleri ile anında ödeme yapabilirsiniz.</div>
+                        <div class="faq-question">8. Hangi oyun altyapıları desteklenmektedir?</div>
+                        <div class="faq-answer">Metin2, Knight Online, Albion Online başta olmak üzere pek çok MMORPG altyapısı desteklenir.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">9. Lisans sürem bittiğinde ne olur?</div>
-                        <div class="faq-answer">Lisans yenileme yapılmadığı takdirde koruma hizmeti askıya alınır, dilediğiniz an tekrar aktif edebilirsiniz.</div>
+                        <div class="faq-question">9. API desteği bulunuyor mu?</div>
+                        <div class="faq-answer">Web siteniz ve oyun paneliniz ile entegre çalışabilmesi için gelişmiş API altyapısı mevcuttur.</div>
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">10. Teknik destek alabilir miyim?</div>
                         <div class="faq-answer">Uzman ekibimiz kurulum ve olası yapılandırma süreçlerinde kesintisiz destek sağlamaktadır.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">11. Birden fazla IP için kullanım sağlanabilir mi?</div>
-                        <div class="faq-answer">Standart paketimiz 1 adet IP barındırmaktadır, çoklu sunucularınız için destek talebi açabilirsiniz.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">12. Özel koruma kuralları eklenebilir mi?</div>
-                        <div class="faq-answer">Sunucunuzun özel dinamiklerine göre kurallar ve filtreler esnetilebilir.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">13. Hileciler sisteme bypass yapabilir mi?</div>
-                        <div class="faq-answer">İstemci taraflı korumaların aksine sunucu tabanlı olduğundan bypass imkanı bulunmamaktadır.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">14. Log kayıtları tutuluyor mu?</div>
-                        <div class="faq-answer">Engellenen tüm hile girişimleri ve şüpheli hareketler detaylı olarak panelinizde loglanır.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">15. Hangi oyun altyapıları desteklenmektedir?</div>
-                        <div class="faq-answer">Metin2, Knight Online, Albion Online başta olmak üzere pek çok MMORPG altyapısı desteklenir.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">16. Sunucu çökme riski var mı?</div>
-                        <div class="faq-answer">Güvenlik yazılımımız izole havuzda çalıştığından ana sunucu kararlılığını tehlikeye atmaz.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">17. İade politikanız nedir?</div>
-                        <div class="faq-answer">Hizmet yapısı gereği dijital lisans satışlarında deneme süresi sunulduğundan iade bulunmamaktadır.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">18. API desteği bulunuyor mu?</div>
-                        <div class="faq-answer">Web siteniz ve oyun paneliniz ile entegre çalışabilmesi için gelişmiş API altyapısı mevcuttur.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">19. Lisans transferi yapılabilir mi?</div>
-                        <div class="faq-answer">Destek ekibimiz üzerinden onay alınarak farklı bir IP adresine lisans transferi gerçekleştirilebilir.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">20. Sunucu tarafı gecikme (ping) yaratır mı?</div>
-                        <div class="faq-answer">Analizler mikro saniyeler içerisinde gerçekleştirildiği için oyun içi ping değerlerinize etki etmez.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">21. Nasıl iletişim kurabilirim?</div>
-                        <div class="faq-answer">Sitemiz üzerindeki destek talep formunu doldurarak veya mail adresimizden doğrudan ulaşabilirsiniz.</div>
                     </div>
                 </div>
             </div>
@@ -774,7 +794,7 @@
     <div id="section-client" class="page-section hidden">
         <div class="client-login-container">
             <h2>Account</h2>
-            <div class="alert-box" id="loginAlert" style="display: block;">
+            <div class="alert-box" id="loginAlert">
                 Erişim Reddedildi<br>
                 Aktif üyeliğiniz veya satın alınan bir lisans bulunamadı. Lütfen destek talebi oluşturun veya ekibimizle iletişime geçin.
             </div>
@@ -799,7 +819,7 @@
     <div id="section-ticket" class="page-section hidden">
         <div class="client-login-container" style="max-width: 600px;">
             <h2>Destek Talep Formu</h2>
-            <div class="alert-box" id="ticketSuccessAlert">
+            <div class="alert-box" id="ticketSuccessAlert" style="background-color: #ecfdf5; border-color: #a7f3d0; color: #059669;">
                 Talebiniz alınmıştır. gnessac.pro ekibi sizler ile iletişim kuracaktır.
             </div>
             <form onsubmit="handleTicketSubmit(event)">
@@ -838,12 +858,8 @@
                         <option>13. Güvenlik Logları İncelemesi</option>
                         <option>14. Sistem Hataları ve Bildirimler</option>
                         <option>15. Özel Kural ve Filtre Talepleri</option>
-                        <option>16. İstemci Bağımsız Çalışma Mimarisi</option>
-                        <option>17. Sunucu Gecikme (Ping) Optimizasyonu</option>
-                        <option>18. Lisans Transfer İşlemleri</option>
-                        <option>19. Güvenlik Duvarı Yapılandırması</option>
-                        <option>20. Genel Bilgilendirme ve Danışmanlık</option>
-                        <option>21. Diğer Teknik Konular</option>
+                        <option>16. Lisans Transfer İşlemleri</option>
+                        <option>17. Genel Bilgilendirme ve Danışmanlık</option>
                     </select>
                 </div>
                 <button type="submit" class="btn-submit">Talep Gönder</button>
@@ -859,7 +875,6 @@
                 <a onclick="toggleLegal('conditions')">Koşullar</a> - 
                 <a onclick="toggleLegal('privacy')">Gizlilik Politikası</a>
             </div>
-            <div>Geliştirici / Güneşdoğdu</div>
             <div>Copyright © 2026 gnessac.pro, tüm hakları saklıdır.</div>
         </div>
 
@@ -868,7 +883,7 @@
             <p>İş bu kullanım sözleşmesi, gnessac.pro tarafından sunulan sunucu taraflı hile önleme ve güvenlik sistemlerinin kullanımına ilişkin şart ve koşulları düzenler. Sitemizi ve hizmetlerimizi kullanan tüm gerçek ve tüzel kişiler aşağıdaki maddeleri peşinen kabul etmiş sayılır.<br><br>
             <strong>1. Hizmetin Kapsamı:</strong> gnessac, oyun sunucularının güvenliğini artırmak amacıyla geliştirilmiş sunucu tabanlı bir analiz yazılımıdır. Şirket, sistemin kesintisiz çalışması için azami gayreti gösterir ancak internet altyapısından veya üçüncü taraf sunuculardan kaynaklı kesintilerden sorumlu tutulamaz.<br><br>
             <strong>2. Lisans ve Kullanım Hakları:</strong> Satın alınan her lisans, belirtilen tek bir IP adresi için geçerlidir. Lisansın çoğaltılması, başka sunucularda izinsiz kullanılması veya tersine mühendislik yapılması yasaktır. Tespit edilmesi durumunda lisans kalıcı olarak iptal edilir.<br><br>
-            <strong>3. Sorumluluk Reddi:</strong> gnessac, hile girişimlerini engellemek için gelişmiş algoritmalar kullanır; ancak oyun içi tüm olası açıkların veya üçüncü taraf yazılımların %100'ünün öngörülebilmesi garanti edilmez. Geliştirici / Güneşdoğdu, yazılımın kullanımından doğabilecek dolaylı zararlardan mesul tutulamaz.<br><br>
+            <strong>3. Sorumluluk Reddi:</strong> gnessac, hile girişimlerini engellemek için gelişmiş algoritmalar kullanır; ancak oyun içi tüm olası açıkların veya üçüncü taraf yazılımların %100'ünün öngörülebilmesi garanti edilmez. Geliştirici, yazılımın kullanımından doğabilecek dolaylı zararlardan mesul tutulamaz.<br><br>
             <strong>4. Güncellemeler ve Değişiklikler:</strong> gnessac.pro, hizmet şartlarında ve yazılım mimarisinde önceden bildirmeksizin değişiklik yapma hakkını saklı tutar.</p>
         </div>
 
@@ -881,6 +896,12 @@
             <strong>4. İletişim:</strong> Gizlilik politikamız hakkında her türlü soru ve talebiniz için gnesssoftware@outlook.com adresinden bizimle iletişime geçebilirsiniz.</p>
         </div>
     </footer>
+
+    <!-- Quick Navigation Buttons -->
+    <div class="quick-nav">
+        <button class="quick-nav-btn" onclick="scrollToTop()" title="En Üste Çık">↑</button>
+        <button class="quick-nav-btn" onclick="scrollToBottom()" title="En Alta İt">↓</button>
+    </div>
 
     <script>
         function switchSection(sectionId) {
@@ -929,6 +950,14 @@
                 priv.classList.toggle('active');
                 cond.classList.remove('active');
             }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToBottom() {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
     </script>
 </body>
