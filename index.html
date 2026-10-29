@@ -4,86 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gnessac | Çevrimiçi Oyunlar için Sunucu Taraflı Sistemler</title>
-    <!-- Favicon: Sade & Şık G-Shield SVG -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'><path d='M50 5 L90 20 V55 C90 85 50 110 50 110 C50 110 10 85 10 55 V20 Z' fill='%231a2b4c' stroke='%233b82f6' stroke-width='4'/><path d='M65 40 H45 C38 40 35 45 35 55 V65 C35 75 38 80 45 80 H65 V60 H50' fill='none' stroke='%23ffffff' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+    <!-- Favicon: Siber Hexagon G SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50 5, 90 25, 90 75, 50 95, 10 75, 10 25' fill='%230f172a' stroke='%232563eb' stroke-width='4'/><polygon points='50 12, 83 28, 83 72, 50 88, 17 72, 17 28' fill='none' stroke='%2300e5ff' stroke-width='1.5' stroke-dasharray='4,2'/><path d='M62 35 H42 C35 35 32 40 32 50 V52 C32 62 35 67 42 67 H62 V52 H48' fill='none' stroke='%23ffffff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/></svg>">
     
     <style>
         :root {
-            --primary: #1a2b4c;
+            --primary: #0f172a;
+            --primary-light: #1e293b;
             --secondary: #2563eb;
             --accent: #00e5ff;
+            --discount-red: #ef4444;
             --bg-light: #f8fafc;
-            --text-dark: #1e293b;
+            --text-dark: #0f172a;
             --border-color: #cbd5e1;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
         body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; scroll-behavior: smooth; }
 
         /* Top Bar & Header */
-        .top-bar { background-color: var(--primary); color: #fff; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
-        .top-bar a { color: #fff; text-decoration: none; display: flex; align-items: center; gap: 6px; }
+        .top-bar { background-color: #090d16; color: #94a3b8; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .top-bar a { color: #38bdf8; text-decoration: none; display: flex; align-items: center; gap: 6px; font-weight: 600; }
         .top-bar a:hover { color: var(--accent); }
 
-        header { background: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; max-width: 1400px; margin: 0 auto; }
-        .logo { display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: bold; color: var(--primary); text-decoration: none; }
-        .logo svg { width: 36px; height: 42px; }
+        header { background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; border-bottom: 2px solid #e2e8f0; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 12px 5%; max-width: 1400px; margin: 0 auto; }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 26px; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.5px; }
+        .logo svg { width: 42px; height: 42px; }
         
-        .nav-links { display: flex; list-style: none; gap: 20px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 15px; cursor: pointer; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--secondary); }
+        .nav-links { display: flex; list-style: none; gap: 18px; align-items: center; }
+        .nav-links a { text-decoration: none; color: #334155; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.2s; padding: 6px 10px; border-radius: 6px; }
+        .nav-links a:hover { color: var(--secondary); background: #eff6ff; }
 
         /* Floating Ticket Button */
         .floating-ticket-btn {
             position: fixed; left: 0; top: 50%; transform: translateY(-50%);
-            background-color: var(--secondary); color: white; padding: 12px 18px;
-            border-radius: 0 8px 8px 0; cursor: pointer; font-weight: bold;
-            box-shadow: 3px 3px 10px rgba(0,0,0,0.2); z-index: 99; transition: all 0.3s;
-            writing-mode: vertical-rl; text-orientation: mixed; display: flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, var(--secondary), #1d4ed8); color: white; padding: 14px 18px;
+            border-radius: 0 10px 10px 0; cursor: pointer; font-weight: 700; font-size: 14px;
+            box-shadow: 4px 4px 20px rgba(37,99,235,0.3); z-index: 99; transition: all 0.3s;
+            writing-mode: vertical-rl; text-orientation: mixed; display: flex; align-items: center; gap: 8px; letter-spacing: 1px;
         }
-        .floating-ticket-btn:hover { background-color: var(--primary); padding-left: 24px; }
+        .floating-ticket-btn:hover { background: var(--primary); padding-left: 24px; color: var(--accent); }
 
         /* Views Setup */
         .view-section { display: none; }
         .view-section.active { display: block; }
 
-        /* Hero Section */
-        .hero { background: linear-gradient(135deg, #1a2b4c 0%, #0f172a 100%); color: white; padding: 80px 5%; text-align: center; }
-        .hero-content { max-width: 900px; margin: 0 auto; }
-        .hero h1 { font-size: 38px; margin-bottom: 20px; font-weight: 700; }
-        .hero p { font-size: 18px; color: #94a3b8; margin-bottom: 30px; text-align: justify; }
+        /* Hero Section (Karizmatik Tasarım) */
+        .hero { 
+            background: radial-gradient(circle at 50% 30%, #1e293b 0%, #0f172a 70%, #020617 100%); 
+            color: white; padding: 70px 5% 80px 5%; text-align: center; position: relative; overflow: hidden;
+            border-bottom: 3px solid var(--secondary);
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: linear-gradient(rgba(37, 99, 235, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, 0.08) 1px, transparent 1px);
+            background-size: 40px 40px; pointer-events: none;
+        }
+        .hero-content { max-width: 950px; margin: 0 auto; position: relative; z-index: 2; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(37, 99, 235, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); color: var(--accent); padding: 6px 16px; border-radius: 30px; font-size: 13px; font-weight: 700; margin-bottom: 25px; }
+        .hero h1 { font-size: 42px; margin-bottom: 20px; font-weight: 800; letter-spacing: -1px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); background: linear-gradient(to right, #ffffff, #93c5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 16px; color: #cbd5e1; margin-bottom: 35px; text-align: justify; line-height: 1.8; background: rgba(15, 23, 42, 0.6); padding: 25px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); }
 
-        .shield-logo-hero { width: 140px; height: 160px; margin: 0 auto 25px auto; display: block; }
+        .hero-logo-box { width: 130px; height: 130px; margin: 0 auto 20px auto; filter: drop-shadow(0 0 20px rgba(0,229,255,0.3)); }
 
-        /* Game List (Soldan Sağa Grid) */
-        .games-section { padding: 60px 5%; max-width: 1400px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 28px; color: var(--primary); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px; }
-        .games-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-        .game-card { background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: transform 0.2s; }
-        .game-card:hover { transform: translateY(-5px); border-color: var(--secondary); }
-        .game-card h3 { color: var(--primary); margin-bottom: 12px; border-bottom: 2px solid var(--secondary); padding-bottom: 8px; }
-        .game-card p { font-size: 14px; color: #64748b; text-align: left; }
+        /* Games Section (TEK SIRAYA SABİT) */
+        .games-section { padding: 50px 3%; max-width: 1400px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 26px; color: var(--primary); margin-bottom: 35px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--secondary); margin: 8px auto 0 auto; border-radius: 2px; }
+        
+        .games-single-row { 
+            display: flex; flex-wrap: nowrap; gap: 15px; overflow-x: auto; padding-bottom: 10px;
+        }
+        .game-card { 
+            flex: 1 1 0; min-width: 200px; background: white; border: 1px solid var(--border-color); border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.25s; display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .game-card:hover { transform: translateY(-6px); border-color: var(--secondary); box-shadow: 0 10px 25px rgba(37,99,235,0.15); }
+        .game-card h3 { color: var(--primary); font-size: 18px; margin-bottom: 10px; border-bottom: 2px solid #eff6ff; padding-bottom: 8px; font-weight: 700; }
+        .game-card p { font-size: 12.5px; color: #475569; text-align: left; line-height: 1.5; }
 
         /* Features Section */
-        .features { background: #ffffff; padding: 60px 5%; border-top: 1px solid var(--border-color); }
+        .features { background: #ffffff; padding: 60px 5%; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1400px; margin: 0 auto; }
-        .feature-box { padding: 25px; border-left: 4px solid var(--secondary); background: #f8fafc; }
-        .feature-box h3 { color: var(--primary); margin-bottom: 12px; }
+        .feature-box { padding: 30px; border-radius: 10px; border-left: 5px solid var(--secondary); background: #f8fafc; border-top: 1px solid #f1f5f9; border-right: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; }
+        .feature-box h3 { color: var(--primary); margin-bottom: 14px; font-size: 18px; }
 
-        /* Pricing Section */
-        .pricing { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .price-card { background: white; border: 2px solid var(--border-color); border-radius: 10px; padding: 30px; text-align: center; position: relative; }
-        .price-card.featured { border-color: var(--secondary); box-shadow: 0 10px 20px rgba(37,99,235,0.1); }
-        .price-title { font-size: 20px; font-weight: bold; color: var(--primary); }
-        .price-amount { font-size: 32px; font-weight: bold; color: var(--secondary); margin: 15px 0; }
+        /* Pricing Section (%18 İNDİRİMLİ & DİKKAT ÇEKİCİ) */
+        .pricing { padding: 60px 5%; max-width: 1300px; margin: 0 auto; }
+        .discount-banner { 
+            background: linear-gradient(135deg, #ef4444, #dc2626); color: white; text-align: center; padding: 12px 20px; border-radius: 8px; font-weight: 800; font-size: 16px; margin-bottom: 35px; box-shadow: 0 6px 20px rgba(239, 68, 68, 0.25); text-transform: uppercase; letter-spacing: 0.5px;
+            animation: pulseDiscount 2s infinite;
+        }
+        @keyframes pulseDiscount { 0% { transform: scale(1); } 50% { transform: scale(1.01); } 100% { transform: scale(1); } }
+
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .price-card { 
+            background: white; border: 2px solid var(--border-color); border-radius: 12px; padding: 35px 25px; text-align: center; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s;
+        }
+        .price-card.featured { border-color: var(--secondary); box-shadow: 0 12px 30px rgba(37,99,235,0.15); }
+        
+        .discount-tag { position: absolute; top: 18px; right: -32px; background: var(--discount-red); color: white; font-weight: 800; font-size: 11px; padding: 6px 35px; transform: rotate(45deg); box-shadow: 0 2px 8px rgba(0,0,0,0.2); letter-spacing: 0.5px; }
+        
+        .price-title { font-size: 22px; font-weight: 800; color: var(--primary); }
+        .old-price { font-size: 16px; color: #94a3b8; text-decoration: line-through; margin-top: 15px; font-weight: 600; }
+        .price-amount { font-size: 38px; font-weight: 900; color: var(--secondary); margin: 5px 0 20px 0; }
+        
+        .package-features { text-align: left; list-style: none; margin-bottom: 25px; font-size: 13.5px; color: #334155; }
+        .package-features li { padding: 8px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 8px; }
+        .package-features li::before { content: '✓'; color: #16a34a; font-weight: bold; }
 
         /* FAQ Section */
         .faq-section { padding: 60px 5%; max-width: 1000px; margin: 0 auto; }
-        .faq-item { background: white; border: 1px solid var(--border-color); margin-bottom: 10px; border-radius: 6px; overflow: hidden; }
-        .faq-question { padding: 18px; font-weight: 600; cursor: pointer; background: #fff; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { padding: 0 18px 18px 18px; display: none; color: #475569; font-size: 14px; border-top: 1px solid #f1f5f9; padding-top: 12px; }
+        .faq-item { background: white; border: 1px solid var(--border-color); margin-bottom: 12px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .faq-question { padding: 18px; font-weight: 700; cursor: pointer; background: #fff; display: flex; justify-content: space-between; align-items: center; color: var(--primary); }
+        .faq-answer { padding: 0 18px 18px 18px; display: none; color: #475569; font-size: 14px; border-top: 1px solid #f1f5f9; padding-top: 14px; line-height: 1.7; }
 
         /* Customer Login Page Background (Baklava / Geometric Squares) */
         .customer-bg {
@@ -92,33 +126,35 @@
             background-size: 60px 60px;
             min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;
         }
-        .login-card { background: #ffffff; padding: 40px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); width: 100%; max-width: 400px; border: 1px solid var(--border-color); text-align: center; }
-        .login-card input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid var(--border-color); border-radius: 4px; }
-        .login-btn { width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        .login-card { background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); width: 100%; max-width: 420px; border: 1px solid var(--border-color); text-align: center; }
+        .login-card input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid var(--border-color); border-radius: 6px; }
+        .login-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; transition: all 0.2s; font-size: 15px; }
+        .login-btn:hover { background: var(--secondary); }
 
         /* Modals */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; }
-        .modal-content { background: white; padding: 30px; border-radius: 8px; max-width: 750px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative; }
-        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #64748b; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; }
+        .modal-content { background: white; padding: 35px; border-radius: 12px; max-width: 750px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 26px; cursor: pointer; color: #64748b; font-weight: bold; }
         
         /* Red Underline for Critical Points */
-        .critical-red { text-decoration: underline red 2px; font-weight: bold; color: #991b1b; }
+        .critical-red { text-decoration: underline red 2px; font-weight: 700; color: #991b1b; }
 
         /* Footer */
-        footer { background: var(--primary); color: #94a3b8; padding: 30px 5%; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
-        .footer-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        footer { background: #090d16; color: #94a3b8; padding: 35px 5%; font-size: 13.5px; border-top: 1px solid rgba(255,255,255,0.08); }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
         .footer-left { text-align: left; }
-        .footer-right a { color: #94a3b8; margin-left: 15px; text-decoration: none; }
+        .footer-right a { color: #94a3b8; margin-left: 20px; text-decoration: none; font-weight: 600; cursor: pointer; }
         .footer-right a:hover { color: white; }
 
         /* Quick Scroll Controls */
-        .scroll-controls { position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 8px; z-index: 99; }
-        .scroll-btn { background: var(--primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .scroll-controls { position: fixed; right: 20px; bottom: 25px; display: flex; flex-direction: column; gap: 10px; z-index: 99; }
+        .scroll-btn { background: var(--primary); color: white; border: 1px solid rgba(255,255,255,0.2); width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); font-size: 14px; transition: all 0.2s; }
+        .scroll-btn:hover { background: var(--secondary); transform: scale(1.1); }
 
         /* Form Inputs */
-        .form-group { margin-bottom: 15px; text-align: left; }
-        .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; color: var(--primary); }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 4px; }
+        .form-group { margin-bottom: 16px; text-align: left; }
+        .form-group label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; color: var(--primary); }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 11px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -128,7 +164,7 @@
         <div>gnessac | Çevrimiçi Oyunlar için Sunucu Taraflı Sistemler</div>
         <div>
             <a href="mailto:gnesssoftware@outlook.com">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 gnesssoftware@outlook.com
             </a>
         </div>
@@ -138,9 +174,10 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo" onclick="switchView('main')">
-                <svg viewBox="0 0 100 120">
-                    <path d="M50 5 L90 20 V55 C90 85 50 110 50 110 C50 110 10 85 10 55 V20 Z" fill="#1a2b4c" stroke="#2563eb" stroke-width="4"/>
-                    <path d="M65 40 H45 C38 40 35 45 35 55 V65 C35 75 38 80 45 80 H65 V60 H50" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg viewBox="0 0 100 100">
+                    <polygon points="50 5, 90 25, 90 75, 50 95, 10 75, 10 25" fill="#0f172a" stroke="#2563eb" stroke-width="4"/>
+                    <polygon points="50 12, 83 28, 83 72, 50 88, 17 72, 17 28" fill="none" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="4,2"/>
+                    <path d="M62 35 H42 C35 35 32 40 32 50 V52 C32 62 35 67 42 67 H62 V52 H48" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 gnessac
             </a>
@@ -164,24 +201,31 @@
 
     <!-- MAIN VIEW -->
     <div id="mainView" class="view-section active">
-        <!-- Hero Section -->
+        <!-- Hero Section (Karizmatik & Işıltılı) -->
         <section class="hero">
             <div class="hero-content">
-                <svg class="shield-logo-hero" viewBox="0 0 100 120">
-                    <path d="M50 5 L90 20 V55 C90 85 50 110 50 110 C50 110 10 85 10 55 V20 Z" fill="#1a2b4c" stroke="#00e5ff" stroke-width="3"/>
-                    <path d="M65 40 H45 C38 40 35 45 35 55 V65 C35 75 38 80 45 80 H65 V60 H50" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                <div class="hero-badge">
+                    <span style="width: 8px; height: 8px; background: #00e5ff; border-radius: 50%; display: inline-block;"></span>
+                    Sistem Aktif & %100 Korumalı Koruma Altyapısı
+                </div>
+                
+                <svg class="hero-logo-box" viewBox="0 0 100 100">
+                    <polygon points="50 5, 90 25, 90 75, 50 95, 10 75, 10 25" fill="#0f172a" stroke="#2563eb" stroke-width="4"/>
+                    <polygon points="50 12, 83 28, 83 72, 50 88, 17 72, 17 28" fill="none" stroke="#00e5ff" stroke-width="2" stroke-dasharray="5,3"/>
+                    <path d="M62 35 H42 C35 35 32 40 32 50 V52 C32 62 35 67 42 67 H62 V52 H48" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
+
                 <h1>Kolay Kurulum ve Kurumsal Yönetim Altyapısı</h1>
                 <p id="about">
-                    gnessac kurumsal hile önleme teknolojileri; Metin2, Knight Online, Valorant, EVE Online ve League of Legends sunucularınız için uçtan uca yüksek güvenlik ve sıfır performans kaybı ilkesiyle geliştirilmiştir. Sunucu taraflı paket analizi, hafıza müdahale engelleme ve anlık veri doğrulama mekanizmaları sayesinde tüm hile girişimleri oyun katmanına ulaşmadan engellenir. Sipariş vermek, teklif almak veya özel yapılandırma seçeneklerini değerlendirmek için hemen sol taraftaki panelden destek talebi oluşturabilir veya e-posta adresimiz üzerinden bizimle iletişime geçebilirsiniz.
+                    <strong>gnessac kurumsal hile önleme teknolojileri;</strong> Metin2, Knight Online, Valorant, EVE Online ve League of Legends sunucularınız için uçtan uca yüksek güvenlik ve sıfır performans kaybı ilkesiyle geliştirilmiştir. Sunucu taraflı paket analizi, hafıza müdahale engelleme ve anlık veri doğrulama mekanizmaları sayesinde tüm hile girişimleri oyun katmanına ulaşmadan engellenir. Sipariş vermek, teklif almak veya özel yapılandırma seçeneklerini değerlendirmek için hemen sol taraftaki panelden destek talebi oluşturabilir veya e-posta adresimiz üzerinden bizimle iletişime geçebilirsiniz.
                 </p>
             </div>
         </section>
 
-        <!-- Games Section (Soldan Sağa Dizilim) -->
+        <!-- Games Section (TEK SIRAYA SABİTLENMİŞ KARŞILAŞTIRMA) -->
         <section id="games" class="games-section">
             <h2 class="section-title">Hizmet Verilen Oyunlarımız</h2>
-            <div class="games-grid">
+            <div class="games-single-row">
                 <div class="game-card">
                     <h3>Metin2</h3>
                     <p>C++ ve Python paket manipülasyonu engelleme, hareket hızı/saldırı hızı sınır doğrulaması, bellek enjeksiyon tespiti ve otomatik banlama protokolü.</p>
@@ -224,30 +268,63 @@
             </div>
         </section>
 
-        <!-- Pricing Section -->
+        <!-- Pricing Section (%18 İNDİRİMLİ RAKAMSAL PAKETLER) -->
         <section id="pricing" class="pricing">
+            <div class="discount-banner">
+                🔥 SEZON DÖNEMİNE ÖZEL TÜM PAKETLERDE NET %18 İNDİRİM KAMPANYASI BAŞLADI!
+            </div>
+            
             <h2 class="section-title">Hizmet Paketleri</h2>
             <div class="pricing-grid">
                 <div class="price-card">
-                    <div class="price-title">1 IP Lisans</div>
-                    <div class="price-amount">599 ₺</div>
-                    <p>Tek sunucu IP adresi için tam koruma ve temel destek hizmeti.</p>
-                    <br>
-                    <button class="login-btn" onclick="openModal('ticketModal')">Sipariş Talebi</button>
+                    <div class="discount-tag">%18 İNDİRİM</div>
+                    <div>
+                        <div class="price-title">1 IP Lisans</div>
+                        <div class="old-price">730 ₺ yerine</div>
+                        <div class="price-amount">599 ₺</div>
+                    </div>
+                    <ul class="package-features">
+                        <li>1 Adet Sunucu IP Lisanslaması</li>
+                        <li>Sunucu Taraflı Paket Analizi</li>
+                        <li>Tam Otomatik Kural Güncellemeleri</li>
+                        <li>7/24 Standart Destek SLA</li>
+                        <li>Metin2 / KO / Valorant Uyumlu</li>
+                    </ul>
+                    <button class="login-btn" onclick="openModal('ticketModal')">Sipariş Talebi Oluştur</button>
                 </div>
+
                 <div class="price-card featured">
-                    <div class="price-title">2 IP Lisans</div>
-                    <div class="price-amount">949 ₺</div>
-                    <p>Çift sunucu veya Test + Canlı ortamları için avantajlı paket.</p>
-                    <br>
-                    <button class="login-btn" onclick="openModal('ticketModal')">Sipariş Talebi</button>
+                    <div class="discount-tag">%18 İNDİRİM</div>
+                    <div>
+                        <div class="price-title">2 IP Lisans</div>
+                        <div class="old-price">1.157 ₺ yerine</div>
+                        <div class="price-amount">949 ₺</div>
+                    </div>
+                    <ul class="package-features">
+                        <li>2 Adet Sunucu IP Lisanslaması</li>
+                        <li>Test + Canlı Sunucu İkili Koruma</li>
+                        <li>Öncelikli Teknik Destek SLA</li>
+                        <li>Detaylı Log Analiz Paneli</li>
+                        <li>Tüm Oyun Türlerinde Geçerli</li>
+                    </ul>
+                    <button class="login-btn" onclick="openModal('ticketModal')">Sipariş Talebi Oluştur</button>
                 </div>
+
                 <div class="price-card">
-                    <div class="price-title">10 IP Lisans</div>
-                    <div class="price-amount">5.489 ₺</div>
-                    <p>Büyük sunucu ağları ve kurumsal oyun sunucusu projeleri için profesyonel çözüm.</p>
-                    <br>
-                    <button class="login-btn" onclick="openModal('ticketModal')">Sipariş Talebi</button>
+                    <div class="discount-tag">%18 İNDİRİM</div>
+                    <div>
+                        <div class="price-title">10 IP Lisans</div>
+                        <div class="old-price">6.693 ₺ yerine</div>
+                        <div class="price-amount">5.489 ₺</div>
+                    </div>
+                    <ul class="package-features">
+                        <li>10 Adet Sunucu IP Lisans Filosu</li>
+                        <li>Kurumsal VIP Yönetim Paneli</li>
+                        <li>Özel C++ Çekirdek Algoritma Uyarlaması</li>
+                        <li>7/24 Birebir VIP SLA Destek</li>
+                        <li>Sınırsız IP Güncelleme Hakkı</li>
+                    </ul>
+                    <button class="login-btn" onclick="openModal('ticketModal')">Sipariş Talebi Oluştur</button>
                 </div>
             </div>
         </section>
@@ -310,11 +387,11 @@
     <div id="customerView" class="view-section">
         <div class="customer-bg">
             <div class="login-card">
-                <svg width="60" height="70" viewBox="0 0 100 120" style="margin-bottom: 15px;">
-                    <path d="M50 5 L90 20 V55 C90 85 50 110 50 110 C50 110 10 85 10 55 V20 Z" fill="#1a2b4c" stroke="#2563eb" stroke-width="4"/>
-                    <path d="M65 40 H45 C38 40 35 45 35 55 V65 C35 75 38 80 45 80 H65 V60 H50" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg width="60" height="60" viewBox="0 0 100 100" style="margin-bottom: 15px;">
+                    <polygon points="50 5, 90 25, 90 75, 50 95, 10 75, 10 25" fill="#0f172a" stroke="#2563eb" stroke-width="4"/>
+                    <path d="M62 35 H42 C35 35 32 40 32 50 V52 C32 62 35 67 42 67 H62 V52 H48" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <h3 style="color: var(--primary); margin-bottom: 20px;">Hesap Girişi</h3>
+                <h3 style="color: var(--primary); margin-bottom: 20px; font-weight: 800;">Müşteri Paneli Girişi</h3>
                 <form onsubmit="handleLogin(event)">
                     <div class="form-group">
                         <label>Kullanıcı Adı</label>
@@ -335,7 +412,7 @@
     <div id="ticketModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('ticketModal')">&times;</span>
-            <h3 style="color: var(--primary); margin-bottom: 15px;">Kurumsal Destek Talebi Oluştur</h3>
+            <h3 style="color: var(--primary); margin-bottom: 15px; font-weight: 800;">Kurumsal Destek Talebi Oluştur</h3>
             <form onsubmit="submitTicket(event)">
                 <div class="form-group">
                     <label>Ad Soyad</label>
@@ -357,7 +434,7 @@
                     <label>Destek / Konu Başlığı</label>
                     <select required>
                         <option value="">Lütfen Bir Konu Seçiniz</option>
-                        <option>1. Yeni Lisans Satın Alma Talebi</option>
+                        <option>1. Yeni Lisans Satın Alma Talebi (%18 İndirimli)</option>
                         <option>2. IP Adresi Güncelleme / Değişiklik Talebi</option>
                         <option>3. Metin2 Sunucu Entegrasyonu Destek</option>
                         <option>4. Knight Online KO-Guard ve Paket Yapılandırması</option>
@@ -391,7 +468,7 @@
         <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="close-modal" onclick="closeModal('confirmModal')">&times;</span>
             <div style="font-size: 48px; color: #16a34a; margin-bottom: 15px;">✓</div>
-            <h3 style="color: var(--primary); margin-bottom: 10px;">Talebiniz Alınmıştır</h3>
+            <h3 style="color: var(--primary); margin-bottom: 10px; font-weight: 800;">Talebiniz Alınmıştır</h3>
             <p style="color: #475569; font-size: 14px;">Destek talebiniz kurumsal sistemimize başarıyla iletilmiştir. Yetkili ekibimiz sağladığınız iletişim bilgileri üzerinden en kısa sürede sizinle iletişime geçecektir.</p>
             <br>
             <button class="login-btn" onclick="closeModal('confirmModal')">Tamam</button>
@@ -403,8 +480,8 @@
         <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="close-modal" onclick="closeModal('alertModal')">&times;</span>
             <div style="font-size: 48px; color: #dc2626; margin-bottom: 15px;">⚠️</div>
-            <h3 style="color: var(--primary); margin-bottom: 10px;">Erişim Engellendi</h3>
-            <p style="color: #475569; font-size: 14px;">Üye değilsiniz veya aktif bir lisans satın alımınız bulunmamaktadır. Lütfen yönetim paneli erişimi için bizimle iletişime geçin.</p>
+            <h3 style="color: var(--primary); margin-bottom: 10px; font-weight: 800;">Erişim Engellendi</h3>
+            <p style="color: #475569; font-size: 14px;">Üye değilsiniz veya herhangi bir lisans satın alımınız bulunmamaktadır. Lütfen yönetim paneli erişimi ve satın alım için bizimle iletişime geçin.</p>
             <br>
             <button class="login-btn" onclick="closeModal('alertModal')">Kapat</button>
         </div>
@@ -414,7 +491,7 @@
     <div id="termsModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
-            <h3 style="color: var(--primary); margin-bottom: 15px;">Hizmet Şartları ve Kullanım Sözleşmesi</h3>
+            <h3 style="color: var(--primary); margin-bottom: 15px; font-weight: 800;">Hizmet Şartları ve Kullanım Sözleşmesi</h3>
             <p>Bu sözleşme, gnessac.pro tarafından sunulan sunucu taraflı hile önleme yazılımlarının kullanım şartlarını düzenlemektedir.</p>
             <br>
             <p><span class="critical-red">1. Lisans Kapsamı ve Devir Yasağı:</span> Satın alınan lisanslar yalnızca tanımlanan IP adresinde geçerlidir. İzinsiz tersine mühendislik (reverse engineering) yapılması, yazılımın kopyalanması veya 3. şahıslara devredilmesi durumunda lisans derhal iptal edilir ve hukuki işlem başlatılır.</p>
@@ -429,7 +506,7 @@
     <div id="privacyModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
-            <h3 style="color: var(--primary); margin-bottom: 15px;">Kurumsal Gizlilik ve Veri Koruma Politikası</h3>
+            <h3 style="color: var(--primary); margin-bottom: 15px; font-weight: 800;">Kurumsal Gizlilik ve Veri Koruma Politikası</h3>
             <p>gnessac olarak kullanıcılarımızın ve oyun sunucularınızın veri güvenliğine yüksek önem vermekteyiz.</p>
             <br>
             <p><span class="critical-red">1. Toplanan Veriler:</span> Sistemimiz yalnızca hile analizi amacıyla ağ paket verilerini ve işlemci/IP bilgilerini işler. Kişisel verileriniz hiçbir koşulda 3. taraf kurumlarla paylaşılmaz.</p>
