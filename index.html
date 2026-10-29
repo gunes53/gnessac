@@ -86,7 +86,7 @@
         }
         .hero-btn:hover { background: #f1f5f9; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
 
-        /* Features Section Layout */
+        /* Features Section Layout (Hakkımızda) */
         .features-section { padding: 70px 5%; max-width: 1100px; margin: 0 auto; display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
         .features-left { flex: 1; min-width: 280px; display: flex; justify-content: center; align-items: center; }
         .features-right { flex: 1.4; min-width: 300px; }
@@ -97,8 +97,21 @@
         .feature-item h3 { font-size: 20px; color: #1e293b; margin-bottom: 8px; font-weight: 700; border-bottom: 2px solid #eff6ff; padding-bottom: 6px; }
         .feature-item p { font-size: 14px; color: #475569; line-height: 1.7; text-align: justify; }
 
+        /* Özellikler & Anticheat Teknolojisi Özel Alanı */
+        .tech-features-section { padding: 70px 5%; background: #ffffff; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .tech-features-container { max-width: 1100px; margin: 0 auto; }
+        .tech-features-intro { text-align: center; max-width: 900px; margin: 0 auto 40px auto; }
+        .tech-features-intro h2 { font-size: 28px; color: #1e293b; font-weight: 800; margin-bottom: 15px; letter-spacing: -0.5px; }
+        .tech-features-intro p { font-size: 14.5px; color: #475569; line-height: 1.8; text-align: justify; }
+        
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 25px; margin-top: 30px; }
+        .tech-card { background: var(--bg-gray); border: 1px solid var(--border-color); padding: 26px; border-radius: 8px; transition: transform 0.2s, box-shadow 0.2s; }
+        .tech-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-color: var(--sv-blue); }
+        .tech-card h3 { font-size: 18px; color: var(--sv-blue); font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .tech-card p { font-size: 13px; color: #64748b; line-height: 1.7; text-align: justify; }
+
         /* Tech Stack Logos Bar */
-        .tech-stack-section { padding: 35px 5%; background: #ffffff; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); text-align: center; }
+        .tech-stack-section { padding: 35px 5%; background: var(--bg-gray); border-bottom: 1px solid var(--border-color); text-align: center; }
         .tech-stack-container { display: flex; justify-content: center; align-items: center; gap: 30px; overflow-x: auto; max-width: 1200px; margin: 0 auto; padding: 10px 0; }
         .tech-item { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 90px; }
         .tech-item img { width: 42px; height: 42px; object-fit: contain; transition: transform 0.2s; }
@@ -106,7 +119,7 @@
         .tech-item span { font-size: 12px; font-weight: 700; color: #475569; }
 
         /* Games Section */
-        .games-section { padding: 60px 5%; background: var(--bg-gray); border-bottom: 1px solid var(--border-color); }
+        .games-section { padding: 60px 5%; background: #ffffff; border-bottom: 1px solid var(--border-color); }
         .section-title { text-align: center; font-size: 26px; color: #1e293b; margin-bottom: 35px; font-weight: 800; letter-spacing: -0.5px; }
         
         .games-grid { display: flex; gap: 20px; max-width: 1200px; margin: 0 auto; overflow-x: auto; padding: 10px 5px; }
@@ -250,8 +263,8 @@
             <a href="#" class="logo" onclick="switchView('main')">gnessac</a>
             <ul class="nav-links">
                 <li><a onclick="switchView('main'); scrollToSection('about')" data-i18n="nav_about">Hakkımızda</a></li>
+                <li><a onclick="switchView('main'); scrollToSection('features-tech')" data-i18n="nav_features">Özellikler</a></li>
                 <li><a onclick="switchView('main'); scrollToSection('games')" data-i18n="nav_games">Hizmet Verilen Oyunlar</a></li>
-                <li><a onclick="switchView('main'); scrollToSection('features')" data-i18n="nav_features">Özellikler</a></li>
                 <li><a onclick="switchView('main'); scrollToSection('pricing')" data-i18n="nav_pricing">Fiyatlandırma</a></li>
                 <li><a onclick="switchView('main'); scrollToSection('faq')" data-i18n="nav_faq">SSS</a></li>
                 <li><a onclick="switchView('customer')" data-i18n="nav_customer">Müşteri Alanı</a></li>
@@ -306,8 +319,8 @@
             </div>
         </section>
 
-        <!-- Features Dual Section -->
-        <section id="features" class="features-section">
+        <!-- Hakkımızda Section -->
+        <section class="features-section">
             <div class="features-left">
                 <div class="gnessac-hero-logo">gnessac</div>
             </div>
@@ -323,6 +336,50 @@
                 <div class="feature-item">
                     <h3 data-i18n="feat3_title">Yüksek Güvenlik</h3>
                     <p data-i18n="feat3_desc">Sunucu tarafında hileye karşı geliştirilmiş derin paket doğrulama, bellek enjeksiyon engeli ve dinamik kural motoru sayesinde %100 güvence elde edin. İstemci taraflı hile korumalarının baypas edildiği günümüz koşullarında gnessac, paket doğrulamasını doğrudan yetkili sunucu çekirdeğinde yaparak manipüle edilmiş veri akışlarını anında engeller.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- YENİ BÖLÜM: Özellikler ve Anti-Cheat Teknolojisi Tanıtımı -->
+        <section id="features-tech" class="tech-features-section">
+            <div class="tech-features-container">
+                <div class="tech-features-intro">
+                    <h2 data-i18n="tech_feat_main_title">Yeni Nesil Sunucu Taraflı (Server-Side) Anti-Cheat Teknolojimiz</h2>
+                    <p data-i18n="tech_feat_main_desc">
+                        Günümüzde istemci (client) taraflı hile koruma sistemleri, gelişmiş sürücü düzeyindeki (kernel-level) baypas teknikleri ve bellek manipülasyonları karşısında yetersiz kalmaktadır. Oyuncuların bilgisayarına dosya yükletmek hem sistem performansını düşürmekte hem de hile geliştiricilerinin hedefi haline gelmektedir. gnessac, hile engelleme mantığını tamamen oyunu yöneten sunucu çekirdeğine taşıyarak ağ seviyesinde %100 kontrol sağlar.
+                    </p>
+                </div>
+                
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h3 data-i18n="tech_card1_title">⚡ Derin Ağ Paket Doğrulaması</h3>
+                        <p data-i18n="tech_card1_desc">İstemciden sunucuya gönderilen her bir ağ paketi, mikrosaniye düzeyinde matematiksel sınır kontrollerine ve veri doğrulama süzgeçlerine tabi tutulur. Hız, hareket, yetenek dolum süreleri ve eylem paketleri sunucu tarafında anlık simüle edilerek hileli paketler işlenmeden reddedilir.</p>
+                    </div>
+
+                    <div class="tech-card">
+                        <h3 data-i18n="tech_card2_title">🛡️ İstemci Bağımsız Sıfır Dosya Kurulumu</h3>
+                        <p data-i18n="tech_card2_desc">Oyuncularınızın bilgisayarlarına hiçbir ek yazılım, anti-cheat tarayıcısı veya .exe dosyası kurulmaz. Bu sayede işletim sistemi uyumsuzlukları, antivirüs yanlış pozitif (false-positive) engellemeleri ve istemci tarafı hile geliştirme denemeleri tamamen ortadan kaldırılır.</p>
+                    </div>
+
+                    <div class="tech-card">
+                        <h3 data-i18n="tech_card3_title">🤖 Otonom Bot & Makro Analiz Motoru</h3>
+                        <p data-i18n="tech_card3_desc">Gelişmiş istatistiksel analiz algoritmalarımız, oyuncu hareketlerini ve paket aralıklarını sürekli izler. Otomatik balık tutma, madencilik, rotasyonlu yaratık kesme ve insanüstü refleksle yapılan makro haraketleri sunucu tarafında milisaniyeler içinde tespit ederek karantinaya alır.</p>
+                    </div>
+
+                    <div class="tech-card">
+                        <h3 data-i18n="tech_card4_title">⚙️ Kolay Kurulum & Anlık Lisans Yönetimi</h3>
+                        <p data-i18n="tech_card4_desc">Hizmet satın alımının ardından gnessac çekirdeği sunucu dosyalarınıza tek bir entegrasyon kütüphanesi olarak eklenir. Yönetim paneli üzerinden IP adreslerinizi anında tanımlayabilir, karmaşık yapılandırmalara ihtiyaç duymadan sistemi dakikalar içinde canlıya alabilirsiniz.</p>
+                    </div>
+
+                    <div class="tech-card">
+                        <h3 data-i18n="tech_card5_title">🚀 C++ Hibrit Performans Çekirdeği</h3>
+                        <p data-i18n="tech_card5_desc">%100 C++ diliyle optimize edilmiş izole bellek mimarimiz, sunucunuzun CPU ve RAM kaynakları üzerinde sıfıra yakın yük oluşturur. Binlerce anlık oyuncunun bulunduğu yoğun savaş alanlarında ve pazar haritalarında gecikme (lag) ve kasma yaşanmaz.</p>
+                    </div>
+
+                    <div class="tech-card">
+                        <h3 data-i18n="tech_card6_title">🔄 Dinamik Bulut Kural Güncellemeleri</h3>
+                        <p data-i18n="tech_card6_desc">Sektörde beliren yeni hile teknikleri ve paket manipülasyon yöntemleri, bulut sunucularımız üzerinden anında tespit edilir. Sunucunuzu yeniden başlatmaya gerek kalmadan tüm filtreler ve koruma kuralları otomatik olarak güncellenir.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -597,6 +654,22 @@
                 feat2_desc: "gnessac, yeni nesil çevrimiçi oyun sunucuları için sıfır istemci (client) bağımlılığı ilkesiyle geliştirilmiş kurumsal bir güvenlik yazılımıdır. Sektörde yıllara dayanan sunucu yönetimi ve tersine mühendislik deneyimimizle, oyun içi ekonomiyi ve adil rekabeti bozan hileleri oyuncu bilgisayarlarına hiçbir dosya yükletmeden tamamen sunucu tarafında engelliyoruz. %100 C++ ile yazılmış hibrit çekirdeğimiz, sunucunuzda sıfır gecikme (lag) ve minimum kaynak kullanımı garantisi verir.",
                 feat3_title: "Yüksek Güvenlik",
                 feat3_desc: "Sunucu tarafında hileye karşı geliştirilmiş derin paket doğrulama, bellek enjeksiyon engeli ve dinamik kural motoru sayesinde %100 güvence elde edin. İstemci taraflı hile korumalarının baypas edildiği günümüz koşullarında gnessac, paket doğrulamasını doğrudan yetkili sunucu çekirdeğinde yaparak manipüle edilmiş veri akışlarını anında engeller.",
+                
+                tech_feat_main_title: "Yeni Nesil Sunucu Taraflı (Server-Side) Anti-Cheat Teknolojimiz",
+                tech_feat_main_desc: "Günümüzde istemci (client) taraflı hile koruma sistemleri, gelişmiş sürücü düzeyindeki (kernel-level) baypas teknikleri ve bellek manipülasyonları karşısında yetersiz kalmaktadır. Oyuncuların bilgisayarına dosya yükletmek hem sistem performansını düşürmekte hem de hile geliştiricilerinin hedefi haline gelmektedir. gnessac, hile engelleme mantığını tamamen oyunu yöneten sunucu çekirdeğine taşıyarak ağ seviyesinde %100 kontrol sağlar.",
+                tech_card1_title: "⚡ Derin Ağ Paket Doğrulaması",
+                tech_card1_desc: "İstemciden sunucuya gönderilen her bir ağ paketi, mikrosaniye düzeyinde matematiksel sınır kontrollerine ve veri doğrulama süzgeçlerine tabi tutulur. Hız, hareket, yetenek dolum süreleri ve eylem paketleri sunucu tarafında anlık simüle edilerek hileli paketler işlenmeden reddedilir.",
+                tech_card2_title: "🛡️ İstemci Bağımsız Sıfır Dosya Kurulumu",
+                tech_card2_desc: "Oyuncularınızın bilgisayarlarına hiçbir ek yazılım, anti-cheat tarayıcısı veya .exe dosyası kurulmaz. Bu sayede işletim sistemi uyumsuzlukları, antivirüs yanlış pozitif (false-positive) engellemeleri ve istemci tarafı hile geliştirme denemeleri tamamen ortadan kaldırılır.",
+                tech_card3_title: "🤖 Otonom Bot & Makro Analiz Motoru",
+                tech_card3_desc: "Gelişmiş istatistiksel analiz algoritmalarımız, oyuncu hareketlerini ve paket aralıklarını sürekli izler. Otomatik balık tutma, madencilik, rotasyonlu yaratık kesme ve insanüstü refleksle yapılan makro haraketleri sunucu tarafında milisaniyeler içinde tespit ederek karantinaya alır.",
+                tech_card4_title: "⚙️ Kolay Kurulum & Anlık Lisans Yönetimi",
+                tech_card4_desc: "Hizmet satın alımının ardından gnessac çekirdeği sunucu dosyalarınıza tek bir entegrasyon kütüphanesi olarak eklenir. Yönetim paneli üzerinden IP adreslerinizi anında tanımlayabilir, karmaşık yapılandırmalara ihtiyaç duymadan sistemi dakikalar içinde canlıya alabilirsiniz.",
+                tech_card5_title: "🚀 C++ Hibrit Performans Çekirdeği",
+                tech_card5_desc: "%100 C++ diliyle optimize edilmiş izole bellek mimarimiz, sunucunuzun CPU ve RAM kaynakları üzerinde sıfıra yakın yük oluşturur. Binlerce anlık oyuncunun bulunduğu yoğun savaş alanlarında ve pazar haritalarında gecikme (lag) ve kasma yaşanmaz.",
+                tech_card6_title: "🔄 Dinamik Bulut Kural Güncellemeleri",
+                tech_card6_desc: "Sektörde beliren yeni hile teknikleri ve paket manipülasyon yöntemleri, bulut sunucularımız üzerinden anında tespit edilir. Sunucunuzu yeniden başlatmaya gerek kalmadan tüm filtreler ve koruma kuralları otomatik olarak güncellenir.",
+
                 tech_title: "Geliştirme Ve Altyapı Teknolojilerimiz",
                 games_title: "Hizmet Verilen Oyunlarımız",
                 game_m2: "C++ ve Python paket manipülasyonu engelleme, hareket ve saldırı hızı sınır doğrulamaları, bellek enjeksiyon tespiti ve server-side balık/maden botu analizi.",
@@ -691,6 +764,22 @@
                 feat2_desc: "gnessac is an enterprise security software built on zero-client dependency. Backed by years of server management and reverse-engineering experience, we block cheats completely server-side without installing any files on players' PCs. Our 100% C++ hybrid core guarantees zero lag and minimal resource consumption.",
                 feat3_title: "High Security",
                 feat3_desc: "Get 100% assurance through server-side deep packet validation, memory injection prevention, and dynamic rule engines. While client-side anti-cheats are bypassed, gnessac blocks manipulated data streams directly in the authorized server core.",
+                
+                tech_feat_main_title: "Next-Generation Server-Side Anti-Cheat Technology",
+                tech_feat_main_desc: "Traditional client-side anti-cheat solutions fail against modern kernel-level bypasses and memory manipulations. Forcing players to install software degrades system performance and attracts cheat developers. gnessac moves the entire anti-cheat logic to the server core, ensuring 100% network-level control.",
+                tech_card1_title: "⚡ Deep Packet Inspection",
+                tech_card1_desc: "Every network packet sent from client to server undergoes microsecond mathematical bounds checking and validation filters. Speed, movement, cooldowns, and action packets are simulated instantly on the server, rejecting malicious packets before execution.",
+                tech_card2_title: "🛡️ Zero Client-Side Software",
+                tech_card2_desc: "No additional software, anti-cheat scanners, or .exe files are installed on player PCs. This eliminates OS incompatibilities, antivirus false-positives, and client-side reverse-engineering attempts completely.",
+                tech_card3_title: "🤖 Autonomous Bot & Macro Engine",
+                tech_card3_desc: "Our advanced statistical analysis algorithms monitor player movements and packet intervals continuously. Automated fishing, mining, mob farming, and inhuman macro reflexes are detected and isolated server-side within milliseconds.",
+                tech_card4_title: "⚙️ Seamless Setup & Real-Time Licensing",
+                tech_card4_desc: "Upon subscription, the gnessac core is deployed into your server files as a unified integration library. Authorize your IP addresses via our panel and go live in minutes without complex configurations.",
+                tech_card5_title: "🚀 C++ Hybrid Performance Core",
+                tech_card5_desc: "Our isolated memory architecture optimized with 100% native C++ imposes zero measurable overhead on your server CPU and RAM. No lag or frame drops occur even in massive warzones and crowded marketplace maps.",
+                tech_card6_title: "🔄 Dynamic Cloud Rule Updates",
+                tech_card6_desc: "Newly emerging cheat vectors and packet manipulation methods across the industry are detected via our cloud infrastructure instantly. All filters and rules update automatically without requiring server restarts.",
+
                 tech_title: "Development & Infrastructure Technologies",
                 games_title: "Games We Support",
                 game_m2: "C++ and Python packet manipulation prevention, speed/attack limit validation, memory injection detection, and server-side fishing/mining bot analysis.",
@@ -785,6 +874,22 @@
                 feat2_desc: "gnessac ist eine Enterprise-Sicherheitssoftware ohne Client-Abhängigkeit. Mit jahrelanger Erfahrung blockieren wir Cheats vollständig serverseitig.",
                 feat3_title: "Hohe Sicherheit",
                 feat3_desc: "100%ige Sicherheit durch serverseitige Paketvalidierung, Injektionsschutz und dynamische Regel-Engine.",
+                
+                tech_feat_main_title: "Serverseitige Anti-Cheat-Technologie der nächsten Generation",
+                tech_feat_main_desc: "Herkömmliche clientseitige Anti-Cheat-Lösungen versagen gegen moderne Kernel-Level-Bypasses. gnessac verlagert die gesamte Schutzlogik in den Server-Core und gewährleistet 100%ige Kontrolle auf Netzwerkebene.",
+                tech_card1_title: "⚡ Tiefenpaketprüfung",
+                tech_card1_desc: "Jedes vom Client gesendete Netzwerkpaket wird im Mikrosekundenbereich mathematischen Prüfungen unterzogen. Geschwindigkeits-, Bewegungs- und Skill-Pakete werden sofort serverseitig simuliert.",
+                tech_card2_title: "🛡️ Null Client-Software",
+                tech_card2_desc: "Es werden keine Dateien auf den PCs der Spieler installiert. Dies eliminiert Systeminkompatibilitäten und Antiviren-Fehlalarme vollständig.",
+                tech_card3_title: "🤖 Autonome Bot- & Makro-Engine",
+                tech_card3_desc: "Unsere Algorithmen überwachen Spielerbewegungen kontinuierlich. Automatisches Angeln, Mining und Makros werden serverseitig in Millisekunden isoliert.",
+                tech_card4_title: "⚙️ Einfache Einrichtung & Echtzeit-Lizenzierung",
+                tech_card4_desc: "Nach dem Kauf wird gnessac als Bibliothek in Ihre Serverdateien integriert. Schalten Sie Ihre IPs im Panel ohne komplexe Konfiguration frei.",
+                tech_card5_title: "🚀 C++ Hybrid Performance Core",
+                tech_card5_desc: "Unsere mit 100% C++ optimierte Speicherarchitektur belastet CPU und RAM Ihres Servers nicht. Kein Lag selbst in vollen Schlachten.",
+                tech_card6_title: "🔄 Dynamische Cloud-Regelupdates",
+                tech_card6_desc: "Neue Cheat-Methoden werden über unsere Cloud-Infrastruktur sofort erkannt. Alle Filter aktualisieren sich automatisch ohne Serverneustart.",
+
                 tech_title: "Unsere Entwicklungs- und Infrastrukturtechnologien",
                 games_title: "Unterstützte Spiele",
                 game_m2: "Schutz vor C++ / Python Paketmanipulationen, Geschwindigkeitsprüfungen und Angel-Bot-Analysen.",
@@ -976,104 +1081,33 @@
             if (currentLang === 'tr') {
                 termsBox.innerHTML = `
                     <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">İşbu Kullanım Sözleşmesi ve Hizmet Şartları, gnessac.pro ("Şirket") ile gnessac altyapı ve yazılım çözümlerinden faydalanan bireysel veya kurumsal kullanıcılar ("Müşteri") arasında akdedilmiştir. Sitemize erişim sağlayarak veya dijital lisans/web tasarım hizmeti satın alarak işbu sözleşmede yer alan tüm maddeleri eksiksiz ve koşulsuz olarak kabul etmiş sayılırsınız.</p>
-                    
                     <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Taraflar ve Hizmetin Konusu</h3>
                     <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Şirket, çevrimiçi oyun sunucularının güvenliğini sağlamak amacıyla %100 sunucu taraflı çalışan güvenlik yazılımları ve özel web tasarım paketleri sunar. Müşteri, satın aldığı pakete bağlı olarak belirlenen sınırlar dahilinde bu hizmetlerden yararlanma hakkına sahiptir.</p>
-                    
                     <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">2. Lisans Hakları ve Devir Kısıtlaması</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Lisans Kapsamı ve Devir Yasağı:</span> gnessac tarafından sağlanan tüm dijital lisanslar, yalnızca Müşteri tarafından bildirilen ve doğrulanan IP adres(ler)i üzerinde geçerlidir. Müşteri, bu lisansı üçüncü şahıslara devredemez, satamaz, kiralayamaz veya kaynak kodlarını tersine mühendislik (reverse engineering) yöntemleriyle inceleyip kopyalayamaz.</p>
-                    
+                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Lisans Kapsamı ve Devir Yasağı:</span> gnessac tarafından sağlanan tüm dijital lisanslar, yalnızca Müşteri tarafından bildirilen ve doğrulanan IP adres(ler)i üzerinde geçerlidir. Müşteri, bu lisansı üçüncü şahıslara devredemez, satamaz, kiralayamaz veya kaynak kodlarını tersine mühendislik yöntemleriyle inceleyip kopyalayamaz.</p>
                     <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">3. Fiyatlandırma, Yenileme ve İade Koşulları</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Geri Ödeme Politikası:</span> Sunucu taraflı koruma lisansları anında aktive edilen ve sunucu çekirdeğine entegre edilen dijital içerikler kategorisinde yer aldığından, kurulum tamamlandıktan sonra para iadesi yapılmaz. Web tasarım hizmetlerinde ise proje başlangıcı onaylandıktan sonra ön ödeme tutarı iade edilmez.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">4. Hizmetin Sürekliliği ve Sorumluluk Sınırları</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Şirket, hile engelleme altyapısının %99.9 oranında kesintisiz ve kararlı çalışmasını taahhüt eder. Ancak Müşteri'nin kendi sunucu donanımından, veri merkezinden veya üçüncü taraf kaynaklı ağ protokolü arızalarından doğan aksaklıklardan Şirket sorumlu tutulamaz.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">5. Sözleşmenin Feshi ve Yetkili Mahkeme</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Sözleşme şartlarına uyulmaması, korsan kullanım tespiti veya tersine mühendislik girişimlerinde Şirket, Müşteri'nin lisansını tek taraflı olarak iptal etme hakkına sahiptir. İşbu sözleşmeden doğabilecek tüm uyuşmazlıklarda İstanbul Mahkemeleri ve İcra Daireleri yetkilidir.</p>
+                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Geri Ödeme Politikası:</span> Sunucu taraflı koruma lisansları anında aktive edilen ve sunucu çekirdeğine entegre edilen dijital içerikler kategorisinde yer aldığından, kurulum tamamlandıktan sonra para iadesi yapılmaz.</p>
                 `;
                 privacyBox.innerHTML = `
-                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">gnessac.pro olarak, platformumuzu ziyaret eden kullanıcılarımızın ve hizmetlerimizden yararlanan müşterilerimizin kişisel verilerinin gizliliğine ve güvenliğine en üst düzeyde önem veriyoruz. Bu Kurumsal Gizlilik ve Veri Koruma Politikası, verilerinizin hangi amaçlarla toplandığını, işlendiğini ve nasıl korunduğunu detaylandırmaktadır.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Toplanan Veriler ve Toplanma Yöntemleri</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Veri Toplama Standartları:</span> Sitemizde yer alan destek talebi formu, canlı destek sohbeti ve müşteri paneli aracılığıyla sunduğunuz Ad-Soyad, E-Posta adresi, Telefon numarası ve Sunucu IP adresi bilgileri toplanmaktadır. Ayrıca sistem güvenliğinin sağlanması amacıyla giriş yaparken IP log kaydı tutulmaktadır.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">2. Kişisel Verilerin İşlenme Amaçları</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Toplanan veriler; satın alınan lisansların doğrulanması, teknik destek taleplerinin yanıtlanması, e-fatura düzenlenmesi, sistem güvenliğinin tespiti ve yasal mevzuatlardan doğan yükümlülüklerin yerine getirilmesi amacıyla işlenmektedir.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">3. Çerez (Cookie) Kullanımı ve Güvenlik Altyapısı</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Çerezler ve Veri Güvenliği:</span> Web sitemizde kullanıcı oturumlarının sürdürülmesi ve dil tercihlerinizin hatırlanması için yalnızca zorunlu teknik çerezler kullanılmaktadır. Sitemizdeki tüm veri iletimi 256-bit SSL sertifikası ile şifrelenmektedir. Verileriniz hiçbir koşulda üçüncü taraf şirketlere veya reklam ağlarına satılmaz ve paylaşılmaz.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">4. Veri Saklama Süresi ve Müşteri Hakları</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Kişisel verileriniz, yasal saklama süreleri boyunca ve lisans aboneliğiniz aktif olduğu sürece güvenli sunucularımızda muhafaza edilir. Dilediğiniz zaman gnesssoftware@outlook.com adresi üzerinden bizimle iletişime geçerek verilerinizin silinmesini, güncellenmesini veya anonim hale getirilmesini talep edebilirsiniz.</p>
+                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">gnessac.pro olarak, platformumuzu ziyaret eden kullanıcılarımızın ve hizmetlerimizden yararlanan müşterilerimizin kişisel verilerinin gizliliğine ve güvenliğine en üst düzeyde önem veriyoruz.</p>
+                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Toplanan Veriler ve Yöntemleri</h3>
+                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Veri Toplama Standartları:</span> Sitemizde yer alan formlar aracılığıyla sunduğunuz Ad-Soyad, E-Posta, Telefon ve Sunucu IP adresi bilgileri güvenli sunucularımızda işlenmektedir.</p>
                 `;
             } else if (currentLang === 'en') {
                 termsBox.innerHTML = `
-                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">This Terms of Service and Use Agreement is concluded between gnessac.pro ("Company") and individual or corporate clients ("Client") utilizing gnessac software and infrastructure solutions. By accessing our site or purchasing digital licenses/web design services, you agree to all terms explicitly and unconditionally.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Parties and Scope of Service</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">The Company provides 100% server-side anti-cheat protection software and custom web design packages for online gaming servers. The Client is entitled to use these services within the bounds of their purchased package.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">2. License Rights and Transfer Restrictions</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">License Scope & Transfer Prohibition:</span> All digital licenses provided by gnessac are valid strictly for authorized IP address(es). The Client cannot transfer, resell, lease, or reverse-engineer the source code of the provided software.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">3. Pricing, Renewal, and Refund Policy</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Refund Policy:</span> Since server-side protection licenses are digital assets integrated directly into server cores upon delivery, no refunds are issued after installation is complete. For web design services, down payments are non-refundable once project kickoff is confirmed.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">4. Service Continuity and Limitation of Liability</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">The Company commits to a 99.9% uptime and operational stability for its anti-cheat infrastructure. However, the Company cannot be held liable for outages caused by Client hardware, data center network failures, or third-party protocol issues.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">5. Termination of Agreement & Jurisdiction</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">In cases of breach of terms, unauthorized distribution, or reverse-engineering attempts, the Company reserves the right to unilaterally terminate the license. Istanbul Courts and Execution Offices shall have exclusive jurisdiction over disputes.</p>
+                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">This Terms of Service Agreement is concluded between gnessac.pro and individual or corporate clients. By using our site, you agree to all terms.</p>
+                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Service Scope</h3>
+                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">The Company provides 100% server-side anti-cheat protection software and custom web design packages for online gaming servers.</p>
                 `;
                 privacyBox.innerHTML = `
-                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">At gnessac.pro, we prioritize the privacy and security of personal data belonging to our visitors and clients. This Corporate Privacy & Data Protection Policy outlines how your information is collected, processed, and safeguarded.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Collected Data & Methods</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Data Collection Standards:</span> Name, Email address, Phone number, and Server IP address provided via support tickets, live chat, or client panels are collected. IP log records are maintained for security compliance.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">2. Purpose of Data Processing</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Collected data is processed for license verification, fulfilling technical support requests, issuing e-invoices, system auditing, and legal compliance.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">3. Cookie Policy & Security Architecture</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Cookies & Security:</span> Essential technical cookies are used to maintain user sessions and language settings. All data transfers on our website are encrypted using 256-bit SSL. Data is never sold or shared with third-party advertisers.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">4. Data Retention & Client Rights</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Your data is securely stored on encrypted servers for the duration of your active subscription and statutory retention periods. You may contact us anytime at gnesssoftware@outlook.com to request data deletion or modification.</p>
+                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">At gnessac.pro, we prioritize the privacy and security of personal data belonging to our visitors and clients.</p>
                 `;
             } else if (currentLang === 'de') {
                 termsBox.innerHTML = `
-                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">Diese Nutzungsbedingungen und der Dienstleistungsvertrag werden zwischen gnessac.pro ("Unternehmen") und Kunden ("Kunde") geschlossen. Durch Nutzung unserer Website oder Kauf von Lizenzen/Webdesign stimmen Sie allen Bedingungen vollumfänglich zu.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Vertragsparteien und Gegenstand</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Das Unternehmen bietet 100% serverseitige Anti-Cheat-Schutzsoftware und Webdesign-Pakete für Online-Gameserver an.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">2. Lizenzrechte und Übertragungsverbot</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Lizenzumfang:</span> Lizenzen gelten ausschließlich für verifizierte IP-Adressen. Weiterverkauf, Vermietung oder Reverse Engineering sind strengstens untersagt.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">3. Preise und Rückerstattungsrichtlinie</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Rückerstattung:</span> Da serverseitige Lizenzen sofort bereitgestellt werden, gibt es nach erfolgter Installation keine Rückerstattung. Bei Webdesign-Diensten sind Anzahlungen nach Projektstart nicht erstattungsfähig.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">4. Dienstkontinuität und Haftung</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Das Unternehmen garantiert 99,9% Betriebsbereitschaft. Für Ausfälle durch Kundenhardware oder Rechenzentrumsprobleme wird keine Haftung übernommen.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">5. Kündigung & Gerichtsstand</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Bei Verstößen kann das Unternehmen die Lizenz einseitig kündigen. Gerichtsstand ist Istanbul.</p>
+                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">Diese Nutzungsbedingungen werden zwischen gnessac.pro und Kunden geschlossen. Durch Nutzung unserer Website stimmen Sie allen Bedingungen zu.</p>
                 `;
                 privacyBox.innerHTML = `
-                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">Bei gnessac.pro hat der Schutz Ihrer persönlichen Daten höchste Priorität. Diese Datenschutzrichtlinie erläutert die Erhebung und Verarbeitung Ihrer Daten.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Erhobene Daten</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Datenerhebung:</span> Name, E-Mail-Adresse, Telefonnummer und Server-IP-Adresse werden erfasst. IP-Logs werden zur Sicherheit gespeichert.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">2. Verwendungszweck</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Die Daten werden zur Lizenzverifizierung, technischen Unterstützung und Rechnungsstellung verwendet.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">3. Cookies & Sicherheit</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Datensicherheit:</span> Es werden nur notwendige technische Cookies verwendet. Datenübertragungen werden per 256-Bit SSL verschlüsselt und niemals an Dritte verkauft.</p>
-                    
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">4. Speicherung & Kundenrechte</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Ihre Daten werden sicher auf verschlüsselten Servern gespeichert. Sie können jederzeit unter gnesssoftware@outlook.com die Löschung Ihrer Daten anfordern.</p>
+                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">Bei gnessac.pro hat der Schutz Ihrer persönlichen Daten höchste Priorität.</p>
                 `;
             }
         }
