@@ -104,7 +104,6 @@
         .features-left { flex: 1; min-width: 280px; display: flex; justify-content: center; align-items: center; }
         .features-right { flex: 1.4; min-width: 300px; }
         
-        /* Anasayfada Ortalanmış Sol Üstteki Logo Yazısının Birebir Aynısı */
         .gnessac-hero-logo {
             font-size: 64px;
             font-weight: 800;
@@ -140,14 +139,36 @@
         .pricing-grid { display: flex; flex-direction: row; gap: 20px; justify-content: center; align-items: stretch; overflow-x: auto; padding-bottom: 15px; }
         .price-card { 
             flex: 1; min-width: 280px; background: #ffffff; border: 1px solid var(--border-color); 
-            border-radius: 8px; padding: 30px 20px; text-align: center; position: relative;
+            border-radius: 8px; padding: 22px 18px; text-align: center; position: relative;
             transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: space-between;
         }
         .price-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
         
-        /* Şık Rozetler */
-        .price-badge { position: absolute; top: 12px; right: 12px; background: #dbeafe; color: var(--sv-blue); font-size: 11px; padding: 4px 10px; border-radius: 4px; font-weight: 700; }
-        .popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #1d4ed8, #2563eb); color: #ffffff; font-size: 11px; padding: 4px 14px; border-radius: 20px; font-weight: 800; box-shadow: 0 4px 10px rgba(29,78,216,0.3); letter-spacing: 0.5px; }
+        /* Şık ve Çerçeve İçine Sığan Rozet Tasarımları */
+        .price-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 4px;
+        }
+        .price-badge { background: #dbeafe; color: var(--sv-blue); font-size: 11px; padding: 4px 8px; border-radius: 4px; font-weight: 700; }
+        
+        /* Çerçeve İçine Tam Sığdırılan Rozet */
+        .popular-inline-tag {
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 4px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            box-shadow: 0 2px 6px rgba(29, 78, 216, 0.2);
+            white-space: nowrap;
+        }
 
         .old-price { font-size: 13px; color: #94a3b8; text-decoration: line-through; }
         .price-amount { font-size: 34px; font-weight: 800; color: var(--sv-blue); margin: 5px 0 15px 0; }
@@ -176,7 +197,6 @@
             100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
 
-        /* Otomatik Karşılama Balonu */
         .welcome-popover {
             position: fixed; left: 20px; bottom: 85px; z-index: 998;
             background: #ffffff; color: #1e293b; padding: 14px 18px; border-radius: 12px;
@@ -192,7 +212,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Canlı Destek Penceresi */
         .chat-window {
             position: fixed; left: 20px; bottom: 90px; width: 360px; height: 500px;
             background: #ffffff; border-radius: 12px; box-shadow: 0 12px 35px rgba(0,0,0,0.2);
@@ -224,7 +243,7 @@
 
         /* Modals */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1001; align-items: center; justify-content: center; backdrop-filter: blur(3px); }
-        .modal-content { background: white; padding: 35px; border-radius: 8px; max-width: 750px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .modal-content { background: white; padding: 35px; border-radius: 8px; max-width: 780px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         .close-modal { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #94a3b8; }
         
         .critical-red { text-decoration: underline red 2px; font-weight: bold; color: #991b1b; }
@@ -252,7 +271,7 @@
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
 
-    <!-- Top Mini Banner (Yenilenmiş Şık Mail Alanı) -->
+    <!-- Top Mini Banner -->
     <div class="top-banner">
         <div class="top-banner-content">
             <span style="opacity: 0.8; font-size: 12px;">Kurumsal İletişim & Destek:</span>
@@ -300,9 +319,7 @@
                 Hoş geldiniz! Ben gnessac kurumsal dijital asistanıyım. Merak ettiğiniz konuyu aşağıdaki listeden seçebilirsiniz:
             </div>
         </div>
-        <div class="chat-options" id="chatOptions">
-            <!-- JavaScript ile 27 Hazır Soru Doldurulacak -->
-        </div>
+        <div class="chat-options" id="chatOptions"></div>
     </div>
 
     <!-- MAIN VIEW -->
@@ -323,7 +340,6 @@
         <!-- Features Dual Section -->
         <section id="features" class="features-section">
             <div class="features-left">
-                <!-- Sol Üst Logo Yazısının Birebir Aynısı ve Ortalanmış Hali -->
                 <div class="gnessac-hero-logo">gnessac</div>
             </div>
             <div class="features-right">
@@ -369,14 +385,16 @@
             </div>
         </section>
 
-        <!-- Pricing Section -->
+        <!-- Pricing Section (Tam Sığdırılmış İç Rozetli Yapı) -->
         <section id="pricing" class="pricing-section">
             <h2 class="section-title">Hizmet Paketleri (%18 İndirimli)</h2>
             <div class="pricing-grid">
                 <div class="price-card">
                     <div>
-                        <span class="price-badge">%18 İNDİRİM</span>
-                        <div style="font-weight: 700; color: #1e293b; margin-top: 10px;">1 IP Lisans</div>
+                        <div class="price-card-header">
+                            <span class="price-badge">%18 İNDİRİM</span>
+                        </div>
+                        <div style="font-weight: 700; color: #1e293b; margin-top: 5px;">1 IP Lisans</div>
                         <div class="old-price">730 ₺</div>
                         <div class="price-amount">599 ₺</div>
                         <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">Tek sunucu IP adresi için sunucu taraflı kesintisiz hile koruması.</p>
@@ -384,12 +402,14 @@
                     <button class="hero-btn" style="width: 100%; font-size: 13px;" onclick="openModal('ticketModal')">Satın Al / Destek Talebi Oluştur!</button>
                 </div>
                 
-                <!-- 2 IP Lisans: EN ÇOK TERCİH EDİLEN Rozet İle -->
+                <!-- 2 IP Lisans: Çerçeveye Tam Sığan İç Rozetli Tasarım -->
                 <div class="price-card" style="border-color: var(--sv-blue); box-shadow: 0 6px 20px rgba(29, 78, 216, 0.15);">
-                    <div class="popular-badge">⭐ EN ÇOK TERCİH EDİLEN</div>
                     <div>
-                        <span class="price-badge" style="top: 20px;">%18 İNDİRİM</span>
-                        <div style="font-weight: 700; color: #1e293b; margin-top: 25px;">2 IP Lisans</div>
+                        <div class="price-card-header">
+                            <span class="price-badge">%18 İNDİRİM</span>
+                            <span class="popular-inline-tag">★ EN ÇOK TERCİH EDİLEN</span>
+                        </div>
+                        <div style="font-weight: 700; color: #1e293b; margin-top: 5px;">2 IP Lisans</div>
                         <div class="old-price">1.157 ₺</div>
                         <div class="price-amount">949 ₺</div>
                         <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">Test ve canlı ortamlar için çift IP koruma lisansı paketi.</p>
@@ -399,8 +419,10 @@
 
                 <div class="price-card">
                     <div>
-                        <span class="price-badge">%18 İNDİRİM</span>
-                        <div style="font-weight: 700; color: #1e293b; margin-top: 10px;">10 IP Lisans</div>
+                        <div class="price-card-header">
+                            <span class="price-badge">%18 İNDİRİM</span>
+                        </div>
+                        <div style="font-weight: 700; color: #1e293b; margin-top: 5px;">10 IP Lisans</div>
                         <div class="old-price">6.693 ₺</div>
                         <div class="price-amount">5.489 ₺</div>
                         <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">Büyük oyun sunucusu ağları ve sunucu filoları için kurumsal paket.</p>
@@ -452,7 +474,7 @@
         </div>
     </div>
 
-    <!-- MODAL: Destek Talebi (21 Hazır Konu Başlığı) -->
+    <!-- MODAL: Destek Talebi -->
     <div id="ticketModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('ticketModal')">&times;</span>
@@ -534,27 +556,72 @@
         </div>
     </div>
 
-    <!-- MODAL: Şartlar ve Koşullar -->
+    <!-- MODAL: Şartlar ve Koşullar (Genişletilmiş Detaylı Kurumsal Metin) -->
     <div id="termsModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
-            <h2 style="color: #1e293b; font-size: 22px; margin-bottom: 15px; border-bottom: 2px solid var(--sv-blue); padding-bottom: 8px;">Hizmet Şartları ve Kullanım Sözleşmesi</h2>
-            <p style="font-size: 13px; color: #475569; margin-bottom: 12px; line-height: 1.7;">Bu Hizmet Şartları ve Kullanım Sözleşmesi ("Sözleşme"), gnessac.pro ("Şirket") tarafından sunulan sunucu taraflı hile önleme yazılımlarının kullanım koşullarını düzenlemektedir.</p>
-            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 8px 0;">1. Lisans Kapsamı ve Kullanım Hakları</h3>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">Satın alınan gnessac lisansları yalnızca onaylanan IP adresi için geçerlidir. <span class="critical-red">Lisans Kapsamı ve Devir Yasağı:</span> Aksine yazılı bir anlaşma olmadıkça devredilemez, kiralanamaz veya satılamaz. gnessac tüm materyallerin fikri mülkiyet haklarına sahiptir.</p>
-            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 8px 0;">2. İptal ve İade Koşulları</h3>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;"><span class="critical-red">Geri Ödeme Politikası:</span> Kurulumu sağlanan dijital lisans hizmetlerinde para iadesi yapılmaz.</p>
+            <h2 style="color: #1e293b; font-size: 22px; margin-bottom: 15px; border-bottom: 2px solid var(--sv-blue); padding-bottom: 8px;">HİZMET ŞARTLARI VE KULLANIM SÖZLEŞMESİ</h2>
+            
+            <p style="font-size: 13px; color: #475569; margin-bottom: 12px; line-height: 1.7;">
+                İşbu Hizmet Şartları ve Kullanım Sözleşmesi ("Sözleşme"), gnessac.pro ("Şirket") ile gnessac hile önleme, sunucu güvenlik ve paket analiz sistemlerini ("Hizmet") satın alan, kullanan veya erişim sağlayan gerçek/tüzel kişiler ("Kullanıcı/Müşteri") arasındaki hukuki şartları ve kullanım esaslarını belirlemektedir. gnessac.pro web sitesine erişerek veya altyapı hizmetlerimizi kullanmaya başlayarak bu sözleşmedeki tüm maddeleri eksiksiz ve gayrikabili rücu kabul etmiş sayılırsınız.
+            </p>
+
+            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 6px 0;">1. Taraflar ve Tanımlar</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
+                Bu sözleşmede geçen "Hizmet"; gnessac tarafından C++ ve sunucu taraflı özel yazılımlarla sağlanan hile engelleme, ağ paket doğrulama ve sunucu güvenlik lisanslarını ifade eder. "Kullanıcı"; hizmeti temsil ettiği sunucu için satın alan yetkili taraftır.
+            </p>
+
+            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 6px 0;">2. Lisans Kapsamı, Telif Hakları ve Devir Yasağı</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
+                Satın alınan tüm gnessac lisansları yalnızca Müşteri tarafından kayıt esnasında bildirilen ve Şirket tarafından onaylanan sunucu IP adresine/adreslerine tanımlanır. <span class="critical-red">Lisans Kapsamı ve Devir Yasağı:</span> gnessac yazılımının kaynak kodları, reverse-engineering veri yapıları, C++ çekirdek dosyaları ve fikri mülkiyet hakları münhasıran gnessac.pro firmasına aittir. Üretilen dijital lisans anahtarı veya sunucu koruma dosyaları üçüncü şahıslara kiralanamaz, devredilemez, satılamaz, parçalara ayrılarak dağıtılamaz veya tersine mühendislik işlemlerine tabi tutulamaz.
+            </p>
+
+            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 6px 0;">3. Sunucu Taraflı Mimari ve Sorumluluk Sınırları</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
+                gnessac, hile önleme süreçlerini doğrudan yetkili sunucu çekirdeğinde yürütür. Şirketimiz, %99.9 hizmet sürekliliği (SLA) hedefi doğrultusunda sistem güncellemelerini sağlar. Ancak, Müşteri’nin kendi veri merkezinde (datacenter) oluşabilecek donanımsal arızalardan, hatta bağlı ağ kesintilerinden veya işletim sistemi uyumsuzluklarından doğacak erişim kayıplarından gnessac sorumlu tutulamaz. 0-day (henüz tanımlanmamış) yeni nesil hilelerin tespiti teknik analiz süreci gerektirebilir; gnessac bu analizleri en kısa sürede tamamlayıp ücretsiz güncelleme sunmayı taahhüt eder.
+            </p>
+
+            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 6px 0;">4. Cayma Hakkı, İptal ve İade Politikası</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
+                <span class="critical-red">Geri Ödeme Politikası:</span> Hizmetlerimiz 6502 sayılı Tüketicinin Korunması Hakkında Kanun kapsamında "Anında ifa edilen dijital hizmetler ve elektronik ortamda teslim edilen somut olmayan mallar" kategorisindedir. Kurulumu tamamlanmış, IP adresine özel tanımlanmış veya lisans anahtarı teslim edilmiş dijital ürünlerde para iadesi ve cayma hakkı bulunmamaktadır.
+            </p>
+
+            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 6px 0;">5. Sözleşme Feshi ve Yasal Yetki</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
+                Müşteri'nin işbu sözleşme maddelerine aykırı davranması, hile korumasını baypas etmeye çalışması veya hakaret/tehdit içeren tutumlar sergilemesi durumunda gnessac, hizmeti tek taraflı olarak ücret iadesiz feshetme hakkını saklı tutar. Anlaşmazlıklarda İstanbul Mahkemeleri ve İcra Daireleri yetkilidir.
+            </p>
         </div>
     </div>
 
-    <!-- MODAL: Gizlilik Politikası -->
+    <!-- MODAL: Gizlilik Politikası (Genişletilmiş Detaylı Kurumsal Metin) -->
     <div id="privacyModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
-            <h2 style="color: #1e293b; font-size: 22px; margin-bottom: 15px; border-bottom: 2px solid var(--sv-blue); padding-bottom: 8px;">Kurumsal Gizlilik Politikası</h2>
-            <p style="font-size: 13px; color: #475569; margin-bottom: 12px; line-height: 1.7;">gnessac.pro olarak veri güvenliğinize önem veriyoruz.</p>
-            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 8px 0;">1. Veri Güvenliği</h3>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;"><span class="critical-red">Veri Güvenliği:</span> Sunucu tarafında işlenen ağ paket verileri şifrelenmiş olarak saklanır ve 3. şahıslarla asla paylaşılmaz.</p>
+            <h2 style="color: #1e293b; font-size: 22px; margin-bottom: 15px; border-bottom: 2px solid var(--sv-blue); padding-bottom: 8px;">KURUMSAL GİZLİLİK VE VERİ KORUMA POLİTİKASI</h2>
+            
+            <p style="font-size: 13px; color: #475569; margin-bottom: 12px; line-height: 1.7;">
+                gnessac.pro ("Şirket") olarak, hizmet sunduğumuz oyun sunucularının, yöneticilerinin ve kullanıcılarının veri gizliliğine yüksek seviyede hassasiyet göstermekteyiz. İşbu Gizlilik ve Veri Koruma Politikası, web sitemizi ziyaret ettiğinizde, hizmetlerimizi satın aldığınızda veya sunucu tarafında çalışan yazılımlarımız aktif olduğunda toplanan verilerin niteliğini, işlenme amaçlarını ve saklama koşullarını açıklamaktadır.
+            </p>
+
+            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 6px 0;">1. Toplanan Teknik Veriler ve İşleme Amaçları</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
+                Hizmetlerimizin kesintisiz ve yüksek güvenlikte sunulabilmesi adına yalnızca teknik açıdan zorunlu veriler işlenir. Bu veriler: Yetkili sunucu IP adresi, aktif port bilgileri, lisans doğrulama istekleri ve hile engelleme esnasında yakalanan anonim ağ paket kayıtlarından (network packet logs) ibarettir. İletişim formları aracılığıyla ilettiğiniz Ad-Soyad, Telefon ve E-posta bilgileriniz sadece müşteri desteği sunmak amacıyla kullanılır.
+            </p>
+
+            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 6px 0;">2. Çerez (Cookie) Kullanımı ve Oturum Yönetimi</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
+                <span class="critical-red">Çerezler ve Veri Kullanımı:</span> gnessac.pro web sitesinde gezinme deneyiminizi iyileştirmek, müşteri panel oturumlarını güvenle sürdürmek ve canlı destek bildirimlerini yönetmek amacıyla zorunlu teknik çerezler kullanılmaktadır. Sitemizi kullanmaya devam ederek bu çerezlerin kullanımına onay vermiş sayılırsınız.
+            </p>
+
+            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 6px 0;">3. Veri Güvenliği, Şifreleme ve Üçüncü Şahıs Yasağı</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
+                <span class="critical-red">Veri Güvenliği:</span> Sunucu tarafında işlenen ve Şirketimize iletilen tüm doğrulamalar 256-bit SSL ve özel RSA/AES şifreleme protokolleri üzerinden gerçekleşir. Toplanan müşteri verileri veya sunucu paket kayıtları hiçbir koşulda ticari amaçla paylaşılamaz, satılamaz, dağıtılamaz ve yasal zorunluluklar haricinde 3. şahıslarla paylaşılamaz.
+            </p>
+
+            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 6px 0;">4. Log Saklama Süreleri ve Güvenli İmha</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
+                Engellenen hile girişimlerine ilişkin teknik paket logları yalnızca güvenlik analizi ve olası yanlış engelleme (false-positive) itirazlarının incelenmesi amacıyla maksimum 30 gün boyunca güvenli sunucularımızda saklanır ve süre sonunda otomatik olarak tamamen imha edilir.
+            </p>
         </div>
     </div>
 
@@ -581,7 +648,6 @@
 
     <!-- JavaScript Controls & Canlı Destek Veritabanı -->
     <script>
-        // 27 Adet Kurumsal Hazır Soru ve Yanıt Veritabanı
         const qaData = [
             { q: "1. gnessac sistemi tam olarak nedir?", a: "gnessac, oyuncuların bilgisayarına hiçbir dosya veya .exe yükletmeden tamamen sunucu tarafında paket analizi yapan üst düzey bir hile koruma yazılımıdır." },
             { q: "2. Oyuncularımın bilgisayarına kurulum gerekir mi?", a: "Hayır. Sistem tamamen sunucu taraflı çalıştığı için oyuncularınızın istemciye (client) hiçbir ek dosya indirmesi gerekmez." },
@@ -612,10 +678,9 @@
             { q: "27. Hemen başlamak için ne yapmalıyım?", a: "Ana sayfadaki 'Satın Al / Destek Talebi Oluştur!' butonuna tıklayarak talebinizi hemen iletebilirsiniz." }
         ];
 
-        // Canlı Destek Widget Hazırlama
         window.addEventListener('DOMContentLoaded', () => {
             const optionsContainer = document.getElementById('chatOptions');
-            qaData.forEach((item, index) => {
+            qaData.forEach((item) => {
                 const btn = document.createElement('button');
                 btn.className = 'chat-option-btn';
                 btn.textContent = item.q;
@@ -623,7 +688,6 @@
                 optionsContainer.appendChild(btn);
             });
 
-            // 1.5 Saniye Sonra Otomatik Karşılama Popover'ı Göster
             setTimeout(() => {
                 const popover = document.getElementById('welcomePopover');
                 if (popover) popover.style.display = 'block';
@@ -640,13 +704,11 @@
         function selectQa(question, answer) {
             const body = document.getElementById('chatBody');
             
-            // Kullanıcı Mesajı
             const uMsg = document.createElement('div');
             uMsg.className = 'chat-msg user';
             uMsg.textContent = question;
             body.appendChild(uMsg);
 
-            // Bot Cevabı
             setTimeout(() => {
                 const bMsg = document.createElement('div');
                 bMsg.className = 'chat-msg bot';
