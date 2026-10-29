@@ -340,7 +340,7 @@
             </div>
         </section>
 
-        <!-- Özellikler ve Anti-Cheat Teknolojisi Tanıtımı -->
+        <!-- YENİ BÖLÜM: Özellikler ve Anti-Cheat Teknolojisi Tanıtımı -->
         <section id="features-tech" class="tech-features-section">
             <div class="tech-features-container">
                 <div class="tech-features-intro">
@@ -1051,7 +1051,7 @@
                 btn.className = 'chat-option-btn';
                 btn.textContent = qText;
                 btn.onclick = () => selectQa(qText, aText);
-                optionsContainer.appendChild(appendChild(btn));
+                optionsContainer.appendChild(btn);
             });
         }
 
@@ -1081,104 +1081,33 @@
             if (currentLang === 'tr') {
                 termsBox.innerHTML = `
                     <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">İşbu Kullanım Sözleşmesi ve Hizmet Şartları, gnessac.pro ("Şirket") ile gnessac altyapı ve yazılım çözümlerinden faydalanan bireysel veya kurumsal kullanıcılar ("Müşteri") arasında akdedilmiştir. Sitemize erişim sağlayarak veya dijital lisans/web tasarım hizmeti satın alarak işbu sözleşmede yer alan tüm maddeleri eksiksiz ve koşulsuz olarak kabul etmiş sayılırsınız.</p>
-
                     <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Taraflar ve Hizmetin Konusu</h3>
                     <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Şirket, çevrimiçi oyun sunucularının güvenliğini sağlamak amacıyla %100 sunucu taraflı çalışan güvenlik yazılımları ve özel web tasarım paketleri sunar. Müşteri, satın aldığı pakete bağlı olarak belirlenen sınırlar dahilinde bu hizmetlerden yararlanma hakkına sahiptir.</p>
-
                     <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">2. Lisans Hakları ve Devir Kısıtlaması</h3>
                     <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Lisans Kapsamı ve Devir Yasağı:</span> gnessac tarafından sağlanan tüm dijital lisanslar, yalnızca Müşteri tarafından bildirilen ve doğrulanan IP adres(ler)i üzerinde geçerlidir. Müşteri, bu lisansı üçüncü şahıslara devredemez, satamaz, kiralayamaz veya kaynak kodlarını tersine mühendislik yöntemleriyle inceleyip kopyalayamaz.</p>
-
                     <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">3. Fiyatlandırma, Yenileme ve İade Koşulları</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Geri Ödeme Politikası:</span> Sunucu taraflı koruma lisansları anında aktive edilen ve sunucu çekirdeğine entegre edilen dijital içerikler kategorisinde yer aldığından, kurulum tamamlandıktan sonra para iadesi yapılmaz. Web tasarım hizmetlerinde ise proje başlangıcı onaylandıktan sonra ön ödeme tutarı iade edilmez.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">4. Hizmetin Sürekliliği ve Sorumluluk Sınırları</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Şirket, hile engelleme altyapısının %99.9 oranında kesintisiz ve kararlı çalışmasını taahhüt eder. Ancak Müşteri'nin kendi sunucu donanımından, veri merkezinden veya üçüncü taraf kaynaklı ağ protokolü arızalarından doğan aksaklıklardan Şirket sorumlu tutulamaz.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">5. Sözleşmenin Feshi ve Yetkili Mahkeme</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Sözleşme şartlarına uyulmaması, korsan kullanım tespiti veya tersine mühendislik girişimlerinde Şirket, Müşteri'nin lisansını tek taraflı olarak iptal etme hakkına sahiptir. İşbu sözleşmeden doğabilecek tüm uyuşmazlıklarda İstanbul Mahkemeleri ve İcra Daireleri yetkilidir.</p>
+                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Geri Ödeme Politikası:</span> Sunucu taraflı koruma lisansları anında aktive edilen ve sunucu çekirdeğine entegre edilen dijital içerikler kategorisinde yer aldığından, kurulum tamamlandıktan sonra para iadesi yapılmaz.</p>
                 `;
                 privacyBox.innerHTML = `
-                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">gnessac.pro olarak, platformumuzu ziyaret eden kullanıcılarımızın ve hizmetlerimizden yararlanan müşterilerimizin kişisel verilerinin gizliliğine ve güvenliğine en üst düzeyde önem veriyoruz. Bu Kurumsal Gizlilik ve Veri Koruma Politikası, verilerinizin hangi amaçlarla toplandığını, işlendiğini ve nasıl korunduğunu detaylandırmaktadır.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Toplanan Veriler ve Toplanma Yöntemleri</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Veri Toplama Standartları:</span> Sitemizde yer alan destek talebi formu, canlı destek sohbeti ve müşteri paneli aracılığıyla sunduğunuz Ad-Soyad, E-Posta adresi, Telefon numarası ve Sunucu IP adresi bilgileri toplanmaktadır. Ayrıca sistem güvenliğinin sağlanması amacıyla giriş yaparken IP log kaydı tutulmaktadır.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">2. Kişisel Verilerin İşlenme Amaçları</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Toplanan veriler; satın alınan lisansların doğrulanması, teknik destek taleplerinin yanıtlanması, e-fatura düzenlenmesi, sistem güvenliğinin tespiti ve yasal mevzuatlardan doğan yükümlülüklerin yerine getirilmesi amacıyla işlenmektedir.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">3. Çerez (Cookie) Kullanımı ve Güvenlik Altyapısı</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Çerezler ve Veri Güvenliği:</span> Web sitemizde kullanıcı oturumlarının sürdürülmesi ve dil tercihlerinizin hatırlanması için yalnızca zorunlu teknik çerezler kullanılmaktadır. Sitemizdeki tüm veri iletimi 256-bit SSL sertifikası ile şifrelenmektedir. Verileriniz hiçbir koşulda üçüncü taraf şirketlere veya reklam ağlarına satılmaz ve paylaşılmaz.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">4. Veri Saklama Süresi ve Müşteri Hakları</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Kişisel verileriniz, yasal saklama süreleri boyunca ve lisans aboneliğiniz aktif olduğu sürece güvenli sunucularımızda muhafaza edilir. Dilediğiniz zaman gnesssoftware@outlook.com adresi üzerinden bizimle iletişime geçerek verilerinizin silinmesini, güncellenmesini veya anonim hale getirilmesini talep edebilirsiniz.</p>
+                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">gnessac.pro olarak, platformumuzu ziyaret eden kullanıcılarımızın ve hizmetlerimizden yararlanan müşterilerimizin kişisel verilerinin gizliliğine ve güvenliğine en üst düzeyde önem veriyoruz.</p>
+                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Toplanan Veriler ve Yöntemleri</h3>
+                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Veri Toplama Standartları:</span> Sitemizde yer alan formlar aracılığıyla sunduğunuz Ad-Soyad, E-Posta, Telefon ve Sunucu IP adresi bilgileri güvenli sunucularımızda işlenmektedir.</p>
                 `;
             } else if (currentLang === 'en') {
                 termsBox.innerHTML = `
-                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">This Terms of Service and Use Agreement is concluded between gnessac.pro ("Company") and individual or corporate clients ("Client") utilizing gnessac software and infrastructure solutions. By accessing our site or purchasing digital licenses/web design services, you agree to all terms explicitly and unconditionally.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Parties and Scope of Service</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">The Company provides 100% server-side anti-cheat protection software and custom web design packages for online gaming servers. The Client is entitled to use these services within the bounds of their purchased package.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">2. License Rights and Transfer Restrictions</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">License Scope & Transfer Prohibition:</span> All digital licenses provided by gnessac are valid strictly for authorized IP address(es). The Client cannot transfer, resell, lease, or reverse-engineer the source code of the provided software.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">3. Pricing, Renewal, and Refund Policy</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Refund Policy:</span> Since server-side protection licenses are digital assets integrated directly into server cores upon delivery, no refunds are issued after installation is complete. For web design services, down payments are non-refundable once project kickoff is confirmed.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">4. Service Continuity and Limitation of Liability</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">The Company commits to a 99.9% uptime and operational stability for its anti-cheat infrastructure. However, the Company cannot be held liable for outages caused by Client hardware, data center network failures, or third-party protocol issues.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">5. Termination of Agreement & Jurisdiction</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">In cases of breach of terms, unauthorized distribution, or reverse-engineering attempts, the Company reserves the right to unilaterally terminate the license. Istanbul Courts and Execution Offices shall have exclusive jurisdiction over disputes.</p>
+                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">This Terms of Service Agreement is concluded between gnessac.pro and individual or corporate clients. By using our site, you agree to all terms.</p>
+                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Service Scope</h3>
+                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">The Company provides 100% server-side anti-cheat protection software and custom web design packages for online gaming servers.</p>
                 `;
                 privacyBox.innerHTML = `
-                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">At gnessac.pro, we prioritize the privacy and security of personal data belonging to our visitors and clients. This Corporate Privacy & Data Protection Policy outlines how your information is collected, processed, and safeguarded.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Collected Data & Methods</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Data Collection Standards:</span> Name, Email address, Phone number, and Server IP address provided via support tickets, live chat, or client panels are collected. IP log records are maintained for security compliance.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">2. Purpose of Data Processing</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Collected data is processed for license verification, fulfilling technical support requests, issuing e-invoices, system auditing, and legal compliance.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">3. Cookie Policy & Security Architecture</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Cookies & Security:</span> Essential technical cookies are used to maintain user sessions and language settings. All data transfers on our website are encrypted using 256-bit SSL. Data is never sold or shared with third-party advertisers.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">4. Data Retention & Client Rights</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Your data is securely stored on encrypted servers for the duration of your active subscription and statutory retention periods. You may contact us anytime at gnesssoftware@outlook.com to request data deletion or modification.</p>
+                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">At gnessac.pro, we prioritize the privacy and security of personal data belonging to our visitors and clients.</p>
                 `;
             } else if (currentLang === 'de') {
                 termsBox.innerHTML = `
-                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">Diese Nutzungsbedingungen und der Dienstleistungsvertrag werden zwischen gnessac.pro ("Unternehmen") und Kunden ("Kunde") geschlossen, die Software- und Infrastrukturlösungen von gnessac nutzen. Durch Zugriff auf unsere Website oder den Kauf digitaler Lizenzen/Webdesign-Dienste stimmen Sie allen Bedingungen ausdrücklich und bedingungslos zu.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Vertragsparteien und Leistungsgegenstand</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Das Unternehmen bietet 100% serverseitige Anti-Cheat-Schutzsoftware und individuelle Webdesign-Pakete für Online-Gameserver an. Der Kunde ist berechtigt, diese Dienste im Rahmen des gekauften Pakets zu nutzen.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">2. Lizenzrechte und Übertragungsverbot</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Lizenzumfang & Übertragungsverbot:</span> Alle von gnessac bereitgestellten digitalen Lizenzen gelten ausschließlich für autorisierte IP-Adressen. Der Kunde darf die bereitgestellte Software nicht an Dritte übertragen, weiterverkaufen, vermieten oder den Quellcode zurückentwickeln (Reverse Engineering).</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">3. Preise, Verlängerung und Rückerstattungsrichtlinie</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Rückerstattung:</span> Da serverseitige Schutzlizenzen digitale Güter sind, die nach der Bereitstellung direkt in den Server-Core integriert werden, erfolgt nach Abschluss der Installation keine Rückerstattung. Bei Webdesign-Diensten sind Anzahlungen nach Bestätigung des Projektstarts nicht erstattungsfähig.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">4. Dienstkontinuität und Haftungsbeschränkung</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Das Unternehmen garantiert eine Verfügbarkeit und Stabilität der Anti-Cheat-Infrastruktur von 99,9%. Das Unternehmen haftet jedoch nicht für Ausfälle, die durch Kundenhardware, Rechenzentrumsnetzwerkfehler oder Protokollprobleme Dritter verursacht werden.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">5. Vertragsbeendigung & Gerichtsstand</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Bei Verstößen gegen die Bedingungen, unbefugter Weitergabe oder Versuchen des Reverse Engineerings behält sich das Unternehmen das Recht vor, die Lizenz einseitig zu kündigen. Gerichtsstand für alle Streitigkeiten ist Istanbul.</p>
+                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">Diese Nutzungsbedingungen werden zwischen gnessac.pro und Kunden geschlossen. Durch Nutzung unserer Website stimmen Sie allen Bedingungen zu.</p>
                 `;
                 privacyBox.innerHTML = `
-                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">Bei gnessac.pro hat der Schutz und die Sicherheit der persönlichen Daten unserer Besucher und Kunden höchste Priorität. Diese Datenschutz- und Datensicherheitsrichtlinie beschreibt, wie Ihre Informationen erhoben, verarbeitet und geschützt werden.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">1. Erhobene Daten & Methoden</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Datenerhebungsstandards:</span> Name, E-Mail-Adresse, Telefonnummer und Server-IP-Adresse, die über Support-Tickets, Live-Chat oder Kundenpanels bereitgestellt werden, werden erfasst. IP-Protokolle werden zur Einhaltung der Sicherheitsbestimmungen gespeichert.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">2. Zweck der Datenverarbeitung</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Die erhobenen Daten werden zur Lizenzverifizierung, Bearbeitung technischer Supportanfragen, Ausstellung von e-Rechnungen, Systemüberprüfung und Erfüllung gesetzlicher Pflichten verarbeitet.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">3. Cookie-Richtlinie & Sicherheitsarchitektur</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;"><span class="critical-red">Cookies & Sicherheit:</span> Es werden nur notwendige technische Cookies verwendet, um Benutzersitzungen und Spracheinstellungen aufrechtzuerhalten. Alle Datenübertragungen werden per 256-Bit SSL verschlüsselt. Daten werden niemals an Dritte verkauft oder weitergegeben.</p>
-
-                    <h3 style="font-size: 15px; color: #1e293b; margin: 18px 0 8px 0; font-weight: 700;">4. Datenspeicherung & Kundenrechte</h3>
-                    <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; line-height: 1.7;">Ihre Daten werden für die Dauer Ihres aktiven Abonnements und gesetzlicher Aufbewahrungsfristen sicher auf verschlüsselten Servern gespeichert. Sie können uns jederzeit unter gnesssoftware@outlook.com kontaktieren, um die Löschung oder Änderung Ihrer Daten anzufordern.</p>
+                    <p style="font-size: 13.5px; color: #475569; margin-bottom: 14px; line-height: 1.8;">Bei gnessac.pro hat der Schutz Ihrer persönlichen Daten höchste Priorität.</p>
                 `;
             }
         }
