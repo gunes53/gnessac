@@ -14,60 +14,44 @@
             font-family: Arial, sans-serif;
         }
         body {
-            background-color: #0b1120;
-            color: #f8fafc;
+            background-color: #ffffff;
+            color: #333333;
             overflow-x: hidden;
             position: relative;
         }
-        /* Background Tech Security Pattern & Spheres */
-        .bg-pattern {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 20%, rgba(30, 58, 138, 0.25) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(15, 23, 42, 0.4) 0%, transparent 50%),
-                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
-            z-index: 0;
-            pointer-events: none;
-        }
+        /* Background Animated Spheres */
         .bg-sphere {
             position: absolute;
             border-radius: 50%;
-            background: rgba(37, 99, 235, 0.15);
-            filter: blur(80px);
+            background: rgba(30, 58, 138, 0.08);
+            filter: blur(40px);
             z-index: 0;
             pointer-events: none;
             animation: floatSphere 12s infinite alternate ease-in-out;
         }
         .sphere-1 {
-            width: 450px;
-            height: 450px;
-            top: 10%;
-            left: 10%;
+            width: 350px;
+            height: 350px;
+            top: 15%;
+            left: 5%;
         }
         .sphere-2 {
-            width: 550px;
-            height: 550px;
-            top: 50%;
-            right: 10%;
+            width: 450px;
+            height: 450px;
+            top: 55%;
+            right: 5%;
             animation-delay: -6s;
         }
         @keyframes floatSphere {
             0% { transform: translateY(0px) translateX(0px); }
-            100% { transform: translateY(60px) translateX(40px); }
+            100% { transform: translateY(50px) translateX(30px); }
         }
 
         /* Top Bar */
         .top-bar {
-            background-color: rgba(15, 23, 42, 0.9);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            color: #cbd5e1;
-            padding: 8px 40px;
+            background-color: #1e3a8a;
+            color: #ffffff;
+            padding: 6px 40px;
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -83,22 +67,20 @@
 
         /* Header / Navbar */
         header {
-            background-color: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
             padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: relative;
+            z-index: 10;
         }
         .logo {
             font-size: 28px;
             font-weight: bold;
             font-style: italic;
-            color: #60a5fa;
+            color: #1e3a8a;
             text-decoration: none;
         }
         nav {
@@ -108,23 +90,23 @@
         }
         nav a {
             text-decoration: none;
-            color: #cbd5e1;
+            color: #333333;
             font-size: 15px;
             font-weight: 500;
             transition: color 0.2s;
             cursor: pointer;
         }
         nav a:hover {
-            color: #60a5fa;
+            color: #1e3a8a;
         }
         .lang-btn {
             background: none;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 4px 10px;
+            border: 1px solid #ccc;
+            padding: 3px 8px;
             border-radius: 4px;
             font-size: 13px;
             font-weight: bold;
-            color: #f8fafc;
+            color: #333;
         }
 
         /* Main Container Wrapper */
@@ -137,44 +119,41 @@
 
         /* Hero / Showcase Section */
         .hero {
-            background: linear-gradient(rgba(11, 17, 32, 0.85), rgba(11, 17, 32, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230b1120"/><path d="M0 0l100 100M100 0L0 100" stroke="%231e293b" stroke-width="0.5"/></svg>');
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230f172a"/><path d="M0 0l100 100M100 0L0 100" stroke="%231e293b" stroke-width="1"/></svg>');
             background-size: cover;
             background-position: center;
-            color: #f8fafc;
-            padding: 80px 20px;
+            color: #ffffff;
+            padding: 70px 20px;
             text-align: center;
             position: relative;
             z-index: 10;
         }
         .hero-title {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: bold;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
+            margin-bottom: 15px;
         }
         .hero-desc {
-            font-size: 16px;
-            max-width: 900px;
-            margin: 0 auto 30px auto;
-            line-height: 1.7;
-            color: #94a3b8;
+            font-size: 15px;
+            max-width: 800px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+            color: #cbd5e1;
         }
         .btn-primary {
-            background-color: #2563eb;
-            color: #ffffff;
-            padding: 12px 28px;
-            border-radius: 6px;
+            background-color: #ffffff;
+            color: #0f172a;
+            padding: 10px 25px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
-            transition: background-color 0.2s, transform 0.2s;
+            transition: background-color 0.2s;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
         .btn-primary:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-2px);
+            background-color: #e2e8f0;
         }
 
         /* Content Sections */
@@ -189,33 +168,36 @@
             display: flex;
             align-items: center;
             gap: 40px;
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             margin-bottom: 30px;
         }
+        .feature-box img {
+            width: 400px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
         .feature-content h3 {
-            font-size: 24px;
-            color: #60a5fa;
-            margin-bottom: 15px;
+            font-size: 22px;
+            color: #1e3a8a;
+            margin-bottom: 12px;
         }
         .feature-content p {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #4b5563;
         }
 
-        /* Central Brand Showcase */
+        /* Central Brand Showcase replacing Laptop */
         .brand-showcase {
             text-align: center;
             padding: 50px 20px;
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
             margin-bottom: 40px;
             position: relative;
             z-index: 10;
@@ -224,11 +206,11 @@
             font-size: 48px;
             font-style: italic;
             font-weight: bold;
-            color: #60a5fa;
+            color: #1e3a8a;
             letter-spacing: 1px;
         }
         .brand-showcase p {
-            color: #94a3b8;
+            color: #64748b;
             margin-top: 10px;
             font-size: 16px;
         }
@@ -238,33 +220,31 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
-            background: rgba(15, 23, 42, 0.5);
-            padding: 25px;
-            border-radius: 10px;
+            gap: 40px;
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 6px;
             margin: 40px 0;
             flex-wrap: wrap;
-            border: 1px solid rgba(255, 255, 255, 0.05);
             position: relative;
             z-index: 10;
         }
         .tech-item {
             font-weight: bold;
-            color: #cbd5e1;
-            font-size: 15px;
-            padding: 8px 18px;
-            background: rgba(30, 41, 59, 0.8);
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #334155;
+            font-size: 16px;
+            padding: 8px 16px;
+            background: #ffffff;
+            border-radius: 4px;
+            border: 1px solid #cbd5e1;
             transition: all 0.3s ease;
             cursor: default;
         }
         .tech-item:hover {
-            background-color: #2563eb;
+            background-color: #1e3a8a;
             color: #ffffff;
-            border-color: #2563eb;
             transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2);
         }
 
         /* Games Section */
@@ -275,46 +255,44 @@
             margin-top: 30px;
         }
         .game-card {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15);
-            border-color: rgba(96, 165, 250, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
         }
         .game-header {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .game-initial {
             width: 50px;
             height: 50px;
-            background-color: #2563eb;
+            background-color: #1e3a8a;
             color: white;
             font-size: 24px;
             font-weight: bold;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
+            border-radius: 8px;
         }
         .game-title {
             font-size: 20px;
             font-weight: bold;
-            color: #f8fafc;
+            color: #1f2937;
         }
         .game-details {
-            font-size: 14px;
-            color: #94a3b8;
-            line-height: 1.7;
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.6;
         }
 
         /* Pricing Section */
@@ -325,41 +303,34 @@
             z-index: 10;
         }
         .pricing-section h2 {
-            font-size: 30px;
+            font-size: 28px;
             margin-bottom: 30px;
-            color: #60a5fa;
-        }
-        .pricing-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+            color: #1e3a8a;
         }
         .pricing-card {
-            width: 100%;
             max-width: 420px;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
         .pricing-header {
-            background: #2563eb;
+            background: #1e3a8a;
             color: white;
-            padding: 22px;
+            padding: 20px;
             font-size: 20px;
             font-weight: bold;
         }
         .pricing-body {
-            padding: 35px;
+            padding: 30px;
         }
         .price-tag {
-            font-size: 38px;
+            font-size: 36px;
             font-weight: bold;
-            color: #f8fafc;
-            margin-bottom: 15px;
+            color: #1f2937;
+            margin-bottom: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -368,27 +339,27 @@
         .old-price {
             font-size: 20px;
             text-decoration: line-through;
-            color: #64748b;
+            color: #9ca3af;
         }
         .discount-badge {
             background-color: #ef4444;
             color: white;
             font-size: 12px;
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 4px;
             vertical-align: middle;
             font-weight: bold;
         }
         .pricing-features {
             list-style: none;
-            margin: 25px 0;
+            margin: 20px 0;
             text-align: left;
             font-size: 14px;
-            color: #cbd5e1;
+            color: #4b5563;
         }
         .pricing-features li {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 10px 0;
+            border-bottom: 1px solid #f3f4f6;
         }
 
         /* FAQ Section */
@@ -399,9 +370,9 @@
         }
         .faq-section h2 {
             text-align: center;
-            font-size: 30px;
+            font-size: 28px;
             margin-bottom: 30px;
-            color: #60a5fa;
+            color: #1e3a8a;
         }
         .faq-container {
             display: grid;
@@ -409,43 +380,41 @@
             gap: 20px;
         }
         .faq-item {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 22px;
-            border-radius: 10px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            padding: 20px;
+            border-radius: 6px;
         }
         .faq-question {
             font-weight: bold;
             font-size: 15px;
-            color: #f8fafc;
-            margin-bottom: 10px;
+            color: #1f2937;
+            margin-bottom: 8px;
         }
         .faq-answer {
             font-size: 13px;
-            color: #94a3b8;
-            line-height: 1.6;
+            color: #4b5563;
+            line-height: 1.5;
         }
 
         /* Client Area / Login Page */
         .client-login-container {
             max-width: 450px;
             margin: 80px auto;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             position: relative;
             z-index: 10;
         }
         .client-login-container h2 {
             text-align: center;
-            font-size: 24px;
-            color: #60a5fa;
+            font-size: 22px;
+            color: #1e3a8a;
             margin-bottom: 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid #eee;
             padding-bottom: 15px;
         }
         .form-group {
@@ -455,61 +424,37 @@
             display: block;
             font-size: 14px;
             font-weight: bold;
-            color: #cbd5e1;
+            color: #374151;
             margin-bottom: 6px;
         }
         .form-group input, .form-group textarea, .form-group select {
             width: 100%;
-            padding: 12px;
-            background: rgba(30, 41, 59, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 6px;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
             font-size: 14px;
-            color: #f8fafc;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            border-color: #2563eb;
-        }
-        .form-group select option {
-            background-color: #0f172a;
-            color: #f8fafc;
         }
         .btn-submit {
             width: 100%;
-            background-color: #2563eb;
+            background-color: #1e3a8a;
             color: white;
             padding: 12px;
             border: none;
-            border-radius: 6px;
+            border-radius: 4px;
             font-size: 15px;
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.2s;
         }
         .btn-submit:hover {
-            background-color: #1d4ed8;
+            background-color: #1e40af;
         }
 
         /* Notification / Modal Banner */
         .alert-box {
-            background-color: rgba(153, 27, 27, 0.15);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            color: #fca5a5;
-            padding: 15px;
-            border-radius: 6px;
-            font-size: 14px;
-            margin-bottom: 20px;
-            line-height: 1.5;
-            display: none;
-        }
-
-        /* Success Alert Banner (Green) */
-        .success-alert-box {
-            background-color: rgba(22, 101, 52, 0.2);
-            border: 1px solid rgba(34, 197, 94, 0.35);
-            color: #86efac;
+            background-color: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
             padding: 15px;
             border-radius: 6px;
             font-size: 14px;
@@ -525,8 +470,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.75);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -557,44 +501,11 @@
             cursor: pointer;
         }
 
-        /* Quick Scroll Buttons */
-        .quick-scroll-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 999;
-        }
-        .scroll-btn {
-            width: 45px;
-            height: 45px;
-            background-color: rgba(15, 23, 42, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #60a5fa;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            transition: all 0.2s ease;
-        }
-        .scroll-btn:hover {
-            background-color: #2563eb;
-            color: #ffffff;
-            border-color: #2563eb;
-            transform: translateY(-2px);
-        }
-
         /* Footer */
         footer {
-            background-color: rgba(15, 23, 42, 0.95);
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            color: #cbd5e1;
-            padding: 35px 40px;
+            background-color: #1e3a8a;
+            color: #ffffff;
+            padding: 30px 40px;
             margin-top: 80px;
             font-size: 13px;
             position: relative;
@@ -610,13 +521,11 @@
             gap: 15px;
         }
         .footer-links a {
-            color: #cbd5e1;
+            color: #ffffff;
             text-decoration: none;
             margin-left: 15px;
-            cursor: pointer;
         }
         .footer-links a:hover {
-            color: #60a5fa;
             text-decoration: underline;
         }
         .legal-content {
@@ -624,32 +533,19 @@
             margin: 20px auto 0 auto;
             font-size: 12px;
             line-height: 1.6;
-            color: #94a3b8;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
+            color: #cbd5e1;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 15px;
             display: none;
         }
         .legal-content.active {
             display: block;
         }
-
-        @media (max-width: 768px) {
-            .faq-container {
-                grid-template-columns: 1fr;
-            }
-            .feature-box {
-                flex-direction: column;
-            }
-            header, .top-bar {
-                padding: 15px 20px;
-            }
-        }
     </style>
 </head>
 <body>
 
-    <!-- Background Tech Grid & Animated Spheres -->
-    <div class="bg-pattern"></div>
+    <!-- Background Animated Spheres -->
     <div class="bg-sphere sphere-1"></div>
     <div class="bg-sphere sphere-2"></div>
 
@@ -664,6 +560,7 @@
     <header>
         <a href="#" class="logo" onclick="switchSection('home')">gnessac</a>
         <nav>
+            <a onclick="switchSection('home')">Nedir?</a>
             <a onclick="switchSection('games')">Hizmet Verdiğimiz Oyunlar</a>
             <a onclick="openContactModal()">İletişim</a>
             <a onclick="switchSection('client')">Müşteri Alanı</a>
@@ -682,8 +579,8 @@
     <!-- HOME SECTION -->
     <div id="section-home" class="page-section">
         <section class="hero">
-            <h1 class="hero-title">Metin2, Knight Online & Albion Altyapıları İçin Sunucu Taraflı Güvenlik</h1>
-            <p class="hero-desc">Geleneksel istemci korumalarının aksine, doğrudan oyun çekirdeğiyle entegre çalışan sunucu tabanlı analiz mimarimiz sayesinde oyuncularınıza en ufak bir takılma veya gecikme (ping) yaşatmadan %100 koruma sağlayın. Metin2, Knight Online ve Albion Online gibi devasa MMORPG dünyalarındaki tüm bellek manipülasyonlarını, hız hilelerini ve bot yazılımlarını anında etkisiz hale getirin.</p>
+            <h1 class="hero-title">Üstün koruma & yüksek performans</h1>
+            <p class="hero-desc">Diğer korumaların aksine sunucu tabanlı analiz sistemiyle oyuncularınıza en ufak bir performans kaybı veya takılma yaşatmadan %100 korumaya sahip olun. Yeni nesil mimarimiz ile sunucunuzu tüm tehditlerden arındırın.</p>
             <button class="btn-primary" onclick="openSupportTicketModal()">Hemen İletişime Geç</button>
         </section>
 
@@ -721,43 +618,21 @@
             <!-- Pricing Section -->
             <div class="pricing-section">
                 <h2>Ücretlendirme Seçenekleri</h2>
-                <div class="pricing-grid">
-                    <!-- Bireysel Paket (1 IP) -->
-                    <div class="pricing-card">
-                        <div class="pricing-header">Bireysel Paket</div>
-                        <div class="pricing-body">
-                            <div class="price-tag">
-                                <span class="old-price">1159₺</span>
-                                <span>1066₺</span>
-                                <span class="discount-badge">%8 İndirim</span>
-                            </div>
-                            <ul class="pricing-features">
-                                <li>1 Adet IP Barındırma</li>
-                                <li>Sunucu Taraflı Hile Engel</li>
-                                <li>1 Gün Ücretsiz Deneme İmkanı</li>
-                                <li>%8 Özel Lansman İndirimi</li>
-                            </ul>
-                            <button class="btn-submit" onclick="openSupportTicketModal()">Satın Al</button>
+                <div class="pricing-card">
+                    <div class="pricing-header">Bireysel Paket</div>
+                    <div class="pricing-body">
+                        <div class="price-tag">
+                            <span class="old-price">1159₺</span>
+                            <span>1066₺</span>
+                            <span class="discount-badge">%8 İndirim</span>
                         </div>
-                    </div>
-
-                    <!-- Profesyonel Paket (2 IP) -->
-                    <div class="pricing-card">
-                        <div class="pricing-header">Profesyonel Paket</div>
-                        <div class="pricing-body">
-                            <div class="price-tag">
-                                <span class="old-price">2064₺</span>
-                                <span>1899₺</span>
-                                <span class="discount-badge">%8 İndirim</span>
-                            </div>
-                            <ul class="pricing-features">
-                                <li>2 Adet IP Barındırma</li>
-                                <li>Sunucu Taraflı Hile Engel</li>
-                                <li>1 Gün Ücretsiz Deneme İmkanı</li>
-                                <li>%8 Özel Lansman İndirimi</li>
-                            </ul>
-                            <button class="btn-submit" onclick="openSupportTicketModal()">Satın Al</button>
-                        </div>
+                        <ul class="pricing-features">
+                            <li>1 Adet IP Barındırma</li>
+                            <li>Sunucu Taraflı Hile Engel</li>
+                            <li>1 Gün Ücretsiz Deneme İmkanı</li>
+                            <li>%8 Özel Lansman İndirimi</li>
+                        </ul>
+                        <button class="btn-submit" onclick="openSupportTicketModal()">Satın Al</button>
                     </div>
                 </div>
             </div>
@@ -779,32 +654,76 @@
                         <div class="faq-answer">Kesinlikle hayır. Tamamen sunucu tabanlı çalıştığı için oyuncuların istemcilerine ek bir program indirmesi gerekmez.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">4. Performans kaybı veya gecikme (ping) yaratır mı?</div>
-                        <div class="faq-answer">Mikro saniyeler içerisinde gerçekleştirilen optimize edilmiş algoritmaları sayesinde sunucu CPU/RAM tüketimi minimumda tutulur ve asla ping yaratmaz.</div>
+                        <div class="faq-question">4. Performans kaybı yaşatır mı?</div>
+                        <div class="faq-answer">Optimize edilmiş algoritmaları sayesinde sunucu CPU/RAM tüketimi minimumda tutulur, asla performans kaybı yaşatmaz.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">5. Hangi oyun altyapıları desteklenmektedir?</div>
-                        <div class="faq-answer">Metin2, Knight Online, Albion Online başta olmak üzere pek çok popüler MMORPG altyapısı eksiksiz olarak desteklenmektedir.</div>
+                        <div class="faq-question">5. Kurulum işlemi ne kadar sürer?</div>
+                        <div class="faq-answer">Paneliniz üzerinden birkaç dakika içinde hızlıca entegre edip kullanmaya başlayabilirsiniz.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">6. Deneme süresi veya test imkanı var mı?</div>
-                        <div class="faq-answer">Evet, sistemimizi kendi sunucunuzda test etmeniz için 1 günlük ücretsiz deneme imkanı sunulmaktadır.</div>
+                        <div class="faq-question">6. Güncellemeler ücretli mi?</div>
+                        <div class="faq-answer">Aktif lisansınız süresince tüm güvenlik güncellemeleri ve yama optimizasyonları ücretsiz olarak sunulur.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">7. Lisans süresi bittiğinde ne olur?</div>
-                        <div class="faq-answer">Lisans yenilemesi yapılmadığı takdirde koruma hizmeti geçici olarak askıya alınır, yenileme ile anında tekrar aktifleşir.</div>
+                        <div class="faq-question">7. Deneme süresi mevcut mu?</div>
+                        <div class="faq-answer">Evet, sistemimizi test etmeniz için 1 günlük ücretsiz deneme imkanı tanıyoruz.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">8. Kurulum süreci nasıl işlemektedir?</div>
-                        <div class="faq-answer">Destek ekibimiz veya paneliniz üzerinden sunucu IP adresine hızlıca entegre edilerek dakikalar içinde aktif edilir.</div>
+                        <div class="faq-question">8. Ödeme yöntemleri nelerdir?</div>
+                        <div class="faq-answer">Kredi/banka kartı ve güvenli kripto para birimleri ile anında ödeme yapabilirsiniz.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">9. Hileciler sisteme bypass yapabilir mi?</div>
-                        <div class="faq-answer">İstemci tabanlı korumaların aksine kodlar sunucuda çalıştığı için bypass edilmesi imkansızdır.</div>
+                        <div class="faq-question">9. Lisans sürem bittiğinde ne olur?</div>
+                        <div class="faq-answer">Lisans yenileme yapılmadığı takdirde koruma hizmeti askıya alınır, dilediğiniz an tekrar aktif edebilirsiniz.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">10. Teknik destek sağlanıyor mu?</div>
-                        <div class="faq-answer">Kurulum, yapılandırma ve olası tüm operasyonel süreçlerde uzman ekibimiz kesintisiz teknik destek sunar.</div>
+                        <div class="faq-question">10. Teknik destek alabilir miyim?</div>
+                        <div class="faq-answer">Uzman ekibimiz kurulum ve olası yapılandırma süreçlerinde kesintisiz destek sağlamaktadır.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">11. Birden fazla IP için kullanım sağlanabilir mi?</div>
+                        <div class="faq-answer">Standart paketimiz 1 adet IP barındırmaktadır, çoklu sunucularınız için destek talebi açabilirsiniz.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">12. Özel koruma kuralları eklenebilir mi?</div>
+                        <div class="faq-answer">Sunucunuzun özel dinamiklerine göre kurallar ve filtreler esnetilebilir.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">13. Hileciler sisteme bypass yapabilir mi?</div>
+                        <div class="faq-answer">İstemci taraflı korumaların aksine sunucu tabanlı olduğundan bypass imkanı bulunmamaktadır.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">14. Log kayıtları tutuluyor mu?</div>
+                        <div class="faq-answer">Engellenen tüm hile girişimleri ve şüpheli hareketler detaylı olarak panelinizde loglanır.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">15. Hangi oyun altyapıları desteklenmektedir?</div>
+                        <div class="faq-answer">Metin2, Knight Online, Albion Online başta olmak üzere pek çok MMORPG altyapısı desteklenir.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">16. Sunucu çökme riski var mı?</div>
+                        <div class="faq-answer">Güvenlik yazılımımız izole havuzda çalıştığından ana sunucu kararlılığını tehlikeye atmaz.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">17. İade politikanız nedir?</div>
+                        <div class="faq-answer">Hizmet yapısı gereği dijital lisans satışlarında deneme süresi sunulduğundan iade bulunmamaktadır.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">18. API desteği bulunuyor mu?</div>
+                        <div class="faq-answer">Web siteniz ve oyun paneliniz ile entegre çalışabilmesi için gelişmiş API altyapısı mevcuttur.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">19. Lisans transferi yapılabilir mi?</div>
+                        <div class="faq-answer">Destek ekibimiz üzerinden onay alınarak farklı bir IP adresine lisans transferi gerçekleştirilebilir.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">20. Sunucu tarafı gecikme (ping) yaratır mı?</div>
+                        <div class="faq-answer">Analizler mikro saniyeler içerisinde gerçekleştirildiği için oyun içi ping değerlerinize etki etmez.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">21. Nasıl iletişim kurabilirim?</div>
+                        <div class="faq-answer">Sitemiz üzerindeki destek talep formunu doldurarak veya mail adresimizden doğrudan ulaşabilirsiniz.</div>
                     </div>
                 </div>
             </div>
@@ -814,8 +733,8 @@
     <!-- GAMES SECTION -->
     <div id="section-games" class="page-section hidden">
         <div class="container">
-            <h2 style="font-size: 28px; color: #60a5fa; margin-bottom: 20px;">Hizmet Verdiğimiz Oyunlar</h2>
-            <p style="color: #94a3b8; margin-bottom: 30px; font-size: 15px;">gnessac altyapısının özel olarak koruma sağladığı oyunlar ve engellenen hile türleri:</p>
+            <h2 style="font-size: 28px; color: #1e3a8a; margin-bottom: 20px;">Hizmet Verdiğimiz Oyunlar</h2>
+            <p style="color: #4b5563; margin-bottom: 30px; font-size: 15px;">gnessac altyapısının özel olarak koruma sağladığı oyunlar ve engellenen hile türleri:</p>
             
             <div class="games-grid">
                 <div class="game-card">
@@ -855,7 +774,7 @@
     <div id="section-client" class="page-section hidden">
         <div class="client-login-container">
             <h2>Account</h2>
-            <div class="alert-box" id="loginAlert">
+            <div class="alert-box" id="loginAlert" style="display: block;">
                 Erişim Reddedildi<br>
                 Aktif üyeliğiniz veya satın alınan bir lisans bulunamadı. Lütfen destek talebi oluşturun veya ekibimizle iletişime geçin.
             </div>
@@ -870,7 +789,7 @@
                 </div>
                 <button type="submit" class="btn-submit">Sign In</button>
             </form>
-            <div style="text-align: center; margin-top: 15px; font-size: 12px; color: #64748b;">
+            <div style="text-align: center; margin-top: 15px; font-size: 12px; color: #6b7280;">
                 Copyright © 2026 gnessac.pro, tüm hakları saklıdır.
             </div>
         </div>
@@ -880,7 +799,7 @@
     <div id="section-ticket" class="page-section hidden">
         <div class="client-login-container" style="max-width: 600px;">
             <h2>Destek Talep Formu</h2>
-            <div class="success-alert-box" id="ticketSuccessAlert">
+            <div class="alert-box" id="ticketSuccessAlert">
                 Talebiniz alınmıştır. gnessac.pro ekibi sizler ile iletişim kuracaktır.
             </div>
             <form onsubmit="handleTicketSubmit(event)">
@@ -908,25 +827,28 @@
                         <option>2. Lisans Satın Alma ve Fiyatlandırma</option>
                         <option>3. 1 Günlük Ücretsiz Deneme Talebi</option>
                         <option>4. Teknik Destek ve Yapılandırma</option>
-                        <option>5. Metin2 Güvenlik Entegrasyonu</option>
-                        <option>6. Knight Online Hile Engelleme</option>
+                        <option>5. Metin2 Sunucu Güvenlik Entegrasyonu</option>
+                        <option>6. Knight Online Hile Engelleme Detayları</option>
                         <option>7. Albion Online Altyapı Koruma</option>
-                        <option>8. API Entegrasyonu ve Panel</option>
-                        <option>9. Performans ve Optimizasyon</option>
+                        <option>8. API Entegrasyonu ve Panel Bağlantısı</option>
+                        <option>9. Performans ve Optimizasyon Soruları</option>
                         <option>10. Çoklu IP Lisans Talebi</option>
-                        <option>11. Ödeme Yöntemleri ve Fatura</option>
-                        <option>12. Genel Bilgilendirme ve Danışmanlık</option>
+                        <option>11. Güncellemeler Hakkında Bilgi</option>
+                        <option>12. Ödeme Yöntemleri ve Fatura</option>
+                        <option>13. Güvenlik Logları İncelemesi</option>
+                        <option>14. Sistem Hataları ve Bildirimler</option>
+                        <option>15. Özel Kural ve Filtre Talepleri</option>
+                        <option>16. İstemci Bağımsız Çalışma Mimarisi</option>
+                        <option>17. Sunucu Gecikme (Ping) Optimizasyonu</option>
+                        <option>18. Lisans Transfer İşlemleri</option>
+                        <option>19. Güvenlik Duvarı Yapılandırması</option>
+                        <option>20. Genel Bilgilendirme ve Danışmanlık</option>
+                        <option>21. Diğer Teknik Konular</option>
                     </select>
                 </div>
                 <button type="submit" class="btn-submit">Talep Gönder</button>
             </form>
         </div>
-    </div>
-
-    <!-- Quick Scroll Buttons (Top & Bottom) -->
-    <div class="quick-scroll-container">
-        <button class="scroll-btn" onclick="scrollToTop()" title="Yukarı Çık">▲</button>
-        <button class="scroll-btn" onclick="scrollToBottom()" title="Aşağı İn">▼</button>
     </div>
 
     <!-- Footer -->
@@ -1007,14 +929,6 @@
                 priv.classList.toggle('active');
                 cond.classList.remove('active');
             }
-        }
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function scrollToBottom() {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
     </script>
 </body>
