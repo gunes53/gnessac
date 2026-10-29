@@ -19,32 +19,50 @@
             overflow-x: hidden;
             position: relative;
         }
-        /* Background Animated Spheres */
-        .bg-sphere {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(30, 58, 138, 0.08);
-            filter: blur(40px);
-            z-index: 0;
+        /* Background Pattern From Reference Image */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(45deg, rgba(220, 225, 230, 0.4) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(220, 225, 230, 0.4) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(220, 225, 230, 0.4) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(220, 225, 230, 0.4) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+            z-index: -1;
             pointer-events: none;
-            animation: floatSphere 12s infinite alternate ease-in-out;
         }
-        .sphere-1 {
-            width: 350px;
-            height: 350px;
-            top: 15%;
-            left: 5%;
+
+        /* Floating Animated 'g' Logo across the screen */
+        .floating-g {
+            position: fixed;
+            width: 45px;
+            height: 45px;
+            background: rgba(30, 58, 138, 0.15);
+            border: 2px solid rgba(30, 58, 138, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            font-style: italic;
+            color: #1e3a8a;
+            z-index: 1;
+            pointer-events: none;
+            animation: moveAround 20s infinite linear;
         }
-        .sphere-2 {
-            width: 450px;
-            height: 450px;
-            top: 55%;
-            right: 5%;
-            animation-delay: -6s;
-        }
-        @keyframes floatSphere {
-            0% { transform: translateY(0px) translateX(0px); }
-            100% { transform: translateY(50px) translateX(30px); }
+        @keyframes moveAround {
+            0% { top: 10vh; left: 10vw; transform: rotate(0deg); }
+            25% { top: 75vh; left: 80vw; transform: rotate(90deg); }
+            50% { top: 40vh; left: 40vw; transform: rotate(180deg); }
+            75% { top: 80vh; left: 15vw; transform: rotate(270deg); }
+            100% { top: 10vh; left: 10vw; transform: rotate(360deg); }
         }
 
         /* Top Bar */
@@ -59,11 +77,6 @@
             position: relative;
             z-index: 10;
         }
-        .top-bar-content {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
 
         /* Header / Navbar */
         header {
@@ -76,12 +89,14 @@
             position: relative;
             z-index: 10;
         }
+        /* Exact svside typography style for gnessac logo */
         .logo {
-            font-size: 28px;
-            font-weight: bold;
+            font-size: 34px;
+            font-weight: 800;
             font-style: italic;
             color: #1e3a8a;
             text-decoration: none;
+            letter-spacing: -1.5px;
         }
         nav {
             display: flex;
@@ -119,9 +134,7 @@
 
         /* Hero / Showcase Section */
         .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230f172a"/><path d="M0 0l100 100M100 0L0 100" stroke="%231e293b" stroke-width="1"/></svg>');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85));
             color: #ffffff;
             padding: 70px 20px;
             text-align: center;
@@ -165,20 +178,12 @@
             z-index: 10;
         }
         .feature-box {
-            display: flex;
-            align-items: center;
-            gap: 40px;
             background: #ffffff;
             border: 1px solid #e5e7eb;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             margin-bottom: 30px;
-        }
-        .feature-box img {
-            width: 400px;
-            border-radius: 6px;
-            border: 1px solid #ddd;
         }
         .feature-content h3 {
             font-size: 22px;
@@ -191,7 +196,7 @@
             color: #4b5563;
         }
 
-        /* Central Brand Showcase replacing Laptop */
+        /* Central Brand Showcase */
         .brand-showcase {
             text-align: center;
             padding: 50px 20px;
@@ -203,11 +208,11 @@
             z-index: 10;
         }
         .brand-showcase h2 {
-            font-size: 48px;
+            font-size: 52px;
             font-style: italic;
-            font-weight: bold;
+            font-weight: 800;
             color: #1e3a8a;
-            letter-spacing: 1px;
+            letter-spacing: -2px;
         }
         .brand-showcase p {
             color: #64748b;
@@ -215,12 +220,12 @@
             font-size: 16px;
         }
 
-        /* Tech Stack Logos Bar */
+        /* Tech Stack Logos Bar with Official SVGs/Logos */
         .tech-bar {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px;
+            gap: 30px;
             background: #f1f5f9;
             padding: 20px;
             border-radius: 6px;
@@ -230,15 +235,23 @@
             z-index: 10;
         }
         .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-weight: bold;
             color: #334155;
-            font-size: 16px;
+            font-size: 15px;
             padding: 8px 16px;
             background: #ffffff;
             border-radius: 4px;
             border: 1px solid #cbd5e1;
             transition: all 0.3s ease;
             cursor: default;
+        }
+        .tech-item img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
         }
         .tech-item:hover {
             background-color: #1e3a8a;
@@ -362,7 +375,7 @@
             border-bottom: 1px solid #f3f4f6;
         }
 
-        /* FAQ Section */
+        /* FAQ Section (Accordion) */
         .faq-section {
             margin: 60px 0;
             position: relative;
@@ -375,54 +388,84 @@
             color: #1e3a8a;
         }
         .faq-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .faq-item {
             background: #f9fafb;
             border: 1px solid #e5e7eb;
-            padding: 20px;
             border-radius: 6px;
+            overflow: hidden;
         }
         .faq-question {
+            padding: 18px 20px;
             font-weight: bold;
             font-size: 15px;
             color: #1f2937;
-            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .faq-question:hover {
+            background: #f1f5f9;
+        }
+        .faq-question::after {
+            content: "+";
+            font-size: 18px;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        .faq-item.active .faq-question::after {
+            content: "-";
         }
         .faq-answer {
-            font-size: 13px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            padding: 0 20px;
+            font-size: 14px;
             color: #4b5563;
-            line-height: 1.5;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 15px 20px 20px 20px;
+            border-top: 1px solid #e5e7eb;
         }
 
-        /* Client Area / Login Page */
+        /* Client Area / Login Page matching reference */
         .client-login-container {
             max-width: 450px;
             margin: 80px auto;
             background: #ffffff;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #d1d5db;
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             position: relative;
             z-index: 10;
         }
         .client-login-container h2 {
             text-align: center;
-            font-size: 22px;
-            color: #1e3a8a;
+            font-size: 20px;
+            color: #1f2937;
             margin-bottom: 25px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #e5e7eb;
             padding-bottom: 15px;
+            font-weight: 600;
         }
         .form-group {
             margin-bottom: 20px;
         }
         .form-group label {
             display: block;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
             color: #374151;
             margin-bottom: 6px;
@@ -436,18 +479,22 @@
         }
         .btn-submit {
             width: 100%;
-            background-color: #1e3a8a;
-            color: white;
-            padding: 12px;
-            border: none;
+            background-color: #ffffff;
+            color: #1f2937;
+            padding: 10px;
+            border: 1px solid #d1d5db;
             border-radius: 4px;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
         .btn-submit:hover {
-            background-color: #1e40af;
+            background-color: #f3f4f6;
         }
 
         /* Notification / Modal Banner */
@@ -545,9 +592,8 @@
 </head>
 <body>
 
-    <!-- Background Animated Spheres -->
-    <div class="bg-sphere sphere-1"></div>
-    <div class="bg-sphere sphere-2"></div>
+    <!-- Floating Animated 'g' Logo across the screen -->
+    <div class="floating-g">g</div>
 
     <!-- Top Bar -->
     <div class="top-bar">
@@ -560,7 +606,6 @@
     <header>
         <a href="#" class="logo" onclick="switchSection('home')">gnessac</a>
         <nav>
-            <a onclick="switchSection('home')">Nedir?</a>
             <a onclick="switchSection('games')">Hizmet Verdiğimiz Oyunlar</a>
             <a onclick="openContactModal()">İletişim</a>
             <a onclick="switchSection('client')">Müşteri Alanı</a>
@@ -591,14 +636,32 @@
                 <p>Yeni Nesil Sunucu Taraflı Güvenlik Mimarisi</p>
             </div>
 
-            <!-- Tech Stack Bar -->
+            <!-- Tech Stack Logos Bar with Official Brand SVGs -->
             <div class="tech-bar">
-                <div class="tech-item">Python</div>
-                <div class="tech-item">Rust</div>
-                <div class="tech-item">C#</div>
-                <div class="tech-item">C++</div>
-                <div class="tech-item">HTML</div>
-                <div class="tech-item">PHP</div>
+                <div class="tech-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#3776AB"><path d="M11.956 0C5.352 0 5.56 2.87 5.56 2.87l.004 2.95h6.29v.89H3.722S0 6.326 0 12.016c0 5.69 3.25 5.512 3.25 5.512h1.92v-2.69s-.102-3.178 3.116-3.178h4.524s2.986.046 2.986-2.88V3.34S16.298 0 11.956 0zM8.31 1.95a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26zm7.38 8.89h-4.524s-2.986-.046-2.986 2.88v5.69s-.342 3.34 4.002 3.34c6.604 0 6.396-2.87 6.396-2.87l-.004-2.95h-6.29v-.89h8.132s3.722.504 3.722-5.186c0-5.69-3.25-5.512-3.25-5.512h-1.92v2.69s.102 3.178-3.116 3.178zm3.646 10.06a1.13 1.13 0 1 1 0-2.26 1.13 1.13 0 0 1 0 2.26z"/></svg>
+                    Python
+                </div>
+                <div class="tech-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#000000"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 4.364c4.218 0 7.636 3.418 7.636 7.636 0 4.218-3.418 7.636-7.636 7.636-4.218 0-7.636-3.418-7.636-7.636 0-4.218 3.418-7.636 7.636-7.636z"/></svg>
+                    Rust
+                </div>
+                <div class="tech-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#512BD4"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.15 4.56l8.85-2.06v19.01l-8.85-2.06V4.56zm10.05-2.34L22 4.1v15.8l-8.8 1.88V2.22z"/></svg>
+                    C#
+                </div>
+                <div class="tech-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#00599C"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3.83 17.51h-2.15l-2.12-3.66-2.12 3.66H7.29l3.23-5.36L7.54 6.79h2.15l2.02 3.49 2.02-3.49h2.15l-3.23 5.36 3.55 5.36z"/></svg>
+                    C++
+                </div>
+                <div class="tech-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#E34F26"><path d="M1.5 0h21l-1.91 21.56L12 24 2.41 21.56 1.5 0z"/></svg>
+                    HTML
+                </div>
+                <div class="tech-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#777BB4"><path d="M17.312 9.688c-.625 1.406-2.031 2.344-3.625 2.344h-2.25l-.812 4.219c-.063.375-.375.625-.75.625h-1.688c-.469 0-.781-.469-.656-.938l1.781-9.25c.063-.375.375-.625.75-.625h4.688c2.188 0 3.625 1.188 3.062 3.656z"/></svg>
+                    PHP
+                </div>
             </div>
 
             <div class="feature-box">
@@ -637,93 +700,49 @@
                 </div>
             </div>
 
-            <!-- FAQ Section -->
+            <!-- FAQ Section (10 items, accordion style) -->
             <div class="faq-section">
                 <h2>S.S.S. (Sıkça Sorulan Sorular)</h2>
                 <div class="faq-container">
                     <div class="faq-item">
-                        <div class="faq-question">1. gnessac nedir ve nasıl çalışır?</div>
+                        <div class="faq-question" onclick="toggleFaq(this)">1. gnessac nedir ve nasıl çalışır?</div>
                         <div class="faq-answer">gnessac, oyun sunucunuzun çekirdeğiyle doğrudan haberleşen, istemciye bağımlı kalmadan karakter hareketlerini ve paket akışını analiz eden sunucu taraflı gelişmiş bir güvenlik sistemidir.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">2. Hangi hile türlerini engeller?</div>
+                        <div class="faq-question" onclick="toggleFaq(this)">2. Hangi hile türlerini engeller?</div>
                         <div class="faq-answer">Saldırı hızı, hareket hızı, duvar arkası, seri skill, otomatik kaynak toplama ve memory tabanlı tüm majör hile girişimlerini engeller.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">3. Oyuncuların bilgisayarına dosya yüklenmesi gerekir mi?</div>
+                        <div class="faq-question" onclick="toggleFaq(this)">3. Oyuncuların bilgisayarına dosya yüklenmesi gerekir mi?</div>
                         <div class="faq-answer">Kesinlikle hayır. Tamamen sunucu tabanlı çalıştığı için oyuncuların istemcilerine ek bir program indirmesi gerekmez.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">4. Performans kaybı yaşatır mı?</div>
+                        <div class="faq-question" onclick="toggleFaq(this)">4. Performans kaybı yaşatır mı?</div>
                         <div class="faq-answer">Optimize edilmiş algoritmaları sayesinde sunucu CPU/RAM tüketimi minimumda tutulur, asla performans kaybı yaşatmaz.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">5. Kurulum işlemi ne kadar sürer?</div>
+                        <div class="faq-question" onclick="toggleFaq(this)">5. Kurulum işlemi ne kadar sürer?</div>
                         <div class="faq-answer">Paneliniz üzerinden birkaç dakika içinde hızlıca entegre edip kullanmaya başlayabilirsiniz.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">6. Güncellemeler ücretli mi?</div>
+                        <div class="faq-question" onclick="toggleFaq(this)">6. Güncellemeler ücretli mi?</div>
                         <div class="faq-answer">Aktif lisansınız süresince tüm güvenlik güncellemeleri ve yama optimizasyonları ücretsiz olarak sunulur.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">7. Deneme süresi mevcut mu?</div>
+                        <div class="faq-question" onclick="toggleFaq(this)">7. Deneme süresi mevcut mu?</div>
                         <div class="faq-answer">Evet, sistemimizi test etmeniz için 1 günlük ücretsiz deneme imkanı tanıyoruz.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">8. Ödeme yöntemleri nelerdir?</div>
+                        <div class="faq-question" onclick="toggleFaq(this)">8. Ödeme yöntemleri nelerdir?</div>
                         <div class="faq-answer">Kredi/banka kartı ve güvenli kripto para birimleri ile anında ödeme yapabilirsiniz.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">9. Lisans sürem bittiğinde ne olur?</div>
+                        <div class="faq-question" onclick="toggleFaq(this)">9. Lisans sürem bittiğinde ne olur?</div>
                         <div class="faq-answer">Lisans yenileme yapılmadığı takdirde koruma hizmeti askıya alınır, dilediğiniz an tekrar aktif edebilirsiniz.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">10. Teknik destek alabilir miyim?</div>
+                        <div class="faq-question" onclick="toggleFaq(this)">10. Teknik destek alabilir miyim?</div>
                         <div class="faq-answer">Uzman ekibimiz kurulum ve olası yapılandırma süreçlerinde kesintisiz destek sağlamaktadır.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">11. Birden fazla IP için kullanım sağlanabilir mi?</div>
-                        <div class="faq-answer">Standart paketimiz 1 adet IP barındırmaktadır, çoklu sunucularınız için destek talebi açabilirsiniz.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">12. Özel koruma kuralları eklenebilir mi?</div>
-                        <div class="faq-answer">Sunucunuzun özel dinamiklerine göre kurallar ve filtreler esnetilebilir.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">13. Hileciler sisteme bypass yapabilir mi?</div>
-                        <div class="faq-answer">İstemci taraflı korumaların aksine sunucu tabanlı olduğundan bypass imkanı bulunmamaktadır.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">14. Log kayıtları tutuluyor mu?</div>
-                        <div class="faq-answer">Engellenen tüm hile girişimleri ve şüpheli hareketler detaylı olarak panelinizde loglanır.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">15. Hangi oyun altyapıları desteklenmektedir?</div>
-                        <div class="faq-answer">Metin2, Knight Online, Albion Online başta olmak üzere pek çok MMORPG altyapısı desteklenir.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">16. Sunucu çökme riski var mı?</div>
-                        <div class="faq-answer">Güvenlik yazılımımız izole havuzda çalıştığından ana sunucu kararlılığını tehlikeye atmaz.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">17. İade politikanız nedir?</div>
-                        <div class="faq-answer">Hizmet yapısı gereği dijital lisans satışlarında deneme süresi sunulduğundan iade bulunmamaktadır.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">18. API desteği bulunuyor mu?</div>
-                        <div class="faq-answer">Web siteniz ve oyun paneliniz ile entegre çalışabilmesi için gelişmiş API altyapısı mevcuttur.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">19. Lisans transferi yapılabilir mi?</div>
-                        <div class="faq-answer">Destek ekibimiz üzerinden onay alınarak farklı bir IP adresine lisans transferi gerçekleştirilebilir.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">20. Sunucu tarafı gecikme (ping) yaratır mı?</div>
-                        <div class="faq-answer">Analizler mikro saniyeler içerisinde gerçekleştirildiği için oyun içi ping değerlerinize etki etmez.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">21. Nasıl iletişim kurabilirim?</div>
-                        <div class="faq-answer">Sitemiz üzerindeki destek talep formunu doldurarak veya mail adresimizden doğrudan ulaşabilirsiniz.</div>
                     </div>
                 </div>
             </div>
@@ -774,32 +793,35 @@
     <div id="section-client" class="page-section hidden">
         <div class="client-login-container">
             <h2>Account</h2>
-            <div class="alert-box" id="loginAlert" style="display: block;">
+            <div class="alert-box" id="loginAlert">
                 Erişim Reddedildi<br>
                 Aktif üyeliğiniz veya satın alınan bir lisans bulunamadı. Lütfen destek talebi oluşturun veya ekibimizle iletişime geçin.
             </div>
             <form onsubmit="handleLogin(event)">
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" required>
+                    <input type="text" id="loginUser" required>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" required>
+                    <input type="password" id="loginPass" required>
                 </div>
-                <button type="submit" class="btn-submit">Sign In</button>
+                <button type="submit" class="btn-submit">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/></svg>
+                    Sign In
+                </button>
             </form>
-            <div style="text-align: center; margin-top: 15px; font-size: 12px; color: #6b7280;">
-                Copyright © 2026 gnessac.pro, tüm hakları saklıdır.
+            <div style="text-align: center; margin-top: 15px; font-size: 11px; color: #6b7280;">
+                Copyright © 2016 gnessac.pro, all rights reserved.
             </div>
         </div>
     </div>
 
-    <!-- SUPPORT TICKET FORM SECTION -->
+    <!-- SUPPORT TICKET FORM SECTION (12 Specific Topics) -->
     <div id="section-ticket" class="page-section hidden">
         <div class="client-login-container" style="max-width: 600px;">
             <h2>Destek Talep Formu</h2>
-            <div class="alert-box" id="ticketSuccessAlert">
+            <div class="alert-box" id="ticketSuccessAlert" style="background-color: #f0fdf4; border-color: #bbf7d0; color: #166534;">
                 Talebiniz alınmıştır. gnessac.pro ekibi sizler ile iletişim kuracaktır.
             </div>
             <form onsubmit="handleTicketSubmit(event)">
@@ -833,20 +855,11 @@
                         <option>8. API Entegrasyonu ve Panel Bağlantısı</option>
                         <option>9. Performans ve Optimizasyon Soruları</option>
                         <option>10. Çoklu IP Lisans Talebi</option>
-                        <option>11. Güncellemeler Hakkında Bilgi</option>
-                        <option>12. Ödeme Yöntemleri ve Fatura</option>
-                        <option>13. Güvenlik Logları İncelemesi</option>
-                        <option>14. Sistem Hataları ve Bildirimler</option>
-                        <option>15. Özel Kural ve Filtre Talepleri</option>
-                        <option>16. İstemci Bağımsız Çalışma Mimarisi</option>
-                        <option>17. Sunucu Gecikme (Ping) Optimizasyonu</option>
-                        <option>18. Lisans Transfer İşlemleri</option>
-                        <option>19. Güvenlik Duvarı Yapılandırması</option>
-                        <option>20. Genel Bilgilendirme ve Danışmanlık</option>
-                        <option>21. Diğer Teknik Konular</option>
+                        <option>11. Güvenlik Logları İncelemesi</option>
+                        <option>12. Lisans Transfer İşlemleri</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-submit">Talep Gönder</button>
+                <button type="submit" class="btn-submit" style="background-color: #1e3a8a; color: white;">Talep Gönder</button>
             </form>
         </div>
     </div>
@@ -859,7 +872,6 @@
                 <a onclick="toggleLegal('conditions')">Koşullar</a> - 
                 <a onclick="toggleLegal('privacy')">Gizlilik Politikası</a>
             </div>
-            <div>Geliştirici / Güneşdoğdu</div>
             <div>Copyright © 2026 gnessac.pro, tüm hakları saklıdır.</div>
         </div>
 
@@ -868,7 +880,7 @@
             <p>İş bu kullanım sözleşmesi, gnessac.pro tarafından sunulan sunucu taraflı hile önleme ve güvenlik sistemlerinin kullanımına ilişkin şart ve koşulları düzenler. Sitemizi ve hizmetlerimizi kullanan tüm gerçek ve tüzel kişiler aşağıdaki maddeleri peşinen kabul etmiş sayılır.<br><br>
             <strong>1. Hizmetin Kapsamı:</strong> gnessac, oyun sunucularının güvenliğini artırmak amacıyla geliştirilmiş sunucu tabanlı bir analiz yazılımıdır. Şirket, sistemin kesintisiz çalışması için azami gayreti gösterir ancak internet altyapısından veya üçüncü taraf sunuculardan kaynaklı kesintilerden sorumlu tutulamaz.<br><br>
             <strong>2. Lisans ve Kullanım Hakları:</strong> Satın alınan her lisans, belirtilen tek bir IP adresi için geçerlidir. Lisansın çoğaltılması, başka sunucularda izinsiz kullanılması veya tersine mühendislik yapılması yasaktır. Tespit edilmesi durumunda lisans kalıcı olarak iptal edilir.<br><br>
-            <strong>3. Sorumluluk Reddi:</strong> gnessac, hile girişimlerini engellemek için gelişmiş algoritmalar kullanır; ancak oyun içi tüm olası açıkların veya üçüncü taraf yazılımların %100'ünün öngörülebilmesi garanti edilmez. Geliştirici / Güneşdoğdu, yazılımın kullanımından doğabilecek dolaylı zararlardan mesul tutulamaz.<br><br>
+            <strong>3. Sorumluluk Reddi:</strong> gnessac, hile girişimlerini engellemek için gelişmiş algoritmalar kullanır; ancak oyun içi tüm olası açıkların veya üçüncü taraf yazılımların %100'ünün öngörülebilmesi garanti edilmez.<br><br>
             <strong>4. Güncellemeler ve Değişiklikler:</strong> gnessac.pro, hizmet şartlarında ve yazılım mimarisinde önceden bildirmeksizin değişiklik yapma hakkını saklı tutar.</p>
         </div>
 
@@ -909,6 +921,7 @@
 
         function handleLogin(event) {
             event.preventDefault();
+            // Show access denied error alert on login attempt
             document.getElementById('loginAlert').style.display = 'block';
         }
 
@@ -916,6 +929,11 @@
             event.preventDefault();
             document.getElementById('ticketSuccessAlert').style.display = 'block';
             event.target.reset();
+        }
+
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
         }
 
         function toggleLegal(type) {
