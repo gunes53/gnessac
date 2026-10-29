@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gnessac | Çevrimiçi Oyunlar için Sunucu Taraflı Sistemler</title>
     
-    <!-- Favicon: Logosundaki küçük 'g' harfinin birebir kopyası -->
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='75%' font-family='-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif' font-weight='800' font-style='italic' font-size='90' fill='%231d4ed8' text-anchor='middle'>g</text></svg>">
     
     <style>
         :root {
             --sv-blue: #1d4ed8;
+            --sv-blue-hover: #1e40af;
             --sv-blue-light: #3b82f6;
             --sv-dark-header: #1e293b;
-            --sv-top-banner: #1e3a8a;
+            --sv-top-banner: #0f172a;
             --text-main: #334155;
             --bg-gray: #f8fafc;
             --border-color: #e2e8f0;
@@ -22,67 +23,60 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         body { background-color: #ffffff; color: var(--text-main); line-height: 1.6; position: relative; overflow-x: hidden; }
 
-        /* Arka Plan Mavi Süzülen Top Animasyonları (Glow Orbs) */
+        /* Arka Plan Mavi Süzülen Top Animasyonları (3 Adet) */
         .orb {
             position: fixed;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.25;
+            filter: blur(70px);
+            opacity: 0.45;
             z-index: 0;
             pointer-events: none;
         }
         .orb-1 {
-            width: 350px;
-            height: 350px;
-            background: #1d4ed8;
-            top: 10%;
-            left: -50px;
-            animation: floatOrb1 18s infinite alternate ease-in-out;
+            width: 380px; height: 380px; background: #1d4ed8; top: 5%; left: -60px;
+            animation: floatOrb1 14s infinite alternate ease-in-out;
         }
         .orb-2 {
-            width: 400px;
-            height: 400px;
-            background: #60a5fa;
-            bottom: 15%;
-            right: -80px;
-            animation: floatOrb2 22s infinite alternate ease-in-out;
+            width: 420px; height: 420px; background: #3b82f6; bottom: 10%; right: -80px;
+            animation: floatOrb2 18s infinite alternate ease-in-out;
+        }
+        .orb-3 {
+            width: 320px; height: 320px; background: #60a5fa; top: 45%; left: 40%;
+            animation: floatOrb3 16s infinite alternate ease-in-out;
         }
 
         @keyframes floatOrb1 {
             0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(120px, 150px) scale(1.2); }
-            100% { transform: translate(50px, 300px) scale(0.9); }
+            100% { transform: translate(140px, 180px) scale(1.25); }
         }
         @keyframes floatOrb2 {
             0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-150px, -120px) scale(1.15); }
-            100% { transform: translate(-80px, -250px) scale(0.95); }
+            100% { transform: translate(-160px, -150px) scale(1.2); }
+        }
+        @keyframes floatOrb3 {
+            0% { transform: translate(0, 0) scale(0.9); }
+            100% { transform: translate(-120px, 120px) scale(1.3); }
         }
 
-        /* Top Mini Banner */
-        .top-banner { background: var(--sv-top-banner); color: #93c5fd; padding: 6px 5%; font-size: 12px; text-align: right; position: relative; z-index: 10; }
-        .top-banner a { color: #ffffff; text-decoration: none; margin-left: 15px; font-weight: 500; }
+        /* Top Mini Banner & Şık Mail Alanı */
+        .top-banner { background: var(--sv-top-banner); color: #93c5fd; padding: 8px 5%; font-size: 13px; text-align: right; position: relative; z-index: 10; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .top-banner-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: flex-end; align-items: center; gap: 8px; }
+        .email-badge {
+            display: inline-flex; align-items: center; gap: 8px; background: rgba(29, 78, 216, 0.25);
+            padding: 4px 14px; border-radius: 20px; border: 1px solid rgba(147, 197, 253, 0.3);
+            color: #ffffff; text-decoration: none; font-weight: 600; font-size: 12px; transition: all 0.2s ease;
+        }
+        .email-badge:hover { background: var(--sv-blue); border-color: #ffffff; }
+        .email-icon { width: 15px; height: 15px; fill: #60a5fa; }
 
         /* Main Header Navigation */
         header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; max-width: 1200px; margin: 0 auto; }
-        
         .logo { font-size: 32px; font-weight: 800; color: var(--sv-blue); text-decoration: none; letter-spacing: -1.5px; font-style: italic; }
         
         .nav-links { display: flex; list-style: none; gap: 20px; align-items: center; }
         .nav-links a { text-decoration: none; color: #475569; font-weight: 600; font-size: 14px; cursor: pointer; transition: color 0.2s; }
         .nav-links a:hover { color: var(--sv-blue); }
-
-        /* Floating Ticket Button */
-        .floating-ticket-btn {
-            position: fixed; left: 0; top: 50%; transform: translateY(-50%);
-            background: var(--sv-blue); color: white; padding: 12px 16px;
-            border-radius: 0 6px 6px 0; cursor: pointer; font-weight: 600; font-size: 13px;
-            box-shadow: 2px 4px 12px rgba(0,0,0,0.15); z-index: 99;
-            writing-mode: vertical-rl; text-orientation: mixed; display: flex; align-items: center; gap: 8px;
-            transition: background 0.3s;
-        }
-        .floating-ticket-btn:hover { background: #1e40af; }
 
         /* Views Setup */
         .view-section { display: none; position: relative; z-index: 1; }
@@ -91,104 +85,70 @@
         /* Hero Section */
         .hero-bg { 
             background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.88)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231e293b"/></svg>');
-            background-size: cover; color: white; padding: 90px 5%; text-align: center;
+            background-size: cover; color: white; padding: 80px 5%; text-align: center;
         }
         .hero-content { max-width: 950px; margin: 0 auto; }
         .hero-content h1 { font-size: 38px; margin-bottom: 20px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
         .hero-content p { font-size: 16px; color: #cbd5e1; margin-bottom: 30px; text-align: center; line-height: 1.8; font-weight: 400; }
         
         .hero-btn {
-            display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: var(--sv-blue);
-            padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 14px;
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #ffffff; color: var(--sv-blue);
+            padding: 14px 32px; border-radius: 6px; text-decoration: none; font-weight: 800; font-size: 15px;
             border: 1px solid #cbd5e1; cursor: pointer; transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15); white-space: nowrap; max-width: 100%;
         }
-        .hero-btn:hover { background: #f1f5f9; transform: translateY(-2px); }
+        .hero-btn:hover { background: #f1f5f9; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
 
         /* Features Section Layout */
         .features-section { padding: 70px 5%; max-width: 1100px; margin: 0 auto; display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
         .features-left { flex: 1; min-width: 280px; display: flex; justify-content: center; align-items: center; }
         .features-right { flex: 1.4; min-width: 300px; }
         
-        /* Yeni Logo Kutusu (G Kalkanı yerine Küçük 'g' harfi) */
-        .g-logo-box {
-            width: 180px;
-            height: 180px;
-            background: #ffffff;
-            border: 2px solid var(--border-color);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 25px rgba(29, 78, 216, 0.1);
-            position: relative;
-        }
-        .g-logo-box span {
-            font-size: 110px;
+        /* Anasayfada Ortalanmış Sol Üstteki Logo Yazısının Birebir Aynısı */
+        .gnessac-hero-logo {
+            font-size: 64px;
             font-weight: 800;
-            font-style: italic;
             color: var(--sv-blue);
+            letter-spacing: -3px;
+            font-style: italic;
+            text-align: center;
             line-height: 1;
-            margin-top: -10px;
+            user-select: none;
+            width: 100%;
         }
 
         .feature-item { margin-bottom: 30px; }
         .feature-item h3 { font-size: 20px; color: #1e293b; margin-bottom: 8px; font-weight: 700; border-bottom: 2px solid #eff6ff; padding-bottom: 6px; }
         .feature-item p { font-size: 14px; color: #475569; line-height: 1.7; text-align: justify; }
 
-        /* Games Section & Interactive Card Animations */
+        /* Games Section & Interactive Cards */
         .games-section { padding: 60px 5%; background: var(--bg-gray); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
         .section-title { text-align: center; font-size: 26px; color: #1e293b; margin-bottom: 35px; font-weight: 800; letter-spacing: -0.5px; }
         
         .games-grid { display: flex; gap: 20px; max-width: 1200px; margin: 0 auto; overflow-x: auto; padding: 10px 5px; }
         .game-card { 
-            flex: 1; 
-            min-width: 220px; 
-            background: #ffffff; 
-            border: 1px solid var(--border-color); 
-            padding: 24px 18px; 
-            border-radius: 8px; 
-            text-align: left;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            cursor: pointer;
+            flex: 1; min-width: 220px; background: #ffffff; border: 1px solid var(--border-color); 
+            padding: 24px 18px; border-radius: 8px; text-align: left;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;
         }
-        /* Etkileşimli Hover Animasyonları */
-        .game-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--sv-blue);
-            box-shadow: 0 12px 24px rgba(29, 78, 216, 0.15);
-        }
+        .game-card:hover { transform: translateY(-8px); border-color: var(--sv-blue); box-shadow: 0 12px 24px rgba(29, 78, 216, 0.15); }
         .game-card h4 { color: var(--sv-blue); margin-bottom: 10px; font-size: 17px; font-weight: 700; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; }
         .game-card p { font-size: 12px; color: #64748b; line-height: 1.6; }
 
-        /* Pricing Section (Tek Sıra Düzen) */
+        /* Pricing Section */
         .pricing-section { padding: 70px 5%; max-width: 1200px; margin: 0 auto; }
-        .pricing-grid { 
-            display: flex; 
-            flex-direction: row; 
-            gap: 20px; 
-            justify-content: center; 
-            align-items: stretch;
-            overflow-x: auto;
-            padding-bottom: 15px;
-        }
+        .pricing-grid { display: flex; flex-direction: row; gap: 20px; justify-content: center; align-items: stretch; overflow-x: auto; padding-bottom: 15px; }
         .price-card { 
-            flex: 1; 
-            min-width: 280px; 
-            background: #ffffff; 
-            border: 1px solid var(--border-color); 
-            border-radius: 8px; 
-            padding: 30px 20px; 
-            text-align: center; 
-            position: relative;
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            flex: 1; min-width: 280px; background: #ffffff; border: 1px solid var(--border-color); 
+            border-radius: 8px; padding: 30px 20px; text-align: center; position: relative;
+            transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: space-between;
         }
         .price-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+        
+        /* Şık Rozetler */
         .price-badge { position: absolute; top: 12px; right: 12px; background: #dbeafe; color: var(--sv-blue); font-size: 11px; padding: 4px 10px; border-radius: 4px; font-weight: 700; }
+        .popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #1d4ed8, #2563eb); color: #ffffff; font-size: 11px; padding: 4px 14px; border-radius: 20px; font-weight: 800; box-shadow: 0 4px 10px rgba(29,78,216,0.3); letter-spacing: 0.5px; }
+
         .old-price { font-size: 13px; color: #94a3b8; text-decoration: line-through; }
         .price-amount { font-size: 34px; font-weight: 800; color: var(--sv-blue); margin: 5px 0 15px 0; }
 
@@ -199,12 +159,63 @@
         .faq-question { padding: 16px 20px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; font-size: 14px; color: #1e293b; }
         .faq-answer { padding: 0 20px 16px 20px; display: none; color: #64748b; font-size: 13px; border-top: 1px solid #f1f5f9; padding-top: 12px; line-height: 1.6; }
 
-        /* Customer Login Page Background */
+        /* Sol Alt Canlı Destek Widget'ı & Otomatik Bildirim */
+        .live-chat-trigger {
+            position: fixed; left: 20px; bottom: 25px; z-index: 999;
+            background: var(--sv-blue); color: white; padding: 12px 20px;
+            border-radius: 30px; cursor: pointer; font-weight: 700; font-size: 14px;
+            box-shadow: 0 6px 20px rgba(29, 78, 216, 0.35); display: flex; align-items: center; gap: 10px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .live-chat-trigger:hover { background: var(--sv-blue-hover); transform: scale(1.05); }
+        .chat-badge-pulse { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); animation: pulseGreen 1.6s infinite; }
+        
+        @keyframes pulseGreen {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        /* Otomatik Karşılama Balonu */
+        .welcome-popover {
+            position: fixed; left: 20px; bottom: 85px; z-index: 998;
+            background: #ffffff; color: #1e293b; padding: 14px 18px; border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 1px solid var(--border-color);
+            max-width: 280px; font-size: 13px; display: none; animation: popIn 0.4s ease;
+        }
+        .welcome-popover::after {
+            content: ''; position: absolute; bottom: -8px; left: 30px;
+            border-width: 8px 8px 0; border-style: solid; border-color: #ffffff transparent; display: block; width: 0;
+        }
+        @keyframes popIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Canlı Destek Penceresi */
+        .chat-window {
+            position: fixed; left: 20px; bottom: 90px; width: 360px; height: 500px;
+            background: #ffffff; border-radius: 12px; box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+            border: 1px solid var(--border-color); z-index: 1000; display: none; flex-direction: column; overflow: hidden;
+        }
+        .chat-header { background: var(--sv-blue); color: white; padding: 15px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+        .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f8fafc; display: flex; flex-direction: column; gap: 10px; }
+        .chat-msg { max-width: 85%; padding: 10px 14px; border-radius: 10px; font-size: 12.5px; line-height: 1.5; }
+        .chat-msg.bot { background: #ffffff; border: 1px solid var(--border-color); align-self: flex-start; color: #334155; }
+        .chat-msg.user { background: var(--sv-blue); color: white; align-self: flex-end; }
+        .chat-options { padding: 10px; background: #ffffff; border-top: 1px solid var(--border-color); max-height: 200px; overflow-y: auto; }
+        .chat-option-btn {
+            display: block; width: 100%; text-align: left; padding: 8px 10px; margin-bottom: 5px;
+            background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 11.5px;
+            color: #1e293b; cursor: pointer; transition: background 0.2s; font-weight: 500;
+        }
+        .chat-option-btn:hover { background: #dbeafe; border-color: #93c5fd; color: var(--sv-blue); }
+
+        /* Customer Login Page */
         .customer-bg {
             background-color: #f2f4f7;
             background-image: repeating-linear-gradient(45deg, #e2e8f0 0, #e2e8f0 1px, transparent 0, transparent 50%), repeating-linear-gradient(-45deg, #e2e8f0 0, #e2e8f0 1px, transparent 0, transparent 50%);
-            background-size: 60px 60px;
-            min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;
+            background-size: 60px 60px; min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;
         }
         .login-card { background: #ffffff; padding: 40px 35px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); width: 100%; max-width: 380px; border: 1px solid var(--border-color); text-align: center; }
         .login-card input { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid var(--border-color); border-radius: 4px; font-size: 14px; }
@@ -212,11 +223,10 @@
         .login-btn:hover { background: #f8fafc; }
 
         /* Modals */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; backdrop-filter: blur(3px); }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1001; align-items: center; justify-content: center; backdrop-filter: blur(3px); }
         .modal-content { background: white; padding: 35px; border-radius: 8px; max-width: 750px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         .close-modal { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #94a3b8; }
         
-        /* Red Underline for Critical Points */
         .critical-red { text-decoration: underline red 2px; font-weight: bold; color: #991b1b; }
 
         /* Footer */
@@ -237,14 +247,20 @@
 </head>
 <body>
 
-    <!-- Arka Plan Mavi Süzülen Toplar -->
+    <!-- Arka Plan Mavi Süzülen Toplar (3 Adet) -->
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
 
-    <!-- Top Mini Banner -->
+    <!-- Top Mini Banner (Yenilenmiş Şık Mail Alanı) -->
     <div class="top-banner">
-        <span>Destek & Bilgi:</span>
-        <a href="mailto:gnesssoftware@outlook.com">✉ gnesssoftware@outlook.com</a>
+        <div class="top-banner-content">
+            <span style="opacity: 0.8; font-size: 12px;">Kurumsal İletişim & Destek:</span>
+            <a href="mailto:gnesssoftware@outlook.com" class="email-badge">
+                <svg class="email-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                gnesssoftware@outlook.com
+            </a>
+        </div>
     </div>
 
     <!-- Main Header -->
@@ -262,9 +278,31 @@
         </div>
     </header>
 
-    <!-- Floating Ticket Button -->
-    <div class="floating-ticket-btn" onclick="openModal('ticketModal')">
-        ✉ Destek Talebi Oluştur
+    <!-- Sol Alt Canlı Destek Trigger & Otomatik Karşılama Balonu -->
+    <div class="welcome-popover" id="welcomePopover">
+        <div style="font-weight: 700; color: var(--sv-blue); margin-bottom: 4px;">👋 gnessac Canlı Destek</div>
+        Merhaba! Sunucu taraflı koruma çözümlerimiz hakkında bilgi almak ister misiniz?
+    </div>
+
+    <div class="live-chat-trigger" onclick="toggleChatWindow()">
+        <span class="chat-badge-pulse"></span>
+        💬 Canlı Destek
+    </div>
+
+    <!-- Canlı Destek Penceresi (27 Hazır Soru Başlıklı Bot) -->
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <span>gnessac Otomatik Asistan</span>
+            <span style="cursor: pointer; font-size: 18px;" onclick="toggleChatWindow()">&times;</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg bot">
+                Hoş geldiniz! Ben gnessac kurumsal dijital asistanıyım. Merak ettiğiniz konuyu aşağıdaki listeden seçebilirsiniz:
+            </div>
+        </div>
+        <div class="chat-options" id="chatOptions">
+            <!-- JavaScript ile 27 Hazır Soru Doldurulacak -->
+        </div>
     </div>
 
     <!-- MAIN VIEW -->
@@ -274,10 +312,10 @@
             <div class="hero-content">
                 <h1>Kolay Kurulum ve Yüksek Performanslı Yönetim</h1>
                 <p id="about">
-                    gnessac, çevrimiçi oyun sunucularınız için en gelişmiş sunucu taraflı koruma mimarisini sunar. Karmaşık kurulum süreçlerini ortadan kaldıran yapımız sayesinde koruma sistemini dakikalar içinde devreye alabilirsiniz. Anlık duyuruları takip edin, lisans durumunuzu ve ödemelerinizi gelişmiş yönetim panelinden saniyeler içinde gerçekleştirin. C++ tabanlı yüksek hızlı çekirdeğimiz; Metin2, Knight Online, Valorant, EVE Online ve League of Legends sunucularınız için uçtan uca koruma kalkanı sağlar. Sipariş vermek veya teknik altyapımız hakkında detaylı bilgi almak için hemen bir destek talebi oluşturabilir ya da e-posta adresimiz üzerinden bizimle iletişime geçebilirsiniz.
+                    gnessac, çevrimiçi oyun sunucularınız için en gelişmiş sunucu taraflı koruma mimarisini sunar. Karmaşık kurulum süreçlerini ortadan kaldırıyoruz. Anlık duyuruları takip edin, lisans durumunuzu ve ödemelerinizi gelişmiş yönetim panelinden saniyeler içinde gerçekleştirin. C++ tabanlı yüksek hızlı çekirdeğimiz; Metin2, Knight Online, Valorant, EVE Online ve League of Legends sunucularınız için uçtan uca koruma kalkanı sağlar.
                 </p>
                 <button class="hero-btn" onclick="openModal('ticketModal')">
-                    ✉ Şimdi İletişime Geçin
+                    Satın Al / Destek Talebi Oluştur!
                 </button>
             </div>
         </section>
@@ -285,10 +323,8 @@
         <!-- Features Dual Section -->
         <section id="features" class="features-section">
             <div class="features-left">
-                <!-- Düz 'g' Harfli Özel Kutu -->
-                <div class="g-logo-box">
-                    <span>g</span>
-                </div>
+                <!-- Sol Üst Logo Yazısının Birebir Aynısı ve Ortalanmış Hali -->
+                <div class="gnessac-hero-logo">gnessac</div>
             </div>
             <div class="features-right">
                 <div class="feature-item">
@@ -306,7 +342,7 @@
             </div>
         </section>
 
-        <!-- Games Section (İnteraktif Animasyonlu Kartlar) -->
+        <!-- Games Section -->
         <section id="games" class="games-section">
             <h2 class="section-title">Hizmet Verilen Oyunlarımız</h2>
             <div class="games-grid">
@@ -333,7 +369,7 @@
             </div>
         </section>
 
-        <!-- Pricing Section (Tek Sıra Düzen) -->
+        <!-- Pricing Section -->
         <section id="pricing" class="pricing-section">
             <h2 class="section-title">Hizmet Paketleri (%18 İndirimli)</h2>
             <div class="pricing-grid">
@@ -345,18 +381,22 @@
                         <div class="price-amount">599 ₺</div>
                         <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">Tek sunucu IP adresi için sunucu taraflı kesintisiz hile koruması.</p>
                     </div>
-                    <button class="hero-btn" style="width: 100%; justify-content: center;" onclick="openModal('ticketModal')">Satın Almak İçin İletişime Geçin</button>
+                    <button class="hero-btn" style="width: 100%; font-size: 13px;" onclick="openModal('ticketModal')">Satın Al / Destek Talebi Oluştur!</button>
                 </div>
-                <div class="price-card" style="border-color: var(--sv-blue); box-shadow: 0 4px 15px rgba(29, 78, 216, 0.1);">
+                
+                <!-- 2 IP Lisans: EN ÇOK TERCİH EDİLEN Rozet İle -->
+                <div class="price-card" style="border-color: var(--sv-blue); box-shadow: 0 6px 20px rgba(29, 78, 216, 0.15);">
+                    <div class="popular-badge">⭐ EN ÇOK TERCİH EDİLEN</div>
                     <div>
-                        <span class="price-badge">%18 İNDİRİM</span>
-                        <div style="font-weight: 700; color: #1e293b; margin-top: 10px;">2 IP Lisans</div>
+                        <span class="price-badge" style="top: 20px;">%18 İNDİRİM</span>
+                        <div style="font-weight: 700; color: #1e293b; margin-top: 25px;">2 IP Lisans</div>
                         <div class="old-price">1.157 ₺</div>
                         <div class="price-amount">949 ₺</div>
                         <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">Test ve canlı ortamlar için çift IP koruma lisansı paketi.</p>
                     </div>
-                    <button class="hero-btn" style="width: 100%; justify-content: center; background: var(--sv-blue); color: white;" onclick="openModal('ticketModal')">Satın Almak İçin İletişime Geçin</button>
+                    <button class="hero-btn" style="width: 100%; background: var(--sv-blue); color: white; font-size: 13px;" onclick="openModal('ticketModal')">Satın Al / Destek Talebi Oluştur!</button>
                 </div>
+
                 <div class="price-card">
                     <div>
                         <span class="price-badge">%18 İNDİRİM</span>
@@ -365,7 +405,7 @@
                         <div class="price-amount">5.489 ₺</div>
                         <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">Büyük oyun sunucusu ağları ve sunucu filoları için kurumsal paket.</p>
                     </div>
-                    <button class="hero-btn" style="width: 100%; justify-content: center;" onclick="openModal('ticketModal')">Satın Almak İçin İletişime Geçin</button>
+                    <button class="hero-btn" style="width: 100%; font-size: 13px;" onclick="openModal('ticketModal')">Satın Al / Destek Talebi Oluştur!</button>
                 </div>
             </div>
         </section>
@@ -374,54 +414,18 @@
         <section id="faq" class="faq-section">
             <h2 class="section-title">Sıkça Sorulan Sorular (SSS)</h2>
             <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">1. Neden gnessac kullanmalıyım? <span>+</span></div>
-                    <div class="faq-answer">Geleneksel istemci tabanlı anti-cheat çözümleri kolaylıkla baypas edilebilir. gnessac, işlemleri doğrudan sunucu çekirdeğinde denetleyerek hilelerin sunucuya etki etmesini engeller. Herhangi bir istemci güncellemesine ihtiyaç duymadan %100 koruma sağlarsınız.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">2. Nasıl satın alabilirim? <span>+</span></div>
-                    <div class="faq-answer">Destek talebi oluşturarak veya gnesssoftware@outlook.com e-posta adresimiz üzerinden bizimle iletişime geçebilirsiniz.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">3. Güncellemeler ücretsiz mi? <span>+</span></div>
-                    <div class="faq-answer">Evet, gnessac sunucu taraflı koruma güncellemeleri tüm aktif lisanslı müşterilerimize ücretsiz olarak sunulmaktadır.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">4. Oyuncuların bilgisayarına kurulum gerekiyor mu? <span>+</span></div>
-                    <div class="faq-answer">Hayır, sistemimiz tamamen sunucu taraflı olduğu için oyuncuların bilgisayarına hiçbir yazılım veya .exe kurulmaz.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">5. Lisans IP değişikliği yapılabiliyor mu? <span>+</span></div>
-                    <div class="faq-answer">Evet, destek talebi oluşturarak ayda 2 kez ücretsiz IP adresi güncellemesi yapabilirsiniz.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">6. Sunucuda kasma veya lag yapar mı? <span>+</span></div>
-                    <div class="faq-answer">Hayır, C++ ile yazılmış optimize çekirdek sayesinde sunucunuza ek bir yük bindirmez.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">7. Hangi oyunlar desteklenmektedir? <span>+</span></div>
-                    <div class="faq-answer">Metin2, Knight Online, Valorant, EVE Online ve League of Legends oyunlarında aktif destek verilmektedir.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">8. Ödemeleri nasıl yapabilirim? <span>+</span></div>
-                    <div class="faq-answer">Banka havalesi, EFT ve güvenli ödeme bağlantıları aracılığıyla ödemelerinizi gerçekleştirebilirsiniz.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">9. Deneme sürümü veriyor musunuz? <span>+</span></div>
-                    <div class="faq-answer">Kurumsal doğrulama sonrasında 24 saatlik test lisansı tanımlanabilmektedir.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">10. Yanlış ban durumunda ne yapmalıyım? <span>+</span></div>
-                    <div class="faq-answer">Tüm şüpheli hareketler log dosyalarında saklanır, destek talebi ile inceleme isteyebilirsiniz.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">11. İade imkanı var mı? <span>+</span></div>
-                    <div class="faq-answer">Kurulumu sağlanan dijital lisanslarda iade bulunmamaktadır.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">12. Destek çalışma saatleriniz nedir? <span>+</span></div>
-                    <div class="faq-answer">Teknik ekibimiz 7/24 gelen destek taleplerini yanıtlamaktadır.</div>
-                </div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">1. Neden gnessac kullanmalıyım? <span>+</span></div><div class="faq-answer">Geleneksel istemci tabanlı anti-cheat çözümleri kolaylıkla baypas edilebilir. gnessac, işlemleri doğrudan sunucu çekirdeğinde denetleyerek hilelerin sunucuya etki etmesini engeller. Herhangi bir istemci güncellemesine ihtiyaç duymadan %100 koruma sağlarsınız.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">2. Nasıl satın alabilirim? <span>+</span></div><div class="faq-answer">Destek talebi oluşturarak veya gnesssoftware@outlook.com e-posta adresimiz üzerinden bizimle iletişime geçebilirsiniz.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">3. Güncellemeler ücretsiz mi? <span>+</span></div><div class="faq-answer">Evet, gnessac sunucu taraflı koruma güncellemeleri tüm aktif lisanslı müşterilerimize ücretsiz olarak sunulmaktadır.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">4. Oyuncuların bilgisayarına kurulum gerekiyor mu? <span>+</span></div><div class="faq-answer">Hayır, sistemimiz tamamen sunucu taraflı olduğu için oyuncuların bilgisayarına hiçbir yazılım veya .exe kurulmaz.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">5. Lisans IP değişikliği yapılabiliyor mu? <span>+</span></div><div class="faq-answer">Evet, destek talebi oluşturarak ayda 2 kez ücretsiz IP adresi güncellemesi yapabilirsiniz.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">6. Sunucuda kasma veya lag yapar mı? <span>+</span></div><div class="faq-answer">Hayır, C++ ile yazılmış optimize çekirdek sayesinde sunucunuza ek bir yük bindirmez.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">7. Hangi oyunlar desteklenmektedir? <span>+</span></div><div class="faq-answer">Metin2, Knight Online, Valorant, EVE Online ve League of Legends oyunlarında aktif destek verilmektedir.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">8. Ödemeleri nasıl yapabilirim? <span>+</span></div><div class="faq-answer">Banka havalesi, EFT ve güvenli ödeme bağlantıları aracılığıyla ödemelerinizi gerçekleştirebilirsiniz.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">9. Deneme sürümü veriyor musunuz? <span>+</span></div><div class="faq-answer">Kurumsal doğrulama sonrasında 24 saatlik test lisansı tanımlanabilmektedir.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">10. Yanlış ban durumunda ne yapmalıyım? <span>+</span></div><div class="faq-answer">Tüm şüpheli hareketler log dosyalarında saklanır, destek talebi ile inceleme isteyebilirsiniz.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">11. İade imkanı var mı? <span>+</span></div><div class="faq-answer">Kurulumu sağlanan dijital lisanslarda iade bulunmamaktadır.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">12. Destek çalışma saatleriniz nedir? <span>+</span></div><div class="faq-answer">Teknik ekibimiz 7/24 gelen destek taleplerini yanıtlamaktadır.</div></div>
             </div>
         </section>
     </div>
@@ -441,16 +445,14 @@
                         <label>Şifre</label>
                         <input type="password" required placeholder="******">
                     </div>
-                    <button type="submit" class="login-btn">
-                        ➔ Giriş Yap
-                    </button>
+                    <button type="submit" class="login-btn">➔ Giriş Yap</button>
                 </form>
                 <p style="font-size: 11px; color: #94a3b8; margin-top: 25px; font-style: italic;">Telif hakkı © 2026 gnessac.pro, tüm hakları saklıdır.</p>
             </div>
         </div>
     </div>
 
-    <!-- MODAL: Destek Talebi -->
+    <!-- MODAL: Destek Talebi (21 Hazır Konu Başlığı) -->
     <div id="ticketModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('ticketModal')">&times;</span>
@@ -473,27 +475,30 @@
                     <input type="text" required placeholder="192.168.1.1">
                 </div>
                 <div class="form-group">
-                    <label>Konu Başlığı</label>
+                    <label>Konu Başlığı (Tam 21 Alan)</label>
                     <select required>
-                        <option value="">Seçiniz</option>
-                        <option>1. Lisans Satın Alımı (%18 İndirimli)</option>
-                        <option>2. IP Değişiklik Talebi</option>
-                        <option>3. Metin2 Entegrasyonu</option>
-                        <option>4. Knight Online KO-Guard Entegrasyonu</option>
-                        <option>5. Valorant Özel Koruma</option>
-                        <option>6. EVE Online Bot Engelleme</option>
-                        <option>7. League of Legends Paket Analizi</option>
-                        <option>8. Ban İnceleme Talebi</option>
-                        <option>9. Performans Ayarları</option>
-                        <option>10. Özel Filtre Talebi</option>
-                        <option>11. Ödeme Bilgisi</option>
-                        <option>12. Kurumsal Filo Teklifi</option>
-                        <option>13. Test Lisansı Başvurusu</option>
-                        <option>14. Panel Sorunları</option>
-                        <option>15. C++ Core Danışmanlığı</option>
-                        <option>16. Saldırı Raporlaması</option>
-                        <option>17. Sözleşme Danışmanlığı</option>
-                        <option>18. Diğer Sorular</option>
+                        <option value="">Lütfen Bir Konu Seçiniz</option>
+                        <option>1. 1 IP Lisans Satın Alımı (%18 İndirimli)</option>
+                        <option>2. 2 IP Lisans Satın Alımı (%18 İndirimli)</option>
+                        <option>3. 10 IP Kurumsal Filo Lisans Başvurusu</option>
+                        <option>4. Ücretsiz IP Güncelleme Talebi</option>
+                        <option>5. Metin2 Sunucu Entegrasyonu & Paket Filtreleri</option>
+                        <option>6. Knight Online KO-Guard Mimarisi Danışmanlığı</option>
+                        <option>7. Valorant Sunucu Analiz Yazılımı</option>
+                        <option>8. EVE Online Otomasyon Bot Engelleme</option>
+                        <option>9. League of Legends Paket & Skripter Analizi</option>
+                        <option>10. 24 Saatlik Ücretsiz Test Lisansı Başvurusu</option>
+                        <option>11. Ban ve Şüpheli Hareket Log İnceleme Talebi</option>
+                        <option>12. C++ Çekirdek Performans & Lag Ayarları</option>
+                        <option>13. Sunucuya Özel Dinamik Filtre Yazılımı</option>
+                        <option>14. Banka Havalesi / EFT / Fatura Bilgileri</option>
+                        <option>15. Müşteri Paneli Giriş & Şifre Sorunları</option>
+                        <option>16. Anlık Saldırı ve DDoS Raporlaması</option>
+                        <option>17. Kurumsal Hizmet Sözleşmesi Danışmanlığı</option>
+                        <option>18. İş Ortaklığı ve Bayilik Başvurusu</option>
+                        <option>19. Teknik Altyapı ve Port Güncellemeleri</option>
+                        <option>20. Özel Yazılım Geliştirme Talebi</option>
+                        <option>21. Diğer Genel Sorular ve Teknik Destek</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -529,57 +534,27 @@
         </div>
     </div>
 
-    <!-- MODAL: Şartlar ve Koşullar (Kurumsal Detaylı Metin) -->
+    <!-- MODAL: Şartlar ve Koşullar -->
     <div id="termsModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
             <h2 style="color: #1e293b; font-size: 22px; margin-bottom: 15px; border-bottom: 2px solid var(--sv-blue); padding-bottom: 8px;">Hizmet Şartları ve Kullanım Sözleşmesi</h2>
-            
-            <p style="font-size: 13px; color: #475569; margin-bottom: 12px; line-height: 1.7;">
-                Bu Hizmet Şartları ve Kullanım Sözleşmesi ("Sözleşme"), gnessac.pro ("Şirket") tarafından sunulan sunucu taraflı hile önleme ve güvenlik yazılımlarının ("Hizmet") kullanım koşullarını düzenlemektedir. gnessac.pro web sitesine erişerek veya Hizmetlerimizi satın alarak bu sözleşmedeki tüm şartları gayrikabili rücu kabul etmiş sayılırsınız.
-            </p>
-
+            <p style="font-size: 13px; color: #475569; margin-bottom: 12px; line-height: 1.7;">Bu Hizmet Şartları ve Kullanım Sözleşmesi ("Sözleşme"), gnessac.pro ("Şirket") tarafından sunulan sunucu taraflı hile önleme yazılımlarının kullanım koşullarını düzenlemektedir.</p>
             <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 8px 0;">1. Lisans Kapsamı ve Kullanım Hakları</h3>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
-                Satın alınan gnessac lisansları, yalnızca kayıt esnasında belirtilen ve onaylanan IP adresi/adresleri için geçerlidir. <span class="critical-red">Lisans Kapsamı ve Devir Yasağı:</span> Aksine yazılı bir anlaşma olmadıkça, lisans hakkı üçüncü şahıslara veya farklı IP adreslerine devredilemez, kiralanamaz veya satılamaz. gnessac, tüm materyallerin, kaynak kodların ve algoritmaların fikri mülkiyet haklarına münhasıran sahiptir.
-            </p>
-
-            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 8px 0;">2. Hizmet Kesintisi ve Sorumluluk Sınırları</h3>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
-                gnessac, Hizmet'in %99.9 kullanılabilirliğini hedeflemekle birlikte, veri merkezi kaynaklı ağ kesintileri, doğal afetler veya donanım arızalarından doğabilecek dolaylı zararlardan sorumlu tutulamaz. Yazılımın amacı hileleri engellemektir; ancak yeni geliştirilen 0-day hile yöntemlerinde tespit süreci teknik analiz gerektirebilir.
-            </p>
-
-            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 8px 0;">3. İptal ve İade Koşulları</h3>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
-                <span class="critical-red">Geri Ödeme Politikası:</span> gnessac ürünleri dijital lisans ve sunucu entegrasyon hizmeti kapsamındadır. Kurulumu sağlanan veya lisans anahtarı üretilen dijital Hizmetlerde 6502 sayılı Tüketicinin Korunması Hakkında Kanun gereği para iadesi yapılmaz.
-            </p>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">Satın alınan gnessac lisansları yalnızca onaylanan IP adresi için geçerlidir. <span class="critical-red">Lisans Kapsamı ve Devir Yasağı:</span> Aksine yazılı bir anlaşma olmadıkça devredilemez, kiralanamaz veya satılamaz. gnessac tüm materyallerin fikri mülkiyet haklarına sahiptir.</p>
+            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 8px 0;">2. İptal ve İade Koşulları</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;"><span class="critical-red">Geri Ödeme Politikası:</span> Kurulumu sağlanan dijital lisans hizmetlerinde para iadesi yapılmaz.</p>
         </div>
     </div>
 
-    <!-- MODAL: Gizlilik Politikası (Kurumsal Detaylı Metin) -->
+    <!-- MODAL: Gizlilik Politikası -->
     <div id="privacyModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
-            <h2 style="color: #1e293b; font-size: 22px; margin-bottom: 15px; border-bottom: 2px solid var(--sv-blue); padding-bottom: 8px;">Kurumsal Gizlilik ve Veri Koruma Politikası</h2>
-            
-            <p style="font-size: 13px; color: #475569; margin-bottom: 12px; line-height: 1.7;">
-                gnessac.pro olarak müşterilerimizin ve hizmet sunduğumuz oyun sunucularının veri güvenliğine büyük önem vermekteyiz. İşbu Gizlilik Politikası, hangi verilerin toplandığını, nasıl korunduğunu ve işlendiğini açıklar.
-            </p>
-
-            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 8px 0;">1. Toplanan Veriler ve Kullanım Amaçları</h3>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
-                Hizmetlerimizin eksiksiz çalışabilmesi amacıyla yalnızca yetkili sunucu IP adresleri, teknik log kayıtları ve iletilen iletişim bilgileri (E-posta, İsim, Telefon) işlenir. Sitemizi kullanarak oturum yönetimi için çerez kullanımını kabul etmiş olursunuz. <span class="critical-red">Çerezler ve Veri Kullanımı:</span> Sistemimiz performansı artırmak adına zorunlu teknik çerezleri kullanır.
-            </p>
-
-            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 8px 0;">2. Veri Güvenliği ve Üçüncü Şahıslar</h3>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
-                <span class="critical-red">Veri Güvenliği:</span> Sunucu tarafında işlenen ağ paket verileri ve müşteri bilgileri 256-bit SSL ve uçtan uca şifreleme yöntemleriyle saklanır. Toplanan veriler hiçbir koşulda 3. şahıslarla paylaşılmaz, satılmaz veya ticari amaçla devredilemez.
-            </p>
-
-            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 8px 0;">3. Log Saklama ve İnceleme</h3>
-            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;">
-                Oyun sunucularınızda gerçekleşen şüpheli paket hareketleri ve engellenen hile girişimleri yalnızca güvenlik doğrulama amacıyla saklanır ve belirlenen yasal saklama süreleri sonunda otomatik olarak silinir.
-            </p>
+            <h2 style="color: #1e293b; font-size: 22px; margin-bottom: 15px; border-bottom: 2px solid var(--sv-blue); padding-bottom: 8px;">Kurumsal Gizlilik Politikası</h2>
+            <p style="font-size: 13px; color: #475569; margin-bottom: 12px; line-height: 1.7;">gnessac.pro olarak veri güvenliğinize önem veriyoruz.</p>
+            <h3 style="font-size: 15px; color: #1e293b; margin: 15px 0 8px 0;">1. Veri Güvenliği</h3>
+            <p style="font-size: 13px; color: #64748b; margin-bottom: 10px; line-height: 1.6;"><span class="critical-red">Veri Güvenliği:</span> Sunucu tarafında işlenen ağ paket verileri şifrelenmiş olarak saklanır ve 3. şahıslarla asla paylaşılmaz.</p>
         </div>
     </div>
 
@@ -604,8 +579,85 @@
         </div>
     </footer>
 
-    <!-- JavaScript Controls -->
+    <!-- JavaScript Controls & Canlı Destek Veritabanı -->
     <script>
+        // 27 Adet Kurumsal Hazır Soru ve Yanıt Veritabanı
+        const qaData = [
+            { q: "1. gnessac sistemi tam olarak nedir?", a: "gnessac, oyuncuların bilgisayarına hiçbir dosya veya .exe yükletmeden tamamen sunucu tarafında paket analizi yapan üst düzey bir hile koruma yazılımıdır." },
+            { q: "2. Oyuncularımın bilgisayarına kurulum gerekir mi?", a: "Hayır. Sistem tamamen sunucu taraflı çalıştığı için oyuncularınızın istemciye (client) hiçbir ek dosya indirmesi gerekmez." },
+            { q: "3. Sunucumda kasma, kasıntı veya lag yapar mı?", a: "Kesinlikle hayır. C++ ile geliştirilmiş yüksek performanslı çekirdeğimiz işlemci yükünü optimize eder ve sıfır gecikmeyle çalışır." },
+            { q: "4. Lisans fiyatları neleri kapsıyor?", a: "Lisans ücretleri seçtiğiniz IP adedi kadar sunucu korumasını, 7/24 teknik desteği ve tüm ücretsiz güncellemeleri kapsar." },
+            { q: "5. Lisans satın aldıktan sonra ne zaman aktif olur?", a: "Ödemeniz onaylandıktan sonra lisansınız ortalama 15 dakika içerisinde tanımlanarak kullanıma hazır hale getirilir." },
+            { q: "6. Lisanslı IP adresimi değiştirebilir miyim?", a: "Evet, aktif müşterilerimiz destek paneli üzerinden ayda 2 kez ücretsiz IP değişikliği yapabilirler." },
+            { q: "7. Metin2 sunucum için hangi hileleri engeller?", a: "C++ ve Python paket manipülasyonlarını, wallhack, speedhack, balık/maden botlarını ve bellek enjeksiyonlarını engeller." },
+            { q: "8. Knight Online sunucusunda KO-Guard uyumlu mu?", a: "Evet, KO-Guard ve diğer özel sunucu taraflı koruma katmanlarıyla %100 entegre çalışmaktadır." },
+            { q: "9. Valorant ve FPS oyunlarında özel koruma sağlar mı?", a: "Evet, açı kontrolü, paket hareket doğrulaması ve harici yazılım veri engelleme algoritmalarımız mevcuttur." },
+            { q: "10. EVE Online için bot engelleme sisteminiz var mı?", a: "Evet, makro/otomasyon botlarının tespiti ve pazar manipülasyon paketlerinin engellenmesi desteklenmektedir." },
+            { q: "11. League of Legends için paket analizi nasıl çalışır?", a: "Skripter paket hareketlerini, yetenek atım yönlerini ve otomatik dodge simülasyonlarını sunucu tarafında tespit eder." },
+            { q: "12. Deneme (Test) sürümü imkanınız var mı?", a: "Kurumsal doğrulamadan geçen sunucu sahiplerine 24 saatlik ücretsiz test lisansı sunulmaktadır." },
+            { q: "13. Kurulumu kendim yapabilir miyim?", a: "Evet, yönetim panelinizden birkaç basit adımla kurulumu ve güncellemeleri kendiniz yapabilirsiniz." },
+            { q: "14. İade politikanız nedir?", a: "Kurulumu sağlanan dijital lisans ürünlerinde Hizmet Şartlarımız gereği para iadesi yapılmamaktadır." },
+            { q: "15. Hangi ödeme yöntemlerini kabul ediyorsunuz?", a: "Banka Havalesi, EFT ve Kredi Kartı (Güvenli Ödeme Bağlantısı) ile ödeme yapabilirsiniz." },
+            { q: "16. Yanlış bir ban/engelleme durumu olursa ne yapmalıyız?", a: "Tüm tespitler detaylı loglarda saklanır. Destek talebi oluşturarak log incelemesi isteyebilirsiniz." },
+            { q: "17. Güncellemeler için ek ücret ödeyecek miyim?", a: "Hayır. Lisans süreniz boyunca yayınlanan tüm hile koruma güncellemeleri tamamen ücretsizdir." },
+            { q: "18. Aynı anda birden fazla sunucuda kullanabilir miyim?", a: "Satın aldığınız lisans paketindeki IP adedi kadar farklı sunucuda eşzamanlı kullanabilirsiniz." },
+            { q: "19. Destek ekibinize nasıl ulaşabilirim?", a: "Sitemizdeki destek talebi oluşturma formundan veya gnesssoftware@outlook.com adresinden 7/24 ulaşabilirsiniz." },
+            { q: "20. Saldırı anında (DDoS / Syn) koruma sağlar mı?", a: "gnessac hile önleme sistemidir; ancak ağ düzeyinde zararlı paketlerin sunucuya iletilmesini süzerek katkı sağlar." },
+            { q: "21. Kurumsal filo tekliflerini nasıl alabilirim?", a: "10 IP ve üzeri toplu lisans ihtiyaçlarınız için destek talebi açarak özel fiyat teklifi alabilirsiniz." },
+            { q: "22. Lisans süresi ne kadar sürer?", a: "Lisans paketlerimiz aksi belirtilmedikçe aylık ve yıllık periyotlar halinde yenilenmektedir." },
+            { q: "23. Özel yazılım veya kural ekletebilir miyiz?", a: "Evet, sunucunuza özel mekanikler için teknik ekibimize talep ileterek özel filtre tanımlatabilirsiniz." },
+            { q: "24. Fatura kesiyor musunuz?", a: "Evet, tüm lisans alımlarınız kurumsal e-fatura olarak düzenlenmektedir." },
+            { q: "25. Yüksek oyunculu sunucularda test edildi mi?", a: "Sistemimiz anlık 5000+ oyuncuya sahip büyük sunucu ağlarında başarıyla test edilmiş ve onaylanmıştır." },
+            { q: "26. gnessac sistemi baypas edilebilir mi?", a: "Sunucu tarafında doğrudan yetkili çekirdekte paket doğrulaması yapıldığı için istemci taraflı baypas yöntemleri geçersizdir." },
+            { q: "27. Hemen başlamak için ne yapmalıyım?", a: "Ana sayfadaki 'Satın Al / Destek Talebi Oluştur!' butonuna tıklayarak talebinizi hemen iletebilirsiniz." }
+        ];
+
+        // Canlı Destek Widget Hazırlama
+        window.addEventListener('DOMContentLoaded', () => {
+            const optionsContainer = document.getElementById('chatOptions');
+            qaData.forEach((item, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'chat-option-btn';
+                btn.textContent = item.q;
+                btn.onclick = () => selectQa(item.q, item.a);
+                optionsContainer.appendChild(btn);
+            });
+
+            // 1.5 Saniye Sonra Otomatik Karşılama Popover'ı Göster
+            setTimeout(() => {
+                const popover = document.getElementById('welcomePopover');
+                if (popover) popover.style.display = 'block';
+            }, 1500);
+        });
+
+        function toggleChatWindow() {
+            const win = document.getElementById('chatWindow');
+            const popover = document.getElementById('welcomePopover');
+            if (popover) popover.style.display = 'none';
+            win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        function selectQa(question, answer) {
+            const body = document.getElementById('chatBody');
+            
+            // Kullanıcı Mesajı
+            const uMsg = document.createElement('div');
+            uMsg.className = 'chat-msg user';
+            uMsg.textContent = question;
+            body.appendChild(uMsg);
+
+            // Bot Cevabı
+            setTimeout(() => {
+                const bMsg = document.createElement('div');
+                bMsg.className = 'chat-msg bot';
+                bMsg.textContent = answer;
+                body.appendChild(bMsg);
+                body.scrollTop = body.scrollHeight;
+            }, 300);
+
+            body.scrollTop = body.scrollHeight;
+        }
+
         function switchView(viewName) {
             document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
             if (viewName === 'main') {
