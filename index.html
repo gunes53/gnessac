@@ -97,7 +97,7 @@
         .feature-item h3 { font-size: 20px; color: #1e293b; margin-bottom: 8px; font-weight: 700; border-bottom: 2px solid #eff6ff; padding-bottom: 6px; }
         .feature-item p { font-size: 14px; color: #475569; line-height: 1.7; text-align: justify; }
 
-        /* Tech Stack Logos Bar (Yazılım Dilleri Tek Sıra) */
+        /* Tech Stack Logos Bar */
         .tech-stack-section { padding: 35px 5%; background: #ffffff; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); text-align: center; }
         .tech-stack-container { display: flex; justify-content: center; align-items: center; gap: 30px; overflow-x: auto; max-width: 1200px; margin: 0 auto; padding: 10px 0; }
         .tech-item { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 90px; }
@@ -257,7 +257,7 @@
                 <li><a onclick="switchView('customer')" data-i18n="nav_customer">Müşteri Alanı</a></li>
             </ul>
             
-            <!-- Dil Seçici (TR / EN / DE) -->
+            <!-- Dil Seçici -->
             <div class="lang-switch">
                 <button class="lang-btn active" onclick="changeLanguage('tr')">TR</button>
                 <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
@@ -327,7 +327,7 @@
             </div>
         </section>
 
-        <!-- Tech Stack Logos Section (Yazılım Teknolojileri Barı) -->
+        <!-- Tech Stack Logos Section -->
         <section class="tech-stack-section">
             <h3 style="font-size: 16px; color: #1e293b; margin-bottom: 20px; font-weight: 700;" data-i18n="tech_title">Geliştirme Ve Altyapı Teknolojilerimiz</h3>
             <div class="tech-stack-container">
@@ -373,7 +373,6 @@
         <section id="pricing" class="pricing-section">
             <h2 class="section-title" data-i18n="pricing_title">Hizmet Paketleri (%18 İndirimli)</h2>
             <div class="pricing-grid">
-                <!-- 1 IP Lisans -->
                 <div class="price-card">
                     <div>
                         <div class="price-card-header">
@@ -387,7 +386,6 @@
                     <button class="hero-btn" style="width: 100%; font-size: 12.5px;" onclick="openModal('ticketModal')" data-i18n="plan_btn">Satın Al / Destek Talebi Oluştur!</button>
                 </div>
                 
-                <!-- 2 IP Lisans -->
                 <div class="price-card" style="border-color: var(--sv-blue); box-shadow: 0 6px 20px rgba(29, 78, 216, 0.15);">
                     <div>
                         <div class="price-card-header">
@@ -402,7 +400,6 @@
                     <button class="hero-btn" style="width: 100%; background: var(--sv-blue); color: white; font-size: 12.5px;" onclick="openModal('ticketModal')" data-i18n="plan_btn">Satın Al / Destek Talebi Oluştur!</button>
                 </div>
 
-                <!-- 10 IP Lisans -->
                 <div class="price-card">
                     <div>
                         <div class="price-card-header">
@@ -416,7 +413,6 @@
                     <button class="hero-btn" style="width: 100%; font-size: 12.5px;" onclick="openModal('ticketModal')" data-i18n="plan_btn">Satın Al / Destek Talebi Oluştur!</button>
                 </div>
 
-                <!-- Web Tasarım Paketi (YENİ EKLENEN PAKET) -->
                 <div class="price-card" style="border-color: #10b981;">
                     <div>
                         <div class="price-card-header">
@@ -436,7 +432,7 @@
         <section id="faq" class="faq-section">
             <h2 class="section-title" data-i18n="faq_title">Sıkça Sorulan Sorular (SSS)</h2>
             <div class="faq-container">
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq1_q">1. Neden gnessac kullanmalıyım?</span> <span>+</span></div><div class="faq-answer" data-i18n="faq1_a">Geleneksel istemci tabanlı anti-cheat çözümleri kolaylıkla baypas edilebilir. gnessac, işlemleri doğrudan sunucu çekirdeğinde denetleyerek hilelerin sunucuya etki etmesini engeller. Herhangi bir istemci güncellemesine ihtiyaç duymadan %100 koruma sağlarsınız.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq1_q">1. Neden gnessac kullanmalıyım?</span> <span>+</span></div><div class="faq-answer" data-i18n="faq1_a">Geleneksel istemci tabanlı anti-cheat çözümleri kolaylıkla baypas edilebilir. gnessac, işlemleri doğrudan sunucu çekirdeğinde denetleyerek hilelerin sunucuya etki etmesini engeller.</div></div>
                 <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq2_q">2. Nasıl satın alabilirim?</span> <span>+</span></div><div class="faq-answer" data-i18n="faq2_a">Destek talebi oluşturarak veya gnesssoftware@outlook.com e-posta adresimiz üzerinden bizimle iletişime geçebilirsiniz.</div></div>
                 <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq3_q">3. Güncellemeler ücretsiz mi?</span> <span>+</span></div><div class="faq-answer" data-i18n="faq3_a">Evet, gnessac sunucu taraflı koruma güncellemeleri tüm aktif lisanslı müşterilerimize ücretsiz olarak sunulmaktadır.</div></div>
                 <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span data-i18n="faq4_q">4. Oyuncuların bilgisayarına kurulum gerekiyor mu?</span> <span>+</span></div><div class="faq-answer" data-i18n="faq4_a">Hayır, sistemimiz tamamen sunucu taraflı olduğu için oyuncuların bilgisayarına hiçbir yazılım veya .exe kurulmaz.</div></div>
@@ -469,7 +465,7 @@
                     </div>
                     <button type="submit" class="login-btn" data-i18n="btn_login">➔ Giriş Yap</button>
                 </form>
-                <p style="font-size: 11px; color: #94a3b8; margin-top: 25px; font-style: italic;">Telif hakkı © 2026 gnessac.pro, tüm hakları saklıdır.</p>
+                <p style="font-size: 11px; color: #94a3b8; margin-top: 25px; font-style: italic;" data-i18n="footer_rights">Telif hakkı © 2026 gnessac.pro, tüm hakları saklıdır.</p>
             </div>
         </div>
     </div>
@@ -498,9 +494,7 @@
                 </div>
                 <div class="form-group">
                     <label data-i18n="lbl_subject">Konu Başlığı</label>
-                    <select required id="ticketSubjectSelect">
-                        <!-- JS ile Dinamik Doldurulur -->
-                    </select>
+                    <select required id="ticketSubjectSelect"></select>
                 </div>
                 <div class="form-group">
                     <label data-i18n="lbl_msg">Mesajınız</label>
@@ -559,13 +553,13 @@
         <button class="scroll-btn" onclick="scrollToBottom()">▼</button>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer (Tüm Alanlar Çevrilebilir Hale Getirildi) -->
     <footer>
         <div class="footer-content">
             <div>
-                <span>gnessac | Çevrimiçi Oyunlar için Sunucu Taraflı Sistemler</span><br>
+                <span>gnessac | <span data-i18n="footer_sub">Çevrimiçi Oyunlar için Sunucu Taraflı Sistemler</span></span><br>
                 <small style="color: #64748b;">Türkiye/İstanbul — designed by #Güneşdoğdu</small><br>
-                <small style="color: #64748b;">Telif hakkı © 2026 gnessac.pro, tüm hakları saklıdır.</small>
+                <small style="color: #64748b;" data-i18n="footer_rights">Telif hakkı © 2026 gnessac.pro, tüm hakları saklıdır.</small>
             </div>
             <div class="footer-right">
                 <a onclick="openModal('termsModal')" data-i18n="nav_terms">Şartlar ve Koşullar</a>
@@ -578,7 +572,6 @@
     <script>
         let currentLang = 'tr';
 
-        // TR / EN / DE Dil Çeviri Veritabanı
         const translations = {
             tr: {
                 top_banner_title: "Kurumsal İletişim & Destek:",
@@ -670,7 +663,9 @@
                 alert_desc: "Üye değilsiniz veya herhangi bir lisans satın alımınız bulunmamaktadır. Lütfen iletişime geçin.",
                 btn_close: "Kapat",
                 terms_title: "HİZMET ŞARTLARI VE KULLANIM SÖZLEŞMESİ",
-                privacy_title: "KURUMSAL GİZLİLİK VE VERİ KORUMA POLİTİKASI"
+                privacy_title: "KURUMSAL GİZLİLİK VE VERİ KORUMA POLİTİKASI",
+                footer_sub: "Çevrimiçi Oyunlar için Sunucu Taraflı Sistemler",
+                footer_rights: "Telif hakkı © 2026 gnessac.pro, tüm hakları saklıdır."
             },
             en: {
                 top_banner_title: "Corporate Contact & Support:",
@@ -762,7 +757,9 @@
                 alert_desc: "You are not a registered user or have no active license. Please contact support.",
                 btn_close: "Close",
                 terms_title: "TERMS OF SERVICE & USE AGREEMENT",
-                privacy_title: "CORPORATE PRIVACY & DATA PROTECTION POLICY"
+                privacy_title: "CORPORATE PRIVACY & DATA PROTECTION POLICY",
+                footer_sub: "Server-Side Systems for Online Games",
+                footer_rights: "Copyright © 2026 gnessac.pro, all rights reserved."
             },
             de: {
                 top_banner_title: "Unternehmenskontakt & Support:",
@@ -854,11 +851,12 @@
                 alert_desc: "Sie sind kein registrierter Benutzer oder besitzen keine aktive Lizenz. Bitte kontaktieren Sie den Support.",
                 btn_close: "Schließen",
                 terms_title: "NUTZUNGSBEDINGUNGEN & DIENSTLEISTUNGSVERTRAG",
-                privacy_title: "DATENSCHUTZ- UND DATENSICHERHEITSRICHTLINIE"
+                privacy_title: "DATENSCHUTZ- UND DATENSICHERHEITSRICHTLINIE",
+                footer_sub: "Serverseitige Systeme für Online-Spiele",
+                footer_rights: "Urheberrecht © 2026 gnessac.pro, alle Rechte vorbehalten."
             }
         };
 
-        // 27 Adet Kurumsal Soru Veritabanı
         const qaData = [
             { q_tr: "1. gnessac sistemi tam olarak nedir?", q_en: "1. What exactly is the gnessac system?", q_de: "1. Was genau ist das gnessac-System?", a_tr: "gnessac, oyuncuların bilgisayarına hiçbir dosya yükletmeden tamamen sunucu tarafında paket analizi yapan üst düzey bir hile koruma yazılımıdır.", a_en: "gnessac is an enterprise server-side cheat protection software that analyzes network packets without requiring any files on player PCs.", a_de: "gnessac ist eine serverseitige Anti-Cheat-Software, die Netzwerkpakete analysiert, ohne Dateien auf den PCs der Spieler zu installieren." },
             { q_tr: "2. Oyuncularımın bilgisayarına kurulum gerekir mi?", q_en: "2. Is client installation required?", q_de: "2. Ist eine Client-Installation erforderlich?", a_tr: "Hayır. Sistem tamamen sunucu taraflı çalıştığı için oyuncularınızın hiçbir dosya indirmesi gerekmez.", a_en: "No. Since the system works entirely server-side, your players do not need to download any files.", a_de: "Nein. Da das System vollständig serverseitig arbeitet, müssen Ihre Spieler keine Dateien herunterladen." },
@@ -889,7 +887,6 @@
             { q_tr: "27. Hemen başlamak için ne yapmalıyım?", q_en: "27. How to get started immediately?", q_de: "27. Wie fange ich sofort an?", a_tr: "Destek talebi oluştur butonuna tıklayarak talebinizi iletin.", a_en: "Click the 'Create Support Ticket' button to send your request.", a_de: "Klicken Sie auf 'Support-Ticket Erstellen', um Ihre Anfrage zu senden." }
         ];
 
-        // 21 Konu Başlığı Veritabanı
         const ticketSubjects = {
             tr: [
                 "1. 1 IP Lisans Satın Alımı (%18 İndirimli)", "2. 2 IP Lisans Satın Alımı (%18 İndirimli)", "3. 10 IP Kurumsal Filo Lisans Başvurusu",
@@ -920,13 +917,13 @@
             ]
         };
 
-        // Dil Değiştirme Ana Fonksiyonu
         function changeLanguage(lang) {
             currentLang = lang;
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
 
-            // Tüm static metinleri çevir
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][key]) {
@@ -934,13 +931,8 @@
                 }
             });
 
-            // Canlı Destek Soru Seçeneklerini Doldur
             renderChatOptions();
-
-            // Destek Talebi Seçeneklerini Doldur
             renderTicketSubjects();
-
-            // Modallardaki Hukuki Metinleri Güncelle
             renderLegalTexts();
         }
 
