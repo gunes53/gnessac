@@ -233,7 +233,7 @@
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
                         <!-- Metin2 -->
-                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 game-card-3d text-center group flex flex-col justify-between">
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 game-card-3d text-center group flex flex-col justify-between relative overflow-hidden">
                             <div>
                                 <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold text-lg mx-auto mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
                                     M2
@@ -245,7 +245,7 @@
                             </div>
                         </div>
                         <!-- Knight Online -->
-                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 game-card-3d text-center group flex flex-col justify-between">
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 game-card-3d text-center group flex flex-col justify-between relative overflow-hidden">
                             <div>
                                 <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold text-lg mx-auto mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
                                     KO
@@ -257,7 +257,7 @@
                             </div>
                         </div>
                         <!-- Albion Online -->
-                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 game-card-3d text-center group flex flex-col justify-between">
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 game-card-3d text-center group flex flex-col justify-between relative overflow-hidden">
                             <div>
                                 <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold text-lg mx-auto mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
                                     AO
@@ -269,7 +269,7 @@
                             </div>
                         </div>
                         <!-- EVE Online -->
-                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 game-card-3d text-center group flex flex-col justify-between">
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 game-card-3d text-center group flex flex-col justify-between relative overflow-hidden">
                             <div>
                                 <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold text-lg mx-auto mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
                                     EO
@@ -281,7 +281,7 @@
                             </div>
                         </div>
                         <!-- Counter-Strike 2 -->
-                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 game-card-3d text-center group flex flex-col justify-between">
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 game-card-3d text-center group flex flex-col justify-between relative overflow-hidden">
                             <div>
                                 <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold text-lg mx-auto mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
                                     CS
@@ -293,7 +293,7 @@
                             </div>
                         </div>
                         <!-- Apex Legends -->
-                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 game-card-3d text-center group flex flex-col justify-between">
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 game-card-3d text-center group flex flex-col justify-between relative overflow-hidden">
                             <div>
                                 <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold text-lg mx-auto mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
                                     AL
@@ -315,41 +315,104 @@
                     <p class="text-slate-600 text-lg">Sunucunuz için en güçlü lisans seçeneği ve esnek paket detayları.</p>
                 </div>
 
-                <div class="max-w-md mx-auto bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden transition hover:shadow-2xl">
-                    <!-- Plan Header -->
-                    <div class="bg-slate-900 text-white p-8 text-center relative">
-                        <!-- 8% Discount Badge -->
-                        <div class="absolute top-4 right-4 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
-                            %8 İndirim
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                    <!-- ESSENTIAL Plan (1 IP) -->
+                    <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden transition hover:shadow-2xl relative text-center">
+                        <div class="bg-slate-900 text-white p-8 text-center relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold tracking-wide uppercase text-slate-200 mb-3 pt-2">ESSENTIAL</h3>
+                            <div class="flex items-center justify-center">
+                                <span class="text-4xl sm:text-5xl font-black text-white tracking-tight">799 ₺</span>
+                            </div>
+                            <span class="text-xs text-blue-400 font-bold uppercase tracking-widest mt-2 block">1 IP LİSANS</span>
                         </div>
-                        <h3 class="text-xl font-bold tracking-wide uppercase text-slate-200 mb-2">Bireysel Paket</h3>
-                        <div class="flex items-center justify-center gap-3">
-                            <span class="text-slate-400 line-through text-xl">1412₺</span>
-                            <span class="text-4xl sm:text-5xl font-black text-white">1299₺</span>
+                        <div class="p-8 space-y-6">
+                            <ul class="space-y-4 text-sm font-medium text-slate-700">
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span>1 Adet IP Barındırma ve Koruma</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Sunucu Taraflı Kesintisiz Hile Engeli</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span>1 Gün Ücretsiz Deneme İmkanı</span>
+                                </li>
+                            </ul>
+                            <div class="pt-2">
+                                <button onclick="openContactModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center justify-center gap-2 text-base">
+                                    <span class="leading-none text-lg">➤</span>
+                                    Satın Al
+                                </button>
+                            </div>
                         </div>
-                        <span class="text-xs text-blue-400 font-semibold uppercase tracking-widest mt-1 block">Aylık Lisans</span>
                     </div>
-                    <!-- Plan Features -->
-                    <div class="p-8 space-y-4">
-                        <ul class="space-y-3 text-sm text-slate-600">
-                            <li class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                <span>1 Adet IP Barındırma ve Koruma</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                <span>Sunucu Taraflı Kesintisiz Hile Engeli</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                <span>1 Gün Ücretsiz Deneme İmkanı</span>
-                            </li>
-                        </ul>
-                        <div class="pt-6">
-                            <button onclick="openContactModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3.5 px-6 rounded-xl shadow-md transition flex items-center justify-center gap-2">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                                Satın Al
-                            </button>
+
+                    <!-- PREMIUM Plan (2 IP) -->
+                    <div class="bg-white rounded-2xl shadow-xl border-2 border-blue-600 overflow-hidden transition hover:shadow-2xl relative text-center transform md:-translate-y-2">
+                        <div class="bg-blue-600 text-white py-2 text-xs font-bold uppercase tracking-wider">Popüler Seçim</div>
+                        <div class="bg-slate-900 text-white p-8 text-center relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold tracking-wide uppercase text-slate-200 mb-3 pt-2">PREMIUM</h3>
+                            <div class="flex items-center justify-center">
+                                <span class="text-4xl sm:text-5xl font-black text-white tracking-tight">1449 ₺</span>
+                            </div>
+                            <span class="text-xs text-blue-400 font-bold uppercase tracking-widest mt-2 block">2 IP LİSANS</span>
+                        </div>
+                        <div class="p-8 space-y-6">
+                            <ul class="space-y-4 text-sm font-medium text-slate-700">
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span>2 Adet IP Barındırma ve Koruma</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Sunucu Taraflı Kesintisiz Hile Engeli</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span>1 Gün Ücretsiz Deneme İmkanı</span>
+                                </li>
+                            </ul>
+                            <div class="pt-2">
+                                <button onclick="openContactModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center justify-center gap-2 text-base">
+                                    <span class="leading-none text-lg">➤</span>
+                                    Satın Al
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ULTIMATE Plan (10 IP) -->
+                    <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden transition hover:shadow-2xl relative text-center">
+                        <div class="bg-slate-900 text-white p-8 text-center relative overflow-hidden">
+                            <h3 class="text-xl font-extrabold tracking-wide uppercase text-slate-200 mb-3 pt-2">ULTIMATE</h3>
+                            <div class="flex items-center justify-center">
+                                <span class="text-4xl sm:text-5xl font-black text-white tracking-tight">7449 ₺</span>
+                            </div>
+                            <span class="text-xs text-blue-400 font-bold uppercase tracking-widest mt-2 block">10 IP LİSANS</span>
+                        </div>
+                        <div class="p-8 space-y-6">
+                            <ul class="space-y-4 text-sm font-medium text-slate-700">
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span>10 Adet IP Barındırma ve Koruma</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span>Sunucu Taraflı Kesintisiz Hile Engeli</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span>1 Gün Ücretsiz Deneme İmkanı</span>
+                                </li>
+                            </ul>
+                            <div class="pt-2">
+                                <button onclick="openContactModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center justify-center gap-2 text-base">
+                                    <span class="leading-none text-lg">➤</span>
+                                    Satın Al
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
