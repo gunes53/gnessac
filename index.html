@@ -125,13 +125,20 @@
             if (errorModal) errorModal.classList.add('hidden');
         }
 
-        // FAQ Toggle
+        // FAQ Toggle with smooth height animation and arrow rotation
         function toggleFaq(id) {
             const content = document.getElementById(`faq-content-${id}`);
             const icon = document.getElementById(`faq-icon-${id}`);
             if (content && icon) {
-                content.classList.toggle('hidden');
-                icon.classList.toggle('rotate-180');
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = '0px';
+                    content.style.opacity = '0';
+                    icon.classList.remove('rotate-180');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    content.style.opacity = '1';
+                    icon.classList.add('rotate-180');
+                }
             }
         }
     </script>
@@ -226,8 +233,8 @@
             <section id="games-section" class="py-20 bg-slate-50 border-b border-slate-200">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16">
-                        <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">Oyun Portföyü</span>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 mb-4">Hizmet Verdiğimiz Oyunlar</h2>
+                        <div class="logo-text text-3xl sm:text-4xl text-[#1e3a8a] tracking-tighter italic font-black mb-2">gnessac</div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">Hizmet Verdiğimiz Oyunlar</h2>
                         <p class="text-slate-600 max-w-2xl mx-auto font-light">Sunucu altyapınız için özel olarak optimize edilmiş gelişmiş anti-cheat koruması sağladığımız başlıca oyunlar.</p>
                     </div>
 
@@ -311,6 +318,7 @@
             <!-- Ücretlendirme Seçenekleri Section -->
             <section id="pricing-section" class="py-20 bg-white border-b border-slate-200">
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+                    <div class="logo-text text-3xl sm:text-4xl text-[#1e3a8a] tracking-tighter italic font-black mb-2">gnessac</div>
                     <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Ücretlendirme Seçenekleri</h2>
                     <p class="text-slate-600 text-lg">Sunucunuz için en güçlü lisans seçeneği ve esnek paket detayları.</p>
                 </div>
@@ -432,100 +440,120 @@
                         <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden transition">
                             <button onclick="toggleFaq(1)" class="w-full text-left p-6 font-semibold flex items-center justify-between text-lg text-slate-100 hover:text-blue-400">
                                 <span>Neden gnessac kullanmalıyım?</span>
-                                <svg id="faq-icon-1" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                <svg id="faq-icon-1" class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
-                            <div id="faq-content-1" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50 pt-4">
-                                Hile konusundaki uzmanlığımız ve gelişmiş sunucu tabanlı analiz sistemimiz ile %100'e yakın hile engelleme oranı sunuyoruz. Oyuncu performansını düşürmeden tam koruma sağlıyoruz.
+                            <div id="faq-content-1" style="max-height: 0px; opacity: 0;" class="overflow-hidden transition-all duration-300 ease-in-out px-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50">
+                                <div class="py-4">
+                                    Hile konusundaki uzmanlığımız ve gelişmiş sunucu tabanlı analiz sistemimiz ile %100'e yakın hile engelleme oranı sunuyoruz. Oyuncu performansını düşürmeden tam koruma sağlıyoruz.
+                                </div>
                             </div>
                         </div>
                         <!-- FAQ 2 -->
                         <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden transition">
                             <button onclick="toggleFaq(2)" class="w-full text-left p-6 font-semibold flex items-center justify-between text-lg text-slate-100 hover:text-blue-400">
                                 <span>Nasıl satın alabilirim?</span>
-                                <svg id="faq-icon-2" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                <svg id="faq-icon-2" class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
-                            <div id="faq-content-2" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50 pt-4">
-                                Sitemizdeki iletişim kanalları veya "Hemen İletişime Geç" butonu üzerinden doğrudan ekibimizle iletişime geçerek anında lisansınızı temin edebilirsiniz.
+                            <div id="faq-content-2" style="max-height: 0px; opacity: 0;" class="overflow-hidden transition-all duration-300 ease-in-out px-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50">
+                                <div class="py-4">
+                                    Sitemizdeki iletişim kanalları veya "Hemen İletişime Geç" butonu üzerinden doğrudan ekibimizle iletişime geçerek anında lisansınızı temin edebilirsiniz.
+                                </div>
                             </div>
                         </div>
                         <!-- FAQ 3 -->
                         <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden transition">
                             <button onclick="toggleFaq(3)" class="w-full text-left p-6 font-semibold flex items-center justify-between text-lg text-slate-100 hover:text-blue-400">
                                 <span>Nasıl ödeme yapabilirim?</span>
-                                <svg id="faq-icon-3" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                <svg id="faq-icon-3" class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
-                            <div id="faq-content-3" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50 pt-4">
-                                Kredi kartı, banka havalesi, EFT ve güvenli dijital ödeme yöntemleriyle kolayca ödemenizi gerçekleştirip faturanızı alabilirsiniz.
+                            <div id="faq-content-3" style="max-height: 0px; opacity: 0;" class="overflow-hidden transition-all duration-300 ease-in-out px-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50">
+                                <div class="py-4">
+                                    Kredi kartı, banka havalesi, EFT ve güvenli dijital ödeme yöntemleriyle kolayca ödemenizi gerçekleştirip faturanızı alabilirsiniz.
+                                </div>
                             </div>
                         </div>
                         <!-- FAQ 4 -->
                         <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden transition">
                             <button onclick="toggleFaq(4)" class="w-full text-left p-6 font-semibold flex items-center justify-between text-lg text-slate-100 hover:text-blue-400">
                                 <span>Güncellemeler ücretli mi?</span>
-                                <svg id="faq-icon-4" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                <svg id="faq-icon-4" class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
-                            <div id="faq-content-4" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50 pt-4">
-                                Aktif lisans aboneliğiniz süresince çıkan tüm güvenlik yamaları, sürüm yükseltmeleri ve yeni hile imza veritabanı güncellemeleri tamamen ücretsizdir.
+                            <div id="faq-content-4" style="max-height: 0px; opacity: 0;" class="overflow-hidden transition-all duration-300 ease-in-out px-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50">
+                                <div class="py-4">
+                                    Aktif lisans aboneliğiniz süresince çıkan tüm güvenlik yamaları, sürüm yükseltmeleri ve yeni hile imza veritabanı güncellemeleri tamamen ücretsizdir.
+                                </div>
                             </div>
                         </div>
                         <!-- FAQ 5 -->
                         <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden transition">
                             <button onclick="toggleFaq(5)" class="w-full text-left p-6 font-semibold flex items-center justify-between text-lg text-slate-100 hover:text-blue-400">
                                 <span>Sistem nasıl çalışır?</span>
-                                <svg id="faq-icon-5" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                <svg id="faq-icon-5" class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
-                            <div id="faq-content-5" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50 pt-4">
-                                Oyun sunucunuza entegre edilen hafif modüllerimiz, istemci ile sunucu arasındaki tüm veri akışını gerçek zamanlı denetleyerek şüpheli paketleri anında bloke eder.
+                            <div id="faq-content-5" style="max-height: 0px; opacity: 0;" class="overflow-hidden transition-all duration-300 ease-in-out px-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50">
+                                <div class="py-4">
+                                    Oyun sunucunuza entegre edilen hafif modüllerimiz, istemci ile sunucu arasındaki tüm veri akışını gerçek zamanlı denetleyerek şüpheli paketleri anında bloke eder.
+                                </div>
                             </div>
                         </div>
                         <!-- FAQ 6 -->
                         <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden transition">
                             <button onclick="toggleFaq(6)" class="w-full text-left p-6 font-semibold flex items-center justify-between text-lg text-slate-100 hover:text-blue-400">
                                 <span>Oyuncularımda FPS düşüşü olur mu?</span>
-                                <svg id="faq-icon-6" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                <svg id="faq-icon-6" class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
-                            <div id="faq-content-6" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50 pt-4">
-                                Kesinlikle hayır. Optimizasyon odaklı mimarimiz sayesinde oyuncularınız herhangi bir takılma, gecikme veya FPS kaybı yaşamaz.
+                            <div id="faq-content-6" style="max-height: 0px; opacity: 0;" class="overflow-hidden transition-all duration-300 ease-in-out px-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50">
+                                <div class="py-4">
+                                    Kesinlikle hayır. Optimizasyon odaklı mimarimiz sayesinde oyuncularınız herhangi bir takılma, gecikme veya FPS kaybı yaşamaz.
+                                </div>
                             </div>
                         </div>
                         <!-- FAQ 7 -->
                         <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden transition">
                             <button onclick="toggleFaq(7)" class="w-full text-left p-6 font-semibold flex items-center justify-between text-lg text-slate-100 hover:text-blue-400">
                                 <span>Teknik destek hizmeti sunuluyor mu?</span>
-                                <svg id="faq-icon-7" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                <svg id="faq-icon-7" class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
-                            <div id="faq-content-7" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50 pt-4">
-                                Evet, uzman teknik ekibimiz kurulum aşamasında ve sonrasında yaşayabileceğiniz her türlü sorunda size kesintisiz destek sağlamaktadır.
+                            <div id="faq-content-7" style="max-height: 0px; opacity: 0;" class="overflow-hidden transition-all duration-300 ease-in-out px-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50">
+                                <div class="py-4">
+                                    Evet, uzman teknik ekibimiz kurulum aşamasında ve sonrasında yaşayabileceğiniz her türlü sorunda size kesintisiz destek sağlamaktadır.
+                                </div>
                             </div>
                         </div>
                         <!-- FAQ 8 -->
                         <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden transition">
                             <button onclick="toggleFaq(8)" class="w-full text-left p-6 font-semibold flex items-center justify-between text-lg text-slate-100 hover:text-blue-400">
                                 <span>Deneme sürümü talep edebilir miyim?</span>
-                                <svg id="faq-icon-8" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                <svg id="faq-icon-8" class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
-                            <div id="faq-content-8" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50 pt-4">
-                                Tabii ki, sistemimizin performansını kendi sunucunuzda test edebilmeniz için 1 günlük ücretsiz deneme imkanı sunuyoruz.
+                            <div id="faq-content-8" style="max-height: 0px; opacity: 0;" class="overflow-hidden transition-all duration-300 ease-in-out px-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50">
+                                <div class="py-4">
+                                    Tabii ki, sistemimizin performansını kendi sunucunuzda test edebilmeniz için 1 günlük ücretsiz deneme imkanı sunuyoruz.
+                                </div>
                             </div>
                         </div>
                         <!-- FAQ 9 -->
                         <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden transition">
                             <button onclick="toggleFaq(9)" class="w-full text-left p-6 font-semibold flex items-center justify-between text-lg text-slate-100 hover:text-blue-400">
                                 <span>Birden fazla sunucu için indirim var mı?</span>
-                                <svg id="faq-icon-9" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                <svg id="faq-icon-9" class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
-                            <div id="faq-content-9" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50 pt-4">
-                                Çoklu sunucu barındıran projeler ve kurumsal iş ortaklıklarımız için özel avantajlı fiyatlandırma teklifleri sunmaktayız. İletişime geçebilirsiniz.
+                            <div id="faq-content-9" style="max-height: 0px; opacity: 0;" class="overflow-hidden transition-all duration-300 ease-in-out px-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50">
+                                <div class="py-4">
+                                    Çoklu sunucu barındıran projeler ve kurumsal iş ortaklıklarımız için özel avantajlı fiyatlandırma teklifleri sunmaktayız. İletişime geçebilirsiniz.
+                                </div>
                             </div>
                         </div>
                         <!-- FAQ 10 -->
                         <div class="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden transition">
                             <button onclick="toggleFaq(10)" class="w-full text-left p-6 font-semibold flex items-center justify-between text-lg text-slate-100 hover:text-blue-400">
                                 <span>Lisans süresi bitince ne olur?</span>
-                                <svg id="faq-icon-10" class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                <svg id="faq-icon-10" class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </button>
-                            <div id="faq-content-10" class="hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50 pt-4">
-                                Lisans süreniz sona erdiğinde koruma hizmeti geçici olarak durdurulur. Yenileme yaptığınız anda sisteminiz kesintisiz olarak tekrar aktif hale gelir.
+                            <div id="faq-content-10" style="max-height: 0px; opacity: 0;" class="overflow-hidden transition-all duration-300 ease-in-out px-6 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50">
+                                <div class="py-4">
+                                    Lisans süreniz sona erdiğinde koruma hizmeti geçici olarak durdurulur. Yenileme yaptığınız anda sisteminiz kesintisiz olarak tekrar aktif hale gelir.
+                                </div>
                             </div>
                         </div>
                     </div>
