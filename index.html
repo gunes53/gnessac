@@ -1,23 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gnessac: Enterprise Anticheat & Digital Forensics</title>
-    <!-- Custom Blue Transparent Favicon with matching (*> symbol -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><text x=%220%22 y=%2224%22 font-family=%22monospace%22 font-size=%2220%22 font-weight=%22bold%22 fill=%22%233A63EC%22>(*&gt;</text></svg>">
+    <!-- Custom White Transparent Favicon with matching (*> symbol -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><text x=%220%22 y=%2224%22 font-family=%22monospace%22 font-size=%2220%22 font-weight=%22bold%22 fill=%22%23ffffff%22>(*&gt;</text></svg>">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
         
         body { 
             background-color: #09090b; 
             color: #ffffff; 
             overflow-x: hidden; 
-            font-family: 'Inter', sans-serif; 
+            font-family: 'Montserrat', sans-serif; 
             margin: 0;
+            letter-spacing: -0.01em;
         }
         
         /* Matrix 0 and 1 Background Canvas */
@@ -79,76 +79,88 @@
     <canvas id="matrixCanvas"></canvas>
 
     <!-- Header / Navbar -->
-    <header class="relative z-20 w-full flex justify-between items-center py-6 px-10 md:px-14 border-b border-[#1f1f22] bg-[#09090b]/90 backdrop-blur-md">
+    <header class="relative z-20 w-full flex justify-between items-center py-4 px-4 md:px-14 bg-transparent">
         <div class="flex items-center gap-3 cursor-pointer py-2 transition" onclick="navigate('home')">
-            <span class="font-bold text-2xl tracking-tight font-mono text-gray-100">(*> gness<span class="text-blue-500">ac</span></span>
+            <span class="font-extralight text-base md:text-lg tracking-tight text-white font-['Montserrat']">(*> gness<span class="text-white">ac</span></span>
         </div>
         
-        <nav class="hidden md:flex gap-8 text-sm font-medium">
-            <a class="nav-link active" onclick="navigate('home', this)">Features</a>
-            <a class="nav-link" onclick="navigate('pricing', this)">Pricing</a>
-            <a class="nav-link" onclick="navigate('docs', this)">Docs</a>
-            <a class="nav-link" onclick="navigate('branding', this)">Branding</a>
-            <a class="nav-link" onclick="navigate('terms', this)">Terms & Privacy</a>
-            <a class="nav-link" onclick="navigate('faq', this)">FAQ</a>
-            <a class="nav-link" onclick="navigate('home', this)">Download</a>
-            <a href="https://discord.com/" target="_blank" class="nav-link">Discord</a>
+        <nav class="hidden md:flex gap-7 text-xs font-extralight">
+            <a class="nav-link active font-extralight" onclick="navigate('home', this)">Özellikler</a>
+            <a class="nav-link font-extralight" onclick="navigate('pricing', this)">Fiyatlandırma</a>
+            <a class="nav-link font-extralight" onclick="navigate('docs', this)">Dökümanlar</a>
+            <a class="nav-link font-extralight" onclick="navigate('branding', this)">Marka</a>
+            <a class="nav-link font-extralight" onclick="navigate('terms', this)">Şartlar ve Gizlilik</a>
+            <a class="nav-link font-extralight" onclick="navigate('faq', this)">SSS</a>
+            <a class="nav-link font-extralight" onclick="navigate('home', this)">İndir</a>
+            <a href="https://discord.com/" target="_blank" class="nav-link font-extralight">Discord</a>
         </nav>
         
-        <div class="flex items-center gap-5">
-            <a onclick="navigate('login', this)" class="nav-link text-sm font-medium hidden md:block">Log in</a>
-            <button onclick="navigate('register', this)" class="neon-btn px-5 py-2 text-sm font-semibold rounded-md text-white cursor-pointer">Sign up</button>
+        <div class="flex items-center gap-3">
+            <a onclick="navigate('login', this)" class="nav-link text-xs font-extralight text-white hidden md:block">Giriş yap</a>
+            <button onclick="navigate('register', this)" class="neon-btn px-3 py-1.5 md:px-3.5 md:py-1.5 text-xs font-semibold rounded-md text-white cursor-pointer">Kayıt ol</button>
+            
+            <!-- Mobile Menu Hamburger Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-white p-2 focus:outline-none cursor-pointer">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-[#09090b]/95 backdrop-blur-xl border-b border-[#27272a] px-6 py-6 z-30 space-y-4 shadow-2xl">
+        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('home', this); toggleMobileMenu();">Özellikler</a>
+        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('pricing', this); toggleMobileMenu();">Fiyatlandırma</a>
+        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('docs', this); toggleMobileMenu();">Dökümanlar</a>
+        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('branding', this); toggleMobileMenu();">Marka</a>
+        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('terms', this); toggleMobileMenu();">Şartlar ve Gizlilik</a>
+        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('faq', this); toggleMobileMenu();">SSS</a>
+        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('home', this); toggleMobileMenu();">İndir</a>
+        <a href="https://discord.com/" target="_blank" class="block nav-link text-base font-extralight py-1">Discord</a>
+        <div class="pt-4 border-t border-[#27272a]">
+            <a onclick="navigate('login', this); toggleMobileMenu();" class="block text-white text-base font-extralight py-2">Giriş yap</a>
+        </div>
+    </div>
 
     <!-- 1. HOME SECTION -->
     <main id="home" class="page-section active">
         <div class="flex flex-col justify-center h-full px-8 md:px-24 pt-20 lg:pt-28 max-w-5xl">
             <div class="mb-6">
-                <span class="font-mono text-4xl font-extrabold text-white tracking-tighter">(*></span>
+                <span class="text-4xl font-extrabold text-white tracking-tighter font-['Montserrat']">(*></span>
             </div>
 
             <h1 id="typewriterHeading" class="text-6xl md:text-[5.5rem] font-extrabold tracking-tight leading-[1.1] mb-6 text-white min-h-[140px] md:min-h-[200px]">
-                <span id="typedText"></span><span id="cursor" class="animate-pulse text-blue-500">|</span>
+                <span id="typedText" class="text-white inline-block transition-all duration-500 transform translate-y-0 opacity-100"></span><span id="cursor" class="animate-pulse text-white">|</span>
             </h1>
-            <p id="heroSub" class="text-xl md:text-2xl text-gray-300 mb-8 font-medium max-w-2xl">
-                Cheaters bury the evidence. gnessac dives for it.
+            <p id="heroSub" class="text-lg md:text-xl text-gray-300 mb-8 font-medium max-w-3xl leading-relaxed drop-shadow-md">
+                Hileciler kanıtları ustaca gizler ve izleri yok etmeye çalışır; ancak <strong class="text-white">gnessac</strong>; gelişmiş post-mortem dijital adli bilişim mimarisi, uçucu bellek tarama algoritmaları ve çekirdek düzeyindeki derinlemesine telemetri protokolleri sayesinde en karmaşık bypass ve gizleme girişimlerini bile saniyeler içinde gün yüzüne çıkarır. Kurumsal turnuvalar ve rekabetçi topluluk sunucuları için tavizsiz adalet sağlar.
             </p>
 
-            <!-- Detailed Corporate Content Expansion -->
-            <div class="mb-12 max-w-4xl bg-[#121214] border border-[#27272a] rounded-xl shadow-xl overflow-hidden transition-all duration-300">
+            <!-- Detailed Corporate Content Expansion (Collapsed by default, Thin Geometric Sans-Serif) -->
+            <div class="mb-12 max-w-4xl bg-[#121214] border border-[#27272a] rounded-xl shadow-xl overflow-hidden transition-all duration-300 font-['Montserrat'] font-extralight">
                 <div onclick="toggleHomeAccordion(this)" class="p-6 cursor-pointer flex justify-between items-center select-none hover:bg-[#18181b] transition">
-                    <h3 class="text-xl font-bold text-white tracking-wide">Comprehensive Overview of <span class="text-blue-500">gnessac Technologies</span>, Enterprise Services & Game Forensics</h3>
-                    <span class="home-acc-icon text-gray-300 font-bold transition-transform duration-300">▼</span>
+                    <h3 class="text-lg md:text-xl font-extralight text-white tracking-wide"><span class="text-blue-500 font-normal">gnessac Teknolojileri</span>, Kurumsal Hizmetler ve Oyun Adli Bilişimi Hakkında Kapsamlı Genel Bakış</h3>
+                    <span class="home-acc-icon text-white font-bold transition-transform duration-300">▼</span>
                 </div>
-                <div id="homeAccordionContent" style="display: block;" class="px-8 pb-8 pt-0 space-y-6 text-gray-200 text-base leading-relaxed border-t border-[#27272a] mt-2 pt-6">
-                    <p>
-                        In today's highly dynamic competitive gaming landscape, esports tournaments, and dedicated community multiplayer servers, bad actors continuously engineer sophisticated bypasses, obfuscated memory injectors, kernel-level hooks, and automated macro frameworks designed to compromise absolute fair-play integrity. Under the flagship <strong class="text-white">gnessac</strong> brand, our platform establishes an uncompromising gold standard for digital forensics by deploying advanced post-mortem analysis engines engineered to detect, isolate, and document illicit tampering across premier competitive titles with surgical cryptographic precision.
+                <div id="homeAccordionContent" style="display: none;" class="px-8 pb-8 pt-0 space-y-6 text-gray-300 text-sm md:text-base leading-relaxed border-t border-[#27272a] mt-2 pt-6 font-extralight">
+                    <p class="font-extralight">
+                        Günümüzün son derece dinamik rekabetçi oyun dünyasında, e-spor turnuvalarında ve özel topluluk çok oyunculu sunucularında kötü niyetli kişiler; mutlak adil oyun bütünlüğünü tehlikeye atmak için gelişmiş baypaslar, gizlenmiş bellek enjektörleri, çekirdek düzeyinde kancalar ve otomatik makro altyapıları mühendislik yoluyla üretmeye devam etmektedir. Amiral gemisi <strong class="text-white font-normal">gnessac</strong> markası altında platformumuz; en popüler rekabetçi yapımlarda izinsiz müdahaleleri tespit etmek, izole etmek ve belgelendirmek için tasarlanmış gelişmiş ölüm sonrası analiz motorlarını cerrahi kriptografik hassasiyetle devreye sokarak dijital adli bilişim için tavizsiz bir altın standart oluşturur.
                     </p>
-                    <p>
-                        <strong>Core Architecture & Post-Mortem Digital Forensics:</strong> Our platform departs from conventional, intrusive background anti-cheat drivers by executing deep system telemetry verifications during active staff-supervised moderation and screening sessions. By thoroughly scrutinizing volatile RAM allocations, process image headers, prefetch logs, temporary execution directories, and system registry hives, server administrators receive unalterable evidentiary compliance reports within seconds of scan initialization.
+                    <p class="font-extralight">
+                        <strong class="text-white font-normal">Temel Mimari ve Post-Mortem Dijital Adli Bilişim:</strong> Platformumuz, geleneksel ve müdahaleci arka plan anti-cheat sürücülerinden farklı olarak, aktif yetkili denetimi ve tarama seansları sırasında derin sistem telemetri doğrulamaları gerçekleştirir. Uçucu RAM tahsisatlarını, süreç görüntü başlıklarını, prefetch kayıtlarını, geçici yürütme dizinlerini ve sistem kayıt defteri kovanlarını titizlikle inceleyerek sunucu yöneticilerinin tarama başlatılmasından saniyeler sonra değiştirilemez delil uyumluluk raporları almasını sağlar.
                     </p>
-                    <p>
-                        <strong>Game-Specific Forensic Scanning Modules:</strong>
-                        <ul class="list-disc pl-6 space-y-2 mt-3 text-gray-300">
-                            <li><strong class="text-white">Minecraft Java Edition:</strong> Specialized deep-memory inspection for hacked clients, modified jar class loaders, DLL wrappers, reached/reach-spoofing injectors, and automated client automation modules across PvP and faction networks.</li>
-                            <li><strong class="text-white">Grand Theft Auto V & FiveM Roleplay:</strong> Advanced detection protocols targeting unauthorized Lua script executors, menu injection frameworks, weapon damage modders, and custom resource bypasses on high-population RP servers.</li>
-                            <li><strong class="text-white">San Andreas Multiplayer (SA-MP):</strong> Legacy memory verification, custom client DLL validation, and unalterable hook detection for classic community servers.</li>
-                            <li><strong class="text-white">Rust & Survival Environments:</strong> Comprehensive memory mapping to uncover ESP overlays, silent aim vectors, recoil compensation scripts, and unauthorized asset tampering within volatile server sessions.</li>
-                            <li><strong class="text-white">Counter-Strike 2 & Tactical Shooters:</strong> Heuristic behavioral input analysis evaluating mouse movement distributions, angular snap velocities, and unauthorized overlay hooks to guarantee uncompromised competitive ranking integrity.</li>
+                    <p class="font-extralight">
+                        <strong class="text-white font-normal">Oyun Bazlı Adli Tarama Modülleri:</strong> 
+                        <ul class="list-disc pl-6 space-y-2 mt-2 font-extralight text-gray-300">
+                            <li><strong class="text-white font-normal">Minecraft Java Sürümü:</strong> PvP ve faction ağlarında hileli istemciler, modifiye edilmiş jar sınıf yükleyicileri, DLL sarmalayıcıları ve otomatik menzil (reach) manipülasyonları için derin bellek denetimi.</li>
+                            <li><strong class="text-white font-normal">GTA V & FiveM Roleplay:</strong> Yüksek popülasyonlu RP sunucularında yetkisiz Lua betik yürütücülerini, menzil enjeksiyon çerçevelerini ve silah hasar modlayıcılarını hedefleyen gelişmiş tespit protokolleri.</li>
+                            <li><strong class="text-white font-normal">Rust & Hayatta Kalma Ortamları:</strong> Volaktif sunucu oturumlarında ESP kaplamalarını, sessiz nişan vektörlerini ve geri tepme telafi script'lerini ortaya çıkarmak için kapsamlı bellek haritalama.</li>
+                            <li><strong class="text-white font-normal">Counter-Strike 2 & Taktiksel Nişancı:</strong> Tavizsiz rekabetçi sıralama bütünlüğünü garanti etmek için fare hareketi dağılımlarını, açısal hızlanma ivmelerini ve yetkisiz kaplama kancalarını değerlendiren sezgisel girdi analizi.</li>
                         </ul>
                     </p>
-                    <p>
-                        <strong>Our Advanced Enterprise Services & Security Modules:</strong>
-                        <ul class="list-disc pl-6 space-y-2 mt-3 text-gray-300">
-                            <li><strong class="text-white">Real-Time Screenshare & Pin Verification:</strong> Secure staff pin generation enables rapid session linking, ensuring that clients execute diagnostic binaries under strict cryptographic supervision.</li>
-                            <li><strong class="text-white">Memory Hook & DLL Integrity Inspection:</strong> Rigorous examination of running process virtual spaces to expose hidden injectors, spliced instruction hooks, and unauthorized runtime modifications.</li>
-                            <li><strong class="text-white">Heuristic Macro & Input Behavioral Analysis:</strong> Algorithmic evaluation of input timing irregularities and mouse movement distributions to uncover automated assistance and macro software.</li>
-                            <li><strong class="text-white">Automated Webhook & Discord Telemetry Streaming:</strong> Instantaneous dispatch of audit logs, hardware identification hashes (HWID), and compliance verification screenshots directly to private staff channels.</li>
-                        </ul>
-                    </p>
-                    <p>
-                        <strong>Absolute Data Sovereignty & Privacy Compliance:</strong> Engineered with strict international privacy regulations at its core, <strong class="text-white">gnessac</strong> guarantees that sensitive personal documents, private web browser histories, and confidential communications remain strictly untouched. We capture exclusively verified anti-cheat metadata and a single compliance screenshot at scan conclusion, purging all records automatically after 21 days to ensure absolute user confidentiality.
+                    <p class="font-extralight">
+                        <strong class="text-white font-normal">Mutlak Veri Egemenliği ve Gizlilik Uyumluluğu:</strong> Uluslararası gizlilik düzenlemeleri (GDPR ve CCPA) temel alınarak tasarlanan <strong class="text-white font-normal">gnessac</strong>; hassas kişisel belgelerin, özel web tarayıcısı geçmişlerinin ve gizli iletişimlerin kesinlikle dokunulmaz kalmasını garanti eder. Tarama bitiminde yalnızca doğrulanmış anti-cheat meta verilerini ve tek bir uyumluluk ekran görüntüsünü yakalar; mutlak gizliliği sağlamak amacıyla tüm kayıtları 21 gün sonra otomatik olarak imha eder.
                     </p>
                 </div>
             </div>
@@ -159,18 +171,18 @@
                     <svg class="w-4 h-4 text-white" viewBox="0 0 88 88" fill="currentColor">
                         <path d="M0 12.402l35.687-4.86v34.19H0V12.402zm35.687 35.688v35.485L0 78.713V48.09h35.687zm5.556-41.202L88 0v41.488H41.243V6.888zm46.757 41.201V88L41.243 81.39V48.09H88z"/>
                     </svg>
-                    <span>Windows and Linux</span>
+                    <span>Windows ve Linux</span>
                 </div>
             </div>
 
             <div class="flex flex-wrap items-center gap-4 mb-16">
-                <button onclick="navigate('register')" class="neon-btn px-7 py-3 text-[15px] font-semibold rounded flex items-center gap-2 cursor-pointer">Start a scan</button>
-                <button onclick="navigate('docs')" class="px-7 py-3 text-[15px] font-semibold border border-[#27272a] rounded hover:bg-[#18181b] transition cursor-pointer">Read the documentation</button>
+                <button onclick="navigate('register')" class="neon-btn px-7 py-3 text-[15px] font-semibold rounded flex items-center gap-2 cursor-pointer">Tarama başlat</button>
+                <button onclick="navigate('docs')" class="px-7 py-3 text-[15px] font-semibold border border-[#27272a] rounded hover:bg-[#18181b] transition cursor-pointer">Dökümantasyonu oku</button>
             </div>
 
             <!-- Supported Games Bar (All Clickable) -->
             <div class="flex items-center gap-4 flex-wrap pb-12 border-t border-[#1f1f22] pt-8 text-sm">
-                <span class="text-gray-400 font-semibold mr-2">Supported games</span>
+                <span class="text-gray-400 font-semibold mr-2">Desteklenen oyunlar</span>
                 <span onclick="selectGameAndNavigate('Minecraft Java')" class="text-gray-300 font-medium hover:text-blue-400 cursor-pointer transition">Minecraft Java</span>
                 <span onclick="selectGameAndNavigate('Grand Theft Auto V')" class="text-gray-400 hover:text-blue-400 cursor-pointer transition">Grand Theft Auto V</span>
                 <span onclick="selectGameAndNavigate('San Andreas')" class="text-gray-400 hover:text-blue-400 cursor-pointer transition">San Andreas</span>
@@ -193,9 +205,9 @@
 
             <!-- Corporate Copyright Footer -->
             <div class="py-8 border-t border-[#1f1f22] text-center text-xs text-gray-500 font-medium tracking-wide flex flex-col sm:flex-row justify-center items-center gap-4">
-                <span>Copyright © 2026 gnessac.org, All rights reserved.</span>
+                <span>Copyright © 2026 gnessac.org, Tüm hakları saklıdır.</span>
                 <span class="text-gray-600 hidden sm:inline">|</span>
-                <a onclick="navigate('terms')" class="hover:text-white cursor-pointer transition">Terms of Service & Privacy Policy</a>
+                <a onclick="navigate('terms')" class="hover:text-white cursor-pointer transition">Kullanım Şartları ve Gizlilik Politikası</a>
             </div>
         </div>
     </main>
@@ -1052,6 +1064,16 @@
             element.classList.toggle('active');
         }
 
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+
         // Home Enterprise Accordion Toggle
         function toggleHomeAccordion(headerEl) {
             const content = document.getElementById('homeAccordionContent');
@@ -1080,7 +1102,7 @@
             initMatrixColumns();
         });
 
-        const fontSize = 18;
+        const fontSize = 16;
         let columns = 0;
         let drops = [];
 
@@ -1094,19 +1116,19 @@
         initMatrixColumns();
 
         function drawMatrix() {
-            ctx.fillStyle = 'rgba(9, 9, 11, 0.12)';
+            ctx.fillStyle = 'rgba(9, 9, 11, 0.15)';
             ctx.fillRect(0, 0, w, h);
 
-            ctx.font = `700 ${fontSize}px monospace`;
+            ctx.font = `500 ${fontSize}px monospace`;
 
             for (let i = 0; i < drops.length; i++) {
                 const text = Math.random() > 0.5 ? '1' : '0';
                 
                 const rand = Math.random();
                 if (rand > 0.85) {
-                    ctx.fillStyle = '#818cf8';
-                } else if (rand > 0.40) {
-                    ctx.fillStyle = '#3b82f6';
+                    ctx.fillStyle = '#60a5fa';
+                } else if (rand > 0.30) {
+                    ctx.fillStyle = '#2563eb';
                 } else {
                     ctx.fillStyle = '#1e293b';
                 }
@@ -1123,40 +1145,47 @@
         }
 
         function startTypewriterLoop() {
-            const part1 = "Forensic\n";
-            const part2 = "screenshot";
+            const phrases = [
+                "Adli\nscreenshare",
+                "Dijital\ngüvenlik",
+                "Kesin\nçözüm"
+            ];
+            
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typingSpeed = 120;
+            const typedElement = document.getElementById('typedText');
+            if (!typedElement) return;
 
-            function runTypewriter() {
-                const typedElement = document.getElementById('typedText');
-                if (!typedElement) return;
-
-                typedElement.innerHTML = "";
-                let fullString = part1 + part2;
-                let charIndex = 0;
-
-                function typeChar() {
-                    if (charIndex < fullString.length) {
-                        let partial = fullString.substring(0, charIndex + 1);
-                        
-                        let formattedHTML = "";
-                        if (charIndex < part1.length) {
-                            formattedHTML = partial.replace('\n', '<br>');
-                        } else {
-                            let p1Formatted = part1.replace('\n', '<br>');
-                            let p2Part = partial.substring(part1.length);
-                            formattedHTML = p1Formatted + `<span class="text-blue-500">${p2Part}</span>`;
-                        }
-
-                        typedElement.innerHTML = formattedHTML;
-                        charIndex++;
-                        setTimeout(typeChar, 70);
-                    } else {
-                        setTimeout(runTypewriter, 3000);
+            function typeWriter() {
+                const currentPhrase = phrases[phraseIndex];
+                
+                if (!isDeleting) {
+                    typedElement.innerHTML = currentPhrase.substring(0, charIndex + 1).replace('\n', '<br>');
+                    charIndex++;
+                    
+                    if (charIndex === currentPhrase.length) {
+                        isDeleting = true;
+                        setTimeout(typeWriter, 2200); // Wait before erasing
+                        return;
+                    }
+                } else {
+                    typedElement.innerHTML = currentPhrase.substring(0, charIndex - 1).replace('\n', '<br>');
+                    charIndex--;
+                    
+                    if (charIndex === 0) {
+                        isDeleting = false;
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                        setTimeout(typeWriter, 400); // Pause before next phrase
+                        return;
                     }
                 }
-                typeChar();
+                
+                setTimeout(typeWriter, isDeleting ? 60 : typingSpeed);
             }
-            runTypewriter();
+
+            typeWriter();
         }
 
         window.onload = function() { 
@@ -1166,55 +1195,61 @@
             startTypewriterLoop();
         };
 
-        // Mouse trailing anti-cheat code matrix effect
-        let lastMouseX = 0;
-        let lastMouseY = 0;
-        let mouseMoveCounter = 0;
+        // Click / Tap triggered anti-cheat code matrix effect (10 distinct codes spawning at once)
+        document.addEventListener('click', function(e) {
+            // Prevent triggering if clicking interactive elements like buttons, links, etc.
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.closest('button') || e.target.closest('a') || e.target.closest('input')) {
+                return;
+            }
 
-        document.addEventListener('mousemove', function(e) {
-            lastMouseX = e.clientX;
-            lastMouseY = e.clientY;
-            mouseMoveCounter++;
+            const clickX = e.clientX;
+            const clickY = e.clientY;
 
-            if (mouseMoveCounter % 4 === 0) {
-                const anticheatNames = [
-                    "Vanguard_Drv", 
-                    "EasyAntiCheat", 
-                    "BattlEye_Core",
-                    "VAC_Secure", 
-                    "TP_Memory_Scan", 
-                    "XignCode3",
-                    "GameGuard", 
-                    "Ace_Kernel", 
-                    "Kernel_Hook", 
-                    "HWID_Guard"
-                ];
+            const anticheatCodes = [
+                "Vanguard_Drv_0x7F", 
+                "EasyAntiCheat_Core", 
+                "BattlEye_Hook_99",
+                "VAC_Secure_Mem_Scan", 
+                "TP_Memory_Integrity", 
+                "XignCode3_Engine",
+                "GameGuard_Shield_V2", 
+                "Ace_Kernel_Debugger", 
+                "Kernel_Hook_Verify", 
+                "HWID_Guard_Bypass_0"
+            ];
 
-                const container = document.body;
+            const container = document.body;
+
+            // Generate exactly 10 distinct codes scattered around the click point
+            for (let i = 0; i < anticheatCodes.length; i++) {
                 const span = document.createElement('div');
-                const randomName = anticheatNames[Math.floor(Math.random() * anticheatNames.length)];
+                const randomCode = anticheatCodes[i];
                 const randomHex = '0x' + Math.floor(Math.random()*16777215).toString(16).toUpperCase();
                 
-                span.innerText = `[TRACE] ${randomName}:${randomHex}`;
-                span.style.position = 'fixed';
-                span.style.left = (lastMouseX + 18) + 'px';
-                span.style.top = (lastMouseY + 18) + 'px';
-                span.style.fontFamily = 'monospace';
-                span.style.fontSize = '10px';
-                
-                span.style.color = Math.random() > 0.5 ? '#ef4444' : '#ffffff';
+                // Scatter offsets around the click position
+                const offsetX = (Math.random() - 0.5) * 220;
+                const offsetY = (Math.random() - 0.5) * 160;
 
+                span.innerText = `[ANTICEHEAT_TRACE] ${randomCode}:${randomHex}`;
+                span.style.position = 'fixed';
+                span.style.left = (clickX + offsetX) + 'px';
+                span.style.top = (clickY + offsetY) + 'px';
+                span.style.fontFamily = 'Montserrat, monospace';
+                span.style.fontSize = '11px';
+                span.style.fontWeight = '700';
+                span.style.color = '#ef4444';
+                span.style.textShadow = '0 0 10px rgba(239, 68, 68, 0.8)';
                 span.style.zIndex = '9999';
                 span.style.pointerEvents = 'none';
-                span.style.transition = 'all 0.8s ease-out';
-                span.style.opacity = '0.95';
+                span.style.transition = 'all 0.9s ease-out';
+                span.style.opacity = '1';
 
                 container.appendChild(span);
 
                 setTimeout(() => {
                     span.style.opacity = '0';
-                    span.style.transform = `translate(${Math.random() * 60 - 30}px, ${Math.random() * -60 - 20}px) scale(0.85)`;
-                }, 30);
+                    span.style.transform = `translate(${(Math.random() - 0.5) * 60}px, ${-40 - Math.random() * 50}px) scale(0.9)`;
+                }, 50);
 
                 setTimeout(() => {
                     span.remove();
