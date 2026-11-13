@@ -68,7 +68,7 @@
 </head>
 <body>
 
-    <!-- Matrix Background -->
+    <!-- Matrix Background Canvas -->
     <canvas id="matrixCanvas"></canvas>
 
     <!-- Header / Navbar -->
@@ -314,7 +314,7 @@
                         <ul class="list-disc pl-6 space-y-3 mt-3 text-gray-300">
                             <li data-tr="<strong class='text-white'>Gerçek Zamanlı Ekran Paylaşımı ve Pin Doğrulama Protokolü:</strong> Güvenli personel pin üretimi, moderatör paneli ile hedef istemci arasında anlık oturum bağlantısı kurarak tanılama ikili dosyalarının sıkı kriptografik denetim altında çalışmasını sağlar." data-en="<strong class='text-white'>Real-Time Screenshare and Pin Verification Protocol:</strong> Secure staff pin generation establishes an instant session connection between the moderator panel and the target client, ensuring diagnostic binaries operate under strict cryptographic scrutiny."><strong class="text-white">Gerçek Zamanlı Ekran Paylaşımı ve Pin Doğrulama Protokolü:</strong> Güvenli personel pin üretimi, moderatör paneli ile hedef istemci arasında anlık oturum bağlantısı kurarak tanılama ikili dosyalarının sıkı kriptografik denetim altında çalışmasını sağlar.</li>
                             <li data-tr="<strong class='text-white'>Bellek Kancası (Hook) ve DLL Bütünlük İncelemesi:</strong> Gizli enjektörleri, eklemlenmiş yönergeleri, satır içi sapmaları ve yetkisiz çalışma zamanı bellek değişikliklerini ortaya çıkarmak için çalışan süreç sanal alanlarının titizlikle incelenmesi." data-en="<strong class='text-white'>Memory Hook and DLL Integrity Inspection:</strong> Meticulous inspection of running process sandboxes to uncover hidden injectors, spliced instructions, inline detours, and unauthorized runtime memory alterations."><strong class="text-white">Bellek Kancası (Hook) ve DLL Bütünlük İncelemesi:</strong> Gizli enjektörleri, eklemlenmiş yönergeleri, satır içi sapmaları ve yetkisiz çalışma zamanı bellek değişikliklerini ortaya çıkarmak için çalışan süreç sanal alanlarının titizlikle incelenmesi.</li>
-                            <li data-tr="<strong class='text-white'>Dosya Sistemi Kalıntısı ve İz Kurtarma:</strong> Silinmiş hile yükleyicileri ve spoof araçlarının kalıntılarını ortaya çıkarmak amacıyla prefetch dosyalarının, yakın tarihli belge geçmişlerinin, geçici uygulama dizinlerinin ve kayıt defteri kovanlarının derinlemesine taranması." data-en="<strong class='text-white'>File System Artifact and Trace Recovery:</strong> Deep scanning of prefetch files, recent document histories, temporary application directories, and registry hives to uncover remnants of deleted cheat loaders and spoofing tools."><strong class="text-white">Dosya Sistemi Kalıntısı ve İz Kurtarma:</strong> Silinmiş hile yükleyicileri ve spoof araçlarının kalıntılarını ortaya çıkarmak amacıyla prefetch dosyalarının, yakın tarihli belge geçmişlerinin, geçici uygulama dizinlerinin ve kayıt defteri kovanlarının derinlemesine taranması.</li>
+                            <li data-tr="<strong class='text-white'>Dosya Sistemi Kalıntısı ve İz Kurtarma:</strong> Silinmiş hile yükleyicileri ve spoof araçlarının kalıntılarını ortaya çıkarmak amacıyla prefetch dosyelerinin, yakın tarihli belge geçmişlerinin, geçici uygulama dizinlerinin ve kayıt defteri kovanlarının derinlemesine taranması." data-en="<strong class='text-white'>File System Artifact and Trace Recovery:</strong> Deep scanning of prefetch files, recent document histories, temporary application directories, and registry hives to uncover remnants of deleted cheat loaders and spoofing tools."><strong class="text-white">Dosya Sistemi Kalıntısı ve İz Kurtarma:</strong> Silinmiş hile yükleyicileri ve spoof araçlarının kalıntılarını ortaya çıkarmak amacıyla prefetch dosyelerinin, yakın tarihli belge geçmişlerinin, geçici uygulama dizinlerinin ve kayıt defteri kovanlarının derinlemesine taranması.</li>
                             <li data-tr="<strong class='text-white'>Sezgisel Makro ve Girdi Davranış Analizi:</strong> Otomatik yardım yazılımlarını ve makroları açığa çıkarmak için girdi zamanlama düzensizliklerinin, tıklama dağılım örüntülerinin ve fare hareketi yörüngelerinin algoritmik değerlendirmesi." data-en="<strong class='text-white'>Heuristic Macro and Input Behavior Analysis:</strong> Algorithmic evaluation of input timing irregularities, click distribution patterns, and mouse movement trajectories to expose automated assistance software and macros."><strong class="text-white">Sezgisel Makro ve Girdi Davranış Analizi:</strong> Otomatik yardım yazılımlarını ve makroları açığa çıkarmak için girdi zamanlama düzensizliklerinin, tıklama dağılım örüntülerinin ve fare hareketi yörüngelerinin algoritmik değerlendirmesi.</li>
                             <li data-tr="<strong class='text-white'>Otomatik Webhook ve Discord Telemetri Akışı:</strong> Denetim günlüklerinin, donanım kimliği özetlerinin (HWID) ve uyumluluk doğrulama ekran görüntülerinin doğrudan özel personel kanallarına anlık olarak aktarılması." data-en="<strong class='text-white'>Automated Webhook and Discord Telemetry Stream:</strong> Instant transmission of audit logs, hardware identification hashes (HWID), and compliance verification screenshots directly to private staff channels."><strong class="text-white">Otomatik Webhook ve Discord Telemetri Akışı:</strong> Denetim günlüklerinin, donanım kimliği özetlerinin (HWID) ve uyumluluk doğrulama ekran görüntülerinin doğrudan özel personel kanallarına anlık olarak aktarılması.</li>
                         </ul>
@@ -804,7 +804,7 @@
                         <span class="absolute right-4 top-3.5 text-gray-500 cursor-pointer hover:text-white">👁</span>
                     </div>
                     <div class="text-right">
-                        <a data-tr="Şifrenizi mi unuttunuz?" data-en="Forgot your password?" href="#" class="text-xs text-gray-400 hover:text-white">Şifrenizi mi unuttunuz?</a>
+                        <a data-tr="Şifrenizi mi unuttunuz?" data-en="Forgot your password?" onclick="navigate('forgot')" class="text-xs text-gray-400 hover:text-white cursor-pointer">Şifrenizi mi unuttunuz?</a>
                     </div>
                     <button type="submit" class="w-full neon-btn py-3.5 rounded-lg text-white font-bold flex justify-center items-center gap-2 mt-2 cursor-pointer">
                         <span>→]</span> <span data-tr="Giriş yap" data-en="Login">Giriş yap</span>
@@ -823,6 +823,35 @@
                     
                     <div class="text-center mt-8 text-sm text-gray-400">
                         <span data-tr="Hesabınız yok mu?" data-en="Don't have an account?">Hesabınız yok mu?</span> <a data-tr="Kayıt ol" data-en="Register" onclick="navigate('register')" class="text-white font-bold hover:underline cursor-pointer">Kayıt ol</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- FORGOT PASSWORD SECTION -->
+    <main id="forgot" class="page-section">
+        <div class="flex items-center justify-center min-h-[80vh] px-4">
+            <div class="w-full max-w-md bg-[#121214] border border-[#27272a] rounded-xl p-8 shadow-2xl relative z-10">
+                <div class="mb-6 font-mono text-xl text-white font-bold">(*></div>
+                <h2 data-tr="Şifre sıfırlama talebi" data-en="Password reset request" class="text-2xl font-bold text-white mb-2">Şifre sıfırlama talebi</h2>
+                <p data-tr="Hesabınıza bağlı e-posta adresinizi girin, size sıfırlama talimatlarını gönderelim." data-en="Enter your account email address and we'll send you reset instructions." class="text-sm text-gray-400 mb-6">Hesabınıza bağlı e-posta adresinizi girin, size sıfırlama talimatlarını gönderelim.</p>
+                
+                <div id="forgotSuccessAlert" class="hidden mb-6 p-4 bg-blue-950/40 border border-blue-800/60 rounded-lg text-sm text-blue-300">
+                    <p data-tr="Sıfırlama Talebi Gönderildi!" data-en="Reset Request Sent!" class="font-semibold mb-1">Sıfırlama Talebi Gönderildi!</p>
+                    <p data-tr="E-posta adresinize şifre sıfırlama talimatları başarıyla gönderildi. Lütfen gelen kutunuzu kontrol edin." data-en="Password reset instructions have been successfully sent to your email address. Please check your inbox." class="text-xs text-blue-400 leading-relaxed">E-posta adresinize şifre sıfırlama talimatları başarıyla gönderildi. Lütfen gelen kutunuzu kontrol edin.</p>
+                </div>
+
+                <form id="forgotForm" class="space-y-4" onsubmit="handleForgotSubmit(event)">
+                    <div>
+                        <input type="email" id="forgotEmail" data-tr-placeholder="E-posta adresiniz" data-en-placeholder="Your email address" placeholder="E-posta adresiniz" required class="w-full bg-[#09090b] border border-[#27272a] rounded p-3 text-sm focus:outline-none focus:border-blue-500 transition text-white">
+                    </div>
+                    <button type="submit" class="w-full neon-btn py-3.5 rounded-lg text-white font-bold flex justify-center items-center gap-2 mt-2 cursor-pointer">
+                        <span data-tr="Sıfırlama Bağlantısı Gönder" data-en="Send Reset Link">Sıfırlama Bağlantısı Gönder</span>
+                    </button>
+                    
+                    <div class="text-center mt-6 text-sm text-gray-400">
+                        <a data-tr="Giriş sayfasına dön" data-en="Back to login" onclick="navigate('login')" class="text-white font-bold hover:underline cursor-pointer">Giriş sayfasına dön</a>
                     </div>
                 </form>
             </div>
@@ -901,10 +930,8 @@
             const activeGame = document.querySelector('#pricingTabs button.bg-blue-600')?.innerText || 'Minecraft Java';
             updatePricingTitles(activeGame);
 
-            // Update Register UI dynamically based on step
             updateRegisterUI();
 
-            // Reset typewriter visually and logically
             const typedElement = document.getElementById('typedText');
             if(typedElement) {
                 typedElement.innerHTML = '';
@@ -965,6 +992,22 @@
         function handleLogin(event) {
             event.preventDefault();
             showLoginAlert();
+        }
+
+        function handleForgotSubmit(event) {
+            event.preventDefault();
+            const emailVal = document.getElementById('forgotEmail').value.trim();
+            if(!emailVal) return;
+            
+            document.getElementById('forgotForm').style.display = 'none';
+            document.getElementById('forgotSuccessAlert').classList.remove('hidden');
+
+            setTimeout(() => {
+                navigate('login');
+                document.getElementById('forgotForm').style.display = 'block';
+                document.getElementById('forgotSuccessAlert').classList.add('hidden');
+                document.getElementById('forgotEmail').value = '';
+            }, 4000);
         }
 
         function showLoginAlert() {
@@ -1181,7 +1224,6 @@
             requestAnimationFrame(drawMatrix);
         }
 
-        // Typewriter Logic with Language Support
         const typewriterPhrases = {
             tr: ["Adli\nscreenshare", "Dijital\ngüvenlik", "Kesin\nçözüm"],
             en: ["Forensic\nscreenshare", "Digital\nsecurity", "Absolute\nsolution"]
@@ -1226,7 +1268,6 @@
             typeWriter();
         };
 
-        // Click-triggered 10-code compact anti-cheat effect
         document.addEventListener('click', function(e) {
             if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.closest('button') || e.target.closest('a') || e.target.closest('input')) {
                 return;
