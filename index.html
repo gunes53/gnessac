@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gnessac: Enterprise Anticheat & Digital Forensics</title>
-    <!-- Custom White Transparent Favicon with matching (*> symbol -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><text x=%220%22 y=%2224%22 font-family=%22monospace%22 font-size=%2220%22 font-weight=%22bold%22 fill=%22%23ffffff%22>(*&gt;</text></svg>">
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
@@ -20,7 +18,6 @@
             letter-spacing: -0.01em;
         }
         
-        /* Matrix 0 and 1 Background Canvas */
         #matrixCanvas { 
             position: fixed; 
             top: 0; 
@@ -32,7 +29,6 @@
             opacity: 0.25;
         }
         
-        /* Neon Button Effects */
         .neon-btn { 
             background-color: #2563eb; 
             box-shadow: 0 0 15px rgba(37, 99, 235, 0.4); 
@@ -43,7 +39,6 @@
             box-shadow: 0 0 25px rgba(37, 99, 235, 0.7); 
         }
 
-        /* Page Section Isolation & Animations */
         .page-section {
             display: none;
             position: relative;
@@ -61,12 +56,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Navigation Links */
         .nav-link { color: #9ca3af; border-bottom: 2px solid transparent; padding-bottom: 0.25rem; transition: all 0.2s; text-decoration: none; cursor: pointer; }
         .nav-link:hover { color: #ffffff; }
         .nav-link.active { color: #ffffff; border-bottom-color: #ffffff; }
 
-        /* FAQ Accordion Styles */
         .faq-content { display: none; margin-top: 1rem; color: #9ca3af; font-size: 0.875rem; line-height: 1.5; }
         .faq-item.active .faq-content { display: block; }
         .faq-item.active .faq-icon { transform: rotate(180deg); }
@@ -75,7 +68,7 @@
 </head>
 <body>
 
-    <!-- Matrix 0 and 1 Background Canvas -->
+    <!-- Matrix Background -->
     <canvas id="matrixCanvas"></canvas>
 
     <!-- Header / Navbar -->
@@ -85,21 +78,21 @@
         </div>
         
         <nav class="hidden md:flex gap-7 text-xs font-extralight">
-            <a class="nav-link active font-extralight" onclick="navigate('home', this)">Özellikler</a>
-            <a class="nav-link font-extralight" onclick="navigate('pricing', this)">Fiyatlandırma</a>
-            <a class="nav-link font-extralight" onclick="navigate('docs', this)">Dökümanlar</a>
-            <a class="nav-link font-extralight" onclick="navigate('branding', this)">Marka</a>
-            <a class="nav-link font-extralight" onclick="navigate('terms', this)">Şartlar ve Gizlilik</a>
-            <a class="nav-link font-extralight" onclick="navigate('faq', this)">SSS</a>
-            <a class="nav-link font-extralight" onclick="navigate('home', this)">İndir</a>
+            <a class="nav-link active font-extralight" data-tr="Özellikler" data-en="Features" onclick="navigate('home', this)">Özellikler</a>
+            <a class="nav-link font-extralight" data-tr="Fiyatlandırma" data-en="Pricing" onclick="navigate('pricing', this)">Fiyatlandırma</a>
+            <a class="nav-link font-extralight" data-tr="Dökümanlar" data-en="Documentation" onclick="navigate('docs', this)">Dökümanlar</a>
+            <a class="nav-link font-extralight" data-tr="Marka" data-en="Branding" onclick="navigate('branding', this)">Marka</a>
+            <a class="nav-link font-extralight" data-tr="Şartlar ve Gizlilik" data-en="Terms & Privacy" onclick="navigate('terms', this)">Şartlar ve Gizlilik</a>
+            <a class="nav-link font-extralight" data-tr="SSS" data-en="FAQ" onclick="navigate('faq', this)">SSS</a>
+            <a class="nav-link font-extralight" data-tr="İndir" data-en="Download" onclick="navigate('home', this)">İndir</a>
             <a href="https://discord.com/" target="_blank" class="nav-link font-extralight">Discord</a>
         </nav>
         
         <div class="flex items-center gap-3">
-            <a onclick="navigate('login', this)" class="nav-link text-xs font-extralight text-white hidden md:block">Giriş yap</a>
-            <button onclick="navigate('register', this)" class="neon-btn px-3 py-1.5 md:px-3.5 md:py-1.5 text-xs font-semibold rounded-md text-white cursor-pointer">Kayıt ol</button>
+            <button onclick="toggleLanguage()" id="langToggleBtn" class="px-2.5 py-1 text-xs font-semibold rounded bg-[#18181b] border border-[#27272a] text-gray-300 hover:text-white transition cursor-pointer">EN</button>
+            <a onclick="navigate('login', this)" data-tr="Giriş yap" data-en="Login" class="nav-link text-xs font-extralight text-white hidden md:block">Giriş yap</a>
+            <button onclick="navigate('register', this)" data-tr="Kayıt ol" data-en="Register" class="neon-btn px-3 py-1.5 md:px-3.5 md:py-1.5 text-xs font-semibold rounded-md text-white cursor-pointer">Kayıt ol</button>
             
-            <!-- Mobile Menu Hamburger Button -->
             <button onclick="toggleMobileMenu()" class="md:hidden text-white p-2 focus:outline-none cursor-pointer">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -110,16 +103,16 @@
 
     <!-- Mobile Dropdown Menu -->
     <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-[#09090b]/95 backdrop-blur-xl border-b border-[#27272a] px-6 py-6 z-30 space-y-4 shadow-2xl">
-        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('home', this); toggleMobileMenu();">Özellikler</a>
-        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('pricing', this); toggleMobileMenu();">Fiyatlandırma</a>
-        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('docs', this); toggleMobileMenu();">Dökümanlar</a>
-        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('branding', this); toggleMobileMenu();">Marka</a>
-        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('terms', this); toggleMobileMenu();">Şartlar ve Gizlilik</a>
-        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('faq', this); toggleMobileMenu();">SSS</a>
-        <a class="block nav-link text-base font-extralight py-1" onclick="navigate('home', this); toggleMobileMenu();">İndir</a>
+        <a class="block nav-link text-base font-extralight py-1" data-tr="Özellikler" data-en="Features" onclick="navigate('home', this); toggleMobileMenu();">Özellikler</a>
+        <a class="block nav-link text-base font-extralight py-1" data-tr="Fiyatlandırma" data-en="Pricing" onclick="navigate('pricing', this); toggleMobileMenu();">Fiyatlandırma</a>
+        <a class="block nav-link text-base font-extralight py-1" data-tr="Dökümanlar" data-en="Documentation" onclick="navigate('docs', this); toggleMobileMenu();">Dökümanlar</a>
+        <a class="block nav-link text-base font-extralight py-1" data-tr="Marka" data-en="Branding" onclick="navigate('branding', this); toggleMobileMenu();">Marka</a>
+        <a class="block nav-link text-base font-extralight py-1" data-tr="Şartlar ve Gizlilik" data-en="Terms & Privacy" onclick="navigate('terms', this); toggleMobileMenu();">Şartlar ve Gizlilik</a>
+        <a class="block nav-link text-base font-extralight py-1" data-tr="SSS" data-en="FAQ" onclick="navigate('faq', this); toggleMobileMenu();">SSS</a>
+        <a class="block nav-link text-base font-extralight py-1" data-tr="İndir" data-en="Download" onclick="navigate('home', this); toggleMobileMenu();">İndir</a>
         <a href="https://discord.com/" target="_blank" class="block nav-link text-base font-extralight py-1">Discord</a>
         <div class="pt-4 border-t border-[#27272a]">
-            <a onclick="navigate('login', this); toggleMobileMenu();" class="block text-white text-base font-extralight py-2">Giriş yap</a>
+            <a onclick="navigate('login', this); toggleMobileMenu();" data-tr="Giriş yap" data-en="Login" class="block text-white text-base font-extralight py-2">Giriş yap</a>
         </div>
     </div>
 
@@ -130,59 +123,55 @@
                 <span class="text-3xl font-extrabold text-white tracking-tighter font-['Montserrat']">(*></span>
             </div>
 
-            <h1 id="typewriterHeading" class="text-4xl md:text-[3.5rem] font-extrabold tracking-tight leading-[1.1] mb-4 text-white min-h-[100px] md:min-h-[140px]">
+            <h1 class="text-4xl md:text-[3.5rem] font-extrabold tracking-tight leading-[1.1] mb-4 text-white min-h-[100px] md:min-h-[140px]">
                 <span id="typedText" class="text-white inline-block transition-all duration-500 transform translate-y-0 opacity-100"></span><span id="cursor" class="animate-pulse text-white">|</span>
             </h1>
-            <p id="heroSub" class="text-sm md:text-base text-gray-300 mb-8 font-medium max-w-3xl leading-relaxed drop-shadow-md">
-                Hileciler kanıtları ustaca gizler ve izleri yok etmeye çalışır; ancak <strong class="text-white">gnessac</strong>; gelişmiş post-mortem dijital adli bilişim mimarisi, uçucu bellek tarama algoritmaları ve çekirdek düzeyindeki derinlemesine telemetri protokolleri sayesinde en karmaşık bypass ve gizleme girişimlerini bile saniyeler içinde gün yüzüne çıkarır. Kurumsal turnuvalar ve rekabetçi topluluk sunucuları için tavizsiz adalet sağlar.
+            
+            <p data-tr="Hileciler kanıtları ustaca gizler ve izleri yok etmeye çalışır; ancak <strong class='text-white'>gnessac</strong>; gelişmiş post-mortem dijital adli bilişim mimarisi, uçucu bellek tarama algoritmaları ve çekirdek düzeyindeki derinlemesine telemetri protokolleri sayesinde en karmaşık bypass ve gizleme girişimlerini bile saniyeler içinde gün yüzüne çıkarır. Kurumsal turnuvalar ve rekabetçi topluluk sunucuları için tavizsiz adalet sağlar." data-en="Cheaters masterfully hide evidence and attempt to erase their tracks; however, <strong class='text-white'>gnessac</strong> uncovers even the most complex bypass and obfuscation attempts within seconds, thanks to its advanced post-mortem digital forensics architecture, volatile memory scanning algorithms, and deep kernel-level telemetry protocols. It ensures uncompromising fairness for enterprise tournaments and competitive community servers." class="text-sm md:text-base text-gray-300 mb-8 font-medium max-w-3xl leading-relaxed drop-shadow-md">
+                Hileciler kanıtları ustaca gizler ve izleri yok etmeye çalışır; ancak <strong class='text-white'>gnessac</strong>; gelişmiş post-mortem dijital adli bilişim mimarisi, uçucu bellek tarama algoritmaları ve çekirdek düzeyindeki derinlemesine telemetri protokolleri sayesinde en karmaşık bypass ve gizleme girişimlerini bile saniyeler içinde gün yüzüne çıkarır. Kurumsal turnuvalar ve rekabetçi topluluk sunucuları için tavizsiz adalet sağlar.
             </p>
 
-            <!-- Detailed Corporate Content Expansion (Collapsed by default, Thin Geometric Sans-Serif) -->
             <div class="mb-12 max-w-4xl bg-[#121214] border border-[#27272a] rounded-xl shadow-xl overflow-hidden transition-all duration-300 font-['Montserrat'] font-extralight">
                 <div onclick="toggleHomeAccordion(this)" class="p-6 cursor-pointer flex justify-between items-center select-none hover:bg-[#18181b] transition">
-                    <h3 class="text-lg md:text-xl font-extralight text-white tracking-wide"><span class="text-blue-500 font-normal">gnessac Teknolojileri</span>, Kurumsal Hizmetler ve Oyun Adli Bilişimi Hakkında Kapsamlı Genel Bakış</h3>
-                    <span class="home-acc-icon text-white font-bold transition-transform duration-300">▼</span>
+                    <h3 data-tr="<span class='text-blue-500 font-normal'>gnessac Teknolojileri</span>, Kurumsal Hizmetler ve Oyun Adli Bilişimi Hakkında Kapsamlı Genel Bakış" data-en="<span class='text-blue-500 font-normal'>gnessac Technologies</span>, A Comprehensive Overview of Enterprise Services & Game Forensics" class="text-sm md:text-base font-extralight text-white tracking-tight font-['Montserrat'] pr-4 flex-1"><span class="text-blue-500 font-normal">gnessac Teknolojileri</span>, Kurumsal Hizmetler ve Oyun Adli Bilişimi Hakkında Kapsamlı Genel Bakış</h3>
+                    <span class="home-acc-icon text-white font-bold transition-transform duration-300 flex-shrink-0">▼</span>
                 </div>
                 <div id="homeAccordionContent" style="display: none;" class="px-8 pb-8 pt-0 space-y-6 text-gray-300 text-sm md:text-base leading-relaxed border-t border-[#27272a] mt-2 pt-6 font-extralight">
-                    <p class="font-extralight">
-                        Günümüzün son derece dinamik rekabetçi oyun dünyasında, e-spor turnuvalarında ve özel topluluk çok oyunculu sunucularında kötü niyetli kişiler; mutlak adil oyun bütünlüğünü tehlikeye atmak için gelişmiş baypaslar, gizlenmiş bellek enjektörleri, çekirdek düzeyinde kancalar ve otomatik makro altyapıları mühendislik yoluyla üretmeye devam etmektedir. Amiral gemisi <strong class="text-white font-normal">gnessac</strong> markası altında platformumuz; en popüler rekabetçi yapımlarda izinsiz müdahaleleri tespit etmek, izole etmek ve belgelendirmek için tasarlanmış gelişmiş ölüm sonrası analiz motorlarını cerrahi kriptografik hassasiyetle devreye sokarak dijital adli bilişim için tavizsiz bir altın standart oluşturur.
+                    <p data-tr="Günümüzün son derece dinamik rekabetçi oyun dünyasında, e-spor turnuvalarında ve özel topluluk çok oyunculu sunucularında kötü niyetli kişiler; mutlak adil oyun bütünlüğünü tehlikeye atmak için gelişmiş baypaslar, gizlenmiş bellek enjektörleri, çekirdek düzeyinde kancalar ve otomatik makro altyapıları mühendislik yoluyla üretmeye devam etmektedir. Amiral gemisi <strong class='text-white font-normal'>gnessac</strong> markası altında platformumuz; en popüler rekabetçi yapımlarda izinsiz müdahaleleri tespit etmek, izole etmek ve belgelendirmek için tasarlanmış gelişmiş ölüm sonrası analiz motorlarını cerrahi kriptografik hassasiyetle devreye sokarak dijital adli bilişim için tavizsiz bir altın standart oluşturur." data-en="In today's highly dynamic competitive gaming world, esports tournaments, and private community multiplayer servers, malicious actors continue to engineer advanced bypasses, obfuscated memory injectors, kernel-level hooks, and automated macro infrastructures to compromise absolute fair play integrity. Under the flagship <strong class='text-white font-normal'>gnessac</strong> brand, our platform establishes an uncompromising gold standard for digital forensics by deploying advanced post-mortem analysis engines designed to detect, isolate, and document unauthorized interventions in the most popular competitive titles with surgical cryptographic precision." class="font-extralight">
+                        Günümüzün son derece dinamik rekabetçi oyun dünyasında, e-spor turnuvalarında ve özel topluluk çok oyunculu sunucularında kötü niyetli kişiler; mutlak adil oyun bütünlüğünü tehlikeye atmak için gelişmiş baypaslar, gizlenmiş bellek enjektörleri, çekirdek düzeyinde kancalar ve otomatik makro altyapıları mühendislik yoluyla üretmeye devam etmektedir. Amiral gemisi <strong class='text-white font-normal'>gnessac</strong> markası altında platformumuz; en popüler rekabetçi yapımlarda izinsiz müdahaleleri tespit etmek, izole etmek ve belgelendirmek için tasarlanmış gelişmiş ölüm sonrası analiz motorlarını cerrahi kriptografik hassasiyetle devreye sokarak dijital adli bilişim için tavizsiz bir altın standart oluşturur.
+                    </p>
+                    <p data-tr="<strong class='text-white font-normal'>Temel Mimari ve Post-Mortem Dijital Adli Bilişim:</strong> Platformumuz, geleneksel ve müdahaleci arka plan anti-cheat sürücülerinden farklı olarak, aktif yetkili denetimi ve tarama seansları sırasında derin sistem telemetri doğrulamaları gerçekleştirir. Uçucu RAM tahsisatlarını, süreç görüntü başlıklarını, prefetch kayıtlarını, geçici yürütme dizinlerini ve sistem kayıt defteri kovanlarını titizlikle inceleyerek sunucu yöneticilerinin tarama başlatılmasından saniyeler sonra değiştirilemez delil uyumluluk raporları almasını sağlar." data-en="<strong class='text-white font-normal'>Core Architecture and Post-Mortem Digital Forensics:</strong> Unlike traditional and intrusive background anti-cheat drivers, our platform performs deep system telemetry verifications during active authorized auditing and scanning sessions. By meticulously examining volatile RAM allocations, process image headers, prefetch records, temporary execution directories, and system registry hives, it ensures server administrators receive immutable evidentiary compliance reports within seconds of initiating a scan." class="font-extralight">
+                        <strong class='text-white font-normal'>Temel Mimari ve Post-Mortem Dijital Adli Bilişim:</strong> Platformumuz, geleneksel ve müdahaleci arka plan anti-cheat sürücülerinden farklı olarak, aktif yetkili denetimi ve tarama seansları sırasında derin sistem telemetri doğrulamaları gerçekleştirir. Uçucu RAM tahsisatlarını, süreç görüntü başlıklarını, prefetch kayıtlarını, geçici yürütme dizinlerini ve sistem kayıt defteri kovanlarını titizlikle inceleyerek sunucu yöneticilerinin tarama başlatılmasından saniyeler sonra değiştirilemez delil uyumluluk raporları almasını sağlar.
                     </p>
                     <p class="font-extralight">
-                        <strong class="text-white font-normal">Temel Mimari ve Post-Mortem Dijital Adli Bilişim:</strong> Platformumuz, geleneksel ve müdahaleci arka plan anti-cheat sürücülerinden farklı olarak, aktif yetkili denetimi ve tarama seansları sırasında derin sistem telemetri doğrulamaları gerçekleştirir. Uçucu RAM tahsisatlarını, süreç görüntü başlıklarını, prefetch kayıtlarını, geçici yürütme dizinlerini ve sistem kayıt defteri kovanlarını titizlikle inceleyerek sunucu yöneticilerinin tarama başlatılmasından saniyeler sonra değiştirilemez delil uyumluluk raporları almasını sağlar.
-                    </p>
-                    <p class="font-extralight">
-                        <strong class="text-white font-normal">Oyun Bazlı Adli Tarama Modülleri:</strong> 
+                        <strong data-tr="Oyun Bazlı Adli Tarama Modülleri:" data-en="Game-Based Forensic Scanning Modules:" class="text-white font-normal">Oyun Bazlı Adli Tarama Modülleri:</strong> 
                         <ul class="list-disc pl-6 space-y-2 mt-2 font-extralight text-gray-300">
-                            <li><strong class="text-white font-normal">Minecraft Java Sürümü:</strong> PvP ve faction ağlarında hileli istemciler, modifiye edilmiş jar sınıf yükleyicileri, DLL sarmalayıcıları ve otomatik menzil (reach) manipülasyonları için derin bellek denetimi.</li>
-                            <li><strong class="text-white font-normal">GTA V & FiveM Roleplay:</strong> Yüksek popülasyonlu RP sunucularında yetkisiz Lua betik yürütücülerini, menzil enjeksiyon çerçevelerini ve silah hasar modlayıcılarını hedefleyen gelişmiş tespit protokolleri.</li>
-                            <li><strong class="text-white font-normal">Rust & Hayatta Kalma Ortamları:</strong> Volaktif sunucu oturumlarında ESP kaplamalarını, sessiz nişan vektörlerini ve geri tepme telafi script'lerini ortaya çıkarmak için kapsamlı bellek haritalama.</li>
-                            <li><strong class="text-white font-normal">Counter-Strike 2 & Taktiksel Nişancı:</strong> Tavizsiz rekabetçi sıralama bütünlüğünü garanti etmek için fare hareketi dağılımlarını, açısal hızlanma ivmelerini ve yetkisiz kaplama kancalarını değerlendiren sezgisel girdi analizi.</li>
+                            <li data-tr="<strong class='text-white font-normal'>Minecraft Java Sürümü:</strong> PvP ve faction ağlarında hileli istemciler, modifiye edilmiş jar sınıf yükleyicileri, DLL sarmalayıcıları ve otomatik menzil (reach) manipülasyonları için derin bellek denetimi." data-en="<strong class='text-white font-normal'>Minecraft Java Edition:</strong> Deep memory inspection for hacked clients, modified jar classloaders, DLL wrappers, and automated reach manipulations on PvP and faction networks."><strong class='text-white font-normal'>Minecraft Java Sürümü:</strong> PvP ve faction ağlarında hileli istemciler, modifiye edilmiş jar sınıf yükleyicileri, DLL sarmalayıcıları ve otomatik menzil (reach) manipülasyonları için derin bellek denetimi.</li>
+                            <li data-tr="<strong class='text-white font-normal'>GTA V & FiveM Roleplay:</strong> Yüksek popülasyonlu RP sunucularında yetkisiz Lua betik yürütücülerini, menzil enjeksiyon çerçevelerini ve silah hasar modlayıcılarını hedefleyen gelişmiş tespit protokolleri." data-en="<strong class='text-white font-normal'>GTA V & FiveM Roleplay:</strong> Advanced detection protocols targeting unauthorized Lua script executors, range injection frameworks, and weapon damage modders on high-population RP servers."><strong class='text-white font-normal'>GTA V & FiveM Roleplay:</strong> Yüksek popülasyonlu RP sunucularında yetkisiz Lua betik yürütücülerini, menzil enjeksiyon çerçevelerini ve silah hasar modlayıcılarını hedefleyen gelişmiş tespit protokolleri.</li>
+                            <li data-tr="<strong class='text-white font-normal'>Rust & Hayatta Kalma Ortamları:</strong> Volaktif sunucu oturumlarında ESP kaplamalarını, sessiz nişan vektörlerini ve geri tepme telafi script'lerini ortaya çıkarmak için kapsamlı bellek haritalama." data-en="<strong class='text-white font-normal'>Rust & Survival Environments:</strong> Comprehensive memory mapping to expose ESP overlays, silent aim vectors, and recoil compensation scripts during volatile server sessions."><strong class='text-white font-normal'>Rust & Hayatta Kalma Ortamları:</strong> Volaktif sunucu oturumlarında ESP kaplamalarını, sessiz nişan vektörlerini ve geri tepme telafi script'lerini ortaya çıkarmak için kapsamlı bellek haritalama.</li>
+                            <li data-tr="<strong class='text-white font-normal'>Counter-Strike 2 & Taktiksel Nişancı:</strong> Tavizsiz rekabetçi sıralama bütünlüğünü garanti etmek için fare hareketi dağılımlarını, açısal hızlanma ivmelerini ve yetkisiz kaplama kancalarını değerlendiren sezgisel girdi analizi." data-en="<strong class='text-white font-normal'>Counter-Strike 2 & Tactical Shooters:</strong> Heuristic input analysis evaluating mouse movement distributions, angular acceleration spikes, and unauthorized overlay hooks to guarantee uncompromising competitive ranking integrity."><strong class='text-white font-normal'>Counter-Strike 2 & Taktiksel Nişancı:</strong> Tavizsiz rekabetçi sıralama bütünlüğünü garanti etmek için fare hareketi dağılımlarını, açısal hızlanma ivmelerini ve yetkisiz kaplama kancalarını değerlendiren sezgisel girdi analizi.</li>
                         </ul>
                     </p>
-                    <p class="font-extralight">
-                        <strong class="text-white font-normal">Mutlak Veri Egemenliği ve Gizlilik Uyumluluğu:</strong> Uluslararası gizlilik düzenlemeleri (GDPR ve CCPA) temel alınarak tasarlanan <strong class="text-white font-normal">gnessac</strong>; hassas kişisel belgelerin, özel web tarayıcısı geçmişlerinin ve gizli iletişimlerin kesinlikle dokunulmaz kalmasını garanti eder. Tarama bitiminde yalnızca doğrulanmış anti-cheat meta verilerini ve tek bir uyumluluk ekran görüntüsünü yakalar; mutlak gizliliği sağlamak amacıyla tüm kayıtları 21 gün sonra otomatik olarak imha eder.
+                    <p data-tr="<strong class='text-white font-normal'>Mutlak Veri Egemenliği ve Gizlilik Uyumluluğu:</strong> Uluslararası gizlilik düzenlemeleri (GDPR ve CCPA) temel alınarak tasarlanan <strong class='text-white font-normal'>gnessac</strong>; hassas kişisel belgelerin, özel web tarayıcısı geçmişlerinin ve gizli iletişimlerin kesinlikle dokunulmaz kalmasını garanti eder. Tarama bitiminde yalnızca doğrulanmış anti-cheat meta verilerini ve tek bir uyumluluk ekran görüntüsünü yakalar; mutlak gizliliği sağlamak amacıyla tüm kayıtları 21 gün sonra otomatik olarak imha eder." data-en="<strong class='text-white font-normal'>Absolute Data Sovereignty & Privacy Compliance:</strong> Designed strictly around international privacy regulations (GDPR and CCPA), <strong class='text-white font-normal'>gnessac</strong> guarantees that sensitive personal documents, private web browser histories, and confidential communications remain absolutely untouchable. At the end of a scan, it only captures verified anti-cheat metadata and a single compliance screenshot; to ensure absolute privacy, it automatically destroys all records after 21 days." class="font-extralight">
+                        <strong class='text-white font-normal'>Mutlak Veri Egemenliği ve Gizlilik Uyumluluğu:</strong> Uluslararası gizlilik düzenlemeleri (GDPR ve CCPA) temel alınarak tasarlanan <strong class='text-white font-normal'>gnessac</strong>; hassas kişisel belgelerin, özel web tarayıcısı geçmişlerinin ve gizli iletişimlerin kesinlikle dokunulmaz kalmasını garanti eder. Tarama bitiminde yalnızca doğrulanmış anti-cheat meta verilerini ve tek bir uyumluluk ekran görüntüsünü yakalar; mutlak gizliliği sağlamak amacıyla tüm kayıtları 21 gün sonra otomatik olarak imha eder.
                     </p>
                 </div>
             </div>
 
-            <!-- Supported Platforms Badge Bar -->
             <div class="flex items-center gap-3 mb-12 text-sm text-gray-400 font-medium">
                 <div class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-white" viewBox="0 0 88 88" fill="currentColor">
-                        <path d="M0 12.402l35.687-4.86v34.19H0V12.402zm35.687 35.688v35.485L0 78.713V48.09h35.687zm5.556-41.202L88 0v41.488H41.243V6.888zm46.757 41.201V88L41.243 81.39V48.09H88z"/>
-                    </svg>
-                    <span>Windows ve Linux</span>
+                    <svg class="w-4 h-4 text-white" viewBox="0 0 88 88" fill="currentColor"><path d="M0 12.402l35.687-4.86v34.19H0V12.402zm35.687 35.688v35.485L0 78.713V48.09h35.687zm5.556-41.202L88 0v41.488H41.243V6.888zm46.757 41.201V88L41.243 81.39V48.09H88z"/></svg>
+                    <span data-tr="Windows ve Linux" data-en="Windows and Linux">Windows ve Linux</span>
                 </div>
             </div>
 
             <div class="flex flex-wrap items-center gap-4 mb-16">
-                <button onclick="navigate('register')" class="neon-btn px-7 py-3 text-[15px] font-semibold rounded flex items-center gap-2 cursor-pointer">Tarama başlat</button>
-                <button onclick="navigate('docs')" class="px-7 py-3 text-[15px] font-semibold border border-[#27272a] rounded hover:bg-[#18181b] transition cursor-pointer">Dökümantasyonu oku</button>
+                <button data-tr="Tarama başlat" data-en="Start scan" onclick="navigate('register')" class="neon-btn px-7 py-3 text-[15px] font-semibold rounded flex items-center gap-2 cursor-pointer">Tarama başlat</button>
+                <button data-tr="Dökümantasyonu oku" data-en="Read documentation" onclick="navigate('docs')" class="px-7 py-3 text-[15px] font-semibold border border-[#27272a] rounded hover:bg-[#18181b] transition cursor-pointer">Dökümantasyonu oku</button>
             </div>
 
-            <!-- Supported Games Bar (All Clickable) -->
             <div class="flex items-center gap-4 flex-wrap pb-12 border-t border-[#1f1f22] pt-8 text-sm">
-                <span class="text-gray-400 font-semibold mr-2">Desteklenen oyunlar</span>
+                <span data-tr="Desteklenen oyunlar" data-en="Supported games" class="text-gray-400 font-semibold mr-2">Desteklenen oyunlar</span>
                 <span onclick="selectGameAndNavigate('Minecraft Java')" class="text-gray-300 font-medium hover:text-blue-400 cursor-pointer transition">Minecraft Java</span>
                 <span onclick="selectGameAndNavigate('Grand Theft Auto V')" class="text-gray-400 hover:text-blue-400 cursor-pointer transition">Grand Theft Auto V</span>
                 <span onclick="selectGameAndNavigate('San Andreas')" class="text-gray-400 hover:text-blue-400 cursor-pointer transition">San Andreas</span>
@@ -203,11 +192,10 @@
                 <span onclick="selectGameAndNavigate('PUBG: Battlegrounds')" class="text-gray-400 hover:text-blue-400 cursor-pointer transition">PUBG: Battlegrounds</span>
             </div>
 
-            <!-- Corporate Copyright Footer -->
             <div class="py-8 border-t border-[#1f1f22] text-center text-xs text-gray-500 font-medium tracking-wide flex flex-col sm:flex-row justify-center items-center gap-4">
-                <span>Copyright © 2026 gnessac.org, Tüm hakları saklıdır.</span>
+                <span data-tr="Copyright © 2026 gnessac.org, Tüm hakları saklıdır." data-en="Copyright © 2026 gnessac.org, All rights reserved.">Copyright © 2026 gnessac.org, Tüm hakları saklıdır.</span>
                 <span class="text-gray-600 hidden sm:inline">|</span>
-                <a onclick="navigate('terms')" class="hover:text-white cursor-pointer transition">Kullanım Şartları ve Gizlilik Politikası</a>
+                <a data-tr="Kullanım Şartları ve Gizlilik Politikası" data-en="Terms of Service & Privacy Policy" onclick="navigate('terms')" class="hover:text-white cursor-pointer transition">Kullanım Şartları ve Gizlilik Politikası</a>
             </div>
         </div>
     </main>
@@ -236,62 +224,62 @@
                 <button onclick="selectGame('PUBG: Battlegrounds', this)" class="px-5 py-2 text-sm font-medium rounded border border-[#27272a] hover:bg-[#18181b] text-gray-400 cursor-pointer transition">PUBG: Battlegrounds</button>
             </div>
             
-            <h2 id="pricingTitle" class="text-3xl font-bold mb-10">Kişisel planlar</h2>
+            <h2 data-tr="Kişisel planlar" data-en="Personal plans" id="pricingTitle" class="text-3xl font-bold mb-10">Kişisel planlar</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Yearly Plan -->
                 <div class="p-8 border border-[#27272a] bg-[#09090b]/50 rounded-xl hover:border-gray-600 transition flex flex-col justify-between">
                     <div>
-                        <p class="text-sm text-gray-400 mb-2 font-medium">Kişisel kullanım</p>
-                        <h3 id="plan1Title" class="text-lg font-bold mb-2">gnessac (Minecraft) - Yıllık Kişisel</h3>
+                        <p data-tr="Kişisel kullanım" data-en="Personal use" class="text-sm text-gray-400 mb-2 font-medium">Kişisel kullanım</p>
+                        <h3 id="plan1Title" class="text-lg font-bold mb-2">gnessac (Minecraft Java) - Yıllık Kişisel</h3>
                         <p id="plan1Desc" class="text-sm text-gray-500 mb-8">Minecraft Java için ekran paylaşımı taraması.</p>
                         <div class="mb-8">
                             <span class="text-5xl font-extrabold">$79.99</span><br>
-                            <span class="text-sm text-gray-500 font-medium mt-1 inline-block">Yıllık Faturalandırılır</span>
+                            <span data-tr="Yıllık Faturalandırılır" data-en="Billed Annually" class="text-sm text-gray-500 font-medium mt-1 inline-block">Yıllık Faturalandırılır</span>
                         </div>
                         <ul class="space-y-3 mb-10 text-sm font-medium text-gray-300">
-                            <li class="flex items-center gap-3"><span class="text-white">✓</span> 1 slot</li>
-                            <li class="flex items-center gap-3"><span class="text-white">✓</span> Kişisel kullanım</li>
-                            <li class="flex items-center gap-3"><span class="text-white">✓</span> Tam oyun erişimi</li>
-                            <li class="flex items-center gap-3"><span class="text-white">✓</span> Sınırsız pin oluşturma</li>
+                            <li class="flex items-center gap-3"><span class="text-white">✓</span> <span data-tr="1 slot" data-en="1 slot">1 slot</span></li>
+                            <li class="flex items-center gap-3"><span class="text-white">✓</span> <span data-tr="Kişisel kullanım" data-en="Personal use">Kişisel kullanım</span></li>
+                            <li class="flex items-center gap-3"><span class="text-white">✓</span> <span data-tr="Tam oyun erişimi" data-en="Full game access">Tam oyun erişimi</span></li>
+                            <li class="flex items-center gap-3"><span class="text-white">✓</span> <span data-tr="Sınırsız pin oluşturma" data-en="Unlimited pin generation">Sınırsız pin oluşturma</span></li>
                         </ul>
                     </div>
-                    <button onclick="handlePurchase('Yearly')" class="w-full py-3.5 bg-[#18181b] hover:bg-[#27272a] rounded text-sm font-semibold border border-[#27272a] transition cursor-pointer">Satın almak için giriş yapın</button>
+                    <button data-tr="Satın almak için giriş yapın" data-en="Login to purchase" onclick="handlePurchase('Yearly')" class="w-full py-3.5 bg-[#18181b] hover:bg-[#27272a] rounded text-sm font-semibold border border-[#27272a] transition cursor-pointer">Satın almak için giriş yapın</button>
                 </div>
                 
                 <!-- 6 Month Plan -->
                 <div class="p-8 border border-[#27272a] bg-[#09090b]/50 rounded-xl hover:border-gray-600 transition flex flex-col justify-between">
                     <div>
-                        <p class="text-sm text-gray-400 mb-2 font-medium">Kişisel kullanım</p>
-                        <h3 id="plan2Title" class="text-lg font-bold mb-2">gnessac (Minecraft) - 6 Aylık Kişisel</h3>
+                        <p data-tr="Kişisel kullanım" data-en="Personal use" class="text-sm text-gray-400 mb-2 font-medium">Kişisel kullanım</p>
+                        <h3 id="plan2Title" class="text-lg font-bold mb-2">gnessac (Minecraft Java) - 6 Aylık Kişisel</h3>
                         <p id="plan2Desc" class="text-sm text-gray-500 mb-8">Minecraft Java için ekran paylaşımı taraması.</p>
                         <div class="mb-8">
                             <span class="text-5xl font-extrabold">$44.99</span><br>
-                            <span class="text-sm text-gray-500 font-medium mt-1 inline-block">Her 6 Ayda Bir Faturalandırılır</span>
+                            <span data-tr="Her 6 Ayda Bir Faturalandırılır" data-en="Billed Every 6 Months" class="text-sm text-gray-500 font-medium mt-1 inline-block">Her 6 Ayda Bir Faturalandırılır</span>
                         </div>
                         <ul class="space-y-3 mb-10 text-sm font-medium text-gray-300">
-                            <li class="flex items-center gap-3"><span class="text-white">✓</span> 1 slot</li>
-                            <li class="flex items-center gap-3"><span class="text-white">✓</span> Kişisel kullanım</li>
+                            <li class="flex items-center gap-3"><span class="text-white">✓</span> <span data-tr="1 slot" data-en="1 slot">1 slot</span></li>
+                            <li class="flex items-center gap-3"><span class="text-white">✓</span> <span data-tr="Kişisel kullanım" data-en="Personal use">Kişisel kullanım</span></li>
                         </ul>
                     </div>
-                    <button onclick="handlePurchase('6 Month')" class="w-full py-3.5 bg-[#18181b] hover:bg-[#27272a] rounded text-sm font-semibold border border-[#27272a] transition cursor-pointer">Satın almak için giriş yapın</button>
+                    <button data-tr="Satın almak için giriş yapın" data-en="Login to purchase" onclick="handlePurchase('6 Month')" class="w-full py-3.5 bg-[#18181b] hover:bg-[#27272a] rounded text-sm font-semibold border border-[#27272a] transition cursor-pointer">Satın almak için giriş yapın</button>
                 </div>
                 
                 <!-- Monthly Plan -->
                 <div class="p-8 border border-[#27272a] bg-[#09090b]/50 rounded-xl hover:border-gray-600 transition flex flex-col justify-between">
                     <div>
-                        <p class="text-sm text-gray-400 mb-2 font-medium">Kişisel kullanım</p>
-                        <h3 id="plan3Title" class="text-lg font-bold mb-2">gnessac (Minecraft) - Aylık Kişisel</h3>
+                        <p data-tr="Kişisel kullanım" data-en="Personal use" class="text-sm text-gray-400 mb-2 font-medium">Kişisel kullanım</p>
+                        <h3 id="plan3Title" class="text-lg font-bold mb-2">gnessac (Minecraft Java) - Aylık Kişisel</h3>
                         <p id="plan3Desc" class="text-sm text-gray-500 mb-8">Minecraft Java için ekran paylaşımı taraması.</p>
                         <div class="mb-8">
                             <span class="text-5xl font-extrabold">$10.00</span><br>
-                            <span class="text-sm text-gray-500 font-medium mt-1 inline-block">Aylık Faturalandırılır</span>
+                            <span data-tr="Aylık Faturalandırılır" data-en="Billed Monthly" class="text-sm text-gray-500 font-medium mt-1 inline-block">Aylık Faturalandırılır</span>
                         </div>
                         <ul class="space-y-3 mb-10 text-sm font-medium text-gray-300">
-                            <li class="flex items-center gap-3"><span class="text-white">✓</span> 1 slot</li>
-                            <li class="flex items-center gap-3"><span class="text-white">✓</span> Kişisel kullanım</li>
+                            <li class="flex items-center gap-3"><span class="text-white">✓</span> <span data-tr="1 slot" data-en="1 slot">1 slot</span></li>
+                            <li class="flex items-center gap-3"><span class="text-white">✓</span> <span data-tr="Kişisel kullanım" data-en="Personal use">Kişisel kullanım</span></li>
                         </ul>
                     </div>
-                    <button onclick="handlePurchase('Monthly')" class="w-full py-3.5 bg-[#18181b] hover:bg-[#27272a] rounded text-sm font-semibold border border-[#27272a] transition cursor-pointer">Satın almak için giriş yapın</button>
+                    <button data-tr="Satın almak için giriş yapın" data-en="Login to purchase" onclick="handlePurchase('Monthly')" class="w-full py-3.5 bg-[#18181b] hover:bg-[#27272a] rounded text-sm font-semibold border border-[#27272a] transition cursor-pointer">Satın almak için giriş yapın</button>
                 </div>
             </div>
         </div>
@@ -302,67 +290,70 @@
         <div class="px-8 md:px-24 pt-16 flex flex-col lg:flex-row gap-16">
             <aside class="w-full lg:w-1/4">
                 <div class="relative mb-8">
-                    <input type="text" placeholder="Ara..." class="w-full bg-[#121214] border border-[#27272a] rounded-md py-2.5 px-4 text-sm text-white focus:outline-none focus:border-blue-500">
+                    <input type="text" data-tr-placeholder="Ara..." data-en-placeholder="Search..." placeholder="Ara..." class="w-full bg-[#121214] border border-[#27272a] rounded-md py-2.5 px-4 text-sm text-white focus:outline-none focus:border-blue-500">
                 </div>
-                <div class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">DÖKÜMANTASYON</div>
+                <div data-tr="DÖKÜMANTASYON" data-en="DOCUMENTATION" class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">DÖKÜMANTASYON</div>
                 <ul class="space-y-2 text-[15px] font-medium text-gray-400">
-                    <li id="docNavOverview" onclick="switchDocTab('overview', this)" class="cursor-pointer text-white border-l-2 border-blue-500 pl-3 transition">Genel Bakış</li>
-                    <li id="docNavDetections" onclick="switchDocTab('detections', this)" class="cursor-pointer hover:text-white flex justify-between items-center pl-3 py-1 transition">Tespitler <span class="text-xs">›</span></li>
-                    <li id="docNavApi" onclick="switchDocTab('api', this)" class="cursor-pointer hover:text-white flex justify-between items-center pl-3 py-1 transition">API <span class="text-xs">›</span></li>
+                    <li id="docNavOverview" data-tr="Genel Bakış" data-en="Overview" onclick="switchDocTab('overview', this)" class="cursor-pointer text-white border-l-2 border-blue-500 pl-3 transition">Genel Bakış</li>
+                    <li id="docNavDetections" data-tr="Tespitler <span class='text-xs'>›</span>" data-en="Detections <span class='text-xs'>›</span>" onclick="switchDocTab('detections', this)" class="cursor-pointer hover:text-white flex justify-between items-center pl-3 py-1 transition">Tespitler <span class="text-xs">›</span></li>
+                    <li id="docNavApi" data-tr="API <span class='text-xs'>›</span>" data-en="API <span class='text-xs'>›</span>" onclick="switchDocTab('api', this)" class="cursor-pointer hover:text-white flex justify-between items-center pl-3 py-1 transition">API <span class="text-xs">›</span></li>
                 </ul>
             </aside>
             <div class="w-full lg:w-3/4 max-w-3xl">
+                <!-- Overview -->
                 <div id="docContentOverview" class="doc-content-pane space-y-8">
-                    <h1 class="text-4xl font-extrabold mb-8 border-b border-[#27272a] pb-6">Kapsamlı Mimari Genel Bakış ve Kurumsal Adli Bilişim Referansı</h1>
-                    <p class="text-gray-300 leading-relaxed text-base">
+                    <h1 data-tr="Kapsamlı Mimari Genel Bakış ve Kurumsal Adli Bilişim Referansı" data-en="Comprehensive Architectural Overview and Enterprise Forensics Reference" class="text-4xl font-extrabold mb-8 border-b border-[#27272a] pb-6">Kapsamlı Mimari Genel Bakış ve Kurumsal Adli Bilişim Referansı</h1>
+                    <p data-tr="<strong class='text-white'>gnessac Solutions</strong> resmî kurumsal dökümantasyon portalına hoş geldiniz. Günümüzün hızla evrilen rekabetçi oyun dünyasında; topluluk yöneticileri, e-spor turnuva organizatörleri ve profesyonel sunucu ağları; gizlenmiş bellek enjektörleri, çekirdek düzeyinde kancalar (hooks), otomatik makro altyapıları ve özelleştirilmiş HWID spoof araçları kullanan kötü niyetli kişilerden kaynaklanan benzeri görülmemiş zorluklarla karşı karşıyadır. Mutlak adil oyun bütünlüğünü korumak, geleneksel imza tabanlı tespit mekanizmalarının çok ötesine geçmeyi gerektirir. Amiral gemimiz olan <strong class='text-white'>gnessac</strong> mimarisi; en karmaşık müdahaleleri cerrahi kriptografik hassasiyetle tespit etmek, izole etmek ve belgelendirmek için tasarlanmış gelişmiş ölüm sonrası (post-mortem) telemetri doğrulama motorlarıyla dijital adli bilişim için tavizsiz bir altın standart oluşturur." data-en="Welcome to the official <strong class='text-white'>gnessac Solutions</strong> enterprise documentation portal. In today's rapidly evolving competitive gaming landscape, community managers, esports tournament organizers, and professional server networks face unprecedented challenges from malicious actors employing obfuscated memory injectors, kernel-level hooks, automated macro infrastructures, and custom HWID spoofing tools. Maintaining absolute fair play integrity requires moving far beyond traditional signature-based detection mechanisms. Our flagship <strong class='text-white'>gnessac</strong> architecture establishes an uncompromising gold standard for digital forensics with advanced post-mortem telemetry verification engines designed to detect, isolate, and document the most sophisticated interventions with surgical cryptographic precision." class="text-gray-300 leading-relaxed text-base">
                         <strong class="text-white">gnessac Solutions</strong> resmî kurumsal dökümantasyon portalına hoş geldiniz. Günümüzün hızla evrilen rekabetçi oyun dünyasında; topluluk yöneticileri, e-spor turnuva organizatörleri ve profesyonel sunucu ağları; gizlenmiş bellek enjektörleri, çekirdek düzeyinde kancalar (hooks), otomatik makro altyapıları ve özelleştirilmiş HWID spoof araçları kullanan kötü niyetli kişilerden kaynaklanan benzeri görülmemiş zorluklarla karşı karşıyadır. Mutlak adil oyun bütünlüğünü korumak, geleneksel imza tabanlı tespit mekanizmalarının çok ötesine geçmeyi gerektirir. Amiral gemimiz olan <strong class="text-white">gnessac</strong> mimarisi; en karmaşık müdahaleleri cerrahi kriptografik hassasiyetle tespit etmek, izole etmek ve belgelendirmek için tasarlanmış gelişmiş ölüm sonrası (post-mortem) telemetri doğrulama motorlarıyla dijital adli bilişim için tavizsiz bir altın standart oluşturur.
                     </p>
-                    <p class="text-gray-300 leading-relaxed text-base">
+                    <p data-tr="<strong>Temel Felsefe ve Derin Sistem Telemetrisi:</strong> Geleneksel anti-cheat çözümleri genellikle aşırı sistem kaynağı tüketen ve potansiyel güvenlik açıklarına yol açan müdahaleci arka plan sürücülerine dayanır. Buna karşılık <strong class='text-white'>gnessac</strong>, isteğe bağlı, oturum tabanlı bir adli doğrulama modeliyle çalışır. Yetkili bir personel tarafından oluşturulan kriptografik doğrulama pin koduyla başlatıldığında hafif tarama ikili dosyamız; uçucu RAM tahsisatlarını, çalışan süreç görüntü başlıklarını, prefetch kayıtlarını, geçici yürütme dizinlerini ve sistem kayıt defteri kovanlarını çok katmanlı ve titiz bir denetimden geçirir. Bu yaklaşım, aktif oyun sırasında sıfır performans kaybı yaşatırken başlatma saniyeleri içinde değiştirilemez delil niteliğinde çıktılar sunar." data-en="<strong>Core Philosophy and Deep System Telemetry:</strong> Traditional anti-cheat solutions often rely on intrusive background drivers that consume excessive system resources and create potential security vulnerabilities. In contrast, <strong class='text-white'>gnessac</strong> operates on an on-demand, session-based forensic verification model. Triggered by a cryptographic verification pin generated by authorized personnel, our lightweight scanning binary subjects volatile RAM allocations, running process image headers, prefetch logs, temporary execution directories, and system registry hives to a multi-layered, rigorous audit. This approach ensures zero performance impact during active gameplay while providing immutable evidentiary output within seconds of initialization." class="text-gray-300 leading-relaxed text-base">
                         <strong>Temel Felsefe ve Derin Sistem Telemetrisi:</strong> Geleneksel anti-cheat çözümleri genellikle aşırı sistem kaynağı tüketen ve potansiyel güvenlik açıklarına yol açan müdahaleci arka plan sürücülerine dayanır. Buna karşılık <strong class="text-white">gnessac</strong>, isteğe bağlı, oturum tabanlı bir adli doğrulama modeliyle çalışır. Yetkili bir personel tarafından oluşturulan kriptografik doğrulama pin koduyla başlatıldığında hafif tarama ikili dosyamız; uçucu RAM tahsisatlarını, çalışan süreç görüntü başlıklarını, prefetch kayıtlarını, geçici yürütme dizinlerini ve sistem kayıt defteri kovanlarını çok katmanlı ve titiz bir denetimden geçirir. Bu yaklaşım, aktif oyun sırasında sıfır performans kaybı yaşatırken başlatma saniyeleri içinde değiştirilemez delil niteliğinde çıktılar sunar.
                     </p>
                     <p class="text-gray-300 leading-relaxed text-base">
-                        <strong>Temel Tanılama Modülleri ve Operasyonel Akış:</strong>
+                        <strong data-tr="Temel Tanılama Modülleri ve Operasyonel Akış:" data-en="Core Diagnostic Modules and Operational Flow:">Temel Tanılama Modülleri ve Operasyonel Akış:</strong>
                         <ul class="list-disc pl-6 space-y-3 mt-3 text-gray-300">
-                            <li><strong class="text-white">Gerçek Zamanlı Ekran Paylaşımı ve Pin Doğrulama Protokolü:</strong> Güvenli personel pin üretimi, moderatör paneli ile hedef istemci arasında anlık oturum bağlantısı kurarak tanılama ikili dosyalarının sıkı kriptografik denetim altında çalışmasını sağlar.</li>
-                            <li><strong class="text-white">Bellek Kancası (Hook) ve DLL Bütünlük İncelemesi:</strong> Gizli enjektörleri, eklemlenmiş yönergeleri, satır içi sapmaları ve yetkisiz çalışma zamanı bellek değişikliklerini ortaya çıkarmak için çalışan süreç sanal alanlarının titizlikle incelenmesi.</li>
-                            <li><strong class="text-white">Dosya Sistemi Kalıntısı ve İz Kurtarma:</strong> Silinmiş hile yükleyicileri ve spoof araçlarının kalıntılarını ortaya çıkarmak amacıyla prefetch dosyalarının, yakın tarihli belge geçmişlerinin, geçici uygulama dizinlerinin ve kayıt defteri kovanlarının derinlemesine taranması.</li>
-                            <li><strong class="text-white">Sezgisel Makro ve Girdi Davranış Analizi:</strong> Otomatik yardım yazılımlarını ve makroları açığa çıkarmak için girdi zamanlama düzensizliklerinin, tıklama dağılım örüntülerinin ve fare hareketi yörüngelerinin algoritmik değerlendirmesi.</li>
-                            <li><strong class="text-white">Otomatik Webhook ve Discord Telemetri Akışı:</strong> Denetim günlüklerinin, donanım kimliği özetlerinin (HWID) ve uyumluluk doğrulama ekran görüntülerinin doğrudan özel personel kanallarına anlık olarak aktarılması.</li>
+                            <li data-tr="<strong class='text-white'>Gerçek Zamanlı Ekran Paylaşımı ve Pin Doğrulama Protokolü:</strong> Güvenli personel pin üretimi, moderatör paneli ile hedef istemci arasında anlık oturum bağlantısı kurarak tanılama ikili dosyalarının sıkı kriptografik denetim altında çalışmasını sağlar." data-en="<strong class='text-white'>Real-Time Screenshare and Pin Verification Protocol:</strong> Secure staff pin generation establishes an instant session connection between the moderator panel and the target client, ensuring diagnostic binaries operate under strict cryptographic scrutiny."><strong class="text-white">Gerçek Zamanlı Ekran Paylaşımı ve Pin Doğrulama Protokolü:</strong> Güvenli personel pin üretimi, moderatör paneli ile hedef istemci arasında anlık oturum bağlantısı kurarak tanılama ikili dosyalarının sıkı kriptografik denetim altında çalışmasını sağlar.</li>
+                            <li data-tr="<strong class='text-white'>Bellek Kancası (Hook) ve DLL Bütünlük İncelemesi:</strong> Gizli enjektörleri, eklemlenmiş yönergeleri, satır içi sapmaları ve yetkisiz çalışma zamanı bellek değişikliklerini ortaya çıkarmak için çalışan süreç sanal alanlarının titizlikle incelenmesi." data-en="<strong class='text-white'>Memory Hook and DLL Integrity Inspection:</strong> Meticulous inspection of running process sandboxes to uncover hidden injectors, spliced instructions, inline detours, and unauthorized runtime memory alterations."><strong class="text-white">Bellek Kancası (Hook) ve DLL Bütünlük İncelemesi:</strong> Gizli enjektörleri, eklemlenmiş yönergeleri, satır içi sapmaları ve yetkisiz çalışma zamanı bellek değişikliklerini ortaya çıkarmak için çalışan süreç sanal alanlarının titizlikle incelenmesi.</li>
+                            <li data-tr="<strong class='text-white'>Dosya Sistemi Kalıntısı ve İz Kurtarma:</strong> Silinmiş hile yükleyicileri ve spoof araçlarının kalıntılarını ortaya çıkarmak amacıyla prefetch dosyalarının, yakın tarihli belge geçmişlerinin, geçici uygulama dizinlerinin ve kayıt defteri kovanlarının derinlemesine taranması." data-en="<strong class='text-white'>File System Artifact and Trace Recovery:</strong> Deep scanning of prefetch files, recent document histories, temporary application directories, and registry hives to uncover remnants of deleted cheat loaders and spoofing tools."><strong class="text-white">Dosya Sistemi Kalıntısı ve İz Kurtarma:</strong> Silinmiş hile yükleyicileri ve spoof araçlarının kalıntılarını ortaya çıkarmak amacıyla prefetch dosyalarının, yakın tarihli belge geçmişlerinin, geçici uygulama dizinlerinin ve kayıt defteri kovanlarının derinlemesine taranması.</li>
+                            <li data-tr="<strong class='text-white'>Sezgisel Makro ve Girdi Davranış Analizi:</strong> Otomatik yardım yazılımlarını ve makroları açığa çıkarmak için girdi zamanlama düzensizliklerinin, tıklama dağılım örüntülerinin ve fare hareketi yörüngelerinin algoritmik değerlendirmesi." data-en="<strong class='text-white'>Heuristic Macro and Input Behavior Analysis:</strong> Algorithmic evaluation of input timing irregularities, click distribution patterns, and mouse movement trajectories to expose automated assistance software and macros."><strong class="text-white">Sezgisel Makro ve Girdi Davranış Analizi:</strong> Otomatik yardım yazılımlarını ve makroları açığa çıkarmak için girdi zamanlama düzensizliklerinin, tıklama dağılım örüntülerinin ve fare hareketi yörüngelerinin algoritmik değerlendirmesi.</li>
+                            <li data-tr="<strong class='text-white'>Otomatik Webhook ve Discord Telemetri Akışı:</strong> Denetim günlüklerinin, donanım kimliği özetlerinin (HWID) ve uyumluluk doğrulama ekran görüntülerinin doğrudan özel personel kanallarına anlık olarak aktarılması." data-en="<strong class='text-white'>Automated Webhook and Discord Telemetry Stream:</strong> Instant transmission of audit logs, hardware identification hashes (HWID), and compliance verification screenshots directly to private staff channels."><strong class="text-white">Otomatik Webhook ve Discord Telemetri Akışı:</strong> Denetim günlüklerinin, donanım kimliği özetlerinin (HWID) ve uyumluluk doğrulama ekran görüntülerinin doğrudan özel personel kanallarına anlık olarak aktarılması.</li>
                         </ul>
                     </p>
-                    <p class="text-gray-300 leading-relaxed text-base">
+                    <p data-tr="<strong>Mutlak Veri Egemenliği ve Uluslararası Gizlilik Uyumluluğu:</strong> Küresel gizlilik düzenlemelerine (GDPR ve CCPA dahil) sıkı sıkıya bağlı kalarak tasarlanan <strong class='text-white'>gnessac</strong>; hassas kişisel belgelerin, özel web tarayıcısı geçmişlerinin, finansal beyanların ve gizli iletişimlerin kesinlikle dokunulmaz kalmasını garanti eder. Tarama bitiminde yalnızca doğrulanmış anti-cheat meta verilerini ve tek bir uyumluluk ekran görüntüsünü yakalar; Minecraft Java, FiveM, San Andreas, Rust ve Counter-Strike 2 genelinde mutlak kullanıcı gizliliğini sağlamak amacıyla tüm kayıtları 21 gün sonra otomatik olarak imha eder." data-en="<strong>Absolute Data Sovereignty and International Privacy Compliance:</strong> Designed in strict adherence to global privacy regulations (including GDPR and CCPA), <strong class='text-white'>gnessac</strong> guarantees that sensitive personal documents, private web browser histories, financial statements, and confidential communications remain absolutely untouchable. At the conclusion of a scan, it captures only verified anti-cheat metadata and a single compliance screenshot, automatically destroying all records after 21 days to ensure absolute user privacy across Minecraft Java, FiveM, San Andreas, Rust, and Counter-Strike 2." class="text-gray-300 leading-relaxed text-base">
                         <strong>Mutlak Veri Egemenliği ve Uluslararası Gizlilik Uyumluluğu:</strong> Küresel gizlilik düzenlemelerine (GDPR ve CCPA dahil) sıkı sıkıya bağlı kalarak tasarlanan <strong class="text-white">gnessac</strong>; hassas kişisel belgelerin, özel web tarayıcısı geçmişlerinin, finansal beyanların ve gizli iletişimlerin kesinlikle dokunulmaz kalmasını garanti eder. Tarama bitiminde yalnızca doğrulanmış anti-cheat meta verilerini ve tek bir uyumluluk ekran görüntüsünü yakalar; Minecraft Java, FiveM, San Andreas, Rust ve Counter-Strike 2 genelinde mutlak kullanıcı gizliliğini sağlamak amacıyla tüm kayıtları 21 gün sonra otomatik olarak imha eder.
                     </p>
-                    <p class="text-gray-300 leading-relaxed text-base mb-12">
+                    <p data-tr="Bu kapsamlı dökümantasyon portalı; sunucu sahipleri, topluluk moderatörleri, güvenlik analistleri ve panellerimizi/API'lerimizi entegre eden kurumsal geliştiriciler için yetkili bir başvuru kılavuzu görevi görür. Ayrıntılı tespit şemalarını, kriptografik donanım doğrulama protokollerini ve güvenli bulut günlükleme standartlarını incelemek için kenar çubuğu kategorilerini keşfedebilirsiniz." data-en="This comprehensive documentation portal serves as an authoritative reference guide for server owners, community moderators, security analysts, and enterprise developers integrating our panels/APIs. You can explore sidebar categories to delve into detailed detection schemas, cryptographic hardware verification protocols, and secure cloud logging standards." class="text-gray-300 leading-relaxed text-base mb-12">
                         Bu kapsamlı dökümantasyon portalı; sunucu sahipleri, topluluk moderatörleri, güvenlik analistleri ve panellerimizi/API'lerimizi entegre eden kurumsal geliştiriciler için yetkili bir başvuru kılavuzu görevi görür. Ayrıntılı tespit şemalarını, kriptografik donanım doğrulama protokollerini ve güvenli bulut günlükleme standartlarını incelemek için kenar çubuğu kategorilerini keşfedebilirsiniz.
                     </p>
                 </div>
 
+                <!-- Detections -->
                 <div id="docContentDetections" class="doc-content-pane space-y-8" style="display: none;">
-                    <h1 class="text-4xl font-extrabold mb-8 border-b border-[#27272a] pb-6">Gelişmiş Tespitler, Sezgisel Yöntemler ve Adli Hizmetler</h1>
-                    <p class="text-gray-300 leading-relaxed text-base">
+                    <h1 data-tr="Gelişmiş Tespitler, Sezgisel Yöntemler ve Adli Hizmetler" data-en="Advanced Detections, Heuristic Methods, and Forensic Services" class="text-4xl font-extrabold mb-8 border-b border-[#27272a] pb-6">Gelişmiş Tespitler, Sezgisel Yöntemler ve Adli Hizmetler</h1>
+                    <p data-tr="gnessac; modern bypass'lara, gizlenmiş yükleyicilere, bellek döküm araçlarına ve kalıcı hile modifikasyonlarına karşı özel olarak tasarlanmış sektör lideri tespit altyapıları sunar. Otomatik tarama modüllerimiz, tarama yürütüldüğü anda gizli araç setlerini açığa çıkarmak için çalışma zamanı bellek bloklarını, yüklenen derlemeleri ve askıya alınan arka plan süreçlerini kapsamlı bir şekilde inceler." data-en="gnessac delivers industry-leading detection infrastructures specifically designed against modern bypasses, obfuscated loaders, memory dumping tools, and persistent cheat modifications. Our automated scanning modules comprehensively inspect runtime memory blocks, loaded assemblies, and suspended background processes to expose hidden toolsets the moment a scan is executed." class="text-gray-300 leading-relaxed text-base">
                         gnessac; modern bypass'lara, gizlenmiş yükleyicilere, bellek döküm araçlarına ve kalıcı hile modifikasyonlarına karşı özel olarak tasarlanmış sektör lideri tespit altyapıları sunar. Otomatik tarama modüllerimiz, tarama yürütüldüğü anda gizli araç setlerini açığa çıkarmak için çalışma zamanı bellek bloklarını, yüklenen derlemeleri ve askıya alınan arka plan süreçlerini kapsamlı bir şekilde inceler.
                     </p>
-                    <p class="text-gray-300 leading-relaxed text-base">
+                    <p data-tr="<strong>Bellek Bütünlüğü ve Kanca Doğrulaması:</strong> Ölüm sonrası analiz motorumuz, süreç görüntü başlıklarını, dışarı aktarılan işlev tablolarını ve sanal bellek tahsisatlarını titizlikle denetler. Yetkisiz tüm kancalar, birleştirilmiş yönergeler, satır içi sapmalar ve enjekte edilen yükler (payloads) yüksek kriptografik güvenilirlikle anında kataloglanır." data-en="<strong>Memory Integrity and Hook Verification:</strong> Our post-mortem analysis engine meticulously audits process image headers, exported function tables, and virtual memory allocations. All unauthorized hooks, spliced instructions, inline detours, and injected payloads are instantly cataloged with high cryptographic certainty." class="text-gray-300 leading-relaxed text-base">
                         <strong>Bellek Bütünlüğü ve Kanca Doğrulaması:</strong> Ölüm sonrası analiz motorumuz, süreç görüntü başlıklarını, dışarı aktarılan işlev tablolarını ve sanal bellek tahsisatlarını titizlikle denetler. Yetkisiz tüm kancalar, birleştirilmiş yönergeler, satır içi sapmalar ve enjekte edilen yükler (payloads) yüksek kriptografik güvenilirlikle anında kataloglanır.
                     </p>
-                    <p class="text-gray-300 leading-relaxed text-base">
-                        <strong>Dosya Sistemi ve Kalıntı İzleme:</strong> Aktif RAM incelemesinin ötesinde gnessac; rekabetçi oturumlar sırasında kullanılan silinmiş hile yükleyicilerinin, HWID spoof araçlarının ve makro yazılımlarının kalıntılarını kurtarmak için prefetch dosyalarını, yakın tarihli belge geçmişlerini, geçici uygulama dizinlerini ve kayıt defteri kovanlarını tarar.
+                    <p data-tr="<strong>Dosya Sistemi ve Kalıntı İzleme:</strong> Aktif RAM incelemesinin ötesine geçerek gnessac; rekabetçi oturumlar sırasında kullanılan silinmiş hile yükleyicilerinin, HWID spoof araçlarının ve makro yazılımlarının kalıntılarını kurtarmak için prefetch dosyalarını, yakın tarihli belge geçmişlerini, geçici uygulama dizinlerini ve kayıt defteri kovanlarını tarar." data-en="<strong>File System and Artifact Tracking:</strong> Moving beyond active RAM inspection, gnessac scans prefetch files, recent document histories, temporary application directories, and registry hives to recover remnants of deleted cheat loaders, HWID spoofers, and macro software used during competitive sessions." class="text-gray-300 leading-relaxed text-base">
+                        <strong>Dosya Sistemi ve Kalıntı İzleme:</strong> Aktif RAM incelemesinin ötesine geçerek gnessac; rekabetçi oturumlar sırasında kullanılan silinmiş hile yükleyicilerinin, HWID spoof araçlarının ve makro yazılımlarının kalıntılarını kurtarmak için prefetch dosyalarını, yakın tarihli belge geçmişlerini, geçici uygulama dizinlerini ve kayıt defteri kovanlarını tarar.
                     </p>
-                    <p class="text-gray-300 leading-relaxed text-base">
+                    <p data-tr="<strong>Sezgisel Makro ve Girdi Analizi:</strong> Modern hileciler sıklıkla harici donanım emülatörlerine ve yazılım makrolarına güvenir. Sezgisel analiz algoritmalarımız; yetkisiz otomasyon çerçevelerini zahmetsizce tespit etmek için girdi zamanlama düzensizliklerini ve fare hareketi imzalarını değerlendirir." data-en="<strong>Heuristic Macro and Input Analysis:</strong> Modern cheaters frequently rely on external hardware emulators and software macros. Our heuristic analysis algorithms evaluate input timing irregularities and mouse movement signatures to effortlessly detect unauthorized automation frameworks." class="text-gray-300 leading-relaxed text-base">
                         <strong>Sezgisel Makro ve Girdi Analizi:</strong> Modern hileciler sıklıkla harici donanım emülatörlerine ve yazılım makrolarına güvenir. Sezgisel analiz algoritmalarımız; yetkisiz otomasyon çerçevelerini zahmetsizce tespit etmek için girdi zamanlama düzensizliklerini ve fare hareketi imzalarını değerlendirir.
                     </p>
-                    <p class="text-gray-300 leading-relaxed text-base mb-12">
+                    <p data-tr="Sunucu moderatörleri, her ölçekteki toplulukta rekabetçi bütünlüğü garanti altına almak amacıyla anlık tespit raporlarımıza ve kriptografik uyumluluk ekran görüntülerine güvenmektedir." data-en="Server moderators rely on our instant detection reports and cryptographic compliance screenshots to guarantee competitive integrity in communities of all scales." class="text-gray-300 leading-relaxed text-base mb-12">
                         Sunucu moderatörleri, her ölçekteki toplulukta rekabetçi bütünlüğü garanti altına almak amacıyla anlık tespit raporlarımıza ve kriptografik uyumluluk ekran görüntülerine güvenmektedir.
                     </p>
                 </div>
 
+                <!-- API -->
                 <div id="docContentApi" class="doc-content-pane space-y-8" style="display: none;">
-                    <h1 class="text-4xl font-extrabold mb-8 border-b border-[#27272a] pb-6">API ve Kurumsal Panel Entegrasyon Kılavuzu</h1>
-                    <p class="text-gray-300 leading-relaxed text-base">
+                    <h1 data-tr="API ve Kurumsal Panel Entegrasyon Kılavuzu" data-en="API and Enterprise Panel Integration Guide" class="text-4xl font-extrabold mb-8 border-b border-[#27272a] pb-6">API ve Kurumsal Panel Entegrasyon Kılavuzu</h1>
+                    <p data-tr="gnessac API'si ve kurumsal yönetim panelleri; sunucu ağlarının, turnuva organizatörlerinin ve topluluk geliştiricilerinin moderasyon iş akışlarını otomatikleştirmenize, personel doğrulama pinlerini yönetmenize ve gerçek zamanlı anti-cheat telemetrisini özel Discord botları, tescilli web panelleri ve dahili ban veritabanlarıyla sorunsuz bir şekilde senkronize etmenize olanak tanır." data-en="The gnessac API and enterprise management panels allow server networks, tournament organizers, and community developers to automate moderation workflows, manage staff verification pins, and seamlessly synchronize real-time anti-cheat telemetry with custom Discord bots, proprietary web panels, and internal ban databases." class="text-gray-300 leading-relaxed text-base">
                         gnessac API'si ve kurumsal yönetim panelleri; sunucu ağlarının, turnuva organizatörlerinin ve topluluk geliştiricilerinin moderasyon iş akışlarını otomatikleştirmenize, personel doğrulama pinlerini yönetmenize ve gerçek zamanlı anti-cheat telemetrisini özel Discord botları, tescilli web panelleri ve dahili ban veritabanlarıyla sorunsuz bir şekilde senkronize etmenize olanak tanır.
                     </p>
-                    <p class="text-gray-300 leading-relaxed text-base">
+                    <p data-tr="<strong>1. Kimlik Doğrulama ve API Başlık Standartları:</strong> gnessac kurumsal ağ geçidine (<code class='text-blue-400 font-mono text-sm bg-[#121214] px-1.5 py-0.5 rounded border border-[#27272a]'>https://api.gnessac.org/v2/</code>) yönlendirilen tüm REST API istekleri, topluluk paneliniz üzerinden oluşturulan geçerli bir taşıyıcı (bearer) token içermelidir. Her HTTP isteğinde aşağıdaki başlıkları ekleyin:" data-en="<strong>1. Authentication and API Header Standards:</strong> All REST API requests directed to the gnessac enterprise gateway (<code class='text-blue-400 font-mono text-sm bg-[#121214] px-1.5 py-0.5 rounded border border-[#27272a]'>https://api.gnessac.org/v2/</code>) must include a valid bearer token generated via your community panel. Include the following headers in every HTTP request:" class="text-gray-300 leading-relaxed text-base">
                         <strong>1. Kimlik Doğrulama ve API Başlık Standartları:</strong> gnessac kurumsal ağ geçidine (<code class="text-blue-400 font-mono text-sm bg-[#121214] px-1.5 py-0.5 rounded border border-[#27272a]">https://api.gnessac.org/v2/</code>) yönlendirilen tüm REST API istekleri, topluluk paneliniz üzerinden oluşturulan geçerli bir taşıyıcı (bearer) token içermelidir. Her HTTP isteğinde aşağıdaki başlıkları ekleyin:
                     </p>
                     <div class="bg-[#121214] border border-[#27272a] rounded-xl p-5 font-mono text-xs text-gray-300 space-y-1 overflow-x-auto">
@@ -370,7 +361,7 @@
                         <p class="text-gray-400">Content-Type: application/json</p>
                         <p class="text-gray-400">X-Community-ID: comm_minecraft_eu_01</p>
                     </div>
-                    <p class="text-gray-300 leading-relaxed text-base">
+                    <p data-tr="<strong>2. Webhook Yapılandırması ve Gerçek Zamanlı Telemetri Akışı:</strong> Bir tarama oturumu sona erdiği anda tarama sonuçlarını, donanım kimliği özetlerini (HWID), oyuncu zaman damgalarını ve uyumluluk doğrulama ekran görüntüsünü özel personel kanallarınıza anında iletmek için güvenli webhook uç noktaları yapılandırın. Aşağıdaki JSON yük şeması HTTP POST yoluyla gönderilir:" data-en="<strong>2. Webhook Configuration and Real-Time Telemetry Stream:</strong> Configure secure webhook endpoints to instantly transmit scan results, hardware identification hashes (HWID), player timestamps, and the compliance verification screenshot directly to your private staff channels the moment a scan session concludes. The following JSON payload schema is sent via HTTP POST:" class="text-gray-300 leading-relaxed text-base">
                         <strong>2. Webhook Yapılandırması ve Gerçek Zamanlı Telemetri Akışı:</strong> Bir tarama oturumu sona erdiği anda tarama sonuçlarını, donanım kimliği özetlerini (HWID), oyuncu zaman damgalarını ve uyumluluk doğrulama ekran görüntüsünü özel personel kanallarınıza anında iletmek için güvenli webhook uç noktaları yapılandırın. Aşağıdaki JSON yük şeması HTTP POST yoluyla gönderilir:
                     </p>
                     <div class="bg-[#121214] border border-[#27272a] rounded-xl p-5 font-mono text-xs text-gray-300 space-y-1 overflow-x-auto">
@@ -383,10 +374,10 @@
                         <p class="pl-4 text-blue-400">"screenshot_url": <span class="text-emerald-400">"https://storage.gnessac.org/evidence/shot_8832.png"</span></p>
                         <p class="text-gray-500">}</p>
                     </div>
-                    <p class="text-gray-300 leading-relaxed text-base">
+                    <p data-tr="<strong>3. Programatik Pin Üretimi ve Slot Yönetimi:</strong> Personel üyeleri, <code class='text-blue-400 font-mono text-sm bg-[#121214] px-1.5 py-0.5 rounded border border-[#27272a]'>POST /v2/pins/generate</code> adresini kullanarak programatik olarak tek kullanımlık doğrulama pinleri üretebilir. API, yoğun turnuva saatlerinde sorunsuz kuyruk yönetimi sağlamak amacıyla 180 saniye geçerli aktif bir sayısal pin döndürür." data-en="<strong>3. Programmatic Pin Generation and Slot Management:</strong> Staff members can programmatically generate single-use verification pins utilizing <code class='text-blue-400 font-mono text-sm bg-[#121214] px-1.5 py-0.5 rounded border border-[#27272a]'>POST /v2/pins/generate</code>. The API returns an active numeric pin valid for 180 seconds to ensure smooth queue management during peak tournament hours." class="text-gray-300 leading-relaxed text-base">
                         <strong>3. Programatik Pin Üretimi ve Slot Yönetimi:</strong> Personel üyeleri, <code class="text-blue-400 font-mono text-sm bg-[#121214] px-1.5 py-0.5 rounded border border-[#27272a]">POST /v2/pins/generate</code> adresini kullanarak programatik olarak tek kullanımlık doğrulama pinleri üretebilir. API, yoğun turnuva saatlerinde sorunsuz kuyruk yönetimi sağlamak amacıyla 180 saniye geçerli aktif bir sayısal pin döndürür.
                     </p>
-                    <p class="text-gray-300 leading-relaxed text-base mb-12">
+                    <p data-tr="Altyapınızla hemen entegrasyona başlamak için oran sınırlama (rate-limiting) özelliklerimizi (API anahtarı başına dakikada 120 istek ile sınırlıdır), hata yanıt kodlarını ve Python, Node.js ile C# dillerinde sunulan SDK sarmalayıcılarını inceleyebilirsiniz." data-en="To begin integration with your infrastructure immediately, you can review our rate-limiting features (capped at 120 requests per minute per API key), error response codes, and SDK wrappers available in Python, Node.js, and C#." class="text-gray-300 leading-relaxed text-base mb-12">
                         Altyapınızla hemen entegrasyona başlamak için oran sınırlama (rate-limiting) özelliklerimizi (API anahtarı başına dakikada 120 istek ile sınırlıdır), hata yanıt kodlarını ve Python, Node.js ile C# dillerinde sunulan SDK sarmalayıcılarını inceleyebilirsiniz.
                     </p>
                 </div>
@@ -398,27 +389,25 @@
     <main id="branding" class="page-section">
         <div class="px-8 md:px-24 pt-16 pb-24 flex flex-col lg:flex-row gap-16">
             <aside class="w-full lg:w-1/4">
-                <div class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">On this page</div>
+                <div data-tr="BU SAYFADA" data-en="ON THIS PAGE" class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">BU SAYFADA</div>
                 <ul class="space-y-3 text-sm font-medium text-gray-400">
-                    <li><a href="#brand-logo" class="hover:text-white transition">Logo</a></li>
-                    <li><a href="#brand-color" class="hover:text-white transition">Color</a></li>
-                    <li><a href="#brand-typography" class="hover:text-white transition">Typography</a></li>
-                    <li><a href="#brand-spacing" class="hover:text-white transition">Spacing</a></li>
-                    <li><a href="#brand-wallpapers" class="hover:text-white transition">Wallpapers</a></li>
-                    <li><a href="#brand-naming" class="hover:text-white transition">Naming</a></li>
+                    <li><a data-tr="Logo" data-en="Logo" href="#brand-logo" class="hover:text-white transition">Logo</a></li>
+                    <li><a data-tr="Renk" data-en="Color" href="#brand-color" class="hover:text-white transition">Renk</a></li>
+                    <li><a data-tr="Tipografi" data-en="Typography" href="#brand-typography" class="hover:text-white transition">Tipografi</a></li>
+                    <li><a data-tr="Boşluk" data-en="Spacing" href="#brand-spacing" class="hover:text-white transition">Boşluk</a></li>
+                    <li><a data-tr="Duvar Kağıtları" data-en="Wallpapers" href="#brand-wallpapers" class="hover:text-white transition">Duvar Kağıtları</a></li>
+                    <li><a data-tr="İsimlendirme" data-en="Naming" href="#brand-naming" class="hover:text-white transition">İsimlendirme</a></li>
                 </ul>
             </aside>
 
             <div class="w-full lg:w-3/4 max-w-4xl space-y-24">
-                
                 <section id="brand-logo" class="space-y-8">
                     <div class="flex justify-between items-center border-b border-[#27272a] pb-6">
                         <div>
-                            <h2 class="text-3xl font-extrabold text-white mb-2">Logo</h2>
-                            <p class="text-sm text-gray-400">Fixed aspect ratio. No distortion or effects. Same geometry across all backgrounds.</p>
+                            <h2 data-tr="Logo" data-en="Logo" class="text-3xl font-extrabold text-white mb-2">Logo</h2>
+                            <p data-tr="Sabit en-boy oranı. Bozulma veya efekt yok. Tüm arka planlarda aynı geometri." data-en="Fixed aspect ratio. No distortion or effects. Same geometry across all backgrounds." class="text-sm text-gray-400">Sabit en-boy oranı. Bozulma veya efekt yok. Tüm arka planlarda aynı geometri.</p>
                         </div>
                     </div>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-[#121214] border border-[#27272a] rounded-xl p-8 flex flex-col items-center justify-center min-h-[220px]">
                             <span class="font-mono text-3xl font-extrabold text-white tracking-tighter">(*></span>
@@ -427,14 +416,13 @@
                             <span class="font-mono text-2xl font-extrabold text-white tracking-tighter">}<(((((*></span>
                         </div>
                     </div>
-
                     <div class="grid grid-cols-2 gap-4 text-xs font-semibold text-gray-400">
                         <div class="flex justify-between bg-[#121214]/60 border border-[#27272a] p-4 rounded-lg">
-                            <span>Logo</span>
+                            <span data-tr="Logo" data-en="Logo">Logo</span>
                             <div class="space-x-3"><a href="#" class="text-blue-400 hover:underline">SVG</a><a href="#" class="text-blue-400 hover:underline">PNG</a></div>
                         </div>
                         <div class="flex justify-between bg-[#121214]/60 border border-[#27272a] p-4 rounded-lg">
-                            <span>Full logo</span>
+                            <span data-tr="Tam logo" data-en="Full logo">Tam logo</span>
                             <div class="space-x-3"><a href="#" class="text-blue-400 hover:underline">SVG</a><a href="#" class="text-blue-400 hover:underline">PNG</a></div>
                         </div>
                     </div>
@@ -442,41 +430,36 @@
 
                 <section id="brand-color" class="space-y-8">
                     <div class="border-b border-[#27272a] pb-6">
-                        <h2 class="text-3xl font-extrabold text-white mb-2">Color</h2>
-                        <p class="text-sm text-gray-400">Subtle blue-tinted neutrals and a single blue accent.</p>
+                        <h2 data-tr="Renk" data-en="Color" class="text-3xl font-extrabold text-white mb-2">Renk</h2>
+                        <p data-tr="Hafif mavi tonlu nötrler ve tek bir mavi vurgu." data-en="Subtle blue-tinted neutrals and a single blue accent." class="text-sm text-gray-400">Hafif mavi tonlu nötrler ve tek bir mavi vurgu.</p>
                     </div>
-
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                         <div class="bg-[#121214] border border-[#27272a] rounded-xl p-4 flex flex-col justify-between h-48">
                             <div class="w-full h-24 rounded-lg bg-[#3A63EC]"></div>
                             <div>
-                                <p class="text-xs font-bold text-white mt-3">Brand</p>
+                                <p data-tr="Marka" data-en="Brand" class="text-xs font-bold text-white mt-3">Marka</p>
                                 <p class="text-xs font-mono text-gray-400">#3A63EC</p>
-                                <p class="text-[10px] text-gray-500 font-mono">rgb(58, 99, 236)</p>
                             </div>
                         </div>
                         <div class="bg-[#121214] border border-[#27272a] rounded-xl p-4 flex flex-col justify-between h-48">
                             <div class="w-full h-24 rounded-lg bg-[#090A0B] border border-gray-800"></div>
                             <div>
-                                <p class="text-xs font-bold text-white mt-3">Background</p>
+                                <p data-tr="Arka Plan" data-en="Background" class="text-xs font-bold text-white mt-3">Arka Plan</p>
                                 <p class="text-xs font-mono text-gray-400">#090A0B</p>
-                                <p class="text-[10px] text-gray-500 font-mono">rgb(9, 10, 11)</p>
                             </div>
                         </div>
                         <div class="bg-[#121214] border border-[#27272a] rounded-xl p-4 flex flex-col justify-between h-48">
                             <div class="w-full h-24 rounded-lg bg-[#F6F7F8]"></div>
                             <div>
-                                <p class="text-xs font-bold text-white mt-3">Text</p>
+                                <p data-tr="Metin" data-en="Text" class="text-xs font-bold text-white mt-3">Metin</p>
                                 <p class="text-xs font-mono text-gray-400">#F6F7F8</p>
-                                <p class="text-[10px] text-gray-500 font-mono">rgb(246, 247, 248)</p>
                             </div>
                         </div>
                         <div class="bg-[#121214] border border-[#27272a] rounded-xl p-4 flex flex-col justify-between h-48">
                             <div class="w-full h-24 rounded-lg bg-[#DFDFDF]"></div>
                             <div>
-                                <p class="text-xs font-bold text-white mt-3">Logo</p>
+                                <p data-tr="Logo" data-en="Logo" class="text-xs font-bold text-white mt-3">Logo</p>
                                 <p class="text-xs font-mono text-gray-400">#DFDFDF</p>
-                                <p class="text-[10px] text-gray-500 font-mono">rgb(223, 223, 223)</p>
                             </div>
                         </div>
                     </div>
@@ -484,52 +467,49 @@
 
                 <section id="brand-typography" class="space-y-8">
                     <div class="border-b border-[#27272a] pb-6">
-                        <h2 class="text-3xl font-extrabold text-white mb-2">Typography</h2>
-                        <p class="text-sm text-gray-400">Geist Sans for UI and communication, Geist Mono for data, Schibsted Grotesk for headings.</p>
+                        <h2 data-tr="Tipografi" data-en="Typography" class="text-3xl font-extrabold text-white mb-2">Tipografi</h2>
+                        <p data-tr="Arayüz ve iletişim için Geist Sans, veri için Geist Mono, başlıklar için Schibsted Grotesk." data-en="Geist Sans for UI and communication, Geist Mono for data, Schibsted Grotesk for headings." class="text-sm text-gray-400">Arayüz ve iletişim için Geist Sans, veri için Geist Mono, başlıklar için Schibsted Grotesk.</p>
                     </div>
-
                     <div class="bg-[#121214] border border-[#27272a] rounded-xl p-8 space-y-6">
                         <div class="text-5xl font-bold tracking-tight text-white">Aa</div>
                         <p class="text-lg font-medium text-gray-300 font-mono">gnessac - gnessac.org</p>
                     </div>
-
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                         <div class="bg-[#121214]/60 border border-[#27272a] p-5 rounded-lg">
-                            <h4 class="font-bold text-white">Regular</h4>
-                            <p class="text-xs text-gray-400 mt-1">400 · Body text</p>
+                            <h4 data-tr="Normal" data-en="Regular" class="font-bold text-white">Normal</h4>
+                            <p data-tr="400 · Gövde metni" data-en="400 · Body text" class="text-xs text-gray-400 mt-1">400 · Gövde metni</p>
                         </div>
                         <div class="bg-[#121214]/60 border border-[#27272a] p-5 rounded-lg">
-                            <h4 class="font-bold text-white">Medium</h4>
-                            <p class="text-xs text-gray-400 mt-1">500 · UI</p>
+                            <h4 data-tr="Orta" data-en="Medium" class="font-bold text-white">Orta</h4>
+                            <p data-tr="500 · Arayüz" data-en="500 · UI" class="text-xs text-gray-400 mt-1">500 · Arayüz</p>
                         </div>
                         <div class="bg-[#121214]/60 border border-[#27272a] p-5 rounded-lg">
-                            <h4 class="font-bold text-white">Semi-bold</h4>
-                            <p class="text-xs text-gray-400 mt-1">600 · Subheadings</p>
+                            <h4 data-tr="Yarı kalın" data-en="Semi-bold" class="font-bold text-white">Yarı kalın</h4>
+                            <p data-tr="600 · Alt başlıklar" data-en="600 · Subheadings" class="text-xs text-gray-400 mt-1">600 · Alt başlıklar</p>
                         </div>
                         <div class="bg-[#121214]/60 border border-[#27272a] p-5 rounded-lg">
-                            <h4 class="font-bold text-white">Bold</h4>
-                            <p class="text-xs text-gray-400 mt-1">700 · Headings</p>
+                            <h4 data-tr="Kalın" data-en="Bold" class="font-bold text-white">Kalın</h4>
+                            <p data-tr="700 · Başlıklar" data-en="700 · Headings" class="text-xs text-gray-400 mt-1">700 · Başlıklar</p>
                         </div>
                     </div>
                 </section>
 
                 <section id="brand-spacing" class="space-y-8">
                     <div class="border-b border-[#27272a] pb-6">
-                        <h2 class="text-3xl font-extrabold text-white mb-2">Spacing</h2>
-                        <p class="text-sm text-gray-400">The minimum spacing surrounding the symbol. Scales proportionally with the logo size.</p>
+                        <h2 data-tr="Boşluk" data-en="Spacing" class="text-3xl font-extrabold text-white mb-2">Boşluk</h2>
+                        <p data-tr="Sembolü çevreleyen minimum boşluk. Logo boyutuyla orantılı olarak ölçeklenir." data-en="The minimum spacing surrounding the symbol. Scales proportionally with the logo size." class="text-sm text-gray-400">Sembolü çevreleyen minimum boşluk. Logo boyutuyla orantılı olarak ölçeklenir.</p>
                     </div>
                     <div class="bg-[#121214] border border-[#27272a] rounded-xl p-8 flex items-center justify-center min-h-[185px]">
                         <span class="font-mono text-2xl font-bold text-white">(*></span>
                     </div>
-                    <p class="text-xs text-gray-500 font-mono">Outer boundary = minimum clearance zone</p>
+                    <p data-tr="Dış sınır = minimum temizlik alanı" data-en="Outer boundary = minimum clearance zone" class="text-xs text-gray-500 font-mono">Dış sınır = minimum temizlik alanı</p>
                 </section>
 
                 <section id="brand-wallpapers" class="space-y-8">
                     <div class="border-b border-[#27272a] pb-6">
-                        <h2 class="text-3xl font-extrabold text-white mb-2">Wallpapers</h2>
-                        <p class="text-sm text-gray-400">Official wallpapers for desktop and social media.</p>
+                        <h2 data-tr="Duvar Kağıtları" data-en="Wallpapers" class="text-3xl font-extrabold text-white mb-2">Duvar Kağıtları</h2>
+                        <p data-tr="Masaüstü ve sosyal medya için resmi duvar kağıtları." data-en="Official wallpapers for desktop and social media." class="text-sm text-gray-400">Masaüstü ve sosyal medya için resmi duvar kağıtları.</p>
                     </div>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-[#121214] border border-[#27272a] rounded-xl overflow-hidden flex flex-col justify-between">
                             <div class="p-8 h-48 bg-gradient-to-br from-[#18181b] to-[#09090b] flex flex-col items-center justify-center relative">
@@ -549,10 +529,10 @@
                             </div>
                             <div class="p-5 flex justify-between items-center border-t border-[#27272a]">
                                 <div>
-                                    <p class="text-xs font-bold text-white">Desktop</p>
+                                    <p data-tr="Masaüstü" data-en="Desktop" class="text-xs font-bold text-white">Masaüstü</p>
                                     <p class="text-[10px] text-gray-500 font-mono">1920x1080</p>
                                 </div>
-                                <a href="#" class="text-xs text-blue-400 font-semibold hover:underline">Download</a>
+                                <a data-tr="İndir" data-en="Download" href="#" class="text-xs text-blue-400 font-semibold hover:underline">İndir</a>
                             </div>
                         </div>
 
@@ -562,10 +542,10 @@
                             </div>
                             <div class="p-5 flex justify-between items-center border-t border-[#27272a]">
                                 <div>
-                                    <p class="text-xs font-bold text-white">Desktop, animated (GIF)</p>
+                                    <p data-tr="Masaüstü, hareketli (GIF)" data-en="Desktop, animated (GIF)" class="text-xs font-bold text-white">Masaüstü, hareketli (GIF)</p>
                                     <p class="text-[10px] text-gray-500 font-mono">1000x353</p>
                                 </div>
-                                <a href="#" class="text-xs text-blue-400 font-semibold hover:underline">Download</a>
+                                <a data-tr="İndir" data-en="Download" href="#" class="text-xs text-blue-400 font-semibold hover:underline">İndir</a>
                             </div>
                         </div>
                     </div>
@@ -573,13 +553,12 @@
 
                 <section id="brand-naming" class="space-y-8">
                     <div class="border-b border-[#27272a] pb-6">
-                        <h2 class="text-3xl font-extrabold text-white mb-2">Naming</h2>
-                        <p class="text-sm text-gray-400">Use the name consistently across communication and products.</p>
+                        <h2 data-tr="İsimlendirme" data-en="Naming" class="text-3xl font-extrabold text-white mb-2">İsimlendirme</h2>
+                        <p data-tr="İsmi iletişimde ve ürünlerde tutarlı bir şekilde kullanın." data-en="Use the name consistently across communication and products." class="text-sm text-gray-400">İsmi iletişimde ve ürünlerde tutarlı bir şekilde kullanın.</p>
                     </div>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-[#121214] border border-[#27272a] rounded-xl p-6 space-y-4">
-                            <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Correct</h4>
+                            <h4 data-tr="Doğru" data-en="Correct" class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Doğru</h4>
                             <ul class="space-y-2 text-sm text-gray-300 font-medium">
                                 <li>gnessac Anticheat</li>
                                 <li>gnessac</li>
@@ -587,7 +566,7 @@
                             </ul>
                         </div>
                         <div class="bg-[#121214] border border-[#27272a] rounded-xl p-6 space-y-4">
-                            <h4 class="text-xs font-bold text-red-400 uppercase tracking-wider">Incorrect</h4>
+                            <h4 data-tr="Yanlış" data-en="Incorrect" class="text-xs font-bold text-red-400 uppercase tracking-wider">Yanlış</h4>
                             <ul class="space-y-2 text-sm text-gray-400 font-medium line-through">
                                 <li>GNESSAC ANTICHEAT</li>
                                 <li>gnessacAC</li>
@@ -596,7 +575,6 @@
                         </div>
                     </div>
                 </section>
-
             </div>
         </div>
     </main>
@@ -605,78 +583,88 @@
     <main id="terms" class="page-section">
         <div class="px-8 md:px-24 pt-16 pb-24 max-w-4xl mx-auto space-y-12">
             <div class="border-b border-[#27272a] pb-6">
-                <h1 class="text-4xl font-extrabold text-white mb-2">Terms of Service & Privacy Policy</h1>
-                <p class="text-sm text-gray-400">Last updated: November 2026 · gnessac.org Enterprise Compliance & Legal Framework</p>
+                <h1 data-tr="Hizmet Şartları ve Gizlilik Politikası" data-en="Terms of Service & Privacy Policy" class="text-4xl font-extrabold text-white mb-2">Hizmet Şartları ve Gizlilik Politikası</h1>
+                <p data-tr="Son güncelleme: Kasım 2026 · gnessac.org Kurumsal Uyumluluk ve Yasal Çerçeve" data-en="Last updated: November 2026 · gnessac.org Enterprise Compliance & Legal Framework" class="text-sm text-gray-400">Son güncelleme: Kasım 2026 · gnessac.org Kurumsal Uyumluluk ve Yasal Çerçeve</p>
             </div>
 
             <div class="space-y-10 text-gray-300 text-base leading-relaxed">
                 <section class="space-y-4">
-                    <h2 class="text-2xl font-bold text-white">1. Introduction, Jurisdiction, and Binding Agreement</h2>
-                    <p>
-                        Welcome to <strong class="text-white">gnessac Solutions</strong> (<span class="underline decoration-red-500 decoration-2 font-semibold text-white">"gnessac.org"</span>, <span class="underline decoration-red-500 decoration-2 font-semibold text-white">"we"</span>, <span class="underline decoration-red-500 decoration-2 font-semibold text-white">"our"</span>, or <span class="underline decoration-red-500 decoration-2 font-semibold text-white">"us"</span>). By accessing, downloading, installing, or otherwise utilizing any software applications, digital forensics modules, application programming interfaces (APIs), or online services provided on or through gnessac.org, you enter into a legally binding agreement governed by rigorous international corporate compliance standards.
+                    <h2 data-tr="1. Giriş, Yargı Yetkisi ve Bağlayıcı Anlaşma" data-en="1. Introduction, Jurisdiction, and Binding Agreement" class="text-2xl font-bold text-white">1. Giriş, Yargı Yetkisi ve Bağlayıcı Anlaşma</h2>
+                    <p data-tr="<strong class='text-white'>gnessac Solutions</strong>'a (<span class='underline decoration-red-500 decoration-2 font-semibold text-white'>&quot;gnessac.org&quot;</span>, <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>&quot;biz&quot;</span> veya <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>&quot;bizim&quot;</span>) hoş geldiniz. gnessac.org üzerinde veya aracılığıyla sağlanan herhangi bir yazılım uygulamasını, dijital adli bilişim modülünü, API'yi veya çevrimiçi hizmeti erişerek, indirerek, yükleyerek veya başka bir şekilde kullanarak, titiz uluslararası kurumsal uyumluluk standartlarına tabi yasal olarak bağlayıcı bir anlaşma yapmış olursunuz. Bu belge, hem bireysel son kullanıcılar hem de kurumsal sunucu ağları için geçerli olan kullanım şartlarını ve veri işleme protokollerini mutlak bir kesinlikle tanımlar." data-en="Welcome to <strong class='text-white'>gnessac Solutions</strong> (<span class='underline decoration-red-500 decoration-2 font-semibold text-white'>&quot;gnessac.org&quot;</span>, <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>&quot;we&quot;</span>, <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>&quot;our&quot;</span>, or <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>&quot;us&quot;</span>). By accessing, downloading, installing, or otherwise utilizing any software applications, digital forensics modules, APIs, or online services provided on or through gnessac.org, you enter into a legally binding agreement governed by rigorous international corporate compliance standards. This document defines with absolute certainty the terms of use and data processing protocols applicable to both individual end-users and enterprise server networks.">
+                        <strong class='text-white'>gnessac Solutions</strong>'a (<span class='underline decoration-red-500 decoration-2 font-semibold text-white'>"gnessac.org"</span>, <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>"biz"</span> veya <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>"bizim"</span>) hoş geldiniz. gnessac.org üzerinde veya aracılığıyla sağlanan herhangi bir yazılım uygulamasını, dijital adli bilişim modülünü, API'yi veya çevrimiçi hizmeti erişerek, indirerek, yükleyerek veya başka bir şekilde kullanarak, titiz uluslararası kurumsal uyumluluk standartlarına tabi yasal olarak bağlayıcı bir anlaşma yapmış olursunuz. Bu belge, hem bireysel son kullanıcılar hem de kurumsal sunucu ağları için geçerli olan kullanım şartlarını ve veri işleme protokollerini mutlak bir kesinlikle tanımlar.
                     </p>
-                    <p>
-                        Our anti-cheat and forensic auditing platform is meticulously engineered to protect competitive gaming ecosystems, esports tournaments, and dedicated community servers from malicious exploitation, unauthorized memory injections, and heuristic circumvention vectors. By deploying our infrastructure, you expressly warrant that you possess the legal authority to bind yourself or your corporate entity to these terms. <span class="underline decoration-red-500 decoration-2 font-semibold text-white">If you do not agree to every explicit covenant, restriction, and warranty disclaimer contained herein, you must immediately cease all access and permanently delete all gnessac binaries from your hardware.</span>
-                    </p>
-                </section>
-
-                <section class="space-y-4">
-                    <h2 class="text-2xl font-bold text-white">2. Scope of Digital Forensics & Anti-Cheat Infrastructure</h2>
-                    <p>
-                        The gnessac platform provides advanced post-mortem digital forensics and real-time screenshare verification services. Our proprietary scanning binaries inspect volatile system memory, running process image headers, prefetch logs, temporary execution directories, and pre-boot environments solely for the purpose of identifying illicit modifications, unauthorized macro automation, DLL injection frameworks, and kernel-level bypasses.
-                    </p>
-                    <p>
-                        <span class="underline decoration-red-500 decoration-2 font-semibold text-white">Our diagnostic engine operates under strict operational boundaries designed to isolate cheating vectors without compromising core operating system stability.</span> Server administrators and community moderators utilizing our administrative dashboard are granted non-exclusive, revocable licenses to execute scans exclusively within authorized competitive environments. Any deployment of gnessac technology outside authorized gaming networks or for unauthorized surveillance is strictly prohibited.
+                    <p data-tr="Anti-cheat ve adli denetim platformumuz; rekabetçi oyun ekosistemlerini, e-spor turnuvalarını ve özel topluluk sunucularını kötü niyetli sömürüden, yetkisiz bellek enjeksiyonlarından ve sezgisel atlatma vektörlerinden korumak için titizlikle tasarlanmıştır. Altyapımızı kurarak, kendinizi veya kurumsal varlığınızı bu şartlara bağlama yasal yetkisine sahip olduğunuzu açıkça garanti edersiniz. <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>Burada yer alan her açık sözleşmeyi, kısıtlamayı ve garanti reddini koşulsuz şartsız kabul etmiyorsanız, derhal tüm erişimi durdurmalı, tüm sözleşmeleri feshetmeli ve tüm gnessac ikili dosyalarını donanımınızdan kalıcı olarak silmelisiniz.</span>" data-en="Our anti-cheat and forensic auditing platform is meticulously engineered to protect competitive gaming ecosystems, esports tournaments, and dedicated community servers from malicious exploitation, unauthorized memory injections, and heuristic circumvention vectors. By deploying our infrastructure, you expressly warrant that you possess the legal authority to bind yourself or your corporate entity to these terms. <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>If you do not unconditionally agree to every explicit covenant, restriction, and warranty disclaimer contained herein, you must immediately cease all access, terminate all agreements, and permanently delete all gnessac binaries from your hardware.</span>">
+                        Anti-cheat ve adli denetim platformumuz; rekabetçi oyun ekosistemlerini, e-spor turnuvalarını ve özel topluluk sunucularını kötü niyetli sömürüden, yetkisiz bellek enjeksiyonlarından ve sezgisel atlatma vektörlerinden korumak için titizlikle tasarlanmıştır. Altyapımızı kurarak, kendinizi veya kurumsal varlığınızı bu şartlara bağlama yasal yetkisine sahip olduğunuzu açıkça garanti edersiniz. <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>Burada yer alan her açık sözleşmeyi, kısıtlamayı ve garanti reddini koşulsuz şartsız kabul etmiyorsanız, derhal tüm erişimi durdurmalı, tüm sözleşmeleri feshetmeli ve tüm gnessac ikili dosyalarını donanımınızdan kalıcı olarak silmelisiniz.</span>
                     </p>
                 </section>
 
                 <section class="space-y-4">
-                    <h2 class="text-2xl font-bold text-white">3. Data Privacy, Telemetry Collection, and Information Handling</h2>
-                    <p>
-                        Protecting user confidentiality and personal privacy remains a foundational pillar of gnessac operations. When a diagnostic scan is initiated via an authenticated verification pin, our software collects strictly necessary anti-cheat telemetry, hardware identification hashes (<span class="underline decoration-red-500 decoration-2 font-semibold text-white">HWID</span>), and a single encrypted compliance screenshot captured at the exact conclusion of the screening session.
+                    <h2 data-tr="2. Dijital Adli Bilişim ve Anti-Cheat Altyapısının Kapsamı" data-en="2. Scope of Digital Forensics & Anti-Cheat Infrastructure" class="text-2xl font-bold text-white">2. Dijital Adli Bilişim ve Anti-Cheat Altyapısının Kapsamı</h2>
+                    <p data-tr="gnessac platformu, geleneksel anti-virüs yazılımlarından farklı olarak, proaktif bir engelleme sistemi değil, gelişmiş bir post-mortem (olay sonrası) dijital adli bilişim ve gerçek zamanlı ekran paylaşımı doğrulama hizmeti sunar. Tescilli tarama ikili dosyalarımız; yasa dışı modifikasyonları, yetkisiz makro otomasyonunu, gelişmiş DLL enjeksiyon çerçevelerini ve çekirdek düzeyindeki bypass'ları belirlemek amacıyla uçucu sistem belleğini (RAM), çalışan süreç görüntü başlıklarını, dışa aktarılan tablo adreslerini, prefetch günlüklerini ve geçici yürütme dizinlerini mikroskobik düzeyde inceler." data-en="Unlike traditional anti-virus software, the gnessac platform provides an advanced post-mortem digital forensics and real-time screenshare verification service rather than a proactive blocking system. Our proprietary scanning binaries microscopically inspect volatile system memory (RAM), running process image headers, exported table addresses, prefetch logs, and temporary execution directories solely to identify illicit modifications, unauthorized macro automation, advanced DLL injection frameworks, and kernel-level bypasses.">
+                        gnessac platformu, geleneksel anti-virüs yazılımlarından farklı olarak, proaktif bir engelleme sistemi değil, gelişmiş bir post-mortem (olay sonrası) dijital adli bilişim ve gerçek zamanlı ekran paylaşımı doğrulama hizmeti sunar. Tescilli tarama ikili dosyalarımız; yasa dışı modifikasyonları, yetkisiz makro otomasyonunu, gelişmiş DLL enjeksiyon çerçevelerini ve çekirdek düzeyindeki bypass'ları belirlemek amacıyla uçucu sistem belleğini (RAM), çalışan süreç görüntü başlıklarını, dışa aktarılan tablo adreslerini, prefetch günlüklerini ve geçici yürütme dizinlerini mikroskobik düzeyde inceler.
                     </p>
-                    <p>
-                        <span class="underline decoration-red-500 decoration-2 font-semibold text-white">We maintain an absolute zero-tolerance policy regarding the harvesting of personal documents, private web browsing histories, financial statements, and confidential communications.</span> All diagnostic logs and compliance screenshots transmitted to our secure cloud infrastructure are automatically purged after twenty-one (21) calendar days, ensuring complete adherence to international data protection regulations and privacy directives.
-                    </p>
-                </section>
-
-                <section class="space-y-4">
-                    <h2 class="text-2xl font-bold text-white">4. User Conduct, Security Covenants, and Prohibited Actions</h2>
-                    <p>
-                        Users and corporate clients agree to maintain the highest standards of professional conduct while interacting with our platform and client software. <span class="underline decoration-red-500 decoration-2 font-semibold text-white">Any attempt to decompile, reverse engineer, disassemble, debug, tamper with, or bypass the cryptographic protection routines and process integrity safeguards embedded within gnessac binaries is strictly prohibited.</span>
-                    </p>
-                    <p>
-                        Engaging in unauthorized penetration testing, API stress flooding, credential harvesting, or exploitation of our staff moderation pins will result in immediate, permanent account termination, cryptographic hardware blacklisting, and potential legal prosecution under applicable cybercrime legislation.
+                    <p data-tr="<span class='underline decoration-red-500 decoration-2 font-semibold text-white'>Tanılama motorumuz, işletim sisteminin çekirdek kararlılığını tehlikeye atmadan hile vektörlerini izole etmek için tasarlanmış katı operasyonel sınırlar altında çalışır.</span> Yönetim panomuzu kullanan sunucu yöneticilerine ve topluluk moderatörlerine, yalnızca yetkili rekabetçi ortamlarda (örn. aktif bir turnuva maçı sırasında şüpheli bir oyuncuyu denetlerken) taramalar yürütmek üzere münhasır olmayan, devredilemez ve iptal edilebilir lisanslar verilir. gnessac teknolojisinin yetkili oyun ağları dışında, çalışan personeli gözetlemek, veri madenciliği yapmak veya yetkisiz sistem gözetimi amacıyla herhangi bir şekilde konuşlandırılması kati suretle yasaktır ve anında lisans iptali sebebidir." data-en="<span class='underline decoration-red-500 decoration-2 font-semibold text-white'>Our diagnostic engine operates under strict operational boundaries designed to isolate cheating vectors without compromising core operating system stability.</span> Server administrators and community moderators utilizing our administrative dashboard are granted non-exclusive, non-transferable, and revocable licenses to execute scans exclusively within authorized competitive environments (e.g., auditing a suspicious player during an active tournament match). Any deployment of gnessac technology outside authorized gaming networks, for monitoring employees, data mining, or unauthorized system surveillance is strictly prohibited and grounds for immediate license revocation.">
+                        <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>Tanılama motorumuz, işletim sisteminin çekirdek kararlılığını tehlikeye atmadan hile vektörlerini izole etmek için tasarlanmış katı operasyonel sınırlar altında çalışır.</span> Yönetim panomuzu kullanan sunucu yöneticilerine ve topluluk moderatörlerine, yalnızca yetkili rekabetçi ortamlarda (örn. aktif bir turnuva maçı sırasında şüpheli bir oyuncuyu denetlerken) taramalar yürütmek üzere münhasır olmayan, devredilemez ve iptal edilebilir lisanslar verilir. gnessac teknolojisinin yetkili oyun ağları dışında, çalışan personeli gözetlemek, veri madenciliği yapmak veya yetkisiz sistem gözetimi amacıyla herhangi bir şekilde konuşlandırılması kati suretle yasaktır ve anında lisans iptali sebebidir.
                     </p>
                 </section>
 
                 <section class="space-y-4">
-                    <h2 class="text-2xl font-bold text-white">5. Intellectual Property Rights and Trademark Protection</h2>
-                    <p>
-                        All software code, visual assets, documentation architectures, trademarked brand names (<span class="underline decoration-red-500 decoration-2 font-semibold text-white">gnessac</span>), logos, and proprietary scanning methodologies displayed across gnessac.org are the exclusive intellectual property of gnessac Solutions.
+                    <h2 data-tr="3. Veri Gizliliği, Telemetri Toplama ve Bilgi İşleme" data-en="3. Data Privacy, Telemetry Collection, and Information Handling" class="text-2xl font-bold text-white">3. Veri Gizliliği, Telemetri Toplama ve Bilgi İşleme</h2>
+                    <p data-tr="Kullanıcı gizliliğini korumak, gnessac mimarisinin taviz verilmez temel bir sütunudur. Bir denetim oturumu yetkili bir moderatör tarafından kriptografik bir pin ile başlatıldığında, yazılımımız yalnızca hile tespitine yönelik meta verileri toplar. Bu veriler şunları içerir: şüpheli bellek tahsisatlarının özetleri, sistem süreç listesinin anlık görüntüsü, donanım kimliği özetleri (HWID - anakart, CPU ve disk seri numaralarının kriptografik olarak harmanlanmış hali) ve tarama oturumunun tam olarak bittiği saniyede alınan tek bir masaüstü ekran görüntüsü." data-en="Protecting user confidentiality is an uncompromising foundational pillar of the gnessac architecture. When an audit session is initiated by an authorized moderator via a cryptographic pin, our software collects metadata solely targeted at cheat detection. This data includes: summaries of suspicious memory allocations, a snapshot of the system process list, hardware identification hashes (HWID - cryptographically combined motherboard, CPU, and disk serial numbers), and a single desktop screenshot captured at the exact second the scan session concludes.">
+                        Kullanıcı gizliliğini korumak, gnessac mimarisinin taviz verilmez temel bir sütunudur. Bir denetim oturumu yetkili bir moderatör tarafından kriptografik bir pin ile başlatıldığında, yazılımımız yalnızca hile tespitine yönelik meta verileri toplar. Bu veriler şunları içerir: şüpheli bellek tahsisatlarının özetleri, sistem süreç listesinin anlık görüntüsü, donanım kimliği özetleri (HWID - anakart, CPU ve disk seri numaralarının kriptografik olarak harmanlanmış hali) ve tarama oturumunun tam olarak bittiği saniyede alınan tek bir masaüstü ekran görüntüsü.
                     </p>
-                    <p>
-                        Nothing contained within these Terms of Service shall be construed as conferring any license or right under any gnessac patent, copyright, trademark, or trade secret. Unauthorized reproduction, redistribution, or commercial exploitation of our branding or source code is strictly prohibited by international intellectual property treaties.
-                    </p>
-                </section>
-
-                <section class="space-y-4">
-                    <h2 class="text-2xl font-bold text-white">6. Limitation of Liability and Comprehensive Warranty Disclaimers</h2>
-                    <p>
-                        The gnessac platform, software binaries, and associated APIs are provided on an <span class="underline decoration-red-500 decoration-2 font-semibold text-white">"AS IS"</span> and <span class="underline decoration-red-500 decoration-2 font-semibold text-white">"AS AVAILABLE"</span> basis without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
-                    </p>
-                    <p>
-                        In no event shall gnessac, its executive officers, developers, or corporate affiliates be held liable for any direct, indirect, incidental, special, punitive, or consequential damages—including loss of data, revenue, or competitive standing—arising out of or in any way connected with the use, operational delay, or inability to use our anti-cheat infrastructure.
+                    <p data-tr="<span class='underline decoration-red-500 decoration-2 font-semibold text-white'>Kişisel belgelerin, özel web tarayıcısı geçmişlerinin, şifre yöneticilerinin, finansal beyanların ve iletişim uygulamalarının (Discord, WhatsApp vb.) içeriğine erişim sağlanmasına karşı mutlak bir sıfır tolerans politikamız vardır.</span> Yazılımımız, işletim sisteminin kişisel dosyaları depoladığı dizinleri taramak üzere programlanmamıştır. Güvenli bulut altyapımıza aktarılan tüm adli günlükler ve uyumluluk ekran görüntüleri, uluslararası veri koruma düzenlemelerine (GDPR ve CCPA) tam uyum sağlamak amacıyla yirmi bir (21) takvim günü sonra otomatik ve geri döndürülemez şekilde sistemlerimizden kalıcı olarak silinir." data-en="<span class='underline decoration-red-500 decoration-2 font-semibold text-white'>We maintain an absolute zero-tolerance policy against accessing personal documents, private web browsing histories, password managers, financial statements, and the content of communication applications (Discord, WhatsApp, etc.).</span> Our software is not programmed to scan the directories where the operating system stores personal files. All forensic logs and compliance screenshots transmitted to our secure cloud infrastructure are automatically and irreversibly deleted from our systems after twenty-one (21) calendar days to ensure full adherence to international data protection regulations (GDPR and CCPA).">
+                        <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>Kişisel belgelerin, özel web tarayıcısı geçmişlerinin, şifre yöneticilerinin, finansal beyanların ve iletişim uygulamalarının (Discord, WhatsApp vb.) içeriğine erişim sağlanmasına karşı mutlak bir sıfır tolerans politikamız vardır.</span> Yazılımımız, işletim sisteminin kişisel dosyaları depoladığı dizinleri taramak üzere programlanmamıştır. Güvenli bulut altyapımıza aktarılan tüm adli günlükler ve uyumluluk ekran görüntüleri, uluslararası veri koruma düzenlemelerine (GDPR ve CCPA) tam uyum sağlamak amacıyla yirmi bir (21) takvim günü sonra otomatik ve geri döndürülemez şekilde sistemlerimizden kalıcı olarak silinir.
                     </p>
                 </section>
 
                 <section class="space-y-4">
-                    <h2 class="text-2xl font-bold text-white">7. Modifications to Terms and Official Corporate Contact</h2>
-                    <p>
-                        gnessac reserves the right to modify, amend, or update these Terms of Service and Privacy Policy at any time at its sole discretion. Continued use of our platform following the posting of revised terms constitutes your explicit acceptance of such changes.
+                    <h2 data-tr="4. Kullanıcı Davranış Kuralları ve Yasaklı Eylemler" data-en="4. User Conduct and Prohibited Actions" class="text-2xl font-bold text-white">4. Kullanıcı Davranış Kuralları ve Yasaklı Eylemler</h2>
+                    <p data-tr="Kullanıcılar ve kurumsal müşteriler, platformumuz ve istemci yazılımımızla etkileşime girerken en yüksek profesyonel davranış standartlarını korumayı kabul ederler. <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>gnessac ikili dosyalarına gömülü kriptografik koruma rutinlerini ve süreç bütünlüğü önlemlerini geri derleme (decompiling), tersine mühendislik, parçalara ayırma (disassembling), hata ayıklama (debugging), kurcalama veya aşma yönündeki herhangi bir girişim kesinlikle yasaktır ve yasa dışı kabul edilir.</span>" data-en="Users and enterprise clients agree to maintain the highest standards of professional conduct while interacting with our platform and client software. <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>Any attempt to decompile, reverse engineer, disassemble, debug, tamper with, or bypass the cryptographic protection routines and process integrity safeguards embedded within gnessac binaries is strictly prohibited and considered illegal.</span>">
+                        Kullanıcılar ve kurumsal müşteriler, platformumuz ve istemci yazılımımızla etkileşime girerken en yüksek profesyonel davranış standartlarını korumayı kabul ederler. <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>gnessac ikili dosyalarına gömülü kriptografik koruma rutinlerini ve süreç bütünlüğü önlemlerini geri derleme (decompiling), tersine mühendislik, parçalara ayırma (disassembling), hata ayıklama (debugging), kurcalama veya aşma yönündeki herhangi bir girişim kesinlikle yasaktır ve yasa dışı kabul edilir.</span>
                     </p>
-                    <p>
-                        For all legal notices, compliance inquiries, data privacy requests, or enterprise support questions, please contact our administrative department directly via our official corporate email at <span class="underline decoration-red-500 decoration-2 font-mono text-white">gnesssoftware@outlook.com</span> or through our verified Discord community portal.
+                    <p data-tr="Ağ trafiğimizi manipüle etmek, API uç noktalarımıza sahte veriler göndermek (spoofing), sunucularımıza yetkisiz sızma testleri (penetration testing) uygulamak, moderasyon pinlerini kaba kuvvet (brute-force) yöntemleriyle tahmin etmeye çalışmak veya tarama sırasında sanal makine (VM) atlatma teknikleri kullanmak, hesabın derhal kalıcı olarak feshedilmesine neden olacaktır. Bu tür eylemler tespit edildiğinde, ilişkili donanım kimlikleri (HWID) küresel bir kara listeye alınacak ve ilgili siber suç mevzuatları kapsamında adli mercilere bildirim yapılabilecektir." data-en="Manipulating our network traffic, sending spoofed data to our API endpoints, conducting unauthorized penetration testing on our servers, attempting to guess moderation pins via brute-force methods, or employing virtual machine (VM) evasion techniques during a scan will result in the immediate and permanent termination of the account. Upon detection of such actions, associated hardware identification hashes (HWID) will be added to a global blacklist, and notifications may be made to judicial authorities under applicable cybercrime legislation.">
+                        Ağ trafiğimizi manipüle etmek, API uç noktalarımıza sahte veriler göndermek (spoofing), sunucularımıza yetkisiz sızma testleri (penetration testing) uygulamak, moderasyon pinlerini kaba kuvvet (brute-force) yöntemleriyle tahmin etmeye çalışmak veya tarama sırasında sanal makine (VM) atlatma teknikleri kullanmak, hesabın derhal kalıcı olarak feshedilmesine neden olacaktır. Bu tür eylemler tespit edildiğinde, ilişkili donanım kimlikleri (HWID) küresel bir kara listeye alınacak ve ilgili siber suç mevzuatları kapsamında adli mercilere bildirim yapılabilecektir.
+                    </p>
+                </section>
+
+                <section class="space-y-4">
+                    <h2 data-tr="5. Abonelik, Faturalandırma ve İade Politikaları" data-en="5. Subscription, Billing, and Refund Policies" class="text-2xl font-bold text-white">5. Abonelik, Faturalandırma ve İade Politikaları</h2>
+                    <p data-tr="gnessac hizmetlerine erişim, seçilen pakete bağlı olarak ön ödemeli abonelik esasına dayalıdır. Kurumsal hizmet düzeyi anlaşmaları (SLA) aksi belirtmedikçe, tüm aylık, 6 aylık ve yıllık abonelikler, faturalandırma döngüsünün sonunda otomatik olarak yenilenecektir. Yenilemeyi iptal etmek, kullanıcının sorumluluğundadır ve iptal işlemi, bir sonraki faturalandırma döngüsü başlamadan önce hesap paneli üzerinden gerçekleştirilmelidir." data-en="Access to gnessac services is provided on a prepaid subscription basis depending on the selected package. Unless enterprise service level agreements (SLAs) stipulate otherwise, all monthly, 6-month, and annual subscriptions will automatically renew at the end of the billing cycle. Canceling the renewal is the responsibility of the user, and the cancellation process must be executed via the account panel before the next billing cycle begins.">
+                        gnessac hizmetlerine erişim, seçilen pakete bağlı olarak ön ödemeli abonelik esasına dayalıdır. Kurumsal hizmet düzeyi anlaşmaları (SLA) aksi belirtmedikçe, tüm aylık, 6 aylık ve yıllık abonelikler, faturalandırma döngüsünün sonunda otomatik olarak yenilenecektir. Yenilemeyi iptal etmek, kullanıcının sorumluluğundadır ve iptal işlemi, bir sonraki faturalandırma döngüsü başlamadan önce hesap paneli üzerinden gerçekleştirilmelidir.
+                    </p>
+                    <p data-tr="Dijital ve anında teslim edilen bir hizmet doğası gereği, abonelik ödemeleri <strong class='text-white'>kesinlikle iade edilemez</strong>. Yazılımımızın donanımınızla uyumsuzluğu, desteklenen oyunların güncellemeleri nedeniyle yaşanan geçici kesintiler veya hesabınızın kullanım şartlarını ihlal etmesi sebebiyle askıya alınması durumlarında dahi kısmi veya tam para iadesi yapılmayacaktır. Haksız yere yapılan ters ibraz (chargeback) talepleri, ilgili finansal kurumlarla hukuki olarak itiraz edilecek ve söz konusu hesaplar ağımızdan kalıcı olarak engellenecektir." data-en="Due to the nature of a digital and instantly delivered service, subscription payments are <strong class='text-white'>strictly non-refundable</strong>. No partial or full refunds will be issued even in cases of software incompatibility with your hardware, temporary outages due to updates in supported games, or account suspension resulting from a violation of these terms of service. Unjustified chargeback requests will be legally contested with the respective financial institutions, and the associated accounts will be permanently banned from our network.">
+                        Dijital ve anında teslim edilen bir hizmet doğası gereği, abonelik ödemeleri <strong class='text-white'>kesinlikle iade edilemez</strong>. Yazılımımızın donanımınızla uyumsuzluğu, desteklenen oyunların güncellemeleri nedeniyle yaşanan geçici kesintiler veya hesabınızın kullanım şartlarını ihlal etmesi sebebiyle askıya alınması durumlarında dahi kısmi veya tam para iadesi yapılmayacaktır. Haksız yere yapılan ters ibraz (chargeback) talepleri, ilgili finansal kurumlarla hukuki olarak itiraz edilecek ve söz konusu hesaplar ağımızdan kalıcı olarak engellenecektir.
+                    </p>
+                </section>
+
+                <section class="space-y-4">
+                    <h2 data-tr="6. Fikri Mülkiyet Hakları ve Ticari Marka Koruması" data-en="6. Intellectual Property Rights and Trademark Protection" class="text-2xl font-bold text-white">6. Fikri Mülkiyet Hakları ve Ticari Marka Koruması</h2>
+                    <p data-tr="gnessac.org web sitesinde, istemci yazılımlarında ve API dokümantasyonlarında yer alan tüm yazılım kodları, algoritmalar, tespit metodolojileri, görsel varlıklar, UI tasarımları, tescilli marka isimleri (<span class='underline decoration-red-500 decoration-2 font-semibold text-white'>gnessac™</span>), logolar ve hizmet markaları, gnessac Solutions'ın veya ilgili lisans verenlerinin münhasır fikri mülkiyetidir." data-en="All software code, algorithms, detection methodologies, visual assets, UI designs, registered brand names (<span class='underline decoration-red-500 decoration-2 font-semibold text-white'>gnessac™</span>), logos, and service marks featured on the gnessac.org website, client software, and API documentation are the exclusive intellectual property of gnessac Solutions or its respective licensors.">
+                        gnessac.org web sitesinde, istemci yazılımlarında ve API dokümantasyonlarında yer alan tüm yazılım kodları, algoritmalar, tespit metodolojileri, görsel varlıklar, UI tasarımları, tescilli marka isimleri (<span class='underline decoration-red-500 decoration-2 font-semibold text-white'>gnessac™</span>), logolar ve hizmet markaları, gnessac Solutions'ın veya ilgili lisans verenlerinin münhasır fikri mülkiyetidir.
+                    </p>
+                    <p data-tr="Bu Hizmet Şartlarında yer alan hiçbir hüküm, gnessac'ın herhangi bir patenti, telif hakkı, ticari markası veya ticari sırrı kapsamında herhangi bir lisans veya hak devri olarak yorumlanamaz. Önceden açık yazılı kurumsal iznimiz olmadan kaynak kodumuzun, tespit imzalarımızın veya markalama unsurlarımızın yetkisiz çoğaltılması, beyaz etiketli (white-label) ürün olarak satılması, değiştirilmesi veya ticari amaçla sömürülmesi uluslararası fikri mülkiyet anlaşmaları tarafından kesinlikle yasaklanmıştır." data-en="Nothing contained within these Terms of Service shall be construed as conferring any license or transfer of rights under any gnessac patent, copyright, trademark, or trade secret. Unauthorized reproduction, selling as a white-label product, modification, or commercial exploitation of our source code, detection signatures, or branding elements without our explicit prior written corporate consent is strictly prohibited by international intellectual property treaties.">
+                        Bu Hizmet Şartlarında yer alan hiçbir hüküm, gnessac'ın herhangi bir patenti, telif hakkı, ticari markası veya ticari sırrı kapsamında herhangi bir lisans veya hak devri olarak yorumlanamaz. Önceden açık yazılı kurumsal iznimiz olmadan kaynak kodumuzun, tespit imzalarımızın veya markalama unsurlarımızın yetkisiz çoğaltılması, beyaz etiketli (white-label) ürün olarak satılması, değiştirilmesi veya ticari amaçla sömürülmesi uluslararası fikri mülkiyet anlaşmaları tarafından kesinlikle yasaklanmıştır.
+                    </p>
+                </section>
+
+                <section class="space-y-4">
+                    <h2 data-tr="7. Sorumluluğun Sınırlandırılması ve Kapsamlı Garanti Reddi" data-en="7. Limitation of Liability and Comprehensive Warranty Disclaimer" class="text-2xl font-bold text-white">7. Sorumluluğun Sınırlandırılması ve Kapsamlı Garanti Reddi</h2>
+                    <p data-tr="gnessac platformu, yazılım ikili dosyaları ve ilişkili API'ler, ticari elverişlilik, belirli bir amaca uygunluk veya ihlal etmeme zımni garantileri de dahil ancak bunlarla sınırlı olmamak üzere, açık veya zımni herhangi bir garanti verilmeksizin <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>&quot;OLDUĞU GİBİ (AS IS)&quot;</span> ve <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>&quot;MEVCUT OLDUĞU ŞEKİLDE (AS AVAILABLE)&quot;</span> temelinde sunulmaktadır. Platformumuzun hatasız, kesintisiz çalışacağını veya tespit sistemlerimizin %100 kusursuz (yanlış pozitif veya negatif olmadan) çalışacağını garanti etmiyoruz." data-en="The gnessac platform, software binaries, and associated APIs are provided on an <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>&quot;AS IS&quot;</span> and <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>&quot;AS AVAILABLE&quot;</span> basis without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not guarantee that our platform will operate error-free, uninterrupted, or that our detection systems will function with 100% perfection (without false positives or negatives).">
+                        gnessac platformu, yazılım ikili dosyaları ve ilişkili API'ler, ticari elverişlilik, belirli bir amaca uygunluk veya ihlal etmeme zımni garantileri de dahil ancak bunlarla sınırlı olmamak üzere, açık veya zımni herhangi bir garanti verilmeksizin <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>"OLDUĞU GİBİ (AS IS)"</span> ve <span class='underline decoration-red-500 decoration-2 font-semibold text-white'>"MEVCUT OLDUĞU ŞEKİLDE (AS AVAILABLE)"</span> temelinde sunulmaktadır. Platformumuzun hatasız, kesintisiz çalışacağını veya tespit sistemlerimizin %100 kusursuz (yanlış pozitif veya negatif olmadan) çalışacağını garanti etmiyoruz.
+                    </p>
+                    <p data-tr="Hiçbir durumda gnessac, yöneticileri, geliştiricileri, çalışanları veya kurumsal iştirakleri; anti-cheat altyapımızın kullanımından, operasyonel gecikmelerinden, hatalı donanım yasaklamalarından veya kullanılamamasından kaynaklanan veya bunlarla herhangi bir şekilde bağlantılı olan doğrudan, dolaylı, arızi, özel, cezai veya sonuç olarak ortaya çıkan zararlardan (veri, gelir, itibar veya rekabetçi konum kaybı dahil) sorumlu tutulamaz. Yasal olarak zorunlu kılınan durumlarda, gnessac'ın toplam mali sorumluluğu, kullanıcının son üç (3) ay içinde ödediği abonelik ücretini aşamaz." data-en="In no event shall gnessac, its executives, developers, employees, or corporate affiliates be held liable for any direct, indirect, incidental, special, punitive, or consequential damages (including loss of data, revenue, reputation, or competitive standing) arising out of or in any way connected with the use, operational delays, erroneous hardware bans, or inability to use our anti-cheat infrastructure. In cases mandated by law, gnessac's total aggregate financial liability shall not exceed the subscription fee paid by the user in the past three (3) months.">
+                        Hiçbir durumda gnessac, yöneticileri, geliştiricileri, çalışanları veya kurumsal iştirakleri; anti-cheat altyapımızın kullanımından, operasyonel gecikmelerinden, hatalı donanım yasaklamalarından veya kullanılamamasından kaynaklanan veya bunlarla herhangi bir şekilde bağlantılı olan doğrudan, dolaylı, arızi, özel, cezai veya sonuç olarak ortaya çıkan zararlardan (veri, gelir, itibar veya rekabetçi konum kaybı dahil) sorumlu tutulamaz. Yasal olarak zorunlu kılınan durumlarda, gnessac'ın toplam mali sorumluluğu, kullanıcının son üç (3) ay içinde ödediği abonelik ücretini aşamaz.
+                    </p>
+                </section>
+
+                <section class="space-y-4">
+                    <h2 data-tr="8. Şartların Değiştirilmesi ve Resmi Kurumsal İletişim" data-en="8. Modifications to Terms and Official Corporate Communication" class="text-2xl font-bold text-white">8. Şartların Değiştirilmesi ve Resmi Kurumsal İletişim</h2>
+                    <p data-tr="gnessac, tamamen kendi takdirine bağlı olarak, bu Hizmet Şartlarını, Gizlilik Politikasını ve Hizmet Düzeyi Anlaşmalarını (SLA) dilediği zaman, önceden haber vermeksizin değiştirme, düzeltme veya güncelleme hakkını saklı tutar. Gözden geçirilmiş şartların platformumuzda yayınlanmasının ardından hizmetlerimizi kullanmaya devam etmeniz, söz konusu değişiklikleri koşulsuz ve açık bir şekilde kabul ettiğiniz anlamına gelir. Önemli yasal değişiklikler durumunda, kayıtlı e-posta adresiniz üzerinden bildirim yapılabilir." data-en="gnessac reserves the right to modify, amend, or update these Terms of Service, Privacy Policy, and Service Level Agreements (SLAs) at any time, without prior notice, at its sole discretion. Your continued use of our services following the posting of revised terms on our platform constitutes your unconditional and explicit acceptance of such changes. In the event of material legal modifications, notifications may be sent to your registered email address.">
+                        gnessac, tamamen kendi takdirine bağlı olarak, bu Hizmet Şartlarını, Gizlilik Politikasını ve Hizmet Düzeyi Anlaşmalarını (SLA) dilediği zaman, önceden haber vermeksizin değiştirme, düzeltme veya güncelleme hakkını saklı tutar. Gözden geçirilmiş şartların platformumuzda yayınlanmasının ardından hizmetlerimizi kullanmaya devam etmeniz, söz konusu değişiklikleri koşulsuz ve açık bir şekilde kabul ettiğiniz anlamına gelir. Önemli yasal değişiklikler durumunda, kayıtlı e-posta adresiniz üzerinden bildirim yapılabilir.
+                    </p>
+                    <p data-tr="Bu sözleşmeden doğabilecek her türlü hukuki uyuşmazlık durumunda, şirketimizin kayıtlı olduğu yargı bölgesinin kanunları geçerli olacaktır. Tüm yasal bildirimler, veri gizliliği (GDPR) erişim talepleri, kurumsal uyumluluk soruları, API entegrasyon talepleri veya acil kurumsal destek için lütfen resmi kurumsal e-posta adresimiz olan <span class='underline decoration-red-500 decoration-2 font-mono text-white'>gnesssoftware@outlook.com</span> üzerinden bizimle doğrudan iletişime geçin. Resmi olmayan kanallardan yapılan yasal tebligatlar geçersiz sayılacaktır." data-en="In the event of any legal dispute arising from this agreement, the laws of the jurisdiction where our company is registered shall apply. For all legal notices, data privacy (GDPR) access requests, enterprise compliance inquiries, API integration requests, or urgent corporate support, please contact us directly via our official corporate email address at <span class='underline decoration-red-500 decoration-2 font-mono text-white'>gnesssoftware@outlook.com</span>. Legal notices served through unofficial channels will be deemed invalid.">
+                        Bu sözleşmeden doğabilecek her türlü hukuki uyuşmazlık durumunda, şirketimizin kayıtlı olduğu yargı bölgesinin kanunları geçerli olacaktır. Tüm yasal bildirimler, veri gizliliği (GDPR) erişim talepleri, kurumsal uyumluluk soruları, API entegrasyon talepleri veya acil kurumsal destek için lütfen resmi kurumsal e-posta adresimiz olan <span class='underline decoration-red-500 decoration-2 font-mono text-white'>gnesssoftware@outlook.com</span> üzerinden bizimle doğrudan iletişime geçin. Resmi olmayan kanallardan yapılan yasal tebligatlar geçersiz sayılacaktır.
                     </p>
                 </section>
             </div>
@@ -687,107 +675,107 @@
     <main id="faq" class="page-section">
         <div class="px-8 md:px-24 pt-16 pb-24 flex flex-col lg:flex-row gap-16">
             <div class="lg:w-1/3">
-                <h2 class="text-4xl font-extrabold mb-4 leading-tight">Frequently Asked Questions <span class="border-b-4 border-blue-600 pb-1 block w-max">about gnessac services</span></h2>
-                <p class="text-gray-400 mt-6 text-sm">Need further assistance? <a href="https://discord.com/" target="_blank" class="text-white font-semibold hover:underline">Join our official Discord</a> or contact <span class="text-white font-mono">gnesssoftware@outlook.com</span>.</p>
+                <h2 class="text-4xl font-extrabold mb-4 leading-tight"><span data-tr="Sıkça Sorulan Sorular" data-en="Frequently Asked Questions">Sıkça Sorulan Sorular</span> <span data-tr="gnessac hizmetleri hakkında" data-en="about gnessac services" class="border-b-4 border-blue-600 pb-1 block w-max">gnessac hizmetleri hakkında</span></h2>
+                <p class="text-gray-400 mt-6 text-sm"><span data-tr="Daha fazla yardıma mı ihtiyacınız var?" data-en="Need further assistance?">Daha fazla yardıma mı ihtiyacınız var?</span> <a href="https://discord.com/" target="_blank" data-tr="Resmi Discord sunucumuza katılın" data-en="Join our official Discord" class="text-white font-semibold hover:underline">Resmi Discord sunucumuza katılın</a> <span data-tr="veya iletişime geçin:" data-en="or contact:">veya iletişime geçin:</span> <span class="text-white font-mono">gnesssoftware@outlook.com</span>.</p>
             </div>
             <div class="lg:w-2/3 space-y-3">
                 <div class="faq-item bg-[#121214]/80 rounded-lg p-5 cursor-pointer border border-[#27272a] hover:border-gray-600 transition" onclick="toggleFaq(this)">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-gray-200">1. What is gnessac and how does its forensic screenshare technology function?</h3>
+                        <h3 data-tr="1. gnessac kurumsal adli bilişim ve anti-cheat platformu tam olarak nasıl çalışır?" data-en="1. How exactly does the gnessac enterprise digital forensics and anti-cheat platform function?" class="font-bold text-gray-200">1. gnessac kurumsal adli bilişim ve anti-cheat platformu tam olarak nasıl çalışır?</h3>
                         <span class="faq-icon text-gray-500 transition-transform">▼</span>
                     </div>
-                    <div class="faq-content">
-                        gnessac is an advanced digital forensics and anti-cheat platform engineered to perform post-mortem integrity scans on client systems. When initialized via a staff-generated verification pin, gnessac inspects volatile memory states, loaded module headers, prefetch logs, and temporary storage artifacts to uncover hidden cheat software, DLL injectors, and kernel-level bypasses without compromising user privacy.
+                    <div data-tr="gnessac, uçucu bellek (RAM) tahsisatlarını, modül başlıklarını ve dosya sistemi kalıntılarını inceleyen post-mortem adli tarama mimarisine sahiptir. Yetkili personel pini ile çalışır ve gizlenmiş bypass'ları saniyeler içinde tespit ederek değiştirilemez delil raporları sunar." data-en="gnessac features a post-mortem forensic scanning architecture that inspects volatile memory (RAM) allocations, module headers, and file system remnants. Operating via an authorized staff pin, it detects obfuscated bypasses within seconds and provides immutable evidence reports." class="faq-content">
+                        gnessac, uçucu bellek (RAM) tahsisatlarını, modül başlıklarını ve dosya sistemi kalıntılarını inceleyen post-mortem adli tarama mimarisine sahiptir. Yetkili personel pini ile çalışır ve gizlenmiş bypass'ları saniyeler içinde tespit ederek değiştirilemez delil raporları sunar.
                     </div>
                 </div>
 
                 <div class="faq-item bg-[#121214]/80 rounded-lg p-5 cursor-pointer border border-[#27272a] hover:border-gray-600 transition" onclick="toggleFaq(this)">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-gray-200">2. Is gnessac free to use, and what are the limitations for unsupported games?</h3>
+                        <h3 data-tr="2. Kurumsal ve bireysel kullanım için hangi abonelik paketleri sunulmaktadır?" data-en="2. What subscription packages are offered for enterprise and individual use?" class="font-bold text-gray-200">2. Kurumsal ve bireysel kullanım için hangi abonelik paketleri sunulmaktadır?</h3>
                         <span class="faq-icon text-gray-500 transition-transform">▼</span>
                     </div>
-                    <div class="faq-content">
-                        gnessac provides free screening access exclusively for Minecraft Java (up to three scans per day when linked with a verified Discord account, or one scan per day without linkage). All other supported gaming environments, including FiveM, GTA V, Rust, San Andreas, and Counter-Strike 2, require an active paid subscription tier with unlimited pin generation capabilities.
+                    <div data-tr="İhtiyaçlarınıza yönelik Aylık, 6 Aylık ve Yıllık periyotlarla sunulan Bireysel (Personal) paketlerimiz mevcuttur. Kurumsal sunucu ağları ve e-spor turnuvaları için ise sınırsız pin üretimi, API erişimi ve öncelikli destek içeren özel Kurumsal (Enterprise) lisanslama seçenekleri sağlıyoruz." data-en="We offer Personal packages available in Monthly, 6-Month, and Annual periods tailored to your needs. For enterprise server networks and esports tournaments, we provide custom Enterprise licensing options featuring unlimited pin generation, API access, and priority support." class="faq-content">
+                        İhtiyaçlarınıza yönelik Aylık, 6 Aylık ve Yıllık periyotlarla sunulan Bireysel (Personal) paketlerimiz mevcuttur. Kurumsal sunucu ağları ve e-spor turnuvaları için ise sınırsız pin üretimi, API erişimi ve öncelikli destek içeren özel Kurumsal (Enterprise) lisanslama seçenekleri sağlıyoruz.
                     </div>
                 </div>
 
                 <div class="faq-item bg-[#121214]/80 rounded-lg p-5 cursor-pointer border border-[#27272a] hover:border-gray-600 transition" onclick="toggleFaq(this)">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-gray-200">3. Can a player prematurely terminate or close the gnessac client during an active scan?</h3>
+                        <h3 data-tr="3. Hangi ödeme yöntemlerini kabul ediyorsunuz ve faturalandırma süreci nasıl işliyor?" data-en="3. What payment methods do you accept and how does the billing process work?" class="font-bold text-gray-200">3. Hangi ödeme yöntemlerini kabul ediyorsunuz ve faturalandırma süreci nasıl işliyor?</h3>
                         <span class="faq-icon text-gray-500 transition-transform">▼</span>
                     </div>
-                    <div class="faq-content">
-                        No. Once initialized with a valid cryptographic staff pin, gnessac establishes strict process protection routines preventing premature termination via Task Manager or external process killers until the complete diagnostic sequence and compliance screenshot capture successfully conclude.
+                    <div data-tr="Global standartlarda güvenli ödeme altyapımız üzerinden tüm majör Kredi/Banka Kartlarını (Visa, MasterCard, Amex) ve kripto para ödemelerini (USDT, BTC) kabul ediyoruz. Faturalandırma, seçtiğiniz pakete göre otomatik veya manuel yenilemeli olarak kurumsal şeffaflıkla yönetilir." data-en="We accept all major Credit/Debit Cards (Visa, MasterCard, Amex) and cryptocurrency payments (USDT, BTC) through our globally standardized secure payment infrastructure. Billing is managed with corporate transparency, with automatic or manual renewals based on your selected package." class="faq-content">
+                        Global standartlarda güvenli ödeme altyapımız üzerinden tüm majör Kredi/Banka Kartlarını (Visa, MasterCard, Amex) ve kripto para ödemelerini (USDT, BTC) kabul ediyoruz. Faturalandırma, seçtiğiniz pakete göre otomatik veya manuel yenilemeli olarak kurumsal şeffaflıkla yönetilir.
                     </div>
                 </div>
 
                 <div class="faq-item bg-[#121214]/80 rounded-lg p-5 cursor-pointer border border-[#27272a] hover:border-gray-600 transition" onclick="toggleFaq(this)">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-gray-200">4. What specific data is accessed, and how does gnessac comply with data privacy standards?</h3>
+                        <h3 data-tr="4. Hangi rekabetçi oyunlar ve altyapılar resmi olarak desteklenmektedir?" data-en="4. Which competitive games and infrastructures are officially supported?" class="font-bold text-gray-200">4. Hangi rekabetçi oyunlar ve altyapılar resmi olarak desteklenmektedir?</h3>
                         <span class="faq-icon text-gray-500 transition-transform">▼</span>
                     </div>
-                    <div class="faq-content">
-                        gnessac strictly limits data collection to anti-cheat diagnostic logs, hardware identification hashes (HWID), and a single desktop compliance screenshot captured at the end of the scan. Personal documents, private chat histories, web browser logs, and financial records are never accessed, indexed, or stored. All telemetry is purged automatically after 21 days.
+                    <div data-tr="gnessac altyapısı başta Minecraft Java, Grand Theft Auto V, FiveM, San Andreas, Rust, Roblox, Call of Duty ve Counter-Strike 2 olmak üzere endüstrinin önde gelen birçok rekabetçi oyun ve rol yapma platformu için cerrahi hassasiyette tarama desteği sunar." data-en="The gnessac infrastructure offers surgical precision scanning support for many of the industry's leading competitive games and roleplay platforms, primarily including Minecraft Java, Grand Theft Auto V, FiveM, San Andreas, Rust, Roblox, Call of Duty, and Counter-Strike 2." class="faq-content">
+                        gnessac altyapısı başta Minecraft Java, Grand Theft Auto V, FiveM, San Andreas, Rust, Roblox, Call of Duty ve Counter-Strike 2 olmak üzere endüstrinin önde gelen birçok rekabetçi oyun ve rol yapma platformu için cerrahi hassasiyette tarama desteği sunar.
                     </div>
                 </div>
 
                 <div class="faq-item bg-[#121214]/80 rounded-lg p-5 cursor-pointer border border-[#27272a] hover:border-gray-600 transition" onclick="toggleFaq(this)">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-gray-200">5. How quickly are scan results and detection telemetry delivered to community administrators?</h3>
+                        <h3 data-tr="5. Taramalar sırasında hangi veriler toplanır ve KVKK/GDPR uyumluluğu nasıl sağlanır?" data-en="5. What data is collected during scans and how is KVKK/GDPR compliance ensured?" class="font-bold text-gray-200">5. Taramalar sırasında hangi veriler toplanır ve KVKK/GDPR uyumluluğu nasıl sağlanır?</h3>
                         <span class="faq-icon text-gray-500 transition-transform">▼</span>
                     </div>
-                    <div class="faq-content">
-                        Scan results and cryptographic verification reports are processed instantly upon completion (typically within 60 seconds) and securely streamed in real-time directly to the authorized staff dashboard or configured Discord webhook channels.
+                    <div data-tr="Sistemimiz uluslararası gizlilik regülasyonlarına (GDPR) tam uyumludur. Yalnızca teşhis amaçlı anti-cheat günlükleri, donanım kimliği (HWID) ve tek bir masaüstü ekran görüntüsü toplanır. Kişisel dosyalarınız ve özel verileriniz asla incelenmez; tüm kayıtlar 21 gün içinde kalıcı olarak imha edilir." data-en="Our system is fully compliant with international privacy regulations (GDPR). Only diagnostic anti-cheat logs, hardware IDs (HWID), and a single desktop screenshot are collected. Your personal files and private data are never inspected; all records are permanently destroyed within 21 days." class="faq-content">
+                        Sistemimiz uluslararası gizlilik regülasyonlarına (GDPR) tam uyumludur. Yalnızca teşhis amaçlı anti-cheat günlükleri, donanım kimliği (HWID) ve tek bir masaüstü ekran görüntüsü toplanır. Kişisel dosyalarınız ve özel verileriniz asla incelenmez; tüm kayıtlar 21 gün içinde kalıcı olarak imha edilir.
                     </div>
                 </div>
 
                 <div class="faq-item bg-[#121214]/80 rounded-lg p-5 cursor-pointer border border-[#27272a] hover:border-gray-600 transition" onclick="toggleFaq(this)">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-gray-200">6. Can server owners integrate gnessac logs with custom Discord bots and moderation panels?</h3>
+                        <h3 data-tr="6. Tarama devam ederken kullanıcılar süreci yarıda kesebilir mi?" data-en="6. Can users interrupt the process while a scan is ongoing?" class="font-bold text-gray-200">6. Tarama devam ederken kullanıcılar süreci yarıda kesebilir mi?</h3>
                         <span class="faq-icon text-gray-500 transition-transform">▼</span>
                     </div>
-                    <div class="faq-content">
-                        Yes. Our enterprise tier and community dashboards support robust webhook configurations and REST API endpoints, enabling server networks to automatically broadcast scan outcomes, logs, and verification badges directly into private Discord staff channels.
+                    <div data-tr="Hayır. Kriptografik personel pini doğrulandıktan sonra, gnessac istemcisi çekirdek düzeyinde (kernel) süreç koruma rutinleri başlatır. Tarama dizisi ve delil toplama işlemi başarıyla tamamlanana kadar Görev Yöneticisi veya harici yazılımlar ile kapatılması engellenir." data-en="No. Once the cryptographic staff pin is verified, the gnessac client initiates kernel-level process protection routines. It is prevented from being terminated via Task Manager or external software until the scanning sequence and evidence collection are successfully completed." class="faq-content">
+                        Hayır. Kriptografik personel pini doğrulandıktan sonra, gnessac istemcisi çekirdek düzeyinde (kernel) süreç koruma rutinleri başlatır. Tarama dizisi ve delil toplama işlemi başarıyla tamamlanana kadar Görev Yöneticisi veya harici yazılımlar ile kapatılması engellenir.
                     </div>
                 </div>
 
                 <div class="faq-item bg-[#121214]/80 rounded-lg p-5 cursor-pointer border border-[#27272a] hover:border-gray-600 transition" onclick="toggleFaq(this)">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-gray-200">7. What happens if a subscription payment is completed but access is not granted?</h3>
+                        <h3 data-tr="7. Kurumsal müşteriler için API, Webhook ve Discord entegrasyonu mevcut mu?" data-en="7. Is API, Webhook, and Discord integration available for enterprise clients?" class="font-bold text-gray-200">7. Kurumsal müşteriler için API, Webhook ve Discord entegrasyonu mevcut mu?</h3>
                         <span class="faq-icon text-gray-500 transition-transform">▼</span>
                     </div>
-                    <div class="faq-content">
-                        If you encounter any licensing synchronization issues or active membership activation delays following checkout, please contact our administrative team immediately at gnesssoftware@outlook.com with your transaction details for prompt resolution.
+                    <div data-tr="Evet. Gelişmiş REST API uç noktalarımız ve webhook yapılandırmalarımız sayesinde, tarama sonuçlarını, HWID özetlerini ve uyumluluk raporlarını doğrudan özel Discord moderasyon kanallarınıza veya kurum içi yönetim panellerinize eş zamanlı olarak aktarabilirsiniz." data-en="Yes. Through our advanced REST API endpoints and webhook configurations, you can simultaneously transmit scan results, HWID hashes, and compliance reports directly to your private Discord moderation channels or internal management panels." class="faq-content">
+                        Evet. Gelişmiş REST API uç noktalarımız ve webhook yapılandırmalarımız sayesinde, tarama sonuçlarını, HWID özetlerini ve uyumluluk raporlarını doğrudan özel Discord moderasyon kanallarınıza veya kurum içi yönetim panellerinize eş zamanlı olarak aktarabilirsiniz.
                     </div>
                 </div>
 
                 <div class="faq-item bg-[#121214]/80 rounded-lg p-5 cursor-pointer border border-[#27272a] hover:border-gray-600 transition" onclick="toggleFaq(this)">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-gray-200">8. Does gnessac support behavioral and input macro detection alongside memory scans?</h3>
+                        <h3 data-tr="8. Tarama modülleri oyun sırasında performans kaybına (FPS düşüşü) yol açar mı?" data-en="8. Do the scanning modules cause performance loss (FPS drop) during gameplay?" class="font-bold text-gray-200">8. Tarama modülleri oyun sırasında performans kaybına (FPS düşüşü) yol açar mı?</h3>
                         <span class="faq-icon text-gray-500 transition-transform">▼</span>
                     </div>
-                    <div class="faq-content">
-                        Yes. In addition to physical memory and file system artifact inspection, gnessac incorporates heuristic behavioral monitoring algorithms that analyze input timing distributions and execution anomalies to detect unauthorized macro tools and aim assistance software.
+                    <div data-tr="Kesinlikle hayır. gnessac, sürekli arka planda çalışan müdahaleci bir sürücü (driver) mimarisi kullanmaz. Yalnızca yetkili denetim sırasında çalışır ve modern donanımlarda FPS değerlerine veya sistem performansına hiçbir negatif etki yaratmadan görevini saniyeler içinde tamamlar." data-en="Absolutely not. gnessac does not utilize an intrusive driver architecture running constantly in the background. It operates only during authorized auditing and completes its task in seconds without any negative impact on FPS or system performance on modern hardware." class="faq-content">
+                        Kesinlikle hayır. gnessac, sürekli arka planda çalışan müdahaleci bir sürücü (driver) mimarisi kullanmaz. Yalnızca yetkili denetim sırasında çalışır ve modern donanımlarda FPS değerlerine veya sistem performansına hiçbir negatif etki yaratmadan görevini saniyeler içinde tamamlar.
                     </div>
                 </div>
 
                 <div class="faq-item bg-[#121214]/80 rounded-lg p-5 cursor-pointer border border-[#27272a] hover:border-gray-600 transition" onclick="toggleFaq(this)">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-gray-200">9. What operating systems are officially supported by the gnessac client and infrastructure?</h3>
+                        <h3 data-tr="9. Donanım Kimliği (HWID) yasaklama ve veritabanı senkronizasyon özellikleri mevcut mu?" data-en="9. Are Hardware ID (HWID) banning and database synchronization features available?" class="font-bold text-gray-200">9. Donanım Kimliği (HWID) yasaklama ve veritabanı senkronizasyon özellikleri mevcut mu?</h3>
                         <span class="faq-icon text-gray-500 transition-transform">▼</span>
                     </div>
-                    <div class="faq-content">
-                        gnessac fully supports Windows (Windows 10, Windows 11 - 64-bit architectures) and Linux client environments, ensuring seamless compatibility across all major competitive gaming platforms and community server setups.
+                    <div data-tr="Taranan her donanım için benzersiz, şifrelenmiş bir HWID hash değeri oluşturulur. Kurumsal yöneticiler bu verileri kullanarak kendi altyapılarında kalıcı HWID yasaklamaları uygulayabilir ve farklı sunucular arası ban veritabanı senkronizasyonu sağlayabilirler." data-en="A unique, encrypted HWID hash is generated for every scanned hardware. Enterprise administrators can use this data to enforce permanent HWID bans within their infrastructure and ensure ban database synchronization across different servers." class="faq-content">
+                        Taranan her donanım için benzersiz, şifrelenmiş bir HWID hash değeri oluşturulur. Kurumsal yöneticiler bu verileri kullanarak kendi altyapılarında kalıcı HWID yasaklamaları uygulayabilir ve farklı sunucular arası ban veritabanı senkronizasyonu sağlayabilirler.
                     </div>
                 </div>
 
                 <div class="faq-item bg-[#121214]/80 rounded-lg p-5 cursor-pointer border border-[#27272a] hover:border-gray-600 transition" onclick="toggleFaq(this)">
                     <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-gray-200">10. How can server administrators obtain technical support or request custom integrations?</h3>
+                        <h3 data-tr="10. Satın alım sonrası kurumsal teknik destek ve kurulum yardımı alabilir miyim?" data-en="10. Can I receive enterprise technical support and installation assistance after purchase?" class="font-bold text-gray-200">10. Satın alım sonrası kurumsal teknik destek ve kurulum yardımı alabilir miyim?</h3>
                         <span class="faq-icon text-gray-500 transition-transform">▼</span>
                     </div>
-                    <div class="faq-content">
-                        Administrators can access dedicated technical assistance through our official Discord community channels, comprehensive documentation portals, or by submitting direct inquiries to our corporate email at gnesssoftware@outlook.com.
+                    <div data-tr="Aktif aboneliği bulunan tüm kullanıcılarımız, kurulum, API entegrasyonu ve olası teknik sorunlar için 7/24 öncelikli destek hattımıza erişebilir. Uzman ekibimiz, sistemin topluluk altyapınıza pürüzsüz entegrasyonunu sağlamak için resmi iletişim kanallarımız üzerinden anlık asistanlık hizmeti sunar." data-en="All users with an active subscription have access to our 24/7 priority support line for installation, API integration, and potential technical issues. Our expert team provides instant assistance via official communication channels to ensure seamless integration into your community infrastructure." class="faq-content">
+                        Aktif aboneliği bulunan tüm kullanıcılarımız, kurulum, API entegrasyonu ve olası teknik sorunlar için 7/24 öncelikli destek hattımıza erişebilir. Uzman ekibimiz, sistemin topluluk altyapınıza pürüzsüz entegrasyonunu sağlamak için resmi iletişim kanallarımız üzerinden anlık asistanlık hizmeti sunar.
                     </div>
                 </div>
             </div>
@@ -799,42 +787,42 @@
         <div class="flex items-center justify-center min-h-[80vh] px-4">
             <div class="w-full max-w-md bg-[#121214] border border-[#27272a] rounded-xl p-8 shadow-2xl relative z-10">
                 <div class="mb-6 font-mono text-xl text-white font-bold">(*></div>
-                <h2 class="text-2xl font-bold text-white mb-2">Login</h2>
-                <p class="text-sm text-gray-400 mb-6">Enter your credentials to access your account</p>
+                <h2 data-tr="Giriş yap" data-en="Login" class="text-2xl font-bold text-white mb-2">Giriş yap</h2>
+                <p data-tr="Hesabınıza erişmek için bilgilerinizi girin" data-en="Enter your credentials to access your account" class="text-sm text-gray-400 mb-6">Hesabınıza erişmek için bilgilerinizi girin</p>
                 
                 <div id="loginAlert" class="hidden mb-6 p-4 bg-red-950/40 border border-red-800/60 rounded-lg text-sm text-red-300">
-                    <p class="font-semibold mb-1">Active membership not found!</p>
-                    <p class="text-xs text-red-400 leading-relaxed">No active subscription or membership was found for this account. Please contact support at <span class="text-white font-mono underline">gnesssoftware@outlook.com</span> for assistance.</p>
+                    <p data-tr="Aktif üyelik bulunamadı!" data-en="Active membership not found!" class="font-semibold mb-1">Aktif üyelik bulunamadı!</p>
+                    <p data-tr="Bu hesap için aktif bir abonelik veya üyelik bulunamadı. Lütfen yardım için <span class='text-white font-mono underline'>gnesssoftware@outlook.com</span> adresinden destek ile iletişime geçin." data-en="No active subscription or membership was found for this account. Please contact support at <span class='text-white font-mono underline'>gnesssoftware@outlook.com</span> for assistance." class="text-xs text-red-400 leading-relaxed">Bu hesap için aktif bir abonelik veya üyelik bulunamadı. Lütfen yardım için <span class='text-white font-mono underline'>gnesssoftware@outlook.com</span> adresinden destek ile iletişime geçin.</p>
                 </div>
 
                 <form class="space-y-4" onsubmit="handleLogin(event)">
                     <div>
-                        <input type="text" id="loginUser" placeholder="Email or Username" required class="w-full bg-[#09090b] border border-[#27272a] rounded p-3 text-sm focus:outline-none focus:border-blue-500 transition text-white">
+                        <input type="text" id="loginUser" data-tr-placeholder="E-posta veya Kullanıcı Adı" data-en-placeholder="Email or Username" placeholder="E-posta veya Kullanıcı Adı" required class="w-full bg-[#09090b] border border-[#27272a] rounded p-3 text-sm focus:outline-none focus:border-blue-500 transition text-white">
                     </div>
                     <div class="relative">
-                        <input type="password" id="loginPass" placeholder="Password" required class="w-full bg-[#09090b] border border-[#27272a] rounded p-3 text-sm focus:outline-none focus:border-blue-500 transition text-white">
+                        <input type="password" id="loginPass" data-tr-placeholder="Şifre" data-en-placeholder="Password" placeholder="Şifre" required class="w-full bg-[#09090b] border border-[#27272a] rounded p-3 text-sm focus:outline-none focus:border-blue-500 transition text-white">
                         <span class="absolute right-4 top-3.5 text-gray-500 cursor-pointer hover:text-white">👁</span>
                     </div>
                     <div class="text-right">
-                        <a href="#" class="text-xs text-gray-400 hover:text-white">Forgot your password?</a>
+                        <a data-tr="Şifrenizi mi unuttunuz?" data-en="Forgot your password?" href="#" class="text-xs text-gray-400 hover:text-white">Şifrenizi mi unuttunuz?</a>
                     </div>
                     <button type="submit" class="w-full neon-btn py-3.5 rounded-lg text-white font-bold flex justify-center items-center gap-2 mt-2 cursor-pointer">
-                        <span>→]</span> Login
+                        <span>→]</span> <span data-tr="Giriş yap" data-en="Login">Giriş yap</span>
                     </button>
                     
                     <div class="relative flex py-6 items-center">
                         <div class="flex-grow border-t border-[#27272a]"></div>
-                        <span class="flex-shrink-0 mx-4 text-gray-500 text-xs">Or continue with</span>
+                        <span data-tr="Veya şununla devam et" data-en="Or continue with" class="flex-shrink-0 mx-4 text-gray-500 text-xs">Veya şununla devam et</span>
                         <div class="flex-grow border-t border-[#27272a]"></div>
                     </div>
                     
                     <div class="flex gap-4">
                         <button type="button" onclick="showLoginAlert()" class="w-1/2 py-2.5 border border-[#27272a] rounded hover:bg-[#27272a] text-sm font-semibold flex items-center justify-center gap-2 transition cursor-pointer">Discord</button>
-                        <button type="button" onclick="showLoginAlert()" class="w-1/2 py-2.5 border border-[#27272a] rounded hover:bg-[#27272a] text-sm font-semibold flex items-center justify-center gap-2 transition cursor-pointer">Passkey</button>
+                        <button type="button" onclick="showLoginAlert()" data-tr="Geçiş Anahtarı" data-en="Passkey" class="w-1/2 py-2.5 border border-[#27272a] rounded hover:bg-[#27272a] text-sm font-semibold flex items-center justify-center gap-2 transition cursor-pointer">Geçiş Anahtarı</button>
                     </div>
                     
                     <div class="text-center mt-8 text-sm text-gray-400">
-                        Don't have an account? <a onclick="navigate('register')" class="text-white font-bold hover:underline cursor-pointer">Register</a>
+                        <span data-tr="Hesabınız yok mu?" data-en="Don't have an account?">Hesabınız yok mu?</span> <a data-tr="Kayıt ol" data-en="Register" onclick="navigate('register')" class="text-white font-bold hover:underline cursor-pointer">Kayıt ol</a>
                     </div>
                 </form>
             </div>
@@ -847,33 +835,33 @@
             <div class="w-full max-w-md bg-[#121214] border border-[#27272a] rounded-xl p-8 shadow-2xl relative z-10">
                 <div class="mb-6 font-mono text-xl text-white font-bold">(*></div>
                 <div class="flex items-center justify-between text-xs text-gray-500 font-bold mb-2 uppercase tracking-wide">
-                    <span id="regStep1Indicator" class="text-blue-500">Username</span>
-                    <span id="regStep2Indicator" class="text-gray-500">Email</span>
-                    <span id="regStep3Indicator" class="text-gray-500">Password</span>
+                    <span id="regStep1Indicator" data-tr="Kullanıcı Adı" data-en="Username" class="text-blue-500">Kullanıcı Adı</span>
+                    <span id="regStep2Indicator" data-tr="E-posta" data-en="Email" class="text-gray-500">E-posta</span>
+                    <span id="regStep3Indicator" data-tr="Şifre" data-en="Password" class="text-gray-500">Şifre</span>
                 </div>
                 <div class="w-full h-1 bg-[#27272a] rounded-full mb-8 overflow-hidden">
                     <div id="regProgressBar" class="w-1/3 h-full bg-blue-600 transition-all duration-300"></div>
                 </div>
                 
-                <div id="regStepLabel" class="text-xs text-blue-400 font-semibold mb-1">Step 1 of 3</div>
-                <h2 id="regTitle" class="text-2xl font-bold text-white mb-2">Pick a username</h2>
-                <p id="regDesc" class="text-sm text-gray-400 mb-6">Pick something unique and memorable</p>
+                <div id="regStepLabel" class="text-xs text-blue-400 font-semibold mb-1">Adım 1 / 3</div>
+                <h2 id="regTitle" class="text-2xl font-bold text-white mb-2">Bir kullanıcı adı seçin</h2>
+                <p id="regDesc" class="text-sm text-gray-400 mb-6">Eşsiz ve akılda kalıcı bir şey seçin</p>
                 
                 <div id="regSuccessAlert" class="hidden mb-6 p-4 bg-blue-950/40 border border-blue-800/60 rounded-lg text-sm text-blue-300">
-                    <p class="font-semibold mb-1">Application Received Successfully</p>
-                    <p class="text-xs text-blue-400 leading-relaxed">Your registration request has been successfully received. Our team will review your application and get back to you shortly.</p>
+                    <p data-tr="Başvuru Başarıyla Alındı" data-en="Application Received Successfully" class="font-semibold mb-1">Başvuru Başarıyla Alındı</p>
+                    <p data-tr="Kayıt talebiniz başarıyla alındı. Ekibimiz başvurunuzu inceleyecek ve kısa süre içinde size geri dönüş yapacaktır." data-en="Your registration request has been successfully received. Our team will review your application and get back to you shortly." class="text-xs text-blue-400 leading-relaxed">Kayıt talebiniz başarıyla alındı. Ekibimiz başvurunuzu inceleyecek ve kısa süre içinde size geri dönüş yapacaktır.</p>
                 </div>
 
                 <form id="regForm" class="space-y-6" onsubmit="handleRegisterSubmit(event)">
                     <div id="regInputContainer">
-                        <label id="regInputLabel" class="block text-xs font-semibold text-gray-400 mb-2">Username</label>
-                        <input type="text" id="regInputField" placeholder="Enter your username" required class="w-full bg-[#09090b] border border-[#27272a] rounded p-3 text-sm focus:outline-none focus:border-blue-500 transition text-white">
+                        <label id="regInputLabel" class="block text-xs font-semibold text-gray-400 mb-2">Kullanıcı Adı</label>
+                        <input type="text" id="regInputField" placeholder="Kullanıcı adınızı girin" required class="w-full bg-[#09090b] border border-[#27272a] rounded p-3 text-sm focus:outline-none focus:border-blue-500 transition text-white">
                     </div>
                     <button type="submit" id="regSubmitBtn" class="w-full bg-blue-600/80 hover:bg-blue-600 py-3.5 rounded-lg text-white font-bold transition cursor-pointer">
-                        Continue
+                        Devam Et
                     </button>
                     <div class="text-center mt-6 text-sm text-gray-400">
-                        Already have an account? <a onclick="navigate('login')" class="text-white font-bold hover:underline cursor-pointer">Log in</a>
+                        <span data-tr="Zaten bir hesabınız var mı?" data-en="Already have an account?">Zaten bir hesabınız var mı?</span> <a data-tr="Giriş yap" data-en="Log in" onclick="navigate('login')" class="text-white font-bold hover:underline cursor-pointer">Giriş yap</a>
                     </div>
                 </form>
             </div>
@@ -882,20 +870,81 @@
 
     <!-- JavaScript Application Logic -->
     <script>
-        // SPA Navigation Routing
+        let currentLang = 'tr';
+        let typeWriterTimeout;
+
+        const stepText = {
+            tr: {
+                step1Label: "Adım 1 / 3", step1Title: "Bir kullanıcı adı seçin", step1Desc: "Eşsiz ve akılda kalıcı bir şey seçin", step1Input: "Kullanıcı Adı", step1Place: "Kullanıcı adınızı girin", step1Btn: "Devam Et",
+                step2Label: "Adım 2 / 3", step2Title: "E-postanızı girin", step2Desc: "Bunu hesap kurtarma ve uyarılar için kullanacağız", step2Input: "E-posta Adresi", step2Place: "E-posta adresinizi girin", step2Btn: "Devam Et",
+                step3Label: "Adım 3 / 3", step3Title: "Bir şifre oluşturun", step3Desc: "Hesabınızı güvenli bir şifre ile koruyun", step3Input: "Şifre", step3Place: "Şifrenizi girin", step3Btn: "Kaydı Tamamla"
+            },
+            en: {
+                step1Label: "Step 1 of 3", step1Title: "Pick a username", step1Desc: "Pick something unique and memorable", step1Input: "Username", step1Place: "Enter your username", step1Btn: "Continue",
+                step2Label: "Step 2 of 3", step2Title: "Enter your email", step2Desc: "We'll use this for account recovery and alerts", step2Input: "Email Address", step2Place: "Enter your email address", step2Btn: "Continue",
+                step3Label: "Step 3 of 3", step3Title: "Create a password", step3Desc: "Protect your account with a secure password", step3Input: "Password", step3Place: "Enter your password", step3Btn: "Complete Registration"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'tr' ? 'en' : 'tr';
+            document.getElementById('langToggleBtn').innerText = currentLang === 'tr' ? 'EN' : 'TR';
+            
+            document.querySelectorAll('[data-tr]').forEach(el => {
+                el.innerHTML = currentLang === 'tr' ? el.getAttribute('data-tr') : el.getAttribute('data-en');
+            });
+
+            document.querySelectorAll('[data-tr-placeholder]').forEach(el => {
+                el.placeholder = currentLang === 'tr' ? el.getAttribute('data-tr-placeholder') : el.getAttribute('data-en-placeholder');
+            });
+
+            const activeGame = document.querySelector('#pricingTabs button.bg-blue-600')?.innerText || 'Minecraft Java';
+            updatePricingTitles(activeGame);
+
+            // Update Register UI dynamically based on step
+            updateRegisterUI();
+
+            // Reset typewriter visually and logically
+            const typedElement = document.getElementById('typedText');
+            if(typedElement) {
+                typedElement.innerHTML = '';
+            }
+            charIndex = 0;
+            isDeleting = false;
+            phraseIndex = 0;
+            clearTimeout(typeWriterTimeout);
+            typeWriter();
+        }
+
+        function updatePricingTitles(gameName) {
+            const isTr = currentLang === 'tr';
+            const p1Title = document.getElementById('plan1Title');
+            if(p1Title) p1Title.innerText = isTr ? `gnessac (${gameName}) - Yıllık Kişisel` : `gnessac (${gameName}) - Yearly Personal`;
+            const p1Desc = document.getElementById('plan1Desc');
+            if(p1Desc) p1Desc.innerText = isTr ? `${gameName} için ekran paylaşımı taraması.` : `Screenshare scan for ${gameName}.`;
+            
+            const p2Title = document.getElementById('plan2Title');
+            if(p2Title) p2Title.innerText = isTr ? `gnessac (${gameName}) - 6 Aylık Kişisel` : `gnessac (${gameName}) - 6 Month Personal`;
+            const p2Desc = document.getElementById('plan2Desc');
+            if(p2Desc) p2Desc.innerText = isTr ? `${gameName} için ekran paylaşımı taraması.` : `Screenshare scan for ${gameName}.`;
+            
+            const p3Title = document.getElementById('plan3Title');
+            if(p3Title) p3Title.innerText = isTr ? `gnessac (${gameName}) - Aylık Kişisel` : `gnessac (${gameName}) - Monthly Personal`;
+            const p3Desc = document.getElementById('plan3Desc');
+            if(p3Desc) p3Desc.innerText = isTr ? `${gameName} için ekran paylaşımı taraması.` : `Screenshare scan for ${gameName}.`;
+        }
+
         function navigate(viewId, navElement = null) {
             document.querySelectorAll('.page-section').forEach(el => {
                 el.style.display = 'none';
                 el.classList.remove('active');
             });
-            
             const target = document.getElementById(viewId);
             if(target) {
                 target.style.display = 'block';
                 void target.offsetWidth;
                 target.classList.add('active');
             }
-
             if (navElement && navElement.classList.contains('nav-link')) {
                 document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
                 navElement.classList.add('active');
@@ -904,7 +953,6 @@
                 const matchedLink = document.querySelector(`.nav-link[onclick*="navigate('${viewId}'"]`);
                 if(matchedLink) matchedLink.classList.add('active');
             }
-            
             const canvas = document.getElementById('matrixCanvas');
             if(viewId === 'login' || viewId === 'register') {
                 canvas.style.opacity = '0.35';
@@ -968,15 +1016,7 @@
                     btn.className = "px-5 py-2 text-sm font-medium rounded bg-blue-600 text-white cursor-pointer transition";
                 }
             });
-
-            document.getElementById('plan1Title').innerText = `gnessac (${gameName}) - Yearly Personal`;
-            document.getElementById('plan1Desc').innerText = `Screenshare scan for ${gameName}.`;
-
-            document.getElementById('plan2Title').innerText = `gnessac (${gameName}) - 6 Month Personal`;
-            document.getElementById('plan2Desc').innerText = `Screenshare scan for ${gameName}.`;
-
-            document.getElementById('plan3Title').innerText = `gnessac (${gameName}) - Monthly Personal`;
-            document.getElementById('plan3Desc').innerText = `Screenshare scan for ${gameName}.`;
+            updatePricingTitles(gameName);
         }
 
         function selectGameAndNavigate(gameName) {
@@ -996,11 +1036,36 @@
         let regData = { username: '', email: '', password: '' };
         let currentRegStep = 1;
 
+        function updateRegisterUI() {
+            const t = stepText[currentLang];
+            if (currentRegStep === 1) {
+                document.getElementById('regStepLabel').innerText = t.step1Label;
+                document.getElementById('regTitle').innerText = t.step1Title;
+                document.getElementById('regDesc').innerText = t.step1Desc;
+                document.getElementById('regInputLabel').innerText = t.step1Input;
+                document.getElementById('regInputField').placeholder = t.step1Place;
+                document.getElementById('regSubmitBtn').innerText = t.step1Btn;
+            } else if (currentRegStep === 2) {
+                document.getElementById('regStepLabel').innerText = t.step2Label;
+                document.getElementById('regTitle').innerText = t.step2Title;
+                document.getElementById('regDesc').innerText = t.step2Desc;
+                document.getElementById('regInputLabel').innerText = t.step2Input;
+                document.getElementById('regInputField').placeholder = t.step2Place;
+                document.getElementById('regSubmitBtn').innerText = t.step2Btn;
+            } else if (currentRegStep === 3) {
+                document.getElementById('regStepLabel').innerText = t.step3Label;
+                document.getElementById('regTitle').innerText = t.step3Title;
+                document.getElementById('regDesc').innerText = t.step3Desc;
+                document.getElementById('regInputLabel').innerText = t.step3Input;
+                document.getElementById('regInputField').placeholder = t.step3Place;
+                document.getElementById('regSubmitBtn').innerText = t.step3Btn;
+            }
+        }
+
         function handleRegisterSubmit(event) {
             event.preventDefault();
             const inputField = document.getElementById('regInputField');
             const val = inputField.value.trim();
-
             if (!val) return;
 
             if (currentRegStep === 1) {
@@ -1009,29 +1074,20 @@
                 document.getElementById('regStep1Indicator').className = "text-gray-400";
                 document.getElementById('regStep2Indicator').className = "text-blue-500";
                 document.getElementById('regProgressBar').style.width = "66%";
-                document.getElementById('regStepLabel').innerText = "Step 2 of 3";
-                document.getElementById('regTitle').innerText = "Enter your email";
-                document.getElementById('regDesc').innerText = "We'll use this for account recovery and alerts";
-                document.getElementById('regInputLabel').innerText = "Email Address";
                 inputField.type = "email";
-                inputField.placeholder = "Enter your email address";
                 inputField.value = "";
                 inputField.focus();
+                updateRegisterUI();
             } else if (currentRegStep === 2) {
                 regData.email = val;
                 currentRegStep = 3;
                 document.getElementById('regStep2Indicator').className = "text-gray-400";
                 document.getElementById('regStep3Indicator').className = "text-blue-500";
                 document.getElementById('regProgressBar').style.width = "100%";
-                document.getElementById('regStepLabel').innerText = "Step 3 of 3";
-                document.getElementById('regTitle').innerText = "Create a password";
-                document.getElementById('regDesc').innerText = "Protect your account with a secure password";
-                document.getElementById('regInputLabel').innerText = "Password";
                 inputField.type = "password";
-                inputField.placeholder = "Enter your password";
                 inputField.value = "";
                 inputField.focus();
-                document.getElementById('regSubmitBtn').innerText = "Complete Registration";
+                updateRegisterUI();
             } else if (currentRegStep === 3) {
                 regData.password = val;
                 document.getElementById('regForm').style.display = 'none';
@@ -1047,24 +1103,17 @@
                     document.getElementById('regStep2Indicator').className = "text-gray-500";
                     document.getElementById('regStep3Indicator').className = "text-gray-500";
                     document.getElementById('regProgressBar').style.width = "33%";
-                    document.getElementById('regStepLabel').innerText = "Step 1 of 3";
-                    document.getElementById('regTitle').innerText = "Pick a username";
-                    document.getElementById('regDesc').innerText = "Pick something unique and memorable";
-                    document.getElementById('regInputLabel').innerText = "Username";
                     inputField.type = "text";
-                    inputField.placeholder = "Enter your username";
                     inputField.value = "";
-                    document.getElementById('regSubmitBtn').innerText = "Continue";
+                    updateRegisterUI();
                 }, 3500);
             }
         }
 
-        // FAQ Accordion Toggle
         function toggleFaq(element) {
             element.classList.toggle('active');
         }
 
-        // Mobile Menu Toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             if (menu.classList.contains('hidden')) {
@@ -1074,7 +1123,6 @@
             }
         }
 
-        // Home Enterprise Accordion Toggle
         function toggleHomeAccordion(headerEl) {
             const content = document.getElementById('homeAccordionContent');
             const icon = headerEl.querySelector('.home-acc-icon');
@@ -1088,7 +1136,7 @@
         }
     </script>
 
-    <!-- Matrix 0 and 1 Background Canvas -->
+    <!-- Matrix Background and Animation -->
     <script>
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
@@ -1118,86 +1166,68 @@
         function drawMatrix() {
             ctx.fillStyle = 'rgba(9, 9, 11, 0.15)';
             ctx.fillRect(0, 0, w, h);
-
             ctx.font = `500 ${fontSize}px monospace`;
-
             for (let i = 0; i < drops.length; i++) {
                 const text = Math.random() > 0.5 ? '1' : '0';
-                
                 const rand = Math.random();
-                if (rand > 0.85) {
-                    ctx.fillStyle = '#60a5fa';
-                } else if (rand > 0.30) {
-                    ctx.fillStyle = '#2563eb';
-                } else {
-                    ctx.fillStyle = '#1e293b';
-                }
+                if (rand > 0.85) ctx.fillStyle = '#60a5fa';
+                else if (rand > 0.30) ctx.fillStyle = '#2563eb';
+                else ctx.fillStyle = '#1e293b';
 
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > h && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
+                if (drops[i] * fontSize > h && Math.random() > 0.975) drops[i] = 0;
                 drops[i]++;
             }
-
             requestAnimationFrame(drawMatrix);
         }
 
-        function startTypewriterLoop() {
-            const phrases = [
-                "Adli\nscreenshare",
-                "Dijital\ngüvenlik",
-                "Kesin\nçözüm"
-            ];
-            
-            let phraseIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            let typingSpeed = 120;
+        // Typewriter Logic with Language Support
+        const typewriterPhrases = {
+            tr: ["Adli\nscreenshare", "Dijital\ngüvenlik", "Kesin\nçözüm"],
+            en: ["Forensic\nscreenshare", "Digital\nsecurity", "Absolute\nsolution"]
+        };
+        
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 120;
+
+        function typeWriter() {
             const typedElement = document.getElementById('typedText');
             if (!typedElement) return;
 
-            function typeWriter() {
-                const currentPhrase = phrases[phraseIndex];
-                
-                if (!isDeleting) {
-                    typedElement.innerHTML = currentPhrase.substring(0, charIndex + 1).replace('\n', '<br>');
-                    charIndex++;
-                    
-                    if (charIndex === currentPhrase.length) {
-                        isDeleting = true;
-                        setTimeout(typeWriter, 2200); // Wait before erasing
-                        return;
-                    }
-                } else {
-                    typedElement.innerHTML = currentPhrase.substring(0, charIndex - 1).replace('\n', '<br>');
-                    charIndex--;
-                    
-                    if (charIndex === 0) {
-                        isDeleting = false;
-                        phraseIndex = (phraseIndex + 1) % phrases.length;
-                        setTimeout(typeWriter, 400); // Pause before next phrase
-                        return;
-                    }
+            const currentPhrase = typewriterPhrases[currentLang][phraseIndex % typewriterPhrases[currentLang].length];
+            
+            if (!isDeleting) {
+                typedElement.innerHTML = currentPhrase.substring(0, charIndex + 1).replace('\n', '<br>');
+                charIndex++;
+                if (charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    typeWriterTimeout = setTimeout(typeWriter, 2200);
+                    return;
                 }
-                
-                setTimeout(typeWriter, isDeleting ? 60 : typingSpeed);
+            } else {
+                typedElement.innerHTML = currentPhrase.substring(0, charIndex - 1).replace('\n', '<br>');
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex++;
+                    typeWriterTimeout = setTimeout(typeWriter, 400);
+                    return;
+                }
             }
-
-            typeWriter();
+            typeWriterTimeout = setTimeout(typeWriter, isDeleting ? 60 : typingSpeed);
         }
 
         window.onload = function() { 
             navigate('home');
             initMatrixColumns();
             drawMatrix();
-            startTypewriterLoop();
+            typeWriter();
         };
 
-        // Click / Tap triggered anti-cheat code matrix effect (10 real low-level kernel & anti-cheat functions)
+        // Click-triggered 10-code compact anti-cheat effect
         document.addEventListener('click', function(e) {
-            // Prevent triggering if clicking interactive elements like buttons, links, etc.
             if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.closest('button') || e.target.closest('a') || e.target.closest('input')) {
                 return;
             }
@@ -1220,39 +1250,37 @@
 
             const container = document.body;
 
-            // Generate exactly 10 distinct professional kernel codes scattered around the click point
             for (let i = 0; i < realAntiCheatCodes.length; i++) {
                 const span = document.createElement('div');
                 const symbol = realAntiCheatCodes[i];
                 
-                // Scatter offsets around the click position for a compact, stylish Matrix burst
-                const offsetX = (Math.random() - 0.5) * 180;
-                const offsetY = (Math.random() - 0.5) * 130;
+                const offsetX = (Math.random() - 0.5) * 120;
+                const offsetY = (Math.random() - 0.5) * 90;
 
                 span.innerText = `> ${symbol}`;
                 span.style.position = 'fixed';
                 span.style.left = (clickX + offsetX) + 'px';
                 span.style.top = (clickY + offsetY) + 'px';
                 span.style.fontFamily = 'monospace';
-                span.style.fontSize = '11px';
-                span.style.fontWeight = '600';
+                span.style.fontSize = '9px';
+                span.style.fontWeight = '500';
                 span.style.color = '#ef4444';
-                span.style.textShadow = '0 0 6px rgba(239, 68, 68, 0.7)';
+                span.style.textShadow = '0 0 4px rgba(239, 68, 68, 0.6)';
                 span.style.zIndex = '9999';
                 span.style.pointerEvents = 'none';
-                span.style.transition = 'all 1.4s ease-out';
+                span.style.transition = 'all 1.8s ease-out';
                 span.style.opacity = '1';
 
                 container.appendChild(span);
 
                 setTimeout(() => {
                     span.style.opacity = '0';
-                    span.style.transform = `translate(${(Math.random() - 0.5) * 50}px, ${-50 - Math.random() * 40}px) scale(0.95)`;
-                }, 60);
+                    span.style.transform = `translate(${(Math.random() - 0.5) * 30}px, ${-40 - Math.random() * 30}px) scale(0.95)`;
+                }, 80);
 
                 setTimeout(() => {
                     span.remove();
-                }, 1450);
+                }, 1900);
             }
         });
     </script>
